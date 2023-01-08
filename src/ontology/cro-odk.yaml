@@ -1,0 +1,7 @@
+id: cro
+title: Clinical Reasoning Ontology
+github_org: ozborn
+repo: clinreason
+import_group:
+  products:
+    - id: bfo
