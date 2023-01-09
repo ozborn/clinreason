@@ -5617,7 +5617,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000008 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000008">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
         <terms:description>The course of a finding/condition</terms:description>
         <rdfs:label>has_course</rdfs:label>
     </owl:Class>
@@ -5825,7 +5825,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000028">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
         <terms:description>Statement inferring that a finding/condition was not assessed</terms:description>
-        <rdfs:label>has_absence_of_assessment</rdfs:label>
+        <rdfs:label>has_assessment</rdfs:label>
     </owl:Class>
     
 
@@ -5929,8 +5929,10 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000038">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
-        <terms:description>Statement indicating that a diagnostic process does not suggest a finding/condition</terms:description>
-        <rdfs:label>statement_indicating_that_a_diagnostic_process_does_not_suggest_a_finding_or_condition</rdfs:label>
+        <terms:description>A diagnositic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed.
+
+Was &quot;Statement indicating that a diagnostic process does not suggest a finding/condition&quot;.</terms:description>
+        <rdfs:label>is_consistent_with_diagnosis</rdfs:label>
     </owl:Class>
     
 
@@ -6006,26 +6008,6 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000046 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000046">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004"/>
-        <terms:description>Statement indicating the intention to perform a diagnostic procedure</terms:description>
-        <rdfs:label>has_intention_of_diagnostic__procedure</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000047 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000047">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004"/>
-        <terms:description>Statement indicating the intention to perform an intervention</terms:description>
-        <rdfs:label>has_intention_of_intervention</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000048 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000048">
@@ -6057,7 +6039,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#discontinued">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
-        <rdfs:comment>Same as abandoned?</rdfs:comment>
+        <rdfs:comment>Equivalent to abandoned. Boolean.</rdfs:comment>
     </owl:Class>
     
 
@@ -6075,6 +6057,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#intention">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+        <rdfs:comment>Modifies a relation to indicate that the relation is intended rather than actual. Boolean.</rdfs:comment>
     </owl:Class>
     
 
@@ -6092,7 +6075,8 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#negation">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
-        <rdfs:comment>Same as absence of</rdfs:comment>
+        <rdfs:comment>The relation it modifies is negated or the reverse of what it specifies.
+Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     </owl:Class>
     
 
@@ -6109,6 +6093,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#reccomended">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+        <rdfs:comment>The modified relationship is reccomended, for example an intervention, admission or some action. Boolean.</rdfs:comment>
     </owl:Class>
     
 
@@ -6124,7 +6109,8 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#temporal -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#temporal">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
+        <rdfs:comment>Not sure if this is needed as we have dates for structured events. For NLP associated entities we already have a temporal modifier. May need to include for &quot;pending&quot; decisions?</rdfs:comment>
     </owl:Class>
     
 
@@ -6133,7 +6119,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#uncertain">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
-        <rdfs:comment>Formerly &quot;may have&quot;</rdfs:comment>
+        <rdfs:comment>The modified relationship is uncertain. For example, language like &quot;may have&quot;, &quot;suspected&quot; would qualify. Currently boolean.</rdfs:comment>
     </owl:Class>
     
 
@@ -7120,5 +7106,5 @@ For example, A and B may be gene products and binding of B by A positively regul
 
 
 
-<!-- Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
