@@ -5614,26 +5614,6 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000008 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000008">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
-        <terms:description>The course of a finding/condition</terms:description>
-        <rdfs:label>has_course</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000009 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000009">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
-        <terms:description>Inference about the time when an event has happened or will happen</terms:description>
-        <rdfs:label>has_date</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000010 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000010">
@@ -5719,8 +5699,9 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000017 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000017">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
         <terms:description>Statement about the effect of an intervention</terms:description>
+        <oboInOwl:hasDbXref>OMOP:44818727</oboInOwl:hasDbXref>
         <rdfs:label>has_effect</rdfs:label>
     </owl:Class>
     
@@ -5760,7 +5741,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000021 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000021">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
         <terms:description>Intervention is initiated/executed to treat a present/presumed finding/condition</terms:description>
         <rdfs:label>has_intervention</rdfs:label>
     </owl:Class>
@@ -5770,8 +5751,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000022 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000022">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
         <terms:description>The onset of a finding/condition</terms:description>
+        <oboInOwl:hasDbXref>OMOP:4297758</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:77374008</oboInOwl:hasDbXref>
         <rdfs:label>has_onset</rdfs:label>
     </owl:Class>
     
@@ -5793,8 +5776,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000024 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000024">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
         <terms:description>Information that describes or quantifies a finding/condition or intervention</terms:description>
+        <oboInOwl:hasDbXref>OMOP:4306768</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:83568003</oboInOwl:hasDbXref>
         <rdfs:label>has_value</rdfs:label>
     </owl:Class>
     
@@ -5803,9 +5788,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000025 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000025">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
-        <terms:description>Statement of medical knowledge about the potential cause of a finding/condition</terms:description>
-        <rdfs:label>can_cause_finding_or_condition</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
+        <oboInOwl:hasDbXref>OMOP:44818789</oboInOwl:hasDbXref>
+        <rdfs:comment>Was can_cause_finding_or_condition, a statement of medical knowledge about the potential cause of a finding/condition. Now just has_finding. OMOP_Generated.</rdfs:comment>
+        <rdfs:label>has_finding</rdfs:label>
     </owl:Class>
     
 
@@ -5825,6 +5811,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000028">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
         <terms:description>Statement inferring that a finding/condition was not assessed</terms:description>
+        <oboInOwl:hasDbXref>OMOP:4195693</oboInOwl:hasDbXref>
         <rdfs:label>has_assessment</rdfs:label>
     </owl:Class>
     
@@ -5919,7 +5906,9 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000037">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
         <terms:description>Statement indicating that procedure, intervention or finding/condition is complicated by an event</terms:description>
-        <rdfs:comment>There is complications, but not a relationship, likely need new term.</rdfs:comment>
+        <oboInOwl:hasDbXref>OMOP:4137797</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:263718001</oboInOwl:hasDbXref>
+        <rdfs:comment>Using complications, but not a relationship, may need new term.</rdfs:comment>
         <rdfs:label>is_complicated_by</rdfs:label>
     </owl:Class>
     
@@ -5965,6 +5954,7 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000042">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000005"/>
         <terms:description>Indication that an intervention or the patient has an outcome goal (target)</terms:description>
+        <oboInOwl:hasDbXref>OMOP:4253630</oboInOwl:hasDbXref>
         <rdfs:comment>There is Goal which is OMOP 4253630 but it doesn&apos;t really match, we may need a new term.</rdfs:comment>
         <rdfs:label>has_goal</rdfs:label>
     </owl:Class>
@@ -6120,6 +6110,103 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#uncertain">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
         <rdfs:comment>The modified relationship is uncertain. For example, language like &quot;may have&quot;, &quot;suspected&quot; would qualify. Currently boolean.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000049 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000049">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004"/>
+        <terms:description>Is a qualifier value...</terms:description>
+        <oboInOwl:hasDbXref>OMOP:4326761</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:74996004</oboInOwl:hasDbXref>
+        <rdfs:label>has_confirmation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000050 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000050">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+        <oboInOwl:hasDbXref>OMOP:4011945</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:103306004</oboInOwl:hasDbXref>
+        <rdfs:label>has_contraindication</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000051 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000051">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+        <oboInOwl:hasDbXref>OMOP:4137632</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:263502005</oboInOwl:hasDbXref>
+        <rdfs:label>has_course</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000052 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000052">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+        <terms:description>Inference about the time when an event has happened or will happen</terms:description>
+        <oboInOwl:hasDbXref>OMOP:4256607</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:410671006</oboInOwl:hasDbXref>
+        <rdfs:comment>SNOMED attribute, qualifier is also available. Start and End dates?</rdfs:comment>
+        <rdfs:label>has_date</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000053 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000053">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+        <oboInOwl:hasDbXref>OMOP:4014044</oboInOwl:hasDbXref>
+        <rdfs:label>has_duration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000054 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000054">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+        <oboInOwl:hasDbXref>OMOP:44813766</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:722291000000108</oboInOwl:hasDbXref>
+        <rdfs:comment>SNOMED CT United Kingdom clinical extension module sourced.</rdfs:comment>
+        <rdfs:label>has_history</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000057 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000057">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:label>clinical_context</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#CRO_0000058 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000058">
+        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
+        <oboInOwl:hasDbXref>OMOP:32462</oboInOwl:hasDbXref>
+        <rdfs:label>has_setting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/clinreason/cro.owl#0000055 -->
+
+    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#0000055">
+        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
+        <rdfs:label>has_risk_factor</rdfs:label>
     </owl:Class>
     
 
