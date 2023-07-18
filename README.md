@@ -1,8 +1,8 @@
 
 ![Build Status](https://github.com/ozborn/clinreason/workflows/CI/badge.svg)
-# Clinical Reasoning Ontology
+# Clinical Context Ontology
 
-Description: None
+Description: Open ontology for tracking the clinical context of a patient including treatment rationale, diagnostic reasoning and issues related to care context.
 
 More information can be found at http://obofoundry.org/ontology/cro
 
