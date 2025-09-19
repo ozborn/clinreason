@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://github.com/clinreason/cro.owl#"
-     xml:base="https://github.com/clinreason/cro.owl"
+<rdf:RDF xmlns="http://purl.obolibrary.org/obo/cco.owl#"
+     xml:base="http://purl.obolibrary.org/obo/cco.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:go="http://purl.obolibrary.org/obo/go#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
@@ -19,12 +19,12 @@
      xmlns:chebi2="http://purl.obolibrary.org/obo/chebi#1"
      xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
-    <owl:Ontology rdf:about="https://github.com/clinreason/cro.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/clinreason/releases/2022-03-25/clinreason.owl"/>
-        <terms:description>None</terms:description>
-        <terms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
-        <terms:title>Clinical Relation ontology</terms:title>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2022-03-25</owl:versionInfo>
+    <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/cco.owl">
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/cco/releases/2025-09-05/cco.owl"/>
+        <terms:description>The Clinical Context Ontology (CCO) provides a structured vocabulary for representing clinical reasoning processes, diagnostic workflows, and therapeutic decision-making in healthcare.</terms:description>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:title>Clinical Context Ontology</terms:title>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-09-05</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -5543,19 +5543,20 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000001 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000001">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#deprecated"/>
         <rdfs:label>clinical_relation</rdfs:label>
+        <owl:deprecated></owl:deprecated>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000002 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000002 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000002">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000002">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
         <terms:description>Destination of patient transference</terms:description>
         <oboInOwl:hasDbXref>LOINC:LP203270-6</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP:1014654</oboInOwl:hasDbXref>
@@ -5564,48 +5565,48 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000003 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000003">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <terms:description>Clinical processes relation to administration.</terms:description>
         <rdfs:label>clinical_administration</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000004 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000004">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <rdfs:label>clinical_communication</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000005 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000005 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000005">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000005">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <rdfs:label>clinical_decision</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000006 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000006">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <terms:description>A clinical reason explaing the reasoning behind a treatment, intervention, condition or medical statement.</terms:description>
-        <rdfs:label>clinical_reason</rdfs:label>
+        <rdfs:label>clinical_explaination</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000007 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000007 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000007">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000007">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <terms:description>A member of the clinical team has a specific action</terms:description>
         <oboInOwl:hasDbXref>OMOP:4044702</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:129450000</oboInOwl:hasDbXref>
@@ -5614,10 +5615,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000010 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000010 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000010">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000010">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <terms:description>Statement indicating that the patient was admitted to a specific setting</terms:description>
         <rdfs:comment>Does not exist in OMOP, admission is specific for inpatients or other facility types.</rdfs:comment>
         <rdfs:label>is_admitted</rdfs:label>
@@ -5625,10 +5626,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000011 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000011 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000011">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000011">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <terms:description>Statement indicating that an intervention is followed by an intervention or assessment</terms:description>
         <oboInOwl:hasDbXref>OMOP:4272244</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:367409002</oboInOwl:hasDbXref>
@@ -5637,10 +5638,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000012 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000012 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000012">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000012">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <terms:description>Report of provider performing an intervention or assessment</terms:description>
         <rdfs:comment>There is OMOP 4160030, but it is a general performed.</rdfs:comment>
         <rdfs:label>is_performed_by</rdfs:label>
@@ -5648,10 +5649,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000013 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000013 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000013">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000013">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <terms:description>Statement indicating that the patient has been referred by a clinician</terms:description>
         <oboInOwl:hasDbXref>OMOP:44792349</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:342701000000109</oboInOwl:hasDbXref>
@@ -5660,10 +5661,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000014 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000014 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000014">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000014">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <terms:description>Statement indicating that the patient has seen a clinician</terms:description>
         <oboInOwl:hasDbXref>OMOP:4091832</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:281033004</oboInOwl:hasDbXref>
@@ -5673,10 +5674,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000015 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000015 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000015">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000015">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
         <terms:description>Source of patient transference</terms:description>
         <oboInOwl:hasDbXref>OMOP:4144257</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:266751003</oboInOwl:hasDbXref>
@@ -5686,31 +5687,33 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000016 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000016 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000016">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#temporal"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000016">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#temporal"/>
         <terms:description>Statement indicating the duration of a finding/condition or intervention</terms:description>
         <rdfs:label>has_duration</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000017 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000017 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000017">
-        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
-        <terms:description>Statement about the effect of an intervention</terms:description>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000017">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <terms:description>Statement about the effect of an intervention
+Example nitroglycerin:
+SL nitroglycerin alleviated pain</terms:description>
         <oboInOwl:hasDbXref>OMOP:44818727</oboInOwl:hasDbXref>
         <rdfs:label>has_effect</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000018 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000018 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000018">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000018">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#deprecated"/>
         <terms:description>Statement indicating that the patient or a specific finding site has a finding/condition</terms:description>
         <rdfs:label>has_finding_or_condition</rdfs:label>
         <owl:deprecated>May not need as we will use findings from the various OMOP tables and those will be used as FACTs for our tuples in FACT_RELATIONSHIP table.</owl:deprecated>
@@ -5718,40 +5721,42 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000019 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000019 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000019">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#temporal"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000019">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#temporal"/>
         <terms:description>Statement indicating the frequency of a finding/condition or intervention</terms:description>
         <rdfs:label>has_frequency</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000020 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000020 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000020">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#temporal"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000020">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#temporal"/>
         <terms:description>Statement of fact about a patient that constitutes past medical history</terms:description>
         <rdfs:label>has_history</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000021 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000021 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000021">
-        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
-        <terms:description>Intervention is initiated/executed to treat a present/presumed finding/condition</terms:description>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000021">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <terms:description>Intervention is initiated/executed to treat a present/presumed finding/condition
+Example Chest Pain:
+&quot;she took a SL NTG&quot;</terms:description>
         <rdfs:label>has_intervention</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000022 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000022 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000022">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000022">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <terms:description>The onset of a finding/condition</terms:description>
         <oboInOwl:hasDbXref>OMOP:4297758</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:77374008</oboInOwl:hasDbXref>
@@ -5760,24 +5765,27 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000023 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000023 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000023">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000003"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000023">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
         <terms:description>Inference about the location where an event happened</terms:description>
         <oboInOwl:hasDbXref>Nebraska Lexicon:18720000</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP:3469026</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:18720000</oboInOwl:hasDbXref>
-        <rdfs:label>has_setting_or_location</rdfs:label>
+        <rdfs:label>has_location</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000024 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000024 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000024">
-        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
-        <terms:description>Information that describes or quantifies a finding/condition or intervention</terms:description>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000024">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <terms:description>Information that describes or quantifies a finding/condition or intervention. Chest Pain Example Value:
+ Describes pressure-like chest pain near L breast with radiation down R arm
+Stress Test Example Value:
+normal</terms:description>
         <oboInOwl:hasDbXref>OMOP:4306768</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:83568003</oboInOwl:hasDbXref>
         <rdfs:label>has_value</rdfs:label>
@@ -5785,31 +5793,33 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000025 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000025 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000025">
-        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
-        <oboInOwl:hasDbXref>OMOP:44818789</oboInOwl:hasDbXref>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000025">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
+        <oboInOwl:hasDbXref>OMOP:44818789
+Example Patient:
+fevers</oboInOwl:hasDbXref>
         <rdfs:comment>Was can_cause_finding_or_condition, a statement of medical knowledge about the potential cause of a finding/condition. Now just has_finding. OMOP_Generated.</rdfs:comment>
         <rdfs:label>has_finding</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000027 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000027 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000027">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000027">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Statement providing the reason for abandoning an intervention or diagnostic process</terms:description>
         <rdfs:label>has_abandonment_reason</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000028 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000028 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000028">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000028">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Statement inferring that a finding/condition was not assessed</terms:description>
         <oboInOwl:hasDbXref>OMOP:4195693</oboInOwl:hasDbXref>
         <rdfs:label>has_assessment</rdfs:label>
@@ -5817,33 +5827,31 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000029 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000029 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000029">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000029">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#deprecated"/>
         <terms:description>A decision to discontinue a therapeutic intervention</terms:description>
         <rdfs:label>has_intervention_discontinued</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000030 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000030 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000030">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
-        <terms:description>Justification/reason for ordering a procedure or intervention</terms:description>
-        <oboInOwl:hasDbXref>LOINC:67098-4</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>OMOP:40769732</oboInOwl:hasDbXref>
-        <rdfs:comment>Rename to reason for test or procedure based on mapping?</rdfs:comment>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000030">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <terms:description>Any clinical justification/reason for ordering any intervention, includes procedures, medications, planning, etc...</terms:description>
+        <oboInOwl:hasDbXref>OMOP:4165917</oboInOwl:hasDbXref>
         <rdfs:label>has_reason</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000031 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000031 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000031">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000031">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <terms:description>Statement indicating the state of the patient</terms:description>
         <oboInOwl:hasDbXref>OMOP:4028872</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:128973006</oboInOwl:hasDbXref>
@@ -5853,20 +5861,20 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000033 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000033 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000033">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000030"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000033">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000030"/>
         <terms:description>Statement indicating the suspected reason for past or present intervention</terms:description>
         <rdfs:label>has_suspected_reason</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000034 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000034 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000034">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000034">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Statement indicating that an intervention or task will be triggered by an event</terms:description>
         <oboInOwl:hasDbXref>OMOP:44787854</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:109721000000108</oboInOwl:hasDbXref>
@@ -5876,10 +5884,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000035 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000035 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000035">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000035">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Reason for an outpatient visit</terms:description>
         <oboInOwl:hasDbXref xml:lang="en">LOINC:29298-7</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref xml:lang="en">OMOP:3025141</oboInOwl:hasDbXref>
@@ -5888,10 +5896,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000036 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000036 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000036">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000036">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Statement about the cause of a finding/condition</terms:description>
         <oboInOwl:hasDbXref>LOINC:LP430632-2</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP:1992175</oboInOwl:hasDbXref>
@@ -5901,10 +5909,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000037 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000037 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000037">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000037">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Statement indicating that procedure, intervention or finding/condition is complicated by an event</terms:description>
         <oboInOwl:hasDbXref>OMOP:4137797</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:263718001</oboInOwl:hasDbXref>
@@ -5914,10 +5922,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000038 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000038 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000038">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000038">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>A diagnositic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed.
 
 Was &quot;Statement indicating that a diagnostic process does not suggest a finding/condition&quot;.</terms:description>
@@ -5926,20 +5934,20 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000040 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000040 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000040">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000040">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>A clinical reason related to a treatment such as procedure, medication, or lifestyle reccomendation.</terms:description>
         <rdfs:label>treatment_reason</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000041 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000041 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000041">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000005"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000041">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
         <terms:description>Statement denoting a clinician&apos;s agreement with another clinician&apos;s assessment/recommendation</terms:description>
         <oboInOwl:hasDbXref>OMOP:37018830</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:714831004</oboInOwl:hasDbXref>
@@ -5949,10 +5957,10 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000042 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000042 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000042">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000005"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000042">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
         <terms:description>Indication that an intervention or the patient has an outcome goal (target)</terms:description>
         <oboInOwl:hasDbXref>OMOP:4253630</oboInOwl:hasDbXref>
         <rdfs:comment>There is Goal which is OMOP 4253630 but it doesn&apos;t really match, we may need a new term.</rdfs:comment>
@@ -5961,21 +5969,21 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000043 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000043 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000043">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000005"/>
-        <terms:description>Statement indicating that an intervention has a pending decision</terms:description>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000043">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
+        <terms:description>Statement indicating that an intervention has a  decision. Was pending.</terms:description>
         <rdfs:comment>Needs new term</rdfs:comment>
-        <rdfs:label>has_pending_decision</rdfs:label>
+        <rdfs:label>has_decision</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000044 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000044 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000044">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000005"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000044">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
         <terms:description>Statement indicating that a finding/condition is at goal</terms:description>
         <oboInOwl:hasDbXref>OMOP:4191706</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:390802008</oboInOwl:hasDbXref>
@@ -5985,10 +5993,10 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000045 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000045 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000045">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000045">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000004"/>
         <terms:description>Statement about documentation of a finding/condition</terms:description>
         <oboInOwl:hasDbXref>OMOP:4205679</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:308910008</oboInOwl:hasDbXref>
@@ -5998,10 +6006,10 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000048 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000048 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000048">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000048">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000004"/>
         <terms:description>Statement indicating that an intervention has been discussed with patient</terms:description>
         <rdfs:comment>Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharamcist, payer, etc...</rdfs:comment>
         <rdfs:label>is_discussed_with</rdfs:label>
@@ -6009,115 +6017,117 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#clinical_modifiers -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#clinical_modifiers">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/cco.owl#deprecated -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#deprecated">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#deprecated -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#has_contraindication -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#deprecated">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#discontinued -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#discontinued">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
-        <rdfs:comment>Equivalent to abandoned. Boolean.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#has_contraindication -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#has_contraindication">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000040"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_contraindication">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
         <terms:description>Statement about the contraindication of an intervention</terms:description>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#intention -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#intention -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#intention">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#intention">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#clinical_modifiers"/>
         <rdfs:comment>Modifies a relation to indicate that the relation is intended rather than actual. Boolean.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#is_not_eligible -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#is_not_eligible -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#is_not_eligible">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000040"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#is_not_eligible">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
         <terms:description>Statement indicating that the patient is not candidate for a given intervention</terms:description>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#negation -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#negation -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#negation">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#negation">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#clinical_modifiers"/>
         <rdfs:comment>The relation it modifies is negated or the reverse of what it specifies.
 Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#pending -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#pending -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#pending">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#temporal"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#pending">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#temporal"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#reccomended -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#reccomended -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#reccomended">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#reccomended">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#clinical_modifiers"/>
         <rdfs:comment>The modified relationship is reccomended, for example an intervention, admission or some action. Boolean.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#suspected -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#status -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#suspected">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#uncertain"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#status">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#clinical_modifiers"/>
+        <oboInOwl:hasDbXref>OMOP:4138595</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:40642538</oboInOwl:hasDbXref>
+        <rdfs:comment>A statement describing the status of a task or a decision. Could be pending or  ongoing.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#temporal -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#suspected -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#temporal">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#deprecated"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#suspected">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#uncertain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/cco.owl#temporal -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#temporal">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#deprecated"/>
         <rdfs:comment>Not sure if this is needed as we have dates for structured events. For NLP associated entities we already have a temporal modifier. May need to include for &quot;pending&quot; decisions?</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clinreason.owl#uncertain -->
+    <!-- http://purl.obolibrary.org/obo/cco.owl#uncertain -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clinreason.owl#uncertain">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#clinical_modifiers"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#uncertain">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#clinical_modifiers"/>
         <rdfs:comment>The modified relationship is uncertain. For example, language like &quot;may have&quot;, &quot;suspected&quot; would qualify. Currently boolean.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000049 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000049 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000049">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000004"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000049">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000004"/>
         <terms:description>Is a qualifier value...</terms:description>
         <oboInOwl:hasDbXref>OMOP:4326761</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:74996004</oboInOwl:hasDbXref>
@@ -6126,10 +6136,10 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000050 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000050 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000050">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000006"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000050">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <oboInOwl:hasDbXref>OMOP:4011945</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:103306004</oboInOwl:hasDbXref>
         <rdfs:label>has_contraindication</rdfs:label>
@@ -6137,10 +6147,10 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000051 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000051 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000051">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000051">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <oboInOwl:hasDbXref>OMOP:4137632</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:263502005</oboInOwl:hasDbXref>
         <rdfs:label>has_course</rdfs:label>
@@ -6148,10 +6158,10 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000052 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000052 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000052">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000052">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <terms:description>Inference about the time when an event has happened or will happen</terms:description>
         <oboInOwl:hasDbXref>OMOP:4256607</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:410671006</oboInOwl:hasDbXref>
@@ -6161,20 +6171,20 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000053 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000053 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000053">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000053">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <oboInOwl:hasDbXref>OMOP:4014044</oboInOwl:hasDbXref>
         <rdfs:label>has_duration</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000054 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000054 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000054">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clinreason.owl#CRO_0000001"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000054">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <oboInOwl:hasDbXref>OMOP:44813766</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:722291000000108</oboInOwl:hasDbXref>
         <rdfs:comment>SNOMED CT United Kingdom clinical extension module sourced.</rdfs:comment>
@@ -6183,29 +6193,29 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000057 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000057 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000057">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000057">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label>clinical_context</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#CRO_0000058 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000058 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#CRO_0000058">
-        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000058">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <oboInOwl:hasDbXref>OMOP:32462</oboInOwl:hasDbXref>
         <rdfs:label>has_setting</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://github.com/clinreason/cro.owl#0000055 -->
+    <!-- https://github.com/clinreason/cco.owl#0000055 -->
 
-    <owl:Class rdf:about="https://github.com/clinreason/cro.owl#0000055">
-        <rdfs:subClassOf rdf:resource="https://github.com/clinreason/cro.owl#CRO_0000057"/>
+    <owl:Class rdf:about="https://github.com/clinreason/cco.owl#0000055">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <rdfs:label>has_risk_factor</rdfs:label>
     </owl:Class>
     
