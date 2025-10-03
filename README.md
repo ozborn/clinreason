@@ -2,7 +2,9 @@
 ![Build Status](https://github.com/ozborn/clinreason/workflows/CI/badge.svg)
 # Clinical Context Ontology
 
-Description: Open ontology for tracking the clinical context of a patient including treatment rationale, diagnostic reasoning and issues related to care context. This ontology is currently under development and will be submited to the OBO foundry. 
+Description: Open ontology for tracking the clinical context of a patient including treatment rationale, diagnostic reasoning and issues related to care context. The goal is to capture clinical context around a patient's care, including the clinician’s interpretations and decisions which are not well represented in the problem focused EHR or other ontologies such as SNOMED CT. For more details, see [the publication ](https://academic.oup.com/jamia/article/27/11/1648/5906104)
+
+This ontology is currently under development and will be submited to the OBO foundry. 
 
 ## Versions
 
