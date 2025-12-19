@@ -2569,6 +2569,7 @@ For example, A and B may be gene products and binding of B by A positively regul
         <terms:description>A member of the clinical team has a specific action</terms:description>
         <oboInOwl:hasDbXref>OMOP:4044702</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:129450000</oboInOwl:hasDbXref>
+        <rdfs:comment>Example: upload OSH CT chest pulmonary vein protocol</rdfs:comment>
         <rdfs:label>has_action</rdfs:label>
     </owl:Class>
     
@@ -2592,6 +2593,7 @@ For example, A and B may be gene products and binding of B by A positively regul
         <terms:description>Statement indicating that an intervention is followed by an intervention or assessment</terms:description>
         <oboInOwl:hasDbXref>OMOP:4272244</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:367409002</oboInOwl:hasDbXref>
+        <rdfs:comment>Example: Here for packing and splint removal after recent discharge from rehab</rdfs:comment>
         <rdfs:label>is_followed_by</rdfs:label>
     </owl:Class>
     
@@ -2602,7 +2604,8 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000012">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <terms:description>Report of provider performing an intervention or assessment</terms:description>
-        <rdfs:comment>There is OMOP 4160030, but it is a general performed.</rdfs:comment>
+        <rdfs:comment>There is OMOP 4160030, but it is a more general type of performed.
+Example: A barium swallow was performed by Dr. PHI which was concerning for moderate aspiration.  Additionally, a hard palate lesion was seen.</rdfs:comment>
         <rdfs:label>is_performed_by</rdfs:label>
     </owl:Class>
     
@@ -2615,6 +2618,7 @@ For example, A and B may be gene products and binding of B by A positively regul
         <terms:description>Statement indicating that the patient has been referred by a clinician</terms:description>
         <oboInOwl:hasDbXref>OMOP:44792349</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:342701000000109</oboInOwl:hasDbXref>
+        <rdfs:comment>Example: PHI is referred by Dr.  PHI  with PMH significant for IP</rdfs:comment>
         <rdfs:label>is_referred_by</rdfs:label>
     </owl:Class>
     
@@ -2627,7 +2631,8 @@ For example, A and B may be gene products and binding of B by A positively regul
         <terms:description>Statement indicating that the patient has seen a clinician</terms:description>
         <oboInOwl:hasDbXref>OMOP:4091832</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:281033004</oboInOwl:hasDbXref>
-        <rdfs:comment>Mapping to seen by health care giver which I think is the intention here.</rdfs:comment>
+        <rdfs:comment>Mapping to seen by health care giver which I think is the intention here.
+Example: [Speaker 2]: I went to the ENT at PHI and they prescribed Allegra D, and I took those, they cleared it up, but they also affected my blood pressure</rdfs:comment>
         <rdfs:label>is_seen_by</rdfs:label>
     </owl:Class>
     
@@ -2660,9 +2665,9 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000017">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <terms:description>Statement about the effect of an intervention.</terms:description>
         <oboInOwl:hasDbXref>OMOP:44818727</oboInOwl:hasDbXref>
         <rdfs:comment>Example: SL nitroglycerin alleviated pain.</rdfs:comment>
-        <rdfs:comment>Statement about the effect of an intervention.</rdfs:comment>
         <rdfs:label>has_effect</rdfs:label>
     </owl:Class>
     
@@ -2768,6 +2773,7 @@ fevers</oboInOwl:hasDbXref>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000027">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Statement providing the reason for abandoning an intervention or diagnostic process</terms:description>
+        <rdfs:comment>Example:A cystogram was attempted today but radiology was unable to inject dye through her catheter.</rdfs:comment>
         <rdfs:label>has_abandonment_reason</rdfs:label>
     </owl:Class>
     
@@ -2777,8 +2783,9 @@ fevers</oboInOwl:hasDbXref>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000028">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
-        <terms:description>Statement inferring that a finding/condition was not assessed</terms:description>
+        <terms:description>Statement inferring that a finding/condition was assessed. It is anticipated that this relation will usually be negative and refer to the absence of an assessment for a particular condition.</terms:description>
         <oboInOwl:hasDbXref>OMOP:4195693</oboInOwl:hasDbXref>
+        <rdfs:comment>Example(negated):unable to assess for h/o exertional syncope, angina, dyspnea, etc which would warrant ICD placement</rdfs:comment>
         <rdfs:label>has_assessment</rdfs:label>
     </owl:Class>
     
@@ -2800,6 +2807,7 @@ fevers</oboInOwl:hasDbXref>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <terms:description>Any clinical justification or reason for ordering any intervention, including planning.</terms:description>
         <oboInOwl:hasDbXref>OMOP:4165917</oboInOwl:hasDbXref>
+        <rdfs:comment>Example:stop Bactrim which may worsen hyperK</rdfs:comment>
         <rdfs:label>has_reason</rdfs:label>
     </owl:Class>
     
@@ -2835,7 +2843,8 @@ fevers</oboInOwl:hasDbXref>
         <terms:description>Statement indicating that an intervention or task will be triggered by an event</terms:description>
         <oboInOwl:hasDbXref>OMOP:44787854</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:109721000000108</oboInOwl:hasDbXref>
-        <rdfs:comment>Referred by trigger criteria may be best fit.</rdfs:comment>
+        <rdfs:comment>Referred by trigger criteria may be best fit.
+Example:Please call if we can be of further assistance or his echo is abnormal</rdfs:comment>
         <rdfs:label>has_trigger</rdfs:label>
     </owl:Class>
     
@@ -2848,6 +2857,7 @@ fevers</oboInOwl:hasDbXref>
         <terms:description>Reason for an outpatient visit</terms:description>
         <oboInOwl:hasDbXref xml:lang="en">LOINC:29298-7</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref xml:lang="en">OMOP:3025141</oboInOwl:hasDbXref>
+        <rdfs:comment>Example:PHI presents today for follow-up evaluation regarding management of lower urinary tract symptoms.</rdfs:comment>
         <rdfs:label>has_visit_reason</rdfs:label>
     </owl:Class>
     
@@ -2860,7 +2870,8 @@ fevers</oboInOwl:hasDbXref>
         <terms:description>Statement about the cause of a finding/condition</terms:description>
         <oboInOwl:hasDbXref>LOINC:LP430632-2</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP:1992175</oboInOwl:hasDbXref>
-        <rdfs:comment>There is condition cause which is non-standard LOINC</rdfs:comment>
+        <rdfs:comment>There is condition cause which is non-standard LOINC
+Example:She had a MVC that resulted in extraperitoneal bladder injury and pelvic and sacral fractures.</rdfs:comment>
         <rdfs:label>is_caused_by</rdfs:label>
     </owl:Class>
     
@@ -2873,7 +2884,8 @@ fevers</oboInOwl:hasDbXref>
         <terms:description>Statement indicating that procedure, intervention or finding/condition is complicated by an event</terms:description>
         <oboInOwl:hasDbXref>OMOP:4137797</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:263718001</oboInOwl:hasDbXref>
-        <rdfs:comment>Using complications, but not a relationship, may need new term.</rdfs:comment>
+        <rdfs:comment>Using complications, but not a relationship, may need new term.
+Example:She reports her catheter has been leaking today especially when trying to have a bowel movement.</rdfs:comment>
         <rdfs:label>is_complicated_by</rdfs:label>
     </owl:Class>
     
@@ -2908,7 +2920,8 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
         <terms:description>Statement denoting a clinician&apos;s agreement with another clinician&apos;s assessment/recommendation</terms:description>
         <oboInOwl:hasDbXref>OMOP:37018830</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:714831004</oboInOwl:hasDbXref>
-        <rdfs:comment>Mapping to does agree with care plan.</rdfs:comment>
+        <rdfs:comment>Mapping to does agree with care plan.
+Example: I saw and evaluated the patient. I reviewed the findings and assessment/plan outlined above by PHI and agree</rdfs:comment>
         <rdfs:label>agree_with</rdfs:label>
     </owl:Class>
     
@@ -2920,7 +2933,8 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
         <terms:description>Indication that an intervention or the patient has an outcome goal (target)</terms:description>
         <oboInOwl:hasDbXref>OMOP:4253630</oboInOwl:hasDbXref>
-        <rdfs:comment>There is Goal which is OMOP 4253630 but it doesn&apos;t really match, we may need a new term.</rdfs:comment>
+        <rdfs:comment>OMOP 4253630 &quot;Goal&quot;  doesn&apos;t really match well, we may need a new term.
+Example: Ultimately her goal is to not have to live with bilateral nephrostomy tubes.</rdfs:comment>
         <rdfs:label>has_goal</rdfs:label>
     </owl:Class>
     
@@ -2931,7 +2945,8 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000043">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
         <terms:description>Statement indicating that an intervention has a decision.</terms:description>
-        <rdfs:comment>Needs new term,  was pending.</rdfs:comment>
+        <rdfs:comment>Needs new term&gt; Was previously has_pending_decision
+Example: Will discuss with interventional in AM about possible pulmonary vein dilation w/stenting</rdfs:comment>
         <rdfs:label>has_decision</rdfs:label>
     </owl:Class>
     
@@ -2989,8 +3004,8 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     <!-- http://purl.obolibrary.org/obo/CCO_0000050 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000050">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
-        <terms:description>The intervention should not be used for the condition because it may cause harm to the patient or outweigh potential benefits.</terms:description>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
+        <terms:description>Statement about the contraindication of an intervention. The intervention should not be used for the condition because it may cause harm to the patient or outweigh potential benefits.</terms:description>
         <oboInOwl:hasDbXref>OMOP:4011945</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:103306004</oboInOwl:hasDbXref>
         <rdfs:comment>Example: warfarin hasContraindication pregnancy.</rdfs:comment>
@@ -3074,15 +3089,6 @@ Was &quot;Statement indicating that a diagnostic process does not suggest a find
     <!-- http://purl.obolibrary.org/obo/cco.owl#deprecated -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#deprecated"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_contraindication -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_contraindication">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
-        <terms:description>Statement about the contraindication of an intervention</terms:description>
-    </owl:Class>
     
 
 
