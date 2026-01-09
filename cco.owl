@@ -2722,6 +2722,7 @@ Example: [Speaker 2]: I went to the ENT at PHI and they prescribed Allegra D, an
         <terms:description>The onset of a finding/condition</terms:description>
         <oboInOwl:hasDbXref>OMOP:4297758</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:77374008</oboInOwl:hasDbXref>
+        <rdfs:comment>Example:Vomiting since this morning</rdfs:comment>
         <rdfs:label>has_onset</rdfs:label>
     </owl:Class>
     
@@ -3018,8 +3019,10 @@ Example: Will discuss with interventional in AM about possible pulmonary vein di
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000051">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <terms:description>The course of a finding/condition</terms:description>
         <oboInOwl:hasDbXref>OMOP:4137632</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:263502005</oboInOwl:hasDbXref>
+        <rdfs:comment>Example:Her shortness of breath is becoming worse</rdfs:comment>
         <rdfs:label>has_course</rdfs:label>
     </owl:Class>
     
@@ -3032,7 +3035,8 @@ Example: Will discuss with interventional in AM about possible pulmonary vein di
         <terms:description>Inference about the time when an event has happened or will happen</terms:description>
         <oboInOwl:hasDbXref>OMOP:4256607</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:410671006</oboInOwl:hasDbXref>
-        <rdfs:comment>SNOMED attribute, qualifier is also available. Start and End dates?</rdfs:comment>
+        <rdfs:comment>SNOMED attribute, qualifier is also available. Start and End dates?
+Example:She has an appointment with Dr. PHI tomorrow</rdfs:comment>
         <rdfs:label>has_date</rdfs:label>
     </owl:Class>
     
@@ -3042,7 +3046,9 @@ Example: Will discuss with interventional in AM about possible pulmonary vein di
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000053">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <terms:description>Statement indicating the duration of a finding/condition or intervention</terms:description>
         <oboInOwl:hasDbXref>OMOP:4014044</oboInOwl:hasDbXref>
+        <rdfs:comment>Example:She does endorse some nausea and spit up for the past two weeks</rdfs:comment>
         <rdfs:label>has_duration</rdfs:label>
     </owl:Class>
     
@@ -3052,9 +3058,11 @@ Example: Will discuss with interventional in AM about possible pulmonary vein di
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000054">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <terms:description>Statement of fact about a patient that constitutes past medical history</terms:description>
         <oboInOwl:hasDbXref>OMOP:44813766</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:722291000000108</oboInOwl:hasDbXref>
-        <rdfs:comment>SNOMED CT United Kingdom clinical extension module sourced.</rdfs:comment>
+        <rdfs:comment>SNOMED CT United Kingdom clinical extension module sourced.
+Example: The patient underwent two kidney transplants (2002, 2012)</rdfs:comment>
         <rdfs:label>has_history</rdfs:label>
     </owl:Class>
     
@@ -3178,6 +3186,9 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</rdfs:comment>
 
     <owl:Class rdf:about="https://github.com/clinreason/cco.owl#0000055">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <terms:description>Statement indicating the patient is at risk for a condition or procedure.</terms:description>
+        <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
+        <rdfs:comment>Example:Patient mentioned genetic risk for DVT/PE from commerical DNA testing kit of unknown type</rdfs:comment>
         <rdfs:label>has_risk_factor</rdfs:label>
     </owl:Class>
     
