@@ -2821,6 +2821,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000019">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000064"/>
         <obo:IAO_0000115>Statement indicating the frequency of a finding/condition or intervention</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</obo:IAO_0000232>
         <rdfs:label>frequency</rdfs:label>
     </owl:Class>
     
@@ -2842,6 +2843,8 @@ For example, A and B may be gene products and binding of B by A positively regul
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <obo:IAO_0000112>Chest Pain: &quot;she took a SL NTG&quot;</obo:IAO_0000112>
         <obo:IAO_0000115>Intervention is initiated or executed to treat a present or presumed finding or condition.</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMED has partial mapping as qualifier.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMED:718771000000107</oboInOwl:hasDbXref>
         <rdfs:label>has_intervention</rdfs:label>
     </owl:Class>
     
@@ -2940,6 +2943,7 @@ For example, A and B may be gene products and binding of B by A positively regul
         <obo:IAO_0000112>stop Bactrim which may worsen hyperK</obo:IAO_0000112>
         <obo:IAO_0000115>Any clinical justification or reason for ordering any intervention, including planning.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4165917</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:416083004</oboInOwl:hasDbXref>
         <rdfs:label>has_reason</rdfs:label>
     </owl:Class>
     
@@ -2950,6 +2954,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000031">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <obo:IAO_0000115>Statement related to patient physiologic state</obo:IAO_0000115>
+        <obo:IAO_0000232>Was represented earlier as &quot;finding related physiologi patient state&quot;</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4028872</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:128973006</oboInOwl:hasDbXref>
         <rdfs:label>has_state</rdfs:label>
@@ -3150,6 +3155,7 @@ For example, A and B may be gene products and binding of B by A positively regul
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <obo:IAO_0000112>Her shortness of breath is becoming worse</obo:IAO_0000112>
         <obo:IAO_0000115>The course of a finding/condition</obo:IAO_0000115>
+        <obo:IAO_0000232>The same thing as clinical course.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4137632</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:263502005</oboInOwl:hasDbXref>
         <rdfs:label>has_course</rdfs:label>
@@ -3381,6 +3387,24 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000074">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000070"/>
         <rdfs:label>severity_qualifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000075 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000075">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000024"/>
+        <rdfs:label>has_descriptive_value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000076 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000076">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000024"/>
+        <rdfs:label>has_quantifiable _value</rdfs:label>
     </owl:Class>
     
 
