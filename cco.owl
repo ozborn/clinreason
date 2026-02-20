@@ -713,7 +713,7 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <!-- http://purl.obolibrary.org/obo/CCO_0002001 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002001">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <rdfs:label>has_confirmation_qualifier</rdfs:label>
     </owl:ObjectProperty>
     
@@ -722,7 +722,7 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <!-- http://purl.obolibrary.org/obo/CCO_0002002 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002002">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <rdfs:label>has_intention</rdfs:label>
     </owl:ObjectProperty>
     
@@ -731,7 +731,7 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <!-- http://purl.obolibrary.org/obo/CCO_0002003 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002003">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <rdfs:label>has_reccomended</rdfs:label>
     </owl:ObjectProperty>
     
@@ -740,8 +740,130 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <!-- http://purl.obolibrary.org/obo/CCO_0002004 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002004">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <rdfs:label>has_negation_status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002005 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002005">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
+        <rdfs:label>has_discussed_confirmation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002006 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002006">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
+        <rdfs:label>has_documentation_of_confirmation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002007 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002007">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:label>has_status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002008 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002008">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:label>has_temporal_context</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002009 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002009">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:label>has_uncertainty_status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002100 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002100">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
+        <rdfs:label>has_participant_qualifier</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002500 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002500">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label>has_association_participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002501 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002501">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002500"/>
+        <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the subject position in that association.</obo:IAO_0000115>
+        <rdfs:label>has object</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002502 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002502">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002500"/>
+        <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the subject position in that association.</obo:IAO_0000115>
+        <rdfs:label>has subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002600 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002600">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
+        <rdfs:label>has_frequency</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002601 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002601">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
+        <rdfs:label>has_history</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002602 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002602">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
+        <rdfs:label>is_pending</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0003000 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0003000">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
+        <rdfs:label xml:lang="en">has_statement_qualifier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -2530,109 +2652,6 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_association_participant -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_association_participant">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_discussed_confirmation -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_discussed_confirmation">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_documentation_of_confirmation -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_documentation_of_confirmation">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_duration -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_duration">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#has_temporal_context"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_frequency -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_frequency">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#has_temporal_context"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_history -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_history">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#has_temporal_context"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_object -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_object">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#has_association_participant"/>
-        <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the subject position in that association.</obo:IAO_0000115>
-        <rdfs:label>has object</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_status -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_status">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_subject -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_subject">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#has_association_participant"/>
-        <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the subject position in that association.</obo:IAO_0000115>
-        <rdfs:label>has subject</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_temporal_context -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_temporal_context">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#has_uncertainty_status -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#has_uncertainty_status">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#is_pending -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/cco.owl#is_pending">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#has_temporal_context"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/chebi#has_functional_parent -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/chebi#has_functional_parent"/>
@@ -2794,16 +2813,6 @@ For example, A and B may be gene products and binding of B by A positively regul
     
 
 
-    <!-- http://purl.obolibrary.org/obo/CCO_0000016 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000016">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000064"/>
-        <obo:IAO_0000115>Statement indicating the duration of a finding/condition or intervention</obo:IAO_0000115>
-        <rdfs:label>duration</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/CCO_0000017 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000017">
@@ -2819,20 +2828,10 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/CCO_0000019 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000019">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000064"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
         <obo:IAO_0000115>Statement indicating the frequency of a finding/condition or intervention</obo:IAO_0000115>
         <obo:IAO_0000232>SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</obo:IAO_0000232>
         <rdfs:label>frequency</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/CCO_0000020 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000020">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000064"/>
-        <obo:IAO_0000115>Statement of fact about a patient that constitutes past medical history</obo:IAO_0000115>
-        <rdfs:label>history</rdfs:label>
     </owl:Class>
     
 
@@ -2905,6 +2904,32 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000027">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000104"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000107"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Statement providing the reason for abandoning an intervention or diagnostic process</obo:IAO_0000115>
         <rdfs:comment>Example:A cystogram was attempted today but radiology was unable to inject dye through her catheter.</rdfs:comment>
         <rdfs:label>has_abandonment_reason</rdfs:label>
@@ -3003,6 +3028,25 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000036">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>She had a MVC that resulted in extraperitoneal bladder injury and pelvic and sacral fractures.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement about the cause of a finding/condition</obo:IAO_0000115>
         <obo:IAO_0000232>There is condition cause which is non-standard LOINC</obo:IAO_0000232>
@@ -3052,9 +3096,35 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000041">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000111"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000108"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>I saw and evaluated the patient. I reviewed the findings and assessment/plan outlined above by PHI and agree</obo:IAO_0000112>
         <obo:IAO_0000115>Statement denoting a clinician&apos;s agreement with another clinician&apos;s assessment/recommendation</obo:IAO_0000115>
-        <obo:IAO_0000232>Mapping to does agree with care plan.</obo:IAO_0000232>
+        <obo:IAO_0000232>Mapping to &quot;does agree with care plan&quot;.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:37018830</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:714831004</oboInOwl:hasDbXref>
         <rdfs:label>agree_with</rdfs:label>
@@ -3206,7 +3276,9 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/CCO_0000057 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000057">
-        <obo:IAO_0000232>Although these structures represent relationships between clinical entities, we model them as reified associations rather than relations, because they represent contextualized assertions with additional attributes (e.g., negation, uncertainty, temporality), which cannot be expressed using binary object properties in OWL.</obo:IAO_0000232>
+        <obo:IAO_0000232>Although these structures represent relationships between clinical entities, we model them as reified associations rather than relations, because they represent contextualized assertions with additional attributes (e.g., negation, uncertainty, temporality), which cannot be expressed using binary object properties in OWL.
+These relations include the most frequently documented relation types as defined in:
+Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.</obo:IAO_0000232>
         <rdfs:label>clinical_association</rdfs:label>
     </owl:Class>
     
@@ -3220,8 +3292,8 @@ For example, A and B may be gene products and binding of B by A positively regul
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000057"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/cco.owl#has_object"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000107"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000107"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -3247,6 +3319,22 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000061">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000021"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000025"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000028"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000051"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000077"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>The relation it modifies is negated or the reverse of what it specifies.
 Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>SNOMEDCT:410516002</oboInOwl:hasDbXref>
@@ -3291,7 +3379,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000065">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000064"/>
-        <obo:IAO_0000115>Indicates the relation is pending or intended to occur in the future.</obo:IAO_0000115>
+        <obo:IAO_0000115>Indicates the association is pending or intended to occur in the future.</obo:IAO_0000115>
         <rdfs:label>pending</rdfs:label>
     </owl:Class>
     
@@ -3301,7 +3389,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000066">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
-        <obo:IAO_0000115>The modified relationship is uncertain. For example, language like &quot;may have&quot;, &quot;suspected&quot; would qualify. Currently boolean.</obo:IAO_0000115>
+        <obo:IAO_0000115>The modified relationship is uncertain. For example, language like &quot;may have&quot;, &quot;suspected&quot; would qualify. Currently boolean in NLP corpus like SemEval. Enforce values with SHACL.</obo:IAO_0000115>
         <rdfs:label>uncertain</rdfs:label>
     </owl:Class>
     
@@ -3349,9 +3437,9 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000071 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000071">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000070"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <obo:IAO_0000232>Aspect referes to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
-        <rdfs:label>aspect_qualifier</rdfs:label>
+        <rdfs:label>has_aspect</rdfs:label>
     </owl:Class>
     
 
@@ -3359,9 +3447,9 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000072 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000072">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000070"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <obo:IAO_0000232>Spatial orientation qualifiers reuse PATO quality terms directly; CCO defines only the attachment role.</obo:IAO_0000232>
-        <rdfs:label>spatial_orientation_qualifier</rdfs:label>
+        <rdfs:label>has_spatial_orientation</rdfs:label>
     </owl:Class>
     
 
@@ -3369,7 +3457,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000073 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000073">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000070"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <obo:IAO_0000232>laterality_qualifier
   ⊑ has_participant_qualifier only
      (PATO:0000611  # left
@@ -3377,7 +3465,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
       or PATO:0000613  # bilateral
       or PATO:0000614  # unilateral
       or PATO:0000610) # midline</obo:IAO_0000232>
-        <rdfs:label>laterality_qualifier</rdfs:label>
+        <rdfs:label>has_laterality</rdfs:label>
     </owl:Class>
     
 
@@ -3385,8 +3473,181 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000074 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000074">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:label>has_severity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000080 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000080">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000070"/>
-        <rdfs:label>severity_qualifier</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000103"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000104"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000106"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000107"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000108"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000109"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000111"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000112"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A subject participant in the association is negated. For example:
+&quot;Tenderness is present, but not in the right upper quadrant.&quot;</obo:IAO_0000115>
+        <rdfs:label>negation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000081 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000081">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000070"/>
+        <obo:IAO_0000115>A subject participating is uncertain.</obo:IAO_0000115>
+        <rdfs:label>uncertainty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000101 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000101">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>A clinical finding of any type, including conditions.</obo:IAO_0000115>
+        <obo:IAO_0000232>Was finding/condidtion in original paper, can treat condition as a subclass if needed.</obo:IAO_0000232>
+        <rdfs:label>finding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000102 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000102">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>An intervention to treat or diagnose a finding/conditoin or the patient</obo:IAO_0000115>
+        <rdfs:label>intervention</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000103 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000103">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000109"/>
+        <obo:IAO_0000115>Numerial or narrative temporal data elements</obo:IAO_0000115>
+        <rdfs:label>time</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000104 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000104">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Justification for perfoming an intervention</obo:IAO_0000115>
+        <rdfs:label>reason</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000105 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000105">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Course of a finding/condition</obo:IAO_0000115>
+        <rdfs:label>course</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000106 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000106">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Any numerial or narrative description of a finding/condition or intervention</obo:IAO_0000115>
+        <rdfs:label>value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000107 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000107">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Health care setting or location</obo:IAO_0000115>
+        <rdfs:label>setting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000108 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000108">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Health care professional</obo:IAO_0000115>
+        <rdfs:label>clinician</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000109 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000109">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Any non-clinical task, e.g., upload medical record files</obo:IAO_0000115>
+        <rdfs:label>task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000110 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000110">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>The entity patient</obo:IAO_0000115>
+        <rdfs:label>patient</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000111 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000111">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Clinical documenation, e.g., progress notes, imaging reports</obo:IAO_0000115>
+        <rdfs:label>documentation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000112 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000112">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Anatomical site of a finding/condition</obo:IAO_0000115>
+        <rdfs:label>finding_site</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000113 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000113">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <obo:IAO_0000115>Patient state, e.g., stable, improving. The overall patient state, not whether a particular disease or condition is stable or improving.</obo:IAO_0000115>
+        <rdfs:label>patient_state</rdfs:label>
     </owl:Class>
     
 
@@ -3404,7 +3665,16 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000076">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000024"/>
-        <rdfs:label>has_quantifiable _value</rdfs:label>
+        <rdfs:label>has_quantifiable_value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000077 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000077">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:label>suggests_finding</rdfs:label>
     </owl:Class>
     
 
@@ -3412,128 +3682,11 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000100 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100">
+        <obo:IAO_0000115>A core clinical entity over which all clinical context associations occur.</obo:IAO_0000115>
+        <obo:IAO_0000232>The 14 core clinical entity classes defined in:
+Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.
+All of these should correspond to a subject or object in relations extracted by NLP systems. The exception to that is patient which may be inferred.</obo:IAO_0000232>
         <rdfs:label>clinical_entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000101 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000101">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>A clinical finding of any type, including conditions.</obo:IAO_0000115>
-        <obo:IAO_0000232>Was finding/condidtion in original paper, can treat condition as a subclass if needed.</obo:IAO_0000232>
-        <rdfs:label>finding</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000102 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000102">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>An intervention to treat or diagnose a finding/conditoin or the patient</obo:IAO_0000115>
-        <rdfs:label>intervention</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000103 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000103">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Numerial or narrative temporal data elements</obo:IAO_0000115>
-        <rdfs:label>time</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000104 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000104">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Justification for perfoming an intervention</obo:IAO_0000115>
-        <rdfs:label>reason</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000105 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000105">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Course of a finding/condition</obo:IAO_0000115>
-        <rdfs:label>course</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000106 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000106">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Any numerial or narrative description of a finding/condition or intervention</obo:IAO_0000115>
-        <rdfs:label>value</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000107 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000107">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Health care setting or location</obo:IAO_0000115>
-        <rdfs:label>setting</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000108 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000108">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Health care professional</obo:IAO_0000115>
-        <rdfs:label>clinician</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000109 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000109">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Any non-clinical task, e.g., upload medical record files</obo:IAO_0000115>
-        <rdfs:label>task</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000110 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000110">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>The entity patient</obo:IAO_0000115>
-        <rdfs:label>patient</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000111 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000111">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Clinical documenation, e.g., progress notes, imaging reports</obo:IAO_0000115>
-        <rdfs:label>documentation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000112 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000112">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Anatomical site of a finding/condition</obo:IAO_0000115>
-        <rdfs:label>finding_site</rdfs:label>
     </owl:Class>
     
 
@@ -3556,7 +3709,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/cco.owl#suspected -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#suspected">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000066"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
     </owl:Class>
     
 
