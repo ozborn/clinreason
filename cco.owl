@@ -732,7 +732,7 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002003">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
-        <rdfs:label>has_reccomended</rdfs:label>
+        <rdfs:label>has_recommended</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -2717,7 +2717,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000006">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
-        <obo:IAO_0000115>A clinical reason explaing the reasoning behind a treatment, intervention, condition or medical statement.</obo:IAO_0000115>
+        <obo:IAO_0000115>A clinical reason explaining the reasoning behind a treatment, intervention, condition or medical statement.</obo:IAO_0000115>
         <rdfs:label>clinical_explanation</rdfs:label>
     </owl:Class>
     
@@ -2979,7 +2979,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000031">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <obo:IAO_0000115>Statement related to patient physiologic state</obo:IAO_0000115>
-        <obo:IAO_0000232>Was represented earlier as &quot;finding related physiologi patient state&quot;</obo:IAO_0000232>
+        <obo:IAO_0000232>Was represented earlier as &quot;finding related physiological patient state&quot;</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4028872</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:128973006</oboInOwl:hasDbXref>
         <rdfs:label>has_state</rdfs:label>
@@ -3075,7 +3075,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000038">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
-        <obo:IAO_0000115>A diagnositic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed.</obo:IAO_0000115>
+        <obo:IAO_0000115>A diagnostic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed.</obo:IAO_0000115>
         <obo:IAO_0000232>Was &quot;Statement indicating that a diagnostic process does not suggest a finding/condition&quot;.</obo:IAO_0000232>
         <rdfs:label>is_consistent_with_diagnosis</rdfs:label>
     </owl:Class>
@@ -3086,7 +3086,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000040">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
-        <obo:IAO_0000115>A clinical reason related to a treatment such as procedure, medication, or lifestyle reccomendation.</obo:IAO_0000115>
+        <obo:IAO_0000115>A clinical reason related to a treatment such as procedure, medication, or lifestyle recommendation.</obo:IAO_0000115>
         <rdfs:label>treatment_reason</rdfs:label>
     </owl:Class>
     
@@ -3188,7 +3188,7 @@ For example, A and B may be gene products and binding of B by A positively regul
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000048">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000049"/>
         <obo:IAO_0000115>Statement indicating that an intervention has been discussed with patient</obo:IAO_0000115>
-        <rdfs:comment>Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharamcist, payer, etc...</rdfs:comment>
+        <rdfs:comment>Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharmacist, payer, etc...</rdfs:comment>
         <rdfs:label>discussed_with</rdfs:label>
     </owl:Class>
     
@@ -3347,8 +3347,8 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000062">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
-        <obo:IAO_0000115>The modified relationship is reccomended, for example an intervention, admission or some action. Boolean.</obo:IAO_0000115>
-        <rdfs:label>reccomended</rdfs:label>
+        <obo:IAO_0000115>The modified relationship is recommended, for example an intervention, admission or some action. Boolean.</obo:IAO_0000115>
+        <rdfs:label>recommended</rdfs:label>
     </owl:Class>
     
 
@@ -3438,7 +3438,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000071">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
-        <obo:IAO_0000232>Aspect referes to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
+        <obo:IAO_0000232>Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
         <rdfs:label>has_aspect</rdfs:label>
     </owl:Class>
     
@@ -3526,7 +3526,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000101">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
         <obo:IAO_0000115>A clinical finding of any type, including conditions.</obo:IAO_0000115>
-        <obo:IAO_0000232>Was finding/condidtion in original paper, can treat condition as a subclass if needed.</obo:IAO_0000232>
+        <obo:IAO_0000232>Was finding/condition in original paper, can treat condition as a subclass if needed.</obo:IAO_0000232>
         <rdfs:label>finding</rdfs:label>
     </owl:Class>
     
@@ -3536,7 +3536,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000102">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>An intervention to treat or diagnose a finding/conditoin or the patient</obo:IAO_0000115>
+        <obo:IAO_0000115>An intervention to treat or diagnose a finding/condition or the patient</obo:IAO_0000115>
         <rdfs:label>intervention</rdfs:label>
     </owl:Class>
     
@@ -3546,7 +3546,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000103">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000109"/>
-        <obo:IAO_0000115>Numerial or narrative temporal data elements</obo:IAO_0000115>
+        <obo:IAO_0000115>Numerical or narrative temporal data elements</obo:IAO_0000115>
         <rdfs:label>time</rdfs:label>
     </owl:Class>
     
@@ -3556,7 +3556,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000104">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Justification for perfoming an intervention</obo:IAO_0000115>
+        <obo:IAO_0000115>Justification for performing an intervention</obo:IAO_0000115>
         <rdfs:label>reason</rdfs:label>
     </owl:Class>
     
@@ -3576,7 +3576,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000106">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Any numerial or narrative description of a finding/condition or intervention</obo:IAO_0000115>
+        <obo:IAO_0000115>Any numerical or narrative description of a finding/condition or intervention</obo:IAO_0000115>
         <rdfs:label>value</rdfs:label>
     </owl:Class>
     
@@ -3626,7 +3626,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000111">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
-        <obo:IAO_0000115>Clinical documenation, e.g., progress notes, imaging reports</obo:IAO_0000115>
+        <obo:IAO_0000115>Clinical documentation, e.g., progress notes, imaging reports</obo:IAO_0000115>
         <rdfs:label>documentation</rdfs:label>
     </owl:Class>
     
@@ -3718,7 +3718,7 @@ All of these should correspond to a subject or object in relations extracted by 
 
     <owl:Class rdf:about="https://github.com/clinreason/cco.owl#0000055">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
-        <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commerical DNA testing kit of unknown type</obo:IAO_0000112>
+        <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating the patient is at risk for a condition or procedure.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
         <rdfs:label>has_risk_factor</rdfs:label>
