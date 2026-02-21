@@ -16,11 +16,67 @@
         <terms:description>The Clinical Context Ontology (CCO) provides a structured vocabulary for representing clinical reasoning processes, diagnostic workflows, and therapeutic decision-making in healthcare.</terms:description>
         <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <terms:title>Clinical Context Ontology</terms:title>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-09-05</owl:versionInfo>
-        <!-- TODO: Create minimal ROBOT import modules for RO, BFO, and IAO before OBO submission.
-             Full owl:imports of ro.owl and iao.owl pull in large transitive dependency chains.
-             Use: robot extract - -method MIREOT to build focused import modules. -->
+        <owl:versionInfo>2025-09-05</owl:versionInfo>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000112 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000112"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000116 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000116"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000232 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000232"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
     
 
 
@@ -31,6 +87,8 @@
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
+
+    
 
 
     <!-- http://purl.obolibrary.org/obo/CCO_0002000 -->
@@ -148,7 +206,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002501">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002500"/>
-        <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the subject position in that association.</obo:IAO_0000115>
+        <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the object position in that association.</obo:IAO_0000115>
         <rdfs:label>has object</rdfs:label>
     </owl:ObjectProperty>
     
@@ -201,6 +259,8 @@
         <rdfs:label xml:lang="en">has_statement_qualifier</rdfs:label>
     </owl:ObjectProperty>
     
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -484,7 +544,6 @@
     <!-- http://purl.obolibrary.org/obo/CCO_0000029 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000029">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#deprecated"/>
         <terms:description>A decision to discontinue a therapeutic intervention</terms:description>
         <rdfs:label>has_intervention_discontinued</rdfs:label>
         <owl:deprecated></owl:deprecated>
@@ -800,6 +859,18 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44813766</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:722291000000108</oboInOwl:hasDbXref>
         <rdfs:label>has_history</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000055 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000055">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type</obo:IAO_0000112>
+        <obo:IAO_0000115>Statement indicating the patient is at risk for a condition or procedure.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
+        <rdfs:label>has_risk_factor</rdfs:label>
     </owl:Class>
     
 
@@ -1222,41 +1293,25 @@ All of these should correspond to a subject or object in relations extracted by 
     
 
 
-    <!-- http://purl.obolibrary.org/obo/cco.owl#deprecated -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000046 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#deprecated"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/cco.owl#is_not_eligible -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#is_not_eligible">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000046">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
         <obo:IAO_0000115>Statement indicating that the patient is not candidate for a given intervention</obo:IAO_0000115>
+        <rdfs:label>is_not_eligible</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/cco.owl#suspected -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000047 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#suspected">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000047">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
+        <rdfs:label>suspected</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- https://github.com/clinreason/cco.owl#0000055 -->
-
-    <owl:Class rdf:about="https://github.com/clinreason/cco.owl#0000055">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
-        <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement indicating the patient is at risk for a condition or procedure.</obo:IAO_0000115>
-        <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
-        <rdfs:label>has_risk_factor</rdfs:label>
-    </owl:Class>
-    
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
