@@ -98,7 +98,7 @@
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000067"/>
         <obo:IAO_0000115>A modifier of a clinical association</obo:IAO_0000115>
-        <rdfs:label>has_association_qualifier</rdfs:label>
+        <rdfs:label>has association qualifier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -108,7 +108,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002001">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000115>Relates a clinical association to its confirmation status, indicating whether and how the assertion has been confirmed.</obo:IAO_0000115>
-        <rdfs:label>has_confirmation_qualifier</rdfs:label>
+        <rdfs:label>has confirmation qualifier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -118,7 +118,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002002">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000115>Relates a clinical association to its intention qualifier, indicating that the association is intended rather than actual.</obo:IAO_0000115>
-        <rdfs:label>has_intention</rdfs:label>
+        <rdfs:label>has intention</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -128,7 +128,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002003">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000115>Relates a clinical association to its recommendation qualifier, indicating that the association represents a clinical recommendation.</obo:IAO_0000115>
-        <rdfs:label>has_recommended</rdfs:label>
+        <rdfs:label>has recommended</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -138,7 +138,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002004">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000115>Relates a clinical association to its negation status, indicating whether the asserted relationship is negated.</obo:IAO_0000115>
-        <rdfs:label>has_negation_status</rdfs:label>
+        <rdfs:label>has negation status</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -148,7 +148,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002005">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
         <obo:IAO_0000115>Relates a clinical association to a confirmation obtained through discussion between clinicians or between a clinician and the patient.</obo:IAO_0000115>
-        <rdfs:label>has_discussed_confirmation</rdfs:label>
+        <rdfs:label>has discussed confirmation</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -158,7 +158,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002006">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
         <obo:IAO_0000115>Relates a clinical association to a confirmation obtained through documentation such as lab results, imaging reports, or prior clinical records.</obo:IAO_0000115>
-        <rdfs:label>has_documentation_of_confirmation</rdfs:label>
+        <rdfs:label>has documentation of confirmation</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -168,7 +168,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002007">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000232>DEPRECATED: Use has_completion_status (CCO_0002604) instead. The original has_status property predates the refactoring of status into completion_status.</obo:IAO_0000232>
-        <rdfs:label>obsolete has_status</rdfs:label>
+        <rdfs:label>obsolete has status</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:ObjectProperty>
     
@@ -180,7 +180,7 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000115>Groups sub-properties that relate a clinical association to temporal qualifiers including temporal frame and frequency.</obo:IAO_0000115>
         <obo:IAO_0000232>Grouping property for temporal-adjacent sub-properties. The precise Biolink mapping biolink:temporal_context_qualifier is on the more specific has_temporal_frame (CCO_0002603), not on this parent.</obo:IAO_0000232>
-        <rdfs:label>has_temporal_context</rdfs:label>
+        <rdfs:label>has temporal context</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -190,7 +190,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002009">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000115>Relates a clinical association to its uncertainty qualifier, indicating that the asserted relationship is uncertain or suspected.</obo:IAO_0000115>
-        <rdfs:label>has_uncertainty_status</rdfs:label>
+        <rdfs:label>has uncertainty status</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -200,7 +200,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002100">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
         <obo:IAO_0000115>Relates a clinical association to a qualifier that modifies a participant (subject or object) rather than the overall statement or predicate.</obo:IAO_0000115>
-        <rdfs:label>has_participant_qualifier</rdfs:label>
+        <rdfs:label>has participant qualifier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -210,7 +210,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002500">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <obo:IAO_0000115>Relates a clinical association to a clinical entity that participates in it as either the subject or the object.</obo:IAO_0000115>
-        <rdfs:label>has_association_participant</rdfs:label>
+        <rdfs:label>has association participant</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -243,7 +243,7 @@
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
         <obo:IAO_0000115>Relates a clinical association to the frequency of the finding, condition, or intervention it describes.</obo:IAO_0000115>
-        <rdfs:label>has_frequency</rdfs:label>
+        <rdfs:label>has frequency</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -253,7 +253,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002602">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
         <obo:IAO_0000232>DEPRECATED: Use has_completion_status (CCO_0002604) with value pending (CCO_0000065) instead. The is_pending property conflated temporal context with workflow completion status.</obo:IAO_0000232>
-        <rdfs:label>obsolete is_pending</rdfs:label>
+        <rdfs:label>obsolete is pending</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:ObjectProperty>
     
@@ -265,7 +265,7 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
         <obo:IAO_0000115>Relates a clinical association to its temporal frame value (historical, current, future, or hypothetical) indicating when the association holds relative to the clinical document.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
-        <rdfs:label>has_temporal_frame</rdfs:label>
+        <rdfs:label>has temporal frame</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -276,7 +276,7 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
         <obo:IAO_0000115>Relates a clinical association to its workflow completion status (pending, in_progress, or completed). Orthogonal to temporal frame and intention.</obo:IAO_0000115>
         <obo:IAO_0000232>Not a sub-property of has_temporal_context because completion status is not a temporal concept. A pending process may be temporally past (labs drawn yesterday, results pending).</obo:IAO_0000232>
-        <rdfs:label>has_completion_status</rdfs:label>
+        <rdfs:label>has completion status</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -286,7 +286,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0003000">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
         <obo:IAO_0000115>Relates a clinical association to a statement-level qualifier that modifies the entire assertion, such as negation, uncertainty, intention, temporal frame, or completion status.</obo:IAO_0000115>
-        <rdfs:label>has_statement_qualifier</rdfs:label>
+        <rdfs:label>has statement qualifier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -321,7 +321,7 @@
         <obo:IAO_0000115>Destination of patient transference</obo:IAO_0000115>
         <oboInOwl:hasDbXref>LOINC:LP203270-6</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:1014654</oboInOwl:hasDbXref>
-        <rdfs:label>is_transferred_to</rdfs:label>
+        <rdfs:label>is transferred to</rdfs:label>
     </owl:Class>
     
 
@@ -331,8 +331,8 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000003">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <obo:IAO_0000115>Clinical processes relation to administration.</obo:IAO_0000115>
-        <obo:IAO_0000116>Do not instantiate.</obo:IAO_0000116>
-        <rdfs:label>clinical_administration</rdfs:label>
+        <obo:IAO_0000232>Do not instantiate.</obo:IAO_0000232>
+        <rdfs:label>clinical administration</rdfs:label>
     </owl:Class>
     
 
@@ -342,7 +342,7 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000005">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <obo:IAO_0000115>A clinical association representing a decision made during patient care, such as a treatment plan, referral, or diagnostic strategy.</obo:IAO_0000115>
-        <rdfs:label>clinical_decision</rdfs:label>
+        <rdfs:label>clinical decision</rdfs:label>
     </owl:Class>
     
 
@@ -352,7 +352,7 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000006">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
         <obo:IAO_0000115>A clinical reason explaining the reasoning behind a treatment, intervention, condition or medical statement.</obo:IAO_0000115>
-        <rdfs:label>clinical_explanation</rdfs:label>
+        <rdfs:label>clinical explanation</rdfs:label>
     </owl:Class>
     
 
@@ -384,7 +384,7 @@
         <obo:IAO_0000115>A member of the clinical team has a specific action</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4044702</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:129450000</oboInOwl:hasDbXref>
-        <rdfs:label>has_action</rdfs:label>
+        <rdfs:label>has action</rdfs:label>
     </owl:Class>
     
 
@@ -408,7 +408,7 @@
         <obo:IAO_0000112>Patient admitted to ICU</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that the patient was admitted to a specific setting</obo:IAO_0000115>
         <obo:IAO_0000232>Does not exist in OMOP, admission is specific for inpatients or other facility types.</obo:IAO_0000232>
-        <rdfs:label>is_admitted</rdfs:label>
+        <rdfs:label>is admitted</rdfs:label>
     </owl:Class>
     
 
@@ -440,7 +440,7 @@
         <obo:IAO_0000115>Statement indicating that an intervention is followed by an intervention or assessment</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4272244</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:367409002</oboInOwl:hasDbXref>
-        <rdfs:label>is_followed_by</rdfs:label>
+        <rdfs:label>is followed by</rdfs:label>
     </owl:Class>
     
 
@@ -464,7 +464,7 @@
         <obo:IAO_0000112>A barium swallow was performed by Dr. PHI which was concerning for moderate aspiration.  Additionally, a hard palate lesion was seen.</obo:IAO_0000112>
         <obo:IAO_0000115>Report of provider performing an intervention or assessment</obo:IAO_0000115>
         <obo:IAO_0000232>There is OMOP 4160030, but it is a more general type of performed.</obo:IAO_0000232>
-        <rdfs:label>is_performed_by</rdfs:label>
+        <rdfs:label>is performed by</rdfs:label>
     </owl:Class>
     
 
@@ -489,7 +489,7 @@
         <obo:IAO_0000115>Statement indicating that the patient has been referred by a clinician</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44792349</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:342701000000109</oboInOwl:hasDbXref>
-        <rdfs:label>is_referred_by</rdfs:label>
+        <rdfs:label>is referred by</rdfs:label>
     </owl:Class>
     
 
@@ -515,7 +515,7 @@
         <obo:IAO_0000232>Mapping to seen by health care giver which I think is the intention here.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4091832</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:281033004</oboInOwl:hasDbXref>
-        <rdfs:label>is_seen_by</rdfs:label>
+        <rdfs:label>is seen by</rdfs:label>
     </owl:Class>
     
 
@@ -540,7 +540,7 @@
         <obo:IAO_0000232>Actually &quot;transferred from department&quot; but it includes hospitals and other facilities and appears to be a general concept.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4144257</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:266751003</oboInOwl:hasDbXref>
-        <rdfs:label>is_transferred_from</rdfs:label>
+        <rdfs:label>is transferred from</rdfs:label>
     </owl:Class>
     
 
@@ -564,7 +564,7 @@
         <obo:IAO_0000112>SL nitroglycerin alleviated pain.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement about the effect of an intervention.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44818727</oboInOwl:hasDbXref>
-        <rdfs:label>has_effect</rdfs:label>
+        <rdfs:label>has effect</rdfs:label>
     </owl:Class>
     
 
@@ -601,7 +601,7 @@
         <obo:IAO_0000115>Intervention is initiated or executed to treat a present or presumed finding or condition.</obo:IAO_0000115>
         <obo:IAO_0000232>SNOMED has partial mapping as qualifier.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>SNOMED:718771000000107</oboInOwl:hasDbXref>
-        <rdfs:label>has_intervention</rdfs:label>
+        <rdfs:label>has intervention</rdfs:label>
     </owl:Class>
     
 
@@ -627,7 +627,7 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4297758</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:77374008</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>biolink:onset_qualifier</oboInOwl:hasDbXref>
-        <rdfs:label>has_onset</rdfs:label>
+        <rdfs:label>has onset</rdfs:label>
     </owl:Class>
     
 
@@ -659,7 +659,7 @@
         <oboInOwl:hasDbXref>NebraskaLexicon:18720000</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:3469026</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:18720000</oboInOwl:hasDbXref>
-        <rdfs:label>has_location</rdfs:label>
+        <rdfs:label>has location</rdfs:label>
     </owl:Class>
     
 
@@ -691,7 +691,7 @@
         <obo:IAO_0000115>Information that describes or quantifies a finding/condition or intervention.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4306768</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:83568003</oboInOwl:hasDbXref>
-        <rdfs:label>has_value</rdfs:label>
+        <rdfs:label>has value</rdfs:label>
     </owl:Class>
     
 
@@ -704,7 +704,7 @@
         <obo:IAO_0000112>The patient reported sore throat and his physical indicated swollen lymph nodes.</obo:IAO_0000112>
         <obo:IAO_0000232>Was can_cause_finding_or_condition, a statement of medical knowledge about the potential cause of a finding/condition. Now just has_finding.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44818789</oboInOwl:hasDbXref>
-        <rdfs:label>has_finding</rdfs:label>
+        <rdfs:label>has finding</rdfs:label>
     </owl:Class>
     
 
@@ -740,8 +740,8 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Statement providing the reason for abandoning an intervention or diagnostic process</obo:IAO_0000115>
-        <rdfs:comment>Example:A cystogram was attempted today but radiology was unable to inject dye through her catheter.</rdfs:comment>
-        <rdfs:label>has_abandonment_reason</rdfs:label>
+        <obo:IAO_0000112>A cystogram was attempted today but radiology was unable to inject dye through her catheter.</obo:IAO_0000112>
+        <rdfs:label>has abandonment reason</rdfs:label>
     </owl:Class>
     
 
@@ -773,7 +773,7 @@
         <obo:IAO_0000115>Statement inferring that a finding/condition was assessed.</obo:IAO_0000115>
         <obo:IAO_0000232>It is anticipated that this relation will usually be negative (as seen in the example) and refer to the absence of an assessment for a particular condition.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4195693</oboInOwl:hasDbXref>
-        <rdfs:label>has_assessment</rdfs:label>
+        <rdfs:label>has assessment</rdfs:label>
     </owl:Class>
     
 
@@ -781,8 +781,8 @@
     <!-- http://purl.obolibrary.org/obo/CCO_0000029 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000029">
-        <terms:description>A decision to discontinue a therapeutic intervention</terms:description>
-        <rdfs:label>obsolete has_intervention_discontinued</rdfs:label>
+        <obo:IAO_0000115>A decision to discontinue a therapeutic intervention.</obo:IAO_0000115>
+        <rdfs:label>obsolete has intervention discontinued</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
@@ -815,7 +815,7 @@
         <obo:IAO_0000115>Any clinical justification or reason for ordering any intervention, including planning. If the reason is suspected, it would be qualified as uncertain.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4165917</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:416083004</oboInOwl:hasDbXref>
-        <rdfs:label>has_reason</rdfs:label>
+        <rdfs:label>has reason</rdfs:label>
     </owl:Class>
     
 
@@ -840,7 +840,7 @@
         <obo:IAO_0000232>Was represented earlier as &quot;finding related physiological patient state&quot;</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4028872</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:128973006</oboInOwl:hasDbXref>
-        <rdfs:label>has_state</rdfs:label>
+        <rdfs:label>has state</rdfs:label>
     </owl:Class>
     
 
@@ -873,7 +873,7 @@
         <obo:IAO_0000232>Referred by trigger criteria may be best fit.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44787854</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:109721000000108</oboInOwl:hasDbXref>
-        <rdfs:label>has_trigger</rdfs:label>
+        <rdfs:label>has trigger</rdfs:label>
     </owl:Class>
     
 
@@ -905,7 +905,7 @@
         <obo:IAO_0000115>Reason for an outpatient visit</obo:IAO_0000115>
         <oboInOwl:hasDbXref xml:lang="en">LOINC:29298-7</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref xml:lang="en">OMOP:3025141</oboInOwl:hasDbXref>
-        <rdfs:label>has_visit_reason</rdfs:label>
+        <rdfs:label>has visit reason</rdfs:label>
     </owl:Class>
     
 
@@ -938,7 +938,7 @@
         <obo:IAO_0000232>There is condition cause which is non-standard LOINC</obo:IAO_0000232>
         <oboInOwl:hasDbXref>LOINC:LP430632-2</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:1992175</oboInOwl:hasDbXref>
-        <rdfs:label>is_caused_by</rdfs:label>
+        <rdfs:label>is caused by</rdfs:label>
     </owl:Class>
     
 
@@ -971,7 +971,7 @@
         <obo:IAO_0000232>Using complications, but not a relationship, may need new term.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4137797</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:263718001</oboInOwl:hasDbXref>
-        <rdfs:label>is_complicated_by</rdfs:label>
+        <rdfs:label>is complicated by</rdfs:label>
     </owl:Class>
     
 
@@ -1001,7 +1001,7 @@
         </rdfs:subClassOf>
         <obo:IAO_0000115>A diagnostic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed.</obo:IAO_0000115>
         <obo:IAO_0000232>Was &quot;Statement indicating that a diagnostic process does not suggest a finding/condition&quot;.</obo:IAO_0000232>
-        <rdfs:label>is_consistent_with_diagnosis</rdfs:label>
+        <rdfs:label>is consistent with diagnosis</rdfs:label>
     </owl:Class>
     
 
@@ -1011,7 +1011,7 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000040">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <obo:IAO_0000115>A clinical reason related to a treatment such as procedure, medication, or lifestyle recommendation.</obo:IAO_0000115>
-        <rdfs:label>treatment_reason</rdfs:label>
+        <rdfs:label>treatment reason</rdfs:label>
     </owl:Class>
     
 
@@ -1055,7 +1055,7 @@
         <obo:IAO_0000232>Mapping to &quot;does agree with care plan&quot;.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:37018830</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:714831004</oboInOwl:hasDbXref>
-        <rdfs:label>agree_with</rdfs:label>
+        <rdfs:label>agree with</rdfs:label>
     </owl:Class>
     
 
@@ -1094,7 +1094,7 @@
         <obo:IAO_0000115>Indication that an intervention or the patient has an outcome goal (target)</obo:IAO_0000115>
         <obo:IAO_0000232>OMOP 4253630 &quot;Goal&quot;  doesn&apos;t really match well, we may need a new term.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4253630</oboInOwl:hasDbXref>
-        <rdfs:label>has_goal</rdfs:label>
+        <rdfs:label>has goal</rdfs:label>
     </owl:Class>
     
 
@@ -1125,7 +1125,7 @@
         <obo:IAO_0000112>Will discuss with interventional in AM about possible pulmonary vein dilation w/stenting</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that an intervention has a decision.</obo:IAO_0000115>
         <obo:IAO_0000232>May needs new label, was previously has_pending_decision</obo:IAO_0000232>
-        <rdfs:label>has_decision</rdfs:label>
+        <rdfs:label>has decision</rdfs:label>
     </owl:Class>
     
 
@@ -1156,8 +1156,8 @@
         <obo:IAO_0000115>Statement indicating that a finding/condition is at goal</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4191706</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:390802008</oboInOwl:hasDbXref>
-        <rdfs:comment>Goal achieved in SNOMED, rename if acceptable.</rdfs:comment>
-        <rdfs:label>is_at_goal</rdfs:label>
+        <obo:IAO_0000232>Goal achieved in SNOMED, rename if acceptable.</obo:IAO_0000232>
+        <rdfs:label>is at goal</rdfs:label>
     </owl:Class>
     
 
@@ -1181,7 +1181,7 @@
         <obo:IAO_0000115>Statement about documentation of a finding/condition</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4205679</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:308910008</oboInOwl:hasDbXref>
-        <rdfs:comment>Maps to SNOMED qualifier Reference documentation which is probably equivalent.</rdfs:comment>
+        <obo:IAO_0000232>Maps to SNOMED qualifier Reference documentation which is probably equivalent.</obo:IAO_0000232>
         <rdfs:label>documentation of finding</rdfs:label>
     </owl:Class>
     
@@ -1204,7 +1204,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Statement indicating that the patient is a candidate for a given intervention, commonly used in the negative.</obo:IAO_0000115>
-        <rdfs:label>is_eligible</rdfs:label>
+        <rdfs:label>is eligible</rdfs:label>
     </owl:Class>
     
 
@@ -1240,8 +1240,8 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Statement indicating that an intervention has been discussed with patient</obo:IAO_0000115>
-        <rdfs:comment>Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharmacist, payer, etc...</rdfs:comment>
-        <rdfs:label>discussed_with</rdfs:label>
+        <obo:IAO_0000232>Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharmacist, payer, etc...</obo:IAO_0000232>
+        <rdfs:label>discussed with</rdfs:label>
     </owl:Class>
     
 
@@ -1253,7 +1253,7 @@
         <obo:IAO_0000115>A decision or status has been confirmed.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4326761</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:74996004</oboInOwl:hasDbXref>
-        <rdfs:label>has_confirmation</rdfs:label>
+        <rdfs:label>has confirmation</rdfs:label>
     </owl:Class>
     
 
@@ -1278,7 +1278,7 @@
         <obo:IAO_0000115>Statement about the contraindication of an intervention. The intervention should not be used for the condition because it may cause harm to the patient or outweigh potential benefits.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4011945</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:103306004</oboInOwl:hasDbXref>
-        <rdfs:label>has_contraindication</rdfs:label>
+        <rdfs:label>has contraindication</rdfs:label>
     </owl:Class>
     
 
@@ -1304,7 +1304,7 @@
         <obo:IAO_0000232>The same thing as clinical course.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4137632</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:263502005</oboInOwl:hasDbXref>
-        <rdfs:label>has_course</rdfs:label>
+        <rdfs:label>has course</rdfs:label>
     </owl:Class>
     
 
@@ -1337,7 +1337,7 @@
         <obo:IAO_0000232>SNOMED attribute, qualifier is also available. Start and End dates?</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4256607</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:410671006</oboInOwl:hasDbXref>
-        <rdfs:label>has_date</rdfs:label>
+        <rdfs:label>has date</rdfs:label>
     </owl:Class>
     
 
@@ -1368,7 +1368,7 @@
         <obo:IAO_0000112>She does endorse some nausea and spit up for the past two weeks</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating the duration of a finding/condition or intervention</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4014044</oboInOwl:hasDbXref>
-        <rdfs:label>has_duration</rdfs:label>
+        <rdfs:label>has duration</rdfs:label>
     </owl:Class>
     
 
@@ -1401,7 +1401,7 @@
         <obo:IAO_0000232>SNOMED CT United Kingdom clinical extension module sourced.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44813766</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:722291000000108</oboInOwl:hasDbXref>
-        <rdfs:label>has_history</rdfs:label>
+        <rdfs:label>has history</rdfs:label>
     </owl:Class>
     
 
@@ -1425,7 +1425,7 @@
         <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating the patient is at risk for a condition or procedure.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
-        <rdfs:label>has_risk_factor</rdfs:label>
+        <rdfs:label>has risk factor</rdfs:label>
     </owl:Class>
     
 
@@ -1437,7 +1437,7 @@
         <obo:IAO_0000232>Although these structures represent relationships between clinical entities, we model them as reified associations rather than relations, because they represent contextualized assertions with additional attributes (e.g., negation, uncertainty, temporality), which cannot be expressed using binary object properties in OWL.
 These relations include the most frequently documented relation types as defined in:
 Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.</obo:IAO_0000232>
-        <rdfs:label>clinical_association</rdfs:label>
+        <rdfs:label>clinical association</rdfs:label>
     </owl:Class>
     
 
@@ -1460,7 +1460,7 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>Inference about the location or setting where a clinical event happened.</obo:IAO_0000115>
         <obo:IAO_0000112>He was given Zofran and meclizine at Urgent Care.</obo:IAO_0000112>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:32462</oboInOwl:hasDbXref>
-        <rdfs:label>has_setting</rdfs:label>
+        <rdfs:label>has setting</rdfs:label>
     </owl:Class>
     
 
@@ -1522,7 +1522,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <obo:IAO_0000232>Refactored from the original &quot;status&quot; class. Children include pending (moved from temporal), in_progress, and completed. Aligns with SNOMED procedure status qualifier values and EHR order status fields. No equivalent in NLP temporal annotation schemes like THYME or I2b2.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4138595</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:40642538</oboInOwl:hasDbXref>
-        <rdfs:label>completion_status</rdfs:label>
+        <rdfs:label>completion status</rdfs:label>
     </owl:Class>
     
 
@@ -1554,7 +1554,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000067">
         <obo:IAO_0000115>A modifier that provides additional context to a clinical association, such as temporal frame, certainty, negation, or participant-level detail.</obo:IAO_0000115>
-        <rdfs:label>association_qualifier</rdfs:label>
+        <rdfs:label>association qualifier</rdfs:label>
     </owl:Class>
     
 
@@ -1565,7 +1565,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000067"/>
         <obo:IAO_0000115>An association qualifier that modifies the entire clinical statement, including negation, uncertainty, intention, temporal frame, and completion status.</obo:IAO_0000115>
         <obo:IAO_0000232>Qualifiers for the entire statement.</obo:IAO_0000232>
-        <rdfs:label>statement_qualifier</rdfs:label>
+        <rdfs:label>statement qualifier</rdfs:label>
     </owl:Class>
     
 
@@ -1576,7 +1576,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000067"/>
         <obo:IAO_0000115>An association qualifier that modifies only the predicate (relationship type) of a clinical association, rather than the entire statement.</obo:IAO_0000115>
         <obo:IAO_0000232>For situations where the modifier of the predicate is different from the overall statement, these are likely to be rare.</obo:IAO_0000232>
-        <rdfs:label>predicate_qualifier</rdfs:label>
+        <rdfs:label>predicate qualifier</rdfs:label>
     </owl:Class>
     
 
@@ -1587,7 +1587,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000067"/>
         <obo:IAO_0000115>Modifiers for participants (subject or object) in a clinical association.</obo:IAO_0000115>
         <obo:IAO_0000232>Participant qualifiers do not apply to either the predicate specifically or overall statement. In the case of experiencer (ex patient, family member, donor) we will map to the overall statement, not as a participant.</obo:IAO_0000232>
-        <rdfs:label>participant_qualifier</rdfs:label>
+        <rdfs:label>participant qualifier</rdfs:label>
     </owl:Class>
     
 
@@ -1611,7 +1611,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <obo:IAO_0000115>A finding association specifying which facet, part, or functional dimension of an entity is being referred to in the assertion.</obo:IAO_0000115>
         <obo:IAO_0000112>Bone density is decreasing; cancer progression is rapid.</obo:IAO_0000112>
         <obo:IAO_0000232>Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
-        <rdfs:label>has_aspect</rdfs:label>
+        <rdfs:label>has aspect</rdfs:label>
     </owl:Class>
     
 
@@ -1635,7 +1635,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <obo:IAO_0000115>A finding association specifying the spatial orientation or anatomical direction of a finding relative to a body site.</obo:IAO_0000115>
         <obo:IAO_0000112>The lesion is located on the anterior aspect of the left knee.</obo:IAO_0000112>
         <obo:IAO_0000232>Spatial orientation qualifiers reuse PATO quality terms directly; CCO defines only the attachment role.</obo:IAO_0000232>
-        <rdfs:label>has_spatial_orientation</rdfs:label>
+        <rdfs:label>has spatial orientation</rdfs:label>
     </owl:Class>
     
 
@@ -1665,7 +1665,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
       or PATO:0000613  # bilateral
       or PATO:0000614  # unilateral
       or PATO:0000610) # midline</obo:IAO_0000232>
-        <rdfs:label>has_laterality</rdfs:label>
+        <rdfs:label>has laterality</rdfs:label>
     </owl:Class>
     
 
@@ -1688,7 +1688,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         </rdfs:subClassOf>
         <obo:IAO_0000115>A finding association specifying the severity or intensity of a finding or condition.</obo:IAO_0000115>
         <obo:IAO_0000112>Severe abdominal pain; mild hearing loss.</obo:IAO_0000112>
-        <rdfs:label>has_severity</rdfs:label>
+        <rdfs:label>has severity</rdfs:label>
     </owl:Class>
 
 
@@ -1742,7 +1742,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <obo:IAO_0000115>The temporal location of the association relative to the moment of clinical documentation. Orthogonal to completion_status and intention.</obo:IAO_0000115>
         <obo:IAO_0000232>Replaces the deprecated temporal (CCO_0000064). Aligns with THYME DocTimeRel and MedSpaCy temporal context flags. This axis answers WHEN relative to the document, not whether a process is complete (completion_status) or committed (intention).</obo:IAO_0000232>
         <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
-        <rdfs:label>temporal_frame</rdfs:label>
+        <rdfs:label>temporal frame</rdfs:label>
     </owl:Class>
     
 
@@ -1802,7 +1802,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000063"/>
         <obo:IAO_0000112>Antibiotics course ongoing</obo:IAO_0000112>
         <obo:IAO_0000115>The process described by the association is actively executing but has not yet reached its terminal state.</obo:IAO_0000115>
-        <rdfs:label>in_progress</rdfs:label>
+        <rdfs:label>in progress</rdfs:label>
     </owl:Class>
     
 
@@ -1824,7 +1824,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
         <obo:IAO_0000115>Whether a clinical assertion has been confirmed, and if so by what means. Provides the class-level target for has_confirmation_qualifier (CCO_0002001) and its sub-properties.</obo:IAO_0000115>
         <obo:IAO_0000232>Created to fill a gap in the qualifier class hierarchy: the properties has_confirmation_qualifier, has_discussed_confirmation, and has_documentation_of_confirmation existed without corresponding classes.</obo:IAO_0000232>
-        <rdfs:label>confirmation_status</rdfs:label>
+        <rdfs:label>confirmation status</rdfs:label>
     </owl:Class>
     
 
@@ -1835,7 +1835,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000089"/>
         <obo:IAO_0000112>Discussed diagnosis with attending physician who agrees with assessment</obo:IAO_0000112>
         <obo:IAO_0000115>The clinical assertion has been confirmed through discussion between clinicians, or between a clinician and the patient.</obo:IAO_0000115>
-        <rdfs:label>discussed_confirmation</rdfs:label>
+        <rdfs:label>discussed confirmation</rdfs:label>
     </owl:Class>
     
 
@@ -1846,7 +1846,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000089"/>
         <obo:IAO_0000112>Diagnosis confirmed by pathology report</obo:IAO_0000112>
         <obo:IAO_0000115>The clinical assertion has been confirmed through documentation such as lab results, imaging reports, or prior clinical records.</obo:IAO_0000115>
-        <rdfs:label>documented_confirmation</rdfs:label>
+        <rdfs:label>documented confirmation</rdfs:label>
     </owl:Class>
     
 
@@ -1857,7 +1857,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
         <obo:IAO_0000115>Qualifier values that carry temporal semantics, including temporal frame (when relative to the document) and temporal expression types (frequency, duration). Mirrors the grouping property has_temporal_context (CCO_0002008).</obo:IAO_0000115>
         <obo:IAO_0000232>Narrower than the deprecated temporal (CCO_0000064): groups only temporal qualifier types, not completion status or epistemic modality. In Phase 3, temporal_expression (date, duration, frequency, set) will be added as a sibling of temporal_frame under this class.</obo:IAO_0000232>
-        <rdfs:label>temporal_context</rdfs:label>
+        <rdfs:label>temporal context</rdfs:label>
     </owl:Class>
     
 
@@ -1983,7 +1983,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000112">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Anatomical site of a finding/condition</obo:IAO_0000115>
-        <rdfs:label>finding_site</rdfs:label>
+        <rdfs:label>finding site</rdfs:label>
     </owl:Class>
     
 
@@ -1993,7 +1993,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000113">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Patient state, e.g., stable, improving. The overall patient state, not whether a particular disease or condition is stable or improving.</obo:IAO_0000115>
-        <rdfs:label>patient_state</rdfs:label>
+        <rdfs:label>patient state</rdfs:label>
     </owl:Class>
     
 
@@ -2023,7 +2023,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Information that qualitatively describes a finding, condition, or intervention.</obo:IAO_0000115>
         <obo:IAO_0000112>Patient describes dizziness as a room spinning sensation.</obo:IAO_0000112>
-        <rdfs:label>has_descriptive_value</rdfs:label>
+        <rdfs:label>has descriptive value</rdfs:label>
     </owl:Class>
     
 
@@ -2053,7 +2053,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Information that numerically quantifies a finding, condition, or intervention.</obo:IAO_0000115>
         <obo:IAO_0000112>Blood pressure 130/80 mmHg; hemoglobin 10.2 g/dL.</obo:IAO_0000112>
-        <rdfs:label>has_quantifiable_value</rdfs:label>
+        <rdfs:label>has quantifiable value</rdfs:label>
     </owl:Class>
     
 
@@ -2084,7 +2084,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         </rdfs:subClassOf>
         <obo:IAO_0000115>A finding or condition suggested by a diagnostic process, documentation, another finding or condition, or an intervention.</obo:IAO_0000115>
         <obo:IAO_0000112>The pink sputum suggests hemoptysis.</obo:IAO_0000112>
-        <rdfs:label>suggests_finding</rdfs:label>
+        <rdfs:label>suggests finding</rdfs:label>
     </owl:Class>
     
 
@@ -2096,7 +2096,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
         <obo:IAO_0000232>The 14 core clinical entity classes defined in:
 Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.
 All of these should correspond to a subject or object in relations extracted by NLP systems. The exception to that is patient which may be inferred.</obo:IAO_0000232>
-        <rdfs:label>clinical_entity</rdfs:label>
+        <rdfs:label>clinical entity</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 
