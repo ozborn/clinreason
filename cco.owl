@@ -107,6 +107,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002001">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <obo:IAO_0000115>Relates a clinical association to its confirmation status, indicating whether and how the assertion has been confirmed.</obo:IAO_0000115>
         <rdfs:label>has_confirmation_qualifier</rdfs:label>
     </owl:ObjectProperty>
     
@@ -116,6 +117,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002002">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <obo:IAO_0000115>Relates a clinical association to its intention qualifier, indicating that the association is intended rather than actual.</obo:IAO_0000115>
         <rdfs:label>has_intention</rdfs:label>
     </owl:ObjectProperty>
     
@@ -125,6 +127,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002003">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <obo:IAO_0000115>Relates a clinical association to its recommendation qualifier, indicating that the association represents a clinical recommendation.</obo:IAO_0000115>
         <rdfs:label>has_recommended</rdfs:label>
     </owl:ObjectProperty>
     
@@ -134,6 +137,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002004">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <obo:IAO_0000115>Relates a clinical association to its negation status, indicating whether the asserted relationship is negated.</obo:IAO_0000115>
         <rdfs:label>has_negation_status</rdfs:label>
     </owl:ObjectProperty>
     
@@ -143,6 +147,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002005">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
+        <obo:IAO_0000115>Relates a clinical association to a confirmation obtained through discussion between clinicians or between a clinician and the patient.</obo:IAO_0000115>
         <rdfs:label>has_discussed_confirmation</rdfs:label>
     </owl:ObjectProperty>
     
@@ -152,6 +157,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002006">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
+        <obo:IAO_0000115>Relates a clinical association to a confirmation obtained through documentation such as lab results, imaging reports, or prior clinical records.</obo:IAO_0000115>
         <rdfs:label>has_documentation_of_confirmation</rdfs:label>
     </owl:ObjectProperty>
     
@@ -183,6 +189,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002009">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <obo:IAO_0000115>Relates a clinical association to its uncertainty qualifier, indicating that the asserted relationship is uncertain or suspected.</obo:IAO_0000115>
         <rdfs:label>has_uncertainty_status</rdfs:label>
     </owl:ObjectProperty>
     
@@ -192,6 +199,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002100">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
+        <obo:IAO_0000115>Relates a clinical association to a qualifier that modifies a participant (subject or object) rather than the overall statement or predicate.</obo:IAO_0000115>
         <rdfs:label>has_participant_qualifier</rdfs:label>
     </owl:ObjectProperty>
     
@@ -201,6 +209,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002500">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <obo:IAO_0000115>Relates a clinical association to a clinical entity that participates in it as either the subject or the object.</obo:IAO_0000115>
         <rdfs:label>has_association_participant</rdfs:label>
     </owl:ObjectProperty>
     
@@ -233,6 +242,7 @@
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
+        <obo:IAO_0000115>Relates a clinical association to the frequency of the finding, condition, or intervention it describes.</obo:IAO_0000115>
         <rdfs:label>has_frequency</rdfs:label>
     </owl:ObjectProperty>
     
@@ -275,7 +285,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0003000">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002000"/>
-        <rdfs:label xml:lang="en">has_statement_qualifier</rdfs:label>
+        <obo:IAO_0000115>Relates a clinical association to a statement-level qualifier that modifies the entire assertion, such as negation, uncertainty, intention, temporal frame, or completion status.</obo:IAO_0000115>
+        <rdfs:label>has_statement_qualifier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -330,6 +341,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000005">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
+        <obo:IAO_0000115>A clinical association representing a decision made during patient care, such as a treatment plan, referral, or diagnostic strategy.</obo:IAO_0000115>
         <rdfs:label>clinical_decision</rdfs:label>
     </owl:Class>
     
@@ -688,9 +700,10 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000025">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
+        <obo:IAO_0000115>Statement indicating that the patient or a specific finding site has a finding or condition.</obo:IAO_0000115>
+        <obo:IAO_0000112>The patient reported sore throat and his physical indicated swollen lymph nodes.</obo:IAO_0000112>
         <obo:IAO_0000232>Was can_cause_finding_or_condition, a statement of medical knowledge about the potential cause of a finding/condition. Now just has_finding.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44818789</oboInOwl:hasDbXref>
-        <rdfs:comment>Example:Patient has fever.</rdfs:comment>
         <rdfs:label>has_finding</rdfs:label>
     </owl:Class>
     
@@ -1420,6 +1433,7 @@
     <!-- http://purl.obolibrary.org/obo/CCO_0000057 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000057">
+        <obo:IAO_0000115>A reified assertion relating two or more clinical entities, representing a contextualized clinical statement that can carry qualifiers such as negation, uncertainty, and temporality.</obo:IAO_0000115>
         <obo:IAO_0000232>Although these structures represent relationships between clinical entities, we model them as reified associations rather than relations, because they represent contextualized assertions with additional attributes (e.g., negation, uncertainty, temporality), which cannot be expressed using binary object properties in OWL.
 These relations include the most frequently documented relation types as defined in:
 Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.</obo:IAO_0000232>
@@ -1443,6 +1457,8 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000057"/>
+        <obo:IAO_0000115>Inference about the location or setting where a clinical event happened.</obo:IAO_0000115>
+        <obo:IAO_0000112>He was given Zofran and meclizine at Urgent Care.</obo:IAO_0000112>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:32462</oboInOwl:hasDbXref>
         <rdfs:label>has_setting</rdfs:label>
     </owl:Class>
@@ -1537,6 +1553,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000067 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000067">
+        <obo:IAO_0000115>A modifier that provides additional context to a clinical association, such as temporal frame, certainty, negation, or participant-level detail.</obo:IAO_0000115>
         <rdfs:label>association_qualifier</rdfs:label>
     </owl:Class>
     
@@ -1546,6 +1563,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000068">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000067"/>
+        <obo:IAO_0000115>An association qualifier that modifies the entire clinical statement, including negation, uncertainty, intention, temporal frame, and completion status.</obo:IAO_0000115>
         <obo:IAO_0000232>Qualifiers for the entire statement.</obo:IAO_0000232>
         <rdfs:label>statement_qualifier</rdfs:label>
     </owl:Class>
@@ -1556,6 +1574,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000069">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000067"/>
+        <obo:IAO_0000115>An association qualifier that modifies only the predicate (relationship type) of a clinical association, rather than the entire statement.</obo:IAO_0000115>
         <obo:IAO_0000232>For situations where the modifier of the predicate is different from the overall statement, these are likely to be rare.</obo:IAO_0000232>
         <rdfs:label>predicate_qualifier</rdfs:label>
     </owl:Class>
@@ -1589,6 +1608,8 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A finding association specifying which facet, part, or functional dimension of an entity is being referred to in the assertion.</obo:IAO_0000115>
+        <obo:IAO_0000112>Bone density is decreasing; cancer progression is rapid.</obo:IAO_0000112>
         <obo:IAO_0000232>Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
         <rdfs:label>has_aspect</rdfs:label>
     </owl:Class>
@@ -1611,6 +1632,8 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A finding association specifying the spatial orientation or anatomical direction of a finding relative to a body site.</obo:IAO_0000115>
+        <obo:IAO_0000112>The lesion is located on the anterior aspect of the left knee.</obo:IAO_0000112>
         <obo:IAO_0000232>Spatial orientation qualifiers reuse PATO quality terms directly; CCO defines only the attachment role.</obo:IAO_0000232>
         <rdfs:label>has_spatial_orientation</rdfs:label>
     </owl:Class>
@@ -1633,6 +1656,8 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A finding association specifying the laterality (left, right, bilateral, unilateral, or midline) of a finding relative to a body site.</obo:IAO_0000115>
+        <obo:IAO_0000112>Right-sided pneumothorax; bilateral knee pain.</obo:IAO_0000112>
         <obo:IAO_0000232>laterality_qualifier
   ⊑ has_participant_qualifier only
      (PATO:0000611  # left
@@ -1661,9 +1686,11 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A finding association specifying the severity or intensity of a finding or condition.</obo:IAO_0000115>
+        <obo:IAO_0000112>Severe abdominal pain; mild hearing loss.</obo:IAO_0000112>
         <rdfs:label>has_severity</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/CCO_0000080 -->
@@ -1994,6 +2021,8 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>Information that qualitatively describes a finding, condition, or intervention.</obo:IAO_0000115>
+        <obo:IAO_0000112>Patient describes dizziness as a room spinning sensation.</obo:IAO_0000112>
         <rdfs:label>has_descriptive_value</rdfs:label>
     </owl:Class>
     
@@ -2022,6 +2051,8 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>Information that numerically quantifies a finding, condition, or intervention.</obo:IAO_0000115>
+        <obo:IAO_0000112>Blood pressure 130/80 mmHg; hemoglobin 10.2 g/dL.</obo:IAO_0000112>
         <rdfs:label>has_quantifiable_value</rdfs:label>
     </owl:Class>
     
@@ -2051,6 +2082,8 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A finding or condition suggested by a diagnostic process, documentation, another finding or condition, or an intervention.</obo:IAO_0000115>
+        <obo:IAO_0000112>The pink sputum suggests hemoptysis.</obo:IAO_0000112>
         <rdfs:label>suggests_finding</rdfs:label>
     </owl:Class>
     
