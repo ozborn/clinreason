@@ -276,6 +276,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000002">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000107"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Destination of patient transference</obo:IAO_0000115>
         <oboInOwl:hasDbXref>LOINC:LP203270-6</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:1014654</oboInOwl:hasDbXref>
@@ -318,6 +330,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000007">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000109"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000108"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>upload OSH CT chest pulmonary vein protocol</obo:IAO_0000112>
         <obo:IAO_0000115>A member of the clinical team has a specific action</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4044702</oboInOwl:hasDbXref>
@@ -331,6 +362,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000010">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000107"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Patient admitted to ICU</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that the patient was admitted to a specific setting</obo:IAO_0000115>
         <obo:IAO_0000232>Does not exist in OMOP, admission is specific for inpatients or other facility types.</obo:IAO_0000232>
@@ -342,7 +385,26 @@
     <!-- http://purl.obolibrary.org/obo/CCO_0000011 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000011">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Here for packing and splint removal after recent discharge from rehab</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that an intervention is followed by an intervention or assessment</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4272244</oboInOwl:hasDbXref>
@@ -356,6 +418,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000012">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000108"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>A barium swallow was performed by Dr. PHI which was concerning for moderate aspiration.  Additionally, a hard palate lesion was seen.</obo:IAO_0000112>
         <obo:IAO_0000115>Report of provider performing an intervention or assessment</obo:IAO_0000115>
         <obo:IAO_0000232>There is OMOP 4160030, but it is a more general type of performed.</obo:IAO_0000232>
@@ -368,6 +442,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000013">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000108"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>PHI is referred by Dr.  PHI  with PMH significant for IP</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that the patient has been referred by a clinician</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44792349</oboInOwl:hasDbXref>
@@ -381,6 +467,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000014">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000108"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>[Speaker 2]: I went to the ENT at PHI and they prescribed Allegra D, and I took those, they cleared it up, but they also affected my blood pressure</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that the patient has seen a clinician</obo:IAO_0000115>
         <obo:IAO_0000232>Mapping to seen by health care giver which I think is the intention here.</obo:IAO_0000232>
@@ -395,6 +493,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000015">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000107"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Source of patient transference</obo:IAO_0000115>
         <obo:IAO_0000232>Actually &quot;transferred from department&quot; but it includes hospitals and other facilities and appears to be a general concept.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4144257</oboInOwl:hasDbXref>
@@ -408,6 +518,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000017">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>SL nitroglycerin alleviated pain.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement about the effect of an intervention.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44818727</oboInOwl:hasDbXref>
@@ -431,6 +553,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000021">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Chest Pain: &quot;she took a SL NTG&quot;</obo:IAO_0000112>
         <obo:IAO_0000115>Intervention is initiated or executed to treat a present or presumed finding or condition.</obo:IAO_0000115>
         <obo:IAO_0000232>SNOMED has partial mapping as qualifier.</obo:IAO_0000232>
@@ -444,6 +578,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000022">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000103"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Vomiting since this morning</obo:IAO_0000112>
         <obo:IAO_0000115>The onset of a finding/condition</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4297758</oboInOwl:hasDbXref>
@@ -457,6 +603,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000023">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000112"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Inference about the location where an event happened</obo:IAO_0000115>
         <oboInOwl:hasDbXref>NebraskaLexicon:18720000</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:3469026</oboInOwl:hasDbXref>
@@ -470,6 +635,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000024">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000106"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Describes pressure-like chest pain near L breast with radiation down R arm</obo:IAO_0000112>
         <obo:IAO_0000115>Information that describes or quantifies a finding/condition or intervention.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4306768</oboInOwl:hasDbXref>
@@ -532,6 +716,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000028">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>unable to assess for h/o exertional syncope, angina, dyspnea, etc which would warrant ICD placement</obo:IAO_0000112>
         <obo:IAO_0000115>Statement inferring that a finding/condition was assessed.</obo:IAO_0000115>
         <obo:IAO_0000232>It is anticipated that this relation will usually be negative (as seen in the example) and refer to the absence of an assessment for a particular condition.</obo:IAO_0000232>
@@ -555,6 +758,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000030">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000104"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>stop Bactrim which may worsen hyperK</obo:IAO_0000112>
         <obo:IAO_0000115>Any clinical justification or reason for ordering any intervention, including planning.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4165917</oboInOwl:hasDbXref>
@@ -568,6 +790,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000031">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000113"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Statement related to patient physiologic state</obo:IAO_0000115>
         <obo:IAO_0000232>Was represented earlier as &quot;finding related physiological patient state&quot;</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4028872</oboInOwl:hasDbXref>
@@ -581,6 +815,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000033">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000030"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000104"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Statement indicating the suspected reason for past or present intervention</obo:IAO_0000115>
         <rdfs:label>has_suspected_reason</rdfs:label>
     </owl:Class>
@@ -591,6 +844,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000034">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000109"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Please call if we can be of further assistance or his echo is abnormal</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that an intervention or task will be triggered by an event</obo:IAO_0000115>
         <obo:IAO_0000232>Referred by trigger criteria may be best fit.</obo:IAO_0000232>
@@ -605,6 +877,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000035">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>PHI presents today for follow-up evaluation regarding management of lower urinary tract symptoms.</obo:IAO_0000112>
         <obo:IAO_0000115>Reason for an outpatient visit</obo:IAO_0000115>
         <oboInOwl:hasDbXref xml:lang="en">LOINC:29298-7</oboInOwl:hasDbXref>
@@ -651,6 +942,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000037">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>She reports her catheter has been leaking today especially when trying to have a bowel movement.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that procedure, intervention or finding/condition is complicated by an event</obo:IAO_0000115>
         <obo:IAO_0000232>Using complications, but not a relationship, may need new term.</obo:IAO_0000232>
@@ -665,6 +975,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000038">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>A diagnostic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed.</obo:IAO_0000115>
         <obo:IAO_0000232>Was &quot;Statement indicating that a diagnostic process does not suggest a finding/condition&quot;.</obo:IAO_0000232>
         <rdfs:label>is_consistent_with_diagnosis</rdfs:label>
@@ -692,7 +1021,11 @@
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000104"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000105"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000107"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000111"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -726,6 +1059,32 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000042">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Ultimately her goal is to not have to live with bilateral nephrostomy tubes.</obo:IAO_0000112>
         <obo:IAO_0000115>Indication that an intervention or the patient has an outcome goal (target)</obo:IAO_0000115>
         <obo:IAO_0000232>OMOP 4253630 &quot;Goal&quot;  doesn&apos;t really match well, we may need a new term.</obo:IAO_0000232>
@@ -739,6 +1098,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000043">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000108"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Will discuss with interventional in AM about possible pulmonary vein dilation w/stenting</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that an intervention has a decision.</obo:IAO_0000115>
         <obo:IAO_0000232>May needs new label, was previously has_pending_decision</obo:IAO_0000232>
@@ -751,6 +1129,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000044">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000105"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000106"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Statement indicating that a finding/condition is at goal</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4191706</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:390802008</oboInOwl:hasDbXref>
@@ -764,6 +1161,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000045">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000049"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000111"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Statement about documentation of a finding/condition</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4205679</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:308910008</oboInOwl:hasDbXref>
@@ -773,10 +1182,67 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CCO_0000046 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000046">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>Statement indicating that the patient is a candidate for a given intervention, commonly used in the negative.</obo:IAO_0000115>
+        <rdfs:label>is_eligible</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000047 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000047">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
+        <rdfs:label>suspected</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CCO_0000048 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000048">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000049"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000108"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Statement indicating that an intervention has been discussed with patient</obo:IAO_0000115>
         <rdfs:comment>Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharmacist, payer, etc...</rdfs:comment>
         <rdfs:label>discussed_with</rdfs:label>
@@ -800,7 +1266,19 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000050">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
-        <obo:IAO_0000112>warfarin hasContraindication pregnancy.</obo:IAO_0000112>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000112>warfarin has contraindication pregnancy.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement about the contraindication of an intervention. The intervention should not be used for the condition because it may cause harm to the patient or outweigh potential benefits.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4011945</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:103306004</oboInOwl:hasDbXref>
@@ -813,6 +1291,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000051">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000105"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Her shortness of breath is becoming worse</obo:IAO_0000112>
         <obo:IAO_0000115>The course of a finding/condition</obo:IAO_0000115>
         <obo:IAO_0000232>The same thing as clinical course.</obo:IAO_0000232>
@@ -827,6 +1317,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000052">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000103"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>She has an appointment with Dr. PHI tomorrow</obo:IAO_0000112>
         <obo:IAO_0000115>Inference about the time when an event has happened or will happen</obo:IAO_0000115>
         <obo:IAO_0000232>SNOMED attribute, qualifier is also available. Start and End dates?</obo:IAO_0000232>
@@ -841,6 +1350,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000053">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000103"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>She does endorse some nausea and spit up for the past two weeks</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating the duration of a finding/condition or intervention</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4014044</oboInOwl:hasDbXref>
@@ -853,6 +1381,25 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000054">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>The patient underwent two kidney transplants (2002, 2012)</obo:IAO_0000112>
         <obo:IAO_0000115>Statement of fact about a patient that constitutes past medical history</obo:IAO_0000115>
         <obo:IAO_0000232>SNOMED CT United Kingdom clinical extension module sourced.</obo:IAO_0000232>
@@ -867,6 +1414,18 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000055">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating the patient is at risk for a condition or procedure.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
@@ -1040,6 +1599,18 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000071">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000106"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000232>Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
         <rdfs:label>has_aspect</rdfs:label>
     </owl:Class>
@@ -1050,6 +1621,18 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000072">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000112"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000232>Spatial orientation qualifiers reuse PATO quality terms directly; CCO defines only the attachment role.</obo:IAO_0000232>
         <rdfs:label>has_spatial_orientation</rdfs:label>
     </owl:Class>
@@ -1060,6 +1643,18 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000073">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000112"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000232>laterality_qualifier
   ⊑ has_participant_qualifier only
      (PATO:0000611  # left
@@ -1076,6 +1671,18 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000074">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000106"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label>has_severity</rdfs:label>
     </owl:Class>
     
@@ -1258,6 +1865,25 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000075">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000024"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000106"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label>has_descriptive_value</rdfs:label>
     </owl:Class>
     
@@ -1267,6 +1893,25 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000076">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000024"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000106"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label>has_quantifiable_value</rdfs:label>
     </owl:Class>
     
@@ -1276,6 +1921,26 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000077">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000111"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label>suggests_finding</rdfs:label>
     </owl:Class>
     
@@ -1290,28 +1955,9 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
 All of these should correspond to a subject or object in relations extracted by NLP systems. The exception to that is patient which may be inferred.</obo:IAO_0000232>
         <rdfs:label>clinical_entity</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/CCO_0000046 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000046">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000040"/>
-        <obo:IAO_0000115>Statement indicating that the patient is not candidate for a given intervention</obo:IAO_0000115>
-        <rdfs:label>is_not_eligible</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/CCO_0000047 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000047">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
-        <rdfs:label>suspected</rdfs:label>
-    </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
