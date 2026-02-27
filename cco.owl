@@ -1474,7 +1474,7 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000025"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000028"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000051"/>
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000077"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000077"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -1838,7 +1838,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000101 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000101">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>A clinical finding of any type, including conditions.</obo:IAO_0000115>
         <obo:IAO_0000232>Was finding/condition in original paper, can treat condition as a subclass if needed.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>biolink:DiseaseOrPhenotypicFeature</oboInOwl:hasDbXref>
@@ -1850,7 +1850,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000102 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000102">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>An intervention to treat or diagnose a finding/condition or the patient</obo:IAO_0000115>
         <oboInOwl:hasDbXref>biolink:Procedure</oboInOwl:hasDbXref>
         <rdfs:label>intervention</rdfs:label>
@@ -1861,7 +1861,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000103 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000103">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Numerical or narrative temporal data elements</obo:IAO_0000115>
         <obo:IAO_0000232>Moved from subClassOf task (CCO_0000109) to subClassOf clinical_entity (CCO_0000100). Time is a first-class clinical entity type, not a subtype of task.</obo:IAO_0000232>
         <rdfs:label>time</rdfs:label>
@@ -1872,7 +1872,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000104 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000104">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Justification for performing an intervention</obo:IAO_0000115>
         <rdfs:label>reason</rdfs:label>
     </owl:Class>
@@ -1882,7 +1882,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000105 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000105">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Course of a finding/condition</obo:IAO_0000115>
         <rdfs:label>course</rdfs:label>
     </owl:Class>
@@ -1892,7 +1892,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000106 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000106">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Any numerical or narrative description of a finding/condition or intervention</obo:IAO_0000115>
         <rdfs:label>value</rdfs:label>
     </owl:Class>
@@ -1902,7 +1902,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000107 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000107">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Health care setting or location</obo:IAO_0000115>
         <rdfs:label>setting</rdfs:label>
     </owl:Class>
@@ -1912,7 +1912,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000108 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000108">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Health care professional</obo:IAO_0000115>
         <oboInOwl:hasDbXref>biolink:Agent</oboInOwl:hasDbXref>
         <rdfs:label>clinician</rdfs:label>
@@ -1923,7 +1923,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000109 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000109">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Any non-clinical task, e.g., upload medical record files</obo:IAO_0000115>
         <rdfs:label>task</rdfs:label>
     </owl:Class>
@@ -1933,7 +1933,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000110 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000110">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>The entity patient</obo:IAO_0000115>
         <oboInOwl:hasDbXref>biolink:Case</oboInOwl:hasDbXref>
         <rdfs:label>patient</rdfs:label>
@@ -1944,7 +1944,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000111 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000111">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Clinical documentation, e.g., progress notes, imaging reports</obo:IAO_0000115>
         <rdfs:label>documentation</rdfs:label>
     </owl:Class>
@@ -1954,7 +1954,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000112 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000112">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Anatomical site of a finding/condition</obo:IAO_0000115>
         <rdfs:label>finding_site</rdfs:label>
     </owl:Class>
@@ -1964,16 +1964,16 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000113 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000113">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000100"/>
         <obo:IAO_0000115>Patient state, e.g., stable, improving. The overall patient state, not whether a particular disease or condition is stable or improving.</obo:IAO_0000115>
         <rdfs:label>patient_state</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000075 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000075 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000075">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000075">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000024"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1999,9 +1999,9 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000076 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000076 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000076">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000076">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000024"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2027,9 +2027,9 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000077 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000077 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000077">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000077">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000006"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2056,9 +2056,9 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/cco.owl#CCO_0000100 -->
+    <!-- http://purl.obolibrary.org/obo/CCO_0000100 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100">
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000100">
         <obo:IAO_0000115>A core clinical entity over which all clinical context associations occur.</obo:IAO_0000115>
         <obo:IAO_0000232>The 14 core clinical entity classes defined in:
 Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.
