@@ -161,7 +161,9 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002007">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
-        <rdfs:label>has_status</rdfs:label>
+        <obo:IAO_0000232>DEPRECATED: Use has_completion_status (CCO_0002604) instead. The original has_status property predates the refactoring of status into completion_status.</obo:IAO_0000232>
+        <rdfs:label>obsolete has_status</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:ObjectProperty>
     
 
@@ -170,6 +172,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002008">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <obo:IAO_0000115>Groups sub-properties that relate a clinical association to temporal qualifiers including temporal frame and frequency.</obo:IAO_0000115>
+        <obo:IAO_0000232>Grouping property for temporal-adjacent sub-properties. The precise Biolink mapping biolink:temporal_context_qualifier is on the more specific has_temporal_frame (CCO_0002603), not on this parent.</obo:IAO_0000232>
         <rdfs:label>has_temporal_context</rdfs:label>
     </owl:ObjectProperty>
     
@@ -234,20 +238,35 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/CCO_0002601 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002601">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
-        <rdfs:label>has_history</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/CCO_0002602 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002602">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
-        <rdfs:label>is_pending</rdfs:label>
+        <obo:IAO_0000232>DEPRECATED: Use has_completion_status (CCO_0002604) with value pending (CCO_0000065) instead. The is_pending property conflated temporal context with workflow completion status.</obo:IAO_0000232>
+        <rdfs:label>obsolete is_pending</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002603 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002603">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
+        <obo:IAO_0000115>Relates a clinical association to its temporal frame value (historical, current, future, or hypothetical) indicating when the association holds relative to the clinical document.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
+        <rdfs:label>has_temporal_frame</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0002604 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002604">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <obo:IAO_0000115>Relates a clinical association to its workflow completion status (pending, in_progress, or completed). Orthogonal to temporal frame and intention.</obo:IAO_0000115>
+        <obo:IAO_0000232>Not a sub-property of has_temporal_context because completion status is not a temporal concept. A pending process may be temporally past (labs drawn yesterday, results pending).</obo:IAO_0000232>
+        <rdfs:label>has_completion_status</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -541,9 +560,10 @@
     <!-- http://purl.obolibrary.org/obo/CCO_0000019 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000019">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000092"/>
         <obo:IAO_0000115>Statement indicating the frequency of a finding/condition or intervention</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</obo:IAO_0000232>
+        <obo:IAO_0000232>SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency. Moved from subClassOf statement_qualifier to subClassOf temporal_context (CCO_0000092) to align with the property hierarchy where has_frequency is under has_temporal_context.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>biolink:frequency_qualifier</oboInOwl:hasDbXref>
         <rdfs:label>frequency</rdfs:label>
     </owl:Class>
     
@@ -594,6 +614,7 @@
         <obo:IAO_0000115>The onset of a finding/condition</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4297758</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:77374008</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>biolink:onset_qualifier</oboInOwl:hasDbXref>
         <rdfs:label>has_onset</rdfs:label>
     </owl:Class>
     
@@ -748,8 +769,8 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000029">
         <terms:description>A decision to discontinue a therapeutic intervention</terms:description>
-        <rdfs:label>has_intervention_discontinued</rdfs:label>
-        <owl:deprecated></owl:deprecated>
+        <rdfs:label>obsolete has_intervention_discontinued</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -778,7 +799,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>stop Bactrim which may worsen hyperK</obo:IAO_0000112>
-        <obo:IAO_0000115>Any clinical justification or reason for ordering any intervention, including planning.</obo:IAO_0000115>
+        <obo:IAO_0000115>Any clinical justification or reason for ordering any intervention, including planning. If the reason is suspected, it would be qualified as uncertain.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4165917</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:416083004</oboInOwl:hasDbXref>
         <rdfs:label>has_reason</rdfs:label>
@@ -807,35 +828,6 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4028872</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:128973006</oboInOwl:hasDbXref>
         <rdfs:label>has_state</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/CCO_0000033 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000033">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000030"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002501"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000101"/>
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000104"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CCO_0000102"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115>Statement indicating the suspected reason for past or present intervention</obo:IAO_0000115>
-        <rdfs:label>has_suspected_reason</rdfs:label>
     </owl:Class>
     
 
@@ -1204,15 +1196,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/CCO_0000047 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000047">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
-        <rdfs:label>suspected</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/CCO_0000048 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000048">
@@ -1253,11 +1236,11 @@
     <!-- http://purl.obolibrary.org/obo/CCO_0000049 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000049">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
         <obo:IAO_0000115>A decision or status has been confirmed.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4326761</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:74996004</oboInOwl:hasDbXref>
-        <rdfs:label>confirmation</rdfs:label>
+        <rdfs:label>has_confirmation</rdfs:label>
     </owl:Class>
     
 
@@ -1471,6 +1454,7 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000060">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
         <obo:IAO_0000115>Modifies a relation to indicate that the relation is intended rather than actual. Boolean.</obo:IAO_0000115>
+        <obo:IAO_0000232>Epistemic modality axis: captures whether the association describes an actual event or an intended/planned one. Orthogonal to temporal_frame (CCO_0000082), which captures WHEN relative to the document, and completion_status (CCO_0000063), which captures workflow state. An intended event may be past (we intended chemo but did not start), present, or future.</obo:IAO_0000232>
         <rdfs:label>intention</rdfs:label>
     </owl:Class>
     
@@ -1518,20 +1502,11 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000063">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
-        <obo:IAO_0000115>A statement describing the status of a task or a decision. Could be pending or  ongoing.</obo:IAO_0000115>
+        <obo:IAO_0000115>The workflow completion state of a process. Orthogonal to temporal_frame (which captures when relative to the document) and intention (which captures intent). A process may be pending regardless of whether its temporal frame is past, present, or future.</obo:IAO_0000115>
+        <obo:IAO_0000232>Refactored from the original &quot;status&quot; class. Children include pending (moved from temporal), in_progress, and completed. Aligns with SNOMED procedure status qualifier values and EHR order status fields. No equivalent in NLP temporal annotation schemes like THYME or I2b2.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4138595</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:40642538</oboInOwl:hasDbXref>
-        <rdfs:label>status</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/CCO_0000064 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000064">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
-        <obo:IAO_0000232>Not sure if this is needed as we have dates for structured events. For NLP associated entities we already have a temporal modifier. May need to include for &quot;pending&quot; decisions?</obo:IAO_0000232>
-        <rdfs:label>temporal</rdfs:label>
+        <rdfs:label>completion_status</rdfs:label>
     </owl:Class>
     
 
@@ -1539,8 +1514,11 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000065 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000065">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000064"/>
-        <obo:IAO_0000115>Indicates the association is pending or intended to occur in the future.</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000063"/>
+        <obo:IAO_0000112>CT results pending</obo:IAO_0000112>
+        <obo:IAO_0000115>The process described by the association has been initiated (e.g., ordered, requested) but has not yet reached its terminal output state. This is a workflow status, not a temporal frame: a pending result may refer to a process that occurred in the past (e.g., labs drawn yesterday, results pending).</obo:IAO_0000115>
+        <obo:IAO_0000232>Moved from subClassOf temporal (CCO_0000064) to subClassOf completion_status (CCO_0000063). The previous definition conflated workflow state with temporal frame and epistemic modality. See temporal_plan.txt Section 1A for rationale.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMED:385645004</oboInOwl:hasDbXref>
         <rdfs:label>pending</rdfs:label>
     </owl:Class>
     
@@ -1730,12 +1708,140 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CCO_0000082 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000082">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000092"/>
+        <obo:IAO_0000115>The temporal location of the association relative to the moment of clinical documentation. Orthogonal to completion_status and intention.</obo:IAO_0000115>
+        <obo:IAO_0000232>Replaces the deprecated temporal (CCO_0000064). Aligns with THYME DocTimeRel and MedSpaCy temporal context flags. This axis answers WHEN relative to the document, not whether a process is complete (completion_status) or committed (intention).</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
+        <rdfs:label>temporal_frame</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000083 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000083">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000082"/>
+        <obo:IAO_0000112>Patient underwent two kidney transplants (2002, 2012)</obo:IAO_0000112>
+        <obo:IAO_0000115>The association describes an event or state that occurred before the time of the clinical document.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>THYME:DocTimeRel_BEFORE</oboInOwl:hasDbXref>
+        <rdfs:label>historical</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000084 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000084">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000082"/>
+        <obo:IAO_0000112>Currently on metformin</obo:IAO_0000112>
+        <obo:IAO_0000115>The association describes an event or state that overlaps with the time of the clinical document.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>THYME:DocTimeRel_OVERLAP</oboInOwl:hasDbXref>
+        <rdfs:label>current</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000085 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000085">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000082"/>
+        <obo:IAO_0000112>Chemotherapy will begin next Tuesday</obo:IAO_0000112>
+        <obo:IAO_0000115>The association describes an event or state that is expected to occur after the time of the clinical document.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>THYME:DocTimeRel_AFTER</oboInOwl:hasDbXref>
+        <rdfs:label>future</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000086 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000086">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000082"/>
+        <obo:IAO_0000112>If fever persists, start vancomycin</obo:IAO_0000112>
+        <obo:IAO_0000115>The association describes a conditional or contingent event that may or may not occur depending on specified circumstances.</obo:IAO_0000115>
+        <obo:IAO_0000232>Sits at the boundary of temporal frame and modality. Placed under temporal_frame because NLP systems (THYME contextual_modality, MedSpaCy is_hypothetical) treat it as a document-context label at the same annotation layer as historical/current/future.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>THYME:contextual_modality_HYPOTHETICAL</oboInOwl:hasDbXref>
+        <rdfs:label>hypothetical</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000087 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000087">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000063"/>
+        <obo:IAO_0000112>Antibiotics course ongoing</obo:IAO_0000112>
+        <obo:IAO_0000115>The process described by the association is actively executing but has not yet reached its terminal state.</obo:IAO_0000115>
+        <rdfs:label>in_progress</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000088 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000088">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000063"/>
+        <obo:IAO_0000112>Physical therapy completed</obo:IAO_0000112>
+        <obo:IAO_0000115>The process described by the association has reached its terminal output state.</obo:IAO_0000115>
+        <rdfs:label>completed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000089 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000089">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
+        <obo:IAO_0000115>Whether a clinical assertion has been confirmed, and if so by what means. Provides the class-level target for has_confirmation_qualifier (CCO_0002001) and its sub-properties.</obo:IAO_0000115>
+        <obo:IAO_0000232>Created to fill a gap in the qualifier class hierarchy: the properties has_confirmation_qualifier, has_discussed_confirmation, and has_documentation_of_confirmation existed without corresponding classes.</obo:IAO_0000232>
+        <rdfs:label>confirmation_status</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000090 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000090">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000089"/>
+        <obo:IAO_0000112>Discussed diagnosis with attending physician who agrees with assessment</obo:IAO_0000112>
+        <obo:IAO_0000115>The clinical assertion has been confirmed through discussion between clinicians, or between a clinician and the patient.</obo:IAO_0000115>
+        <rdfs:label>discussed_confirmation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000091 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000091">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000089"/>
+        <obo:IAO_0000112>Diagnosis confirmed by pathology report</obo:IAO_0000112>
+        <obo:IAO_0000115>The clinical assertion has been confirmed through documentation such as lab results, imaging reports, or prior clinical records.</obo:IAO_0000115>
+        <rdfs:label>documented_confirmation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CCO_0000092 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000092">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000068"/>
+        <obo:IAO_0000115>Qualifier values that carry temporal semantics, including temporal frame (when relative to the document) and temporal expression types (frequency, duration). Mirrors the grouping property has_temporal_context (CCO_0002008).</obo:IAO_0000115>
+        <obo:IAO_0000232>Narrower than the deprecated temporal (CCO_0000064): groups only temporal qualifier types, not completion status or epistemic modality. In Phase 3, temporal_expression (date, duration, frequency, set) will be added as a sibling of temporal_frame under this class.</obo:IAO_0000232>
+        <rdfs:label>temporal_context</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CCO_0000101 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000101">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
         <obo:IAO_0000115>A clinical finding of any type, including conditions.</obo:IAO_0000115>
         <obo:IAO_0000232>Was finding/condition in original paper, can treat condition as a subclass if needed.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>biolink:DiseaseOrPhenotypicFeature</oboInOwl:hasDbXref>
         <rdfs:label>finding</rdfs:label>
     </owl:Class>
     
@@ -1746,6 +1852,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000102">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
         <obo:IAO_0000115>An intervention to treat or diagnose a finding/condition or the patient</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>biolink:Procedure</oboInOwl:hasDbXref>
         <rdfs:label>intervention</rdfs:label>
     </owl:Class>
     
@@ -1754,8 +1861,9 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/CCO_0000103 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000103">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0000109"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
         <obo:IAO_0000115>Numerical or narrative temporal data elements</obo:IAO_0000115>
+        <obo:IAO_0000232>Moved from subClassOf task (CCO_0000109) to subClassOf clinical_entity (CCO_0000100). Time is a first-class clinical entity type, not a subtype of task.</obo:IAO_0000232>
         <rdfs:label>time</rdfs:label>
     </owl:Class>
     
@@ -1806,6 +1914,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000108">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
         <obo:IAO_0000115>Health care professional</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>biolink:Agent</oboInOwl:hasDbXref>
         <rdfs:label>clinician</rdfs:label>
     </owl:Class>
     
@@ -1826,6 +1935,7 @@ Equivalent to &quot;absence of&quot; in most cases. Boolean.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CCO_0000110">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/cco.owl#CCO_0000100"/>
         <obo:IAO_0000115>The entity patient</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>biolink:Case</oboInOwl:hasDbXref>
         <rdfs:label>patient</rdfs:label>
     </owl:Class>
     
