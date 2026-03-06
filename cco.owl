@@ -107,6 +107,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002001">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000089"/>
         <obo:IAO_0000115>Relates a clinical association to its confirmation status, indicating whether and how the assertion has been confirmed.</obo:IAO_0000115>
         <rdfs:label>has confirmation qualifier</rdfs:label>
     </owl:ObjectProperty>
@@ -117,6 +118,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002002">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000060"/>
         <obo:IAO_0000115>Relates a clinical association to its intention qualifier, indicating that the association is intended rather than actual.</obo:IAO_0000115>
         <rdfs:label>has intention</rdfs:label>
     </owl:ObjectProperty>
@@ -127,6 +129,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002003">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000062"/>
         <obo:IAO_0000115>Relates a clinical association to its recommendation qualifier, indicating that the association represents a clinical recommendation.</obo:IAO_0000115>
         <rdfs:label>has recommended</rdfs:label>
     </owl:ObjectProperty>
@@ -137,6 +140,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002004">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000061"/>
         <obo:IAO_0000115>Relates a clinical association to its negation status, indicating whether the asserted relationship is negated.</obo:IAO_0000115>
         <rdfs:label>has negation status</rdfs:label>
     </owl:ObjectProperty>
@@ -147,6 +151,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002005">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000090"/>
         <obo:IAO_0000115>Relates a clinical association to a confirmation obtained through discussion between clinicians or between a clinician and the patient.</obo:IAO_0000115>
         <rdfs:label>has discussed confirmation</rdfs:label>
     </owl:ObjectProperty>
@@ -157,6 +162,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002006">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002001"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000091"/>
         <obo:IAO_0000115>Relates a clinical association to a confirmation obtained through documentation such as lab results, imaging reports, or prior clinical records.</obo:IAO_0000115>
         <rdfs:label>has documentation of confirmation</rdfs:label>
     </owl:ObjectProperty>
@@ -189,6 +195,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002009">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000066"/>
         <obo:IAO_0000115>Relates a clinical association to its uncertainty qualifier, indicating that the asserted relationship is uncertain or suspected.</obo:IAO_0000115>
         <rdfs:label>has uncertainty status</rdfs:label>
     </owl:ObjectProperty>
@@ -239,9 +246,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002600">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000003"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000025"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CCO_0000058"/>
         <obo:IAO_0000115>Relates a clinical association to the frequency of the finding, condition, or intervention it describes.</obo:IAO_0000115>
         <rdfs:label>has frequency</rdfs:label>
     </owl:ObjectProperty>
@@ -263,6 +267,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002603">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0002008"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000082"/>
         <obo:IAO_0000115>Relates a clinical association to its temporal frame value (historical, current, future, or hypothetical) indicating when the association holds relative to the clinical document.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
         <rdfs:label>has temporal frame</rdfs:label>
@@ -274,6 +279,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CCO_0002604">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CCO_0003000"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CCO_0000063"/>
         <obo:IAO_0000115>Relates a clinical association to its workflow completion status (pending, in_progress, or completed). Orthogonal to temporal frame and intention.</obo:IAO_0000115>
         <obo:IAO_0000232>Not a sub-property of has_temporal_context because completion status is not a temporal concept. A pending process may be temporally past (labs drawn yesterday, results pending).</obo:IAO_0000232>
         <rdfs:label>has completion status</rdfs:label>
@@ -2098,6 +2104,48 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
 All of these should correspond to a subject or object in relations extracted by NLP systems. The exception to that is patient which may be inferred.</obo:IAO_0000232>
         <rdfs:label>clinical entity</rdfs:label>
     </owl:Class>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- Disjointness: direct children of statement_qualifier (independent qualifier axes) -->
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000060"/>  <!-- intention -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000061"/>  <!-- negated -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000062"/>  <!-- recommended -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000063"/>  <!-- completion_status -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000066"/>  <!-- uncertain -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000089"/>  <!-- confirmation_status -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000092"/>  <!-- temporal_context -->
+        </owl:members>
+    </owl:AllDisjointClasses>
+
+    <!-- Disjointness: children of temporal_frame (mutually exclusive temporal locations) -->
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000083"/>  <!-- historical -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000084"/>  <!-- current -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000085"/>  <!-- future -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000086"/>  <!-- hypothetical -->
+        </owl:members>
+    </owl:AllDisjointClasses>
+
+    <!-- Disjointness: children of completion_status (mutually exclusive workflow states) -->
+    <owl:AllDisjointClasses>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000065"/>  <!-- pending -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000087"/>  <!-- in_progress -->
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CCO_0000088"/>  <!-- completed -->
+        </owl:members>
+    </owl:AllDisjointClasses>
+
 </rdf:RDF>
 
 
