@@ -11,12 +11,12 @@ Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: idrange: <http://purl.obolibrary.org/obo/ro/idrange/>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 
-Ontology: <http://purl.obolibrary.org/obo/cro/cro-idranges.owl>
+Ontology: <http://purl.obolibrary.org/obo/clco/clco-idranges.owl>
 
 
 Annotations: 
-    idsfor: "CRO",
-    idprefix: "http://purl.obolibrary.org/obo/CRO_",
+    idsfor: "CLCO",
+    idprefix: "http://purl.obolibrary.org/obo/CLCO_",
     iddigits: 7
 
 AnnotationProperty: idprefix:

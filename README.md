@@ -12,13 +12,13 @@ This ontology is currently under development and will be submited to the OBO fou
 
 After acceptance, the latest version of the ontology will be found at:
 
-http://purl.obolibrary.org/obo/cco.owl
+http://purl.obolibrary.org/obo/clco.owl
 
 (note this will not show up until the request has been approved by obofoundry.org)
 
 ### Editors' version
 
-Editors of this ontology should use the edit version, [src/ontology/cco-edit.owl](src/ontology/cco-edit.owl)
+Editors of this ontology should use the edit version, [src/ontology/clco-edit.owl](src/ontology/clco-edit.owl)
 
 ## Contact
 
