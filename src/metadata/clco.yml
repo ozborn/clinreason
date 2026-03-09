@@ -1,15 +1,15 @@
-# PURL configuration for http://purl.obolibrary.org/obo/cro
+# PURL configuration for http://purl.obolibrary.org/obo/clco
 
-idspace: CRO
-base_url: /obo/cro
+idspace: CLCO
+base_url: /obo/clco
 
 products:
-- cro.owl: https://raw.githubusercontent.com/ozborn/clinreason/main/cro.owl
-- cro.obo: https://raw.githubusercontent.com/ozborn/clinreason/main/cro.obo
+- clco.owl: https://raw.githubusercontent.com/ozborn/clinreason/main/clco.owl
+- clco.obo: https://raw.githubusercontent.com/ozborn/clinreason/main/clco.obo
 
 term_browser: ontobee
 example_terms:
-- CRO_0000000
+- CLCO_0000000
 
 entries:
 
@@ -20,7 +20,7 @@ entries:
   replacement: https://github.com/ozborn/clinreason/issues
 
 - prefix: /about/
-  replacement: http://www.ontobee.org/ontology/CRO?iri=http://purl.obolibrary.org/obo/
+  replacement: http://www.ontobee.org/ontology/CLCO?iri=http://purl.obolibrary.org/obo/
 
 ## generic fall-through, serve direct from github by default
 - prefix: /

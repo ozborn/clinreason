@@ -10,14 +10,14 @@ bin/
 src/ontology/mirror
 src/ontology/mirror/*
 src/ontology/reports/*
-src/ontology/cro.owl
-src/ontology/cro.obo
-src/ontology/cro.json
-src/ontology/cro-base.*
-src/ontology/cro-basic.*
-src/ontology/cro-full.*
-src/ontology/cro-simple.*
-src/ontology/cro-simple-non-classified.*
+src/ontology/clco.owl
+src/ontology/clco.obo
+src/ontology/clco.json
+src/ontology/clco-base.*
+src/ontology/clco-basic.*
+src/ontology/clco-full.*
+src/ontology/clco-simple.*
+src/ontology/clco-simple-non-classified.*
 
 src/ontology/seed.txt
 src/ontology/dosdp-tools.log
@@ -25,7 +25,7 @@ src/ontology/ed_definitions_merged.owl
 src/ontology/ontologyterms.txt
 src/ontology/simple_seed.txt
 src/ontology/patterns
-src/ontology/merged-cro-edit.owl
+src/ontology/merged-clco-edit.owl
 
 src/ontology/target/
 src/ontology/tmp/*

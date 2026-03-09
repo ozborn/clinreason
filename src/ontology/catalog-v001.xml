@@ -3,8 +3,8 @@
 <group id="Folder Repository, directory=, recursive=false, Auto-Update=false, version=2" prefer="public" xml:base="">
 
   
-  <uri name="http://purl.obolibrary.org/obo/cro/imports/bfo_import.owl" uri="imports/bfo_import.owl"/>
-  <uri name="http://purl.obolibrary.org/obo/cro/imports/bfo_import.obo" uri="imports/bfo_import.obo"/>
+  <uri name="http://purl.obolibrary.org/obo/clco/imports/bfo_import.owl" uri="imports/bfo_import.owl"/>
+  <uri name="http://purl.obolibrary.org/obo/clco/imports/bfo_import.obo" uri="imports/bfo_import.obo"/>
   
 
 
