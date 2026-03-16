@@ -14,9 +14,15 @@ Ontology(<http://purl.obolibrary.org/obo/clco.owl>
 Import(<http://purl.obolibrary.org/obo/clco/imports/bfo_import.owl>)
 
 
-Annotation(dcterms:description "None")
-Annotation(dcterms:license <https://creativecommons.org/licenses/unspecified>)
+Annotation(dcterms:description "An ontology for representing clinical reasoning context, including diagnostic workflows, therapeutic decision-making, and the clinician interpretations and decisions that surround patient care but are not well captured by problem-focused EHR systems or terminologies such as SNOMED CT.")
+Annotation(dcterms:license <http://creativecommons.org/licenses/by/4.0/>)
 Annotation(dcterms:title "Clinical Context Ontology")
+Annotation(dce:creator "Tiago K. Colicchio")
+Annotation(dce:creator "James J. Cimino")
+Annotation(dce:creator "John D. Osborne")
+Annotation(dcterms:creator <https://orcid.org/0000-0003-3405-1538>)
+Annotation(dcterms:creator <https://orcid.org/0000-0003-4101-1622>)
+Annotation(dcterms:creator <https://orcid.org/0000-0002-0851-1150>)
 
 
 Declaration(Class(<http://purl.obolibrary.org/obo/CLCO_0000000>))
