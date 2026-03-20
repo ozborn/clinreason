@@ -10,11 +10,11 @@ build:
   system: git
   path: "."
 contact:
-  email: 
-  label: 
-  github: 
-description: Clinical Context Ontology is an ontology...
-domain: stuff
+  email: ozborn@uab.edu
+  label: John Osborne
+  github: ozborn
+description: Open ontology for tracking the clinical context of a patient including treatment rationale, diagnostic reasoning and issues related to care context.
+domain: clinical
 homepage: https://github.com/ozborn/clinreason
 products:
   - id: clco.owl
@@ -34,11 +34,10 @@ dependencies:
 
 tracker: https://github.com/ozborn/clinreason/issues
 license:
-  url: http://creativecommons.org/licenses/by/3.0/
-  label: CC-BY
+  url: http://creativecommons.org/licenses/by/4.0/
+  label: CC-BY 4.0
 activity_status: active
 ---
 
-Enter a detailed description of your ontology here. You can use arbitrary markdown and HTML.
-You can also embed images too.
+The Clinical Context Ontology (CLCO) captures clinical context around a patient's care, including the clinician's interpretations and decisions which are not well represented in the problem-focused EHR or other ontologies such as SNOMED CT. It covers treatment rationale, diagnostic reasoning, and issues related to care context. For more details, see [the publication](https://academic.oup.com/jamia/article/27/11/1648/5906104).
 
