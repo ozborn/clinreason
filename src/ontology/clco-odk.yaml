@@ -2,6 +2,23 @@ id: clco
 title: Clinical Context Ontology
 github_org: ozborn
 repo: clinreason
+contact:
+  label: John D. Osborne
+  email: ozborn@uab.edu
+  github: ozborn
+  orcid: 0000-0002-0851-1150
+license:
+  url: http://creativecommons.org/licenses/by/4.0/
+  label: CC BY 4.0
+description: >-
+  An ontology for representing clinical reasoning context, including
+  diagnostic workflows, therapeutic decision-making, and the clinician
+  interpretations and decisions that surround patient care but are not
+  well captured by problem-focused EHR systems or terminologies such as
+  SNOMED CT.
+domain: clinical reasoning
+homepage: https://github.com/ozborn/clinreason
+tracker: https://github.com/ozborn/clinreason/issues
 import_group:
   products:
     - id: bfo

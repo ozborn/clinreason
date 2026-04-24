@@ -164,6 +164,8 @@
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
         <obo:IAO_0000115>A modifier of a clinical association</obo:IAO_0000115>
+        <obo:IAO_0000232>Analogous to RO:0000053 (has characteristic) in that the association bears the qualifier, but not declared as a sub-property because BFO type constraints require the bearer to be an independent continuant and the characteristic to be a specifically dependent continuant. CLCO associations are information content entities and qualifiers are not modeled as BFO dependent continuants.</obo:IAO_0000232>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
         <rdfs:label>has association qualifier</rdfs:label>
     </owl:ObjectProperty>
     
@@ -236,6 +238,8 @@
         <oboInOwl:id>CLCO:0002500</oboInOwl:id>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <obo:IAO_0000115>Relates a clinical association to a clinical entity that participates in it as either the subject or the object.</obo:IAO_0000115>
+        <obo:IAO_0000232>Analogous to RO:0000057 (has participant) but not declared as a sub-property because RO:0000057 relates a process (occurrent) to a continuant, whereas CLCO clinical associations are reified information content entities (subClassOf IAO:0000030), not processes. CLCO uses a statement reification pattern (n-ary relation) in which subject and object slots connect an association class to the entities it asserts a relationship between. This pattern has no direct equivalent in RO, which models relations as direct object properties between BFO-typed instances.</obo:IAO_0000232>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
         <rdfs:label>has association participant</rdfs:label>
     </owl:ObjectProperty>
     
@@ -247,6 +251,7 @@
         <oboInOwl:id>CLCO:0002501</oboInOwl:id>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002500"/>
         <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the object position in that association.</obo:IAO_0000115>
+        <obo:IAO_0000232>No direct RO equivalent exists. This property fills the object slot in a reified clinical statement (n-ary relation pattern). RO models relations as direct object properties, not as reified statements with named participant slots. See parent property CLCO:0002500 for further rationale.</obo:IAO_0000232>
         <rdfs:label>has object</rdfs:label>
     </owl:ObjectProperty>
     
@@ -258,6 +263,7 @@
         <oboInOwl:id>CLCO:0002502</oboInOwl:id>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002500"/>
         <obo:IAO_0000115>Relates a clinical association (an asserted statement) to the entity that occupies the subject position in that association.</obo:IAO_0000115>
+        <obo:IAO_0000232>No direct RO equivalent exists. This property fills the subject slot in a reified clinical statement (n-ary relation pattern). RO models relations as direct object properties, not as reified statements with named participant slots. See parent property CLCO:0002500 for further rationale.</obo:IAO_0000232>
         <rdfs:label>has subject</rdfs:label>
     </owl:ObjectProperty>
     
@@ -270,8 +276,10 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000082"/>
         <obo:IAO_0000115>Relates a clinical association to its temporal frame value (historical, current, future, or hypothetical) indicating when the association holds relative to the clinical document.</obo:IAO_0000115>
+        <obo:IAO_0000232>Not a sub-property of RO:0002222 (temporally related to) because RO temporal relations use Allen interval algebra to order two occurrents (processes) relative to each other, whereas CLCO temporal frame is a categorical document-relative qualifier (historical/current/future/hypothetical) attached to a reified information entity. The RO_0001900 (temporal interpretation) annotation is retained to indicate that this property has temporal semantics.</obo:IAO_0000232>
         <obo:RO_0001900 rdf:resource="http://purl.obolibrary.org/obo/RO_0001901"/>
         <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
         <rdfs:label>has temporal frame</rdfs:label>
     </owl:ObjectProperty>
     
@@ -657,7 +665,14 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>SL nitroglycerin alleviated pain.</obo:IAO_0000112>
@@ -672,7 +687,26 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000019">
         <oboInOwl:id>CLCO:0000019</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000103"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>Statement indicating the frequency of a finding/condition or intervention</obo:IAO_0000115>
         <obo:IAO_0000232>SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>biolink:frequency_qualifier</oboInOwl:hasDbXref>
@@ -695,7 +729,14 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>Chest Pain: &quot;she took a SL NTG&quot;</obo:IAO_0000112>
@@ -711,7 +752,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000022">
         <oboInOwl:id>CLCO:0000022</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -770,7 +811,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000024">
         <oboInOwl:id>CLCO:0000024</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -804,6 +845,25 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000025">
         <oboInOwl:id>CLCO:0000025</oboInOwl:id>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000112"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000112>The patient reported sore throat and his physical indicated swollen lymph nodes.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that the patient or a specific finding site has a finding or condition.</obo:IAO_0000115>
         <obo:IAO_0000232>Was can_cause_finding_or_condition, a statement of medical knowledge about the potential cause of a finding/condition. Now just has_finding.</obo:IAO_0000232>
@@ -898,6 +958,7 @@
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000104"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -923,7 +984,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000031">
         <oboInOwl:id>CLCO:0000031</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -953,7 +1014,14 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000104"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1403,7 +1471,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000051">
         <oboInOwl:id>CLCO:0000051</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1430,7 +1498,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000052">
         <oboInOwl:id>CLCO:0000052</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1464,7 +1532,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000053">
         <oboInOwl:id>CLCO:0000053</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1496,7 +1564,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000054">
         <oboInOwl:id>CLCO:0000054</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1680,7 +1748,7 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000071">
         <oboInOwl:id>CLCO:0000071</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1705,7 +1773,7 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000072">
         <oboInOwl:id>CLCO:0000072</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1730,7 +1798,7 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000073">
         <oboInOwl:id>CLCO:0000073</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1761,7 +1829,7 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000074">
         <oboInOwl:id>CLCO:0000074</oboInOwl:id>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
