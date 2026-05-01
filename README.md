@@ -8,7 +8,7 @@ Description: Open ontology for tracking the clinical context of a patient includ
 * Synthetic Data Generation
 * Extract Clinical reasoning (could use available case studies for training)
 
-This ontology is under active development with a planned submission to the OBO Foundry. Entity restrictions need to be added, improved definition and examples. Currently examples are in rdfs:comment as Example: or Example(negated):
+This ontology is under active development with a planned submission to the OBO Foundry. All 45 association classes have complete subject/object restriction axioms and IAO:0000115 definitions. Examples are provided as IAO:0000112 annotations.
 
 ## Versions
 

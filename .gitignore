@@ -1,6 +1,8 @@
 .DS_Store
 semantic.cache
 bin/
+paper/
+presentations/
 
 *.tmp
 *.tmp.obo
