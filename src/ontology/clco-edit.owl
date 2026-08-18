@@ -2218,6 +2218,9 @@ All of these should correspond to a subject or object in relations extracted by 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_current_medication">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <obo:IAO_0000112></obo:IAO_0000112>
+        <obo:IAO_0000112>Patient reported 10 mg lisinopril daily for hypertension.</obo:IAO_0000112>
+        <obo:IAO_0000115>Statement specifies medication history prior to admission</obo:IAO_0000115>
         <rdfs:label>has current medication</rdfs:label>
     </owl:Class>
     
@@ -2227,6 +2230,8 @@ All of these should correspond to a subject or object in relations extracted by 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_diet">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <obo:IAO_0000112>Patient reported consuming 3 meals daily adhering to vegan dietary restrictions.</obo:IAO_0000112>
+        <obo:IAO_0000115>Statement that specifies a patient&apos;s dietary habits.</obo:IAO_0000115>
         <rdfs:label>has diet</rdfs:label>
     </owl:Class>
     
