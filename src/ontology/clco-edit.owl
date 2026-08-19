@@ -2297,7 +2297,6 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_over_the_counter -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_over_the_counter">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clco.owl#has_current_medication"/>
         <rdfs:label>has over the counter</rdfs:label>
     </owl:Class>
     
@@ -2319,7 +2318,6 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_prescription -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_prescription">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clco.owl#has_current_medication"/>
         <oboInOwl:hasDbXref>SNOMEDCT:4126021</oboInOwl:hasDbXref>
         <rdfs:label>has prescription</rdfs:label>
     </owl:Class>
