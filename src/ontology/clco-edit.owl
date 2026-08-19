@@ -2003,6 +2003,7 @@ All of these should correspond to a subject or object in relations extracted by 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>An intervention to treat or diagnose a finding/condition or the patient</obo:IAO_0000115>
         <oboInOwl:hasDbXref>biolink:Procedure</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database.</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000102</oboInOwl:id>
         <rdfs:label>intervention</rdfs:label>
     </owl:Class>
@@ -2015,6 +2016,7 @@ All of these should correspond to a subject or object in relations extracted by 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Numerical or narrative temporal data elements</obo:IAO_0000115>
         <obo:IAO_0000232>Moved from subClassOf task (CLCO_0000109) to subClassOf clinical_entity (CLCO_0000100). Time is a first-class clinical entity type, not a subtype of task.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:410669006</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000103</oboInOwl:id>
         <rdfs:label>time</rdfs:label>
     </owl:Class>
@@ -2026,6 +2028,8 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000104">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Justifications and reasons for ordering, performing, planning, or discontinuing an intervention or diagnostic process</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMEDCT sourced from Athena OHDSI &quot;Reason and justification&quot; (https://athena.ohdsi.org/search-terms/terms/4128496)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:288830005</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000104</oboInOwl:id>
         <rdfs:label>reason</rdfs:label>
     </owl:Class>
@@ -2037,6 +2041,7 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000105">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Course of a finding/condition</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>SNOMEDCT:260908002</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000105</oboInOwl:id>
         <rdfs:label>course</rdfs:label>
     </owl:Class>
@@ -2048,6 +2053,8 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000106">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Any numerical or narrative description of a finding/condition or intervention</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOWMEDCT code for &quot;hasvalue&quot; sourced from Athena OHDSI database (https://athena.ohdsi.org/search-terms/terms/4306768)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOWMEDCT:83568003</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000106</oboInOwl:id>
         <rdfs:label>value</rdfs:label>
     </owl:Class>
@@ -2059,6 +2066,7 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000107">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Health care setting or location</obo:IAO_0000115>
+        <obo:IAO_0000232>There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000107</oboInOwl:id>
         <rdfs:label>setting</rdfs:label>
     </owl:Class>
@@ -2082,6 +2090,8 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000109">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Any healthcare related task not related to direct clinical activities (e.g., phone call or uploading a medical record file).</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMEDCT code sourced from Athena OHDSI &quot;TASK&quot; (https://athena.ohdsi.org/search-terms/terms/4008963)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:101878003</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000109</oboInOwl:id>
         <rdfs:label>task</rdfs:label>
     </owl:Class>
@@ -2094,6 +2104,7 @@ All of these should correspond to a subject or object in relations extracted by 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>The patient entity</obo:IAO_0000115>
         <oboInOwl:hasDbXref>biolink:Case</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMEDCT:116154003</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000110</oboInOwl:id>
         <rdfs:label>patient</rdfs:label>
     </owl:Class>
@@ -2130,6 +2141,8 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000113">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Patient state, e.g., stable, improving. The overall patient state, not whether a particular disease or condition is stable or improving.</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMEDCT was sourced from Athena OHDSI &quot;Patient Status&quot; (http://athena.ohdsi.org/search-terms/terms/4077556)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOWMEDCT:246097001</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000113</oboInOwl:id>
         <rdfs:label>patient state</rdfs:label>
     </owl:Class>
