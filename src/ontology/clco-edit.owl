@@ -1521,7 +1521,6 @@
     <!-- http://purl.obolibrary.org/obo/CLCO_0000054 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000054">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
@@ -1541,13 +1540,6 @@
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000110"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000112>The patient underwent two kidney transplants (2002, 2012)</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement of fact about a patient that constitutes past medical history</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOMED CT United Kingdom clinical extension module sourced.</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44813766</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>SNOMED:722291000000108</oboInOwl:hasDbXref>
-        <oboInOwl:id>CLCO:0000054</oboInOwl:id>
-        <rdfs:label>has history</rdfs:label>
     </owl:Class>
     
 
@@ -2078,6 +2070,7 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000108">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Health care professional, unlike SNOMED, includes only people working directly with patients such as physicians, nurses, etc... Administrative healthcare professionals such as healthcare billing coders are not included.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>SNOMEDCT:44804106</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000108</oboInOwl:id>
         <rdfs:label>clinician</rdfs:label>
     </owl:Class>
@@ -2188,7 +2181,7 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_adherance -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_adherance">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clco.owl#has_prescription"/>
+        <oboInOwl:hasDbXref>SNOMEDCT: 44808288</oboInOwl:hasDbXref>
         <rdfs:label>has adherance</rdfs:label>
     </owl:Class>
     
@@ -2197,7 +2190,11 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_alcohol_use -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_alcohol_use">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clco.owl#has_drug_use"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <obo:IAO_0000112>The patient reports drinking a glass of wine daily with dinner.</obo:IAO_0000112>
+        <obo:IAO_0000115>Statement identifying patient reported alcohol use.</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMEDCT code sourced courced from Athena OHDSI &quot;[V] Alcohol use&quot; (https://athena.ohdsi.org/search-terms/terms/3556573)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:401311000000101</oboInOwl:hasDbXref>
         <rdfs:label>has alcohol use</rdfs:label>
     </owl:Class>
     
@@ -2206,9 +2203,11 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_allergy -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_allergy">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <obo:IAO_0000112>Patient has allergy to Sulfa drugs, therefore furosemide is contraindicated in the treatment of edema.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating patient&apos;s allergy to drug class.</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMEDCT code sourced from Athena OHDSI &quot;Allergy status&quot; (https://athena.ohdsi.org/search-terms/terms/1243740)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:1300212001</oboInOwl:hasDbXref>
         <rdfs:label>has allergy</rdfs:label>
     </owl:Class>
     
@@ -2217,11 +2216,12 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_current_medication -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_current_medication">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
-        <obo:IAO_0000112></obo:IAO_0000112>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <obo:IAO_0000112>Patient reported 10 mg lisinopril daily for hypertension.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement specifies medication history prior to admission</obo:IAO_0000115>
-        <rdfs:label>has current medication</rdfs:label>
+        <obo:IAO_0000232>Sourced from Athena OHDSI &quot;medication&quot; (https://athena.ohdsi.org/search-terms/terms/44788575)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:185361000000102</oboInOwl:hasDbXref>
+        <rdfs:label>has medication</rdfs:label>
     </owl:Class>
     
 
@@ -2229,9 +2229,11 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_diet -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_diet">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <obo:IAO_0000112>Patient reported consuming 3 meals daily adhering to vegan dietary restrictions.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement that specifies a patient&apos;s dietary habits.</obo:IAO_0000115>
+        <obo:IAO_0000232>The SNOMEDCT code for &quot;generalized diet&quot; was used here sourced from Athena ohdsi (https://athena.ohdsi.org/search-terms/terms/4188181)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:41449007</oboInOwl:hasDbXref>
         <rdfs:label>has diet</rdfs:label>
     </owl:Class>
     
@@ -2240,8 +2242,12 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_drug_use -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_drug_use">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
-        <rdfs:label>has drug use</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <obo:IAO_0000112>Patient has a 2 year history of cocaine use.</obo:IAO_0000112>
+        <obo:IAO_0000115>This statement is used to identify patient history of illict drug use.</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMEDCT code sourced from Athena ohdsi &quot;Illicit drug use&quot; (https://athena.ohdsi.org/search-terms/terms/3529488)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:488151000000108</oboInOwl:hasDbXref>
+        <rdfs:label>has illicit drug use</rdfs:label>
     </owl:Class>
     
 
@@ -2249,8 +2255,11 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_family_history -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_family_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
-        <obo:IAO_0000112>History of chronic illness in family members</obo:IAO_0000112>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <obo:IAO_0000112>The patient&apos;s mother has a past medical history of hypercholoesterolemia.</obo:IAO_0000112>
+        <obo:IAO_0000115>History of chronic illness in family members</obo:IAO_0000115>
+        <obo:IAO_0000232>Sourced from Athena OHDSI &quot;family history&quot; (https://athena.ohdsi.org/search-terms/terms/40306697)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:137667000</oboInOwl:hasDbXref>
         <rdfs:label>has family history</rdfs:label>
     </owl:Class>
     
@@ -2259,7 +2268,8 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_hospitalization_history -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_hospitalization_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <obo:IAO_0000232>There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database. (https://athena.ohdsi.org/search-terms/terms?query=hospitalization&amp;boosts&amp;page=1)</obo:IAO_0000232>
         <rdfs:label>has past hospitalization</rdfs:label>
     </owl:Class>
     
@@ -2267,10 +2277,7 @@ All of these should correspond to a subject or object in relations extracted by 
 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_illicit_drug_use -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_illicit_drug_use">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clco.owl#has_drug_use"/>
-        <rdfs:label>has illicit drug use</rdfs:label>
-    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_illicit_drug_use"/>
     
 
 
@@ -2286,7 +2293,11 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_physical_activity -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_physical_activity">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <obo:IAO_0000112>The patient walks one mile in the evenings approximately 3-4 times per week.</obo:IAO_0000112>
+        <obo:IAO_0000115>Statement identifying the amount of physical activity the patient has.</obo:IAO_0000115>
+        <obo:IAO_0000232>Sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/40562289)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:389292000</oboInOwl:hasDbXref>
         <rdfs:label>has physical activity</rdfs:label>
     </owl:Class>
     
@@ -2296,6 +2307,7 @@ All of these should correspond to a subject or object in relations extracted by 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_prescription">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clco.owl#has_current_medication"/>
+        <oboInOwl:hasDbXref>SNOMEDCT:4126021</oboInOwl:hasDbXref>
         <rdfs:label>has prescription</rdfs:label>
     </owl:Class>
     
@@ -2303,19 +2315,22 @@ All of these should correspond to a subject or object in relations extracted by 
 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_psychiatric_history -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_psychiatric_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
-        <rdfs:label>has psychiatric history</rdfs:label>
-    </owl:Class>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_psychiatric_history"/>
     
 
 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_support_system -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_support_system">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <obo:IAO_0000112>Patient has dementia and was prescribed omeprazole for heart burn. They have an adult daughter who visits them daily so prescription of medication can be better adhered to with involvement of daughter.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement is used to identify if the patient has family, friends, or caregivers, able to assisst with their care. This is crucial information in the determination of therapy as those who may have cognitive or physical impairment. Although a patient may be prescribed the correct therapy for their condition their ability to implement and maintain adherence will greatly affect efficacy.</obo:IAO_0000115>
+        <obo:IAO_0000232>The SNOMEDCT for &quot;home support&quot; from Athena OHDSI database (https://athena.ohdsi.org/search-terms/terms/44791820) was used here but there are also SNOMEDCT codes for:
+
+Social support: 441141000124101
+Practical support: 303521000000108
+Caregiver support: 386229000</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:304351000000106</oboInOwl:hasDbXref>
         <rdfs:label>has support system</rdfs:label>
     </owl:Class>
     
@@ -2324,9 +2339,11 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_surgical_history -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_surgical_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000054"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <obo:IAO_0000115>Patient presented to hospital with fracture of the femoral neck. It was found she had a history of bilateral salpingoophorectomy which contribute to decreased estrogen levels and bone loss facilitating susceptibility to fracture.</obo:IAO_0000115>
-        <rdfs:label>has surgical history</rdfs:label>
+        <obo:IAO_0000232>Sourced from Athena OHDSI &quot;surgery&quot; (https://athena.ohdsi.org/search-terms/terms/4121697)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:257556004</oboInOwl:hasDbXref>
+        <rdfs:label>has surgery</rdfs:label>
     </owl:Class>
     
 
@@ -2337,6 +2354,8 @@ All of these should correspond to a subject or object in relations extracted by 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <obo:IAO_0000112>Patient explains that her significant pelvic discomfort occurs 2-3 days a month concurrent with the onset of menstruation for the past 4 months.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicates the reccurence of the condition with a specific time of day or month.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>SNOMEDCT sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/4079053)</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMEDCT: 246512002</oboInOwl:hasDbXref>
         <rdfs:label>has timing</rdfs:label>
     </owl:Class>
     
@@ -2345,8 +2364,11 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_tobacco_use -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_tobacco_use">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/clco.owl#has_drug_use"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <obo:IAO_0000112>Patient reports 30 pack-years of smoking since age 17.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement is used to identify history of tobacco use. This includes consistent second hand smoke exposure due to usage from a co-habitant</obo:IAO_0000115>
+        <obo:IAO_0000232>Sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/4219336)</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>SNOMEDCT:39953003</oboInOwl:hasDbXref>
         <rdfs:label>has tobacco use</rdfs:label>
     </owl:Class>
     
