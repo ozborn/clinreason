@@ -2366,7 +2366,7 @@ Caregiver support: 386229000</obo:IAO_0000232>
         <obo:IAO_0000112>Patient explains that her significant pelvic discomfort occurs 2-3 days a month concurrent with the onset of menstruation for the past 4 months.</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicates the reccurence of the condition with a specific time of day or month.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>SNOMEDCT sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/4079053)</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>SNOMEDCT: 246512002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMEDCT:246512002</oboInOwl:hasDbXref>
         <rdfs:label>has timing</rdfs:label>
     </owl:Class>
     
