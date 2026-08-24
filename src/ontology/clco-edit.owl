@@ -2143,7 +2143,7 @@ All of these should correspond to a subject or object in relations extracted by 
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_family_history -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_family_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000083"/>
         <obo:IAO_0000112>The patient&apos;s mother has a past medical history of hypercholoesterolemia.</obo:IAO_0000112>
         <obo:IAO_0000115>History of chronic illness in family members</obo:IAO_0000115>
         <obo:IAO_0000232>Sourced from Athena OHDSI &quot;family history&quot; (https://athena.ohdsi.org/search-terms/terms/40306697)</obo:IAO_0000232>
