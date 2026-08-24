@@ -643,38 +643,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/CLCO_0000019 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000019">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000103"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115>Statement indicating the frequency of a finding/condition or intervention</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>biolink:frequency_qualifier</oboInOwl:hasDbXref>
-        <oboInOwl:id>CLCO:0000019</oboInOwl:id>
-        <rdfs:label>has frequency</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/CLCO_0000021 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000021">
@@ -1544,25 +1512,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/CLCO_0000055 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000055">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000110"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement indicating the patient is at risk for a condition or procedure.</obo:IAO_0000115>
-        <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
-        <oboInOwl:id>CLCO:0000055</oboInOwl:id>
-        <rdfs:label>has risk factor</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/CLCO_0000057 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000057">
@@ -2002,7 +1951,7 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>An intervention to treat or diagnose a finding/condition or the patient</obo:IAO_0000115>
-        <oboInOwl:hasDbXref>There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database.</oboInOwl:hasDbXref>
+        <obo:IAO_0000232>There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>biolink:Procedure</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000102</oboInOwl:id>
         <rdfs:label>intervention</rdfs:label>
@@ -2191,32 +2140,6 @@ All of these should correspond to a subject or object in relations extracted by 
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_current_medication -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_current_medication">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <obo:IAO_0000112>Patient reported 10 mg lisinopril daily for hypertension.</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement specifies medication history prior to admission</obo:IAO_0000115>
-        <obo:IAO_0000232>Sourced from Athena OHDSI &quot;medication&quot; (https://athena.ohdsi.org/search-terms/terms/44788575)</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>SNOMEDCT:185361000000102</oboInOwl:hasDbXref>
-        <rdfs:label>has medication</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_diet -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_diet">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <obo:IAO_0000112>Patient reported consuming 3 meals daily adhering to vegan dietary restrictions.</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement that specifies a patient&apos;s dietary habits.</obo:IAO_0000115>
-        <obo:IAO_0000232>The SNOMEDCT code for &quot;generalized diet&quot; was used here sourced from Athena ohdsi (https://athena.ohdsi.org/search-terms/terms/4188181)</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>SNOMEDCT:41449007</oboInOwl:hasDbXref>
-        <rdfs:label>has diet</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_family_history -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_family_history">
@@ -2230,66 +2153,17 @@ All of these should correspond to a subject or object in relations extracted by 
     
 
 
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_hospitalization_history -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_hospitalization_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <obo:IAO_0000232>There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database. (https://athena.ohdsi.org/search-terms/terms?query=hospitalization&amp;boosts&amp;page=1)</obo:IAO_0000232>
-        <rdfs:label>has past hospitalization</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_physical_activity -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_physical_activity">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <obo:IAO_0000112>The patient walks one mile in the evenings approximately 3-4 times per week.</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement identifying the amount of physical activity the patient has.</obo:IAO_0000115>
-        <obo:IAO_0000232>Sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/40562289)</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>SNOMEDCT:389292000</oboInOwl:hasDbXref>
-        <rdfs:label>has physical activity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_support_system -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_support_system">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <obo:IAO_0000112>Patient has dementia and was prescribed omeprazole for heart burn. They have an adult daughter who visits them daily so prescription of medication can be better adhered to with involvement of daughter.</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement is used to identify if the patient has family, friends, or caregivers, able to assisst with their care. This is crucial information in the determination of therapy as those who may have cognitive or physical impairment. Although a patient may be prescribed the correct therapy for their condition their ability to implement and maintain adherence will greatly affect efficacy.</obo:IAO_0000115>
-        <obo:IAO_0000232>The SNOMEDCT for &quot;home support&quot; from Athena OHDSI database (https://athena.ohdsi.org/search-terms/terms/44791820) was used here but there are also SNOMEDCT codes for:
-
-Social support: 441141000124101
-Practical support: 303521000000108
-Caregiver support: 386229000</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>SNOMEDCT:304351000000106</oboInOwl:hasDbXref>
-        <rdfs:label>has support system</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_surgical_history -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_surgical_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <obo:IAO_0000115>Patient presented to hospital with fracture of the femoral neck. It was found she had a history of bilateral salpingoophorectomy which contribute to decreased estrogen levels and bone loss facilitating susceptibility to fracture.</obo:IAO_0000115>
-        <obo:IAO_0000232>Sourced from Athena OHDSI &quot;surgery&quot; (https://athena.ohdsi.org/search-terms/terms/4121697)</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>SNOMEDCT:257556004</oboInOwl:hasDbXref>
-        <rdfs:label>has surgery</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/clco.owl#has_timing -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_timing">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <obo:IAO_0000112>Patient explains that her significant pelvic discomfort occurs 2-3 days a month concurrent with the onset of menstruation for the past 4 months.</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement indicates the reccurence of the condition with a specific time of day or month.</obo:IAO_0000115>
-        <oboInOwl:hasDbXref>SNOMEDCT sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/4079053)</oboInOwl:hasDbXref>
+        <obo:IAO_0000115>Statement indicates the reccurence/or frequency of a finding/condition/intervention with a specific time of day or month.</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMEDCT sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/4079053)</obo:IAO_0000232>
         <oboInOwl:hasDbXref>SNOMEDCT:246512002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>This class also encompases the prior has frequency class that was provided in earlier versions of clco-edit.owl. SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>biolink:frequency_qualifier</oboInOwl:hasDbXref>
+        <oboInOwl:id>CLCO:0000019</oboInOwl:id>
         <rdfs:label>has timing</rdfs:label>
     </owl:Class>
     
