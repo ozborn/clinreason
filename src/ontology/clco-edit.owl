@@ -1,15 +1,5 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://purl.obolibrary.org/obo/clco.owl#"
-     xml:base="http://purl.obolibrary.org/obo/clco.owl"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:obo="http://purl.obolibrary.org/obo/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.obolibrary.org/obo/clco.owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:obo="http://purl.obolibrary.org/obo/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:terms="http://purl.org/dc/terms/" xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#" xml:base="http://purl.obolibrary.org/obo/clco.owl">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/clco.owl">
         <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/clco/releases/2026-07-25/clco.owl"/>
         <dc:creator>James J. Cimino</dc:creator>
@@ -21,8 +11,8 @@
         <terms:creator rdf:resource="https://orcid.org/0000-0003-3405-1538"/>
         <terms:creator rdf:resource="https://orcid.org/0000-0003-4101-1622"/>
         <terms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
-        <owl:versionInfo>2026-05-15</owl:versionInfo>
-        <owl:versionInfo>2026-07-25</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2026-05-15</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2026-07-25</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -164,7 +154,35 @@
         <oboInOwl:id>CLCO:0002000</oboInOwl:id>
         <rdfs:label>has association qualifier</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLE:
+
+"A soft-tissue tumor was suspected."
+SOURCE: "soft-tissue tumor" =&gt; finding
+TARGET: "suspected" =&gt; uncertainty
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+
+"The patient denied having a fever."
+SOURCE: "fever" =&gt; finding
+TARGET: "denied" =&gt; negation
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+
+"The biopsy was completed."
+SOURCE: "biopsy" =&gt; intervention
+TARGET: "completed" =&gt; completion status
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+
+NEGATIVE EXAMPLES:
+
+"A soft-tissue tumor was suspected."
+Use: has uncertainty status, NOT the generic has association qualifier when a specific subproperty applies.
+
+"The patient denied having a fever."
+Use: has negation status, NOT the generic has association qualifier.
+
+"The biopsy was completed."
+Use: has completion status, NOT the generic has association qualifier.
+
+Use a specific subproperty when one exists, such as has uncertainty status, has negation status, or has completion status.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -176,7 +194,22 @@
         <obo:IAO_0000115>Relates a clinical association to its intention qualifier, indicating that the association is intended rather than actual.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0002002</oboInOwl:id>
         <rdfs:label>has intention</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"The patient will start chemotherapy."
+SOURCE: "chemotherapy" =&gt; intervention
+TARGET: "will start" =&gt; intention
+RELATION: SOURCE =&gt; has intention =&gt; TARGET
+
+"The patient intended to undergo surgery."
+SOURCE: "surgery" =&gt; intervention
+TARGET: "intended" =&gt; intention
+RELATION: SOURCE =&gt; has intention =&gt; TARGET
+
+NEGATIVE EXAMPLE:
+
+"The patient underwent surgery."
+"underwent" describes an actual event, NOT intention.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -188,7 +221,22 @@
         <obo:IAO_0000115>Relates a clinical association to its recommendation qualifier, indicating that the association represents a clinical recommendation.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0002003</oboInOwl:id>
         <rdfs:label>has recommended</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"The physician recommended an MRI."
+SOURCE: "MRI" =&gt; intervention
+TARGET: "recommended" =&gt; recommended
+RELATION: SOURCE =&gt; has recommended =&gt; TARGET
+
+"The patient should follow up in two weeks."
+SOURCE: "follow up" =&gt; intervention
+TARGET: "should" =&gt; recommended
+RELATION: SOURCE =&gt; has recommended =&gt; TARGET
+
+NEGATIVE EXAMPLE:
+
+"The patient underwent an MRI."
+"underwent" describes an actual intervention, NOT a recommendation.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -200,7 +248,25 @@
         <obo:IAO_0000115>Relates a clinical association to its negation status, indicating whether the asserted relationship is negated.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0002004</oboInOwl:id>
         <rdfs:label>has negation status</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"The patient denied having a fever."
+SOURCE: "fever" =&gt; finding
+TARGET: "denied" =&gt; negation
+RELATION: SOURCE =&gt; has negation status =&gt; TARGET
+
+"No evidence of pneumonia was found."
+SOURCE: "pneumonia" =&gt; finding
+TARGET: "no evidence" =&gt; negation
+RELATION: SOURCE =&gt; has negation status =&gt; TARGET
+
+NEGATIVE EXAMPLES:
+
+"A soft-tissue tumor was suspected."
+Use: has uncertainty status, NOT has negation status.
+
+"The patient had severe chest pain."
+"severe" describes severity, NOT negation.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -212,7 +278,72 @@
         <obo:IAO_0000115>Relates a clinical association to its uncertainty qualifier, indicating that the asserted relationship is uncertain or suspected.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0002009</oboInOwl:id>
         <rdfs:label>has uncertainty status</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"Soft-tissue tumor" =&gt; "suspected"
+RELATION: "soft-tissue tumor" =&gt; has uncertainty status =&gt; "suspected"
+
+"Pneumonia" =&gt; "possible"
+RELATION: "pneumonia" =&gt; has uncertainty status =&gt; "possible"
+
+"Pulmonary embolism" =&gt; "suspected"
+RELATION: "pulmonary embolism" =&gt; has uncertainty status =&gt; "suspected"
+
+"Malignancy" =&gt; "probable"
+RELATION: "malignancy" =&gt; has uncertainty status =&gt; "probable"
+
+"Viral infection" =&gt; "may"
+RELATION: "viral infection" =&gt; has uncertainty status =&gt; "may"
+
+NEGATIVE EXAMPLES:
+
+"Fever" =&gt; "denied"
+Use: has negation status, NOT has uncertainty status.
+
+"Biopsy" =&gt; "performed"
+Use: has completion status, NOT has uncertainty status.
+
+"Chest pain" =&gt; "severe"
+"Severe" describes severity, NOT uncertainty.
+
+"Muscle weakness" =&gt; "worsening"
+"Worsening" describes course, NOT uncertainty.
+
+"Hypertension" =&gt; "confirmed"
+Do NOT automatically create a has uncertainty status relation for a confirmed diagnosis.
+
+CONTEXTUAL EXAMPLES:
+
+"The physician suspected a soft-tissue tumor."
+SOURCE: "soft-tissue tumor" =&gt; finding
+TARGET: "suspected" =&gt; uncertainty
+RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+
+"CT findings suggested possible pneumonia."
+SOURCE: "pneumonia" =&gt; finding
+TARGET: "possible" =&gt; uncertainty
+RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+
+"The patient may have a pulmonary embolism."
+SOURCE: "pulmonary embolism" =&gt; finding
+TARGET: "may" =&gt; uncertainty
+RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+
+"The clinician recommended a biopsy for a suspected malignancy."
+SOURCE: "malignancy" =&gt; finding
+TARGET: "suspected" =&gt; uncertainty
+RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+Do NOT attach "suspected" to "biopsy".
+
+"The patient denied having a fever."
+Annotate: "fever" =&gt; finding
+Annotate: "denied" =&gt; negation
+Do NOT create a has uncertainty status relation.
+
+"The physician performed a biopsy."
+Annotate: "biopsy" =&gt; intervention
+Annotate: "performed" =&gt; completion status
+Do NOT create a has uncertainty status relation.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -223,7 +354,35 @@
         <obo:IAO_0000115>Relates a clinical association to a qualifier that modifies a participant (subject or object) rather than the overall statement or predicate.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0002100</oboInOwl:id>
         <rdfs:label>has participant qualifier</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"The patient's mother has breast cancer."
+SOURCE: "mother" =&gt; family member
+TARGET: "patient's"
+RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
+
+"The patient reported pain in his left knee."
+SOURCE: "knee" =&gt; finding site
+TARGET: "his"
+RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
+
+"Her mother reported a history of diabetes."
+SOURCE: "mother" =&gt; family member
+TARGET: "her"
+RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
+
+NEGATIVE EXAMPLES:
+
+"A soft-tissue tumor was suspected."
+Use: has uncertainty status, NOT has participant qualifier.
+
+"The physician recommended a biopsy."
+Use: has recommended, NOT has participant qualifier.
+
+"The biopsy was completed."
+Use: has completion status, NOT has participant qualifier.
+
+The qualifier modifies a participant, not the entire clinical statement or predicate.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -236,7 +395,9 @@
         <oboInOwl:id>CLCO:0002500</oboInOwl:id>
         <rdfs:label>has association participant</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES: "The patient has pneumonia", "The MRI showed a mass", "Surgery was recommended" all contain clinical association participants.
+NEGATIVE EXAMPLES: "patient" alone, "pneumonia" alone, and "quickly" do not assert an association participant.
+CONTEXTUAL EXAMPLES: In "The patient has pneumonia", the association has participants patient and pneumonia; in "The MRI showed a mass", it has MRI and mass; in "Surgery was recommended", it has surgery.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -248,7 +409,9 @@
         <obo:IAO_0000232>No direct RO equivalent exists. This property fills the object slot in a reified clinical statement (n-ary relation pattern). RO models relations as direct object properties, not as reified statements with named participant slots. See parent property CLCO:0002500 for further rationale.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0002501</oboInOwl:id>
         <rdfs:label>has object</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES: In "The patient has pneumonia", pneumonia is the object; in "The patient received antibiotics", antibiotics is the object; in "The pain is severe", severe is the object.
+NEGATIVE EXAMPLES: patient, received, and the are respectively subject, predicate, and determiner rather than objects.
+CONTEXTUAL EXAMPLES: Record OBJECT pneumonia for "The patient has pneumonia", OBJECT antibiotics for "The patient received antibiotics", and OBJECT severe for "The pain is severe".</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -260,7 +423,9 @@
         <obo:IAO_0000232>No direct RO equivalent exists. This property fills the subject slot in a reified clinical statement (n-ary relation pattern). RO models relations as direct object properties, not as reified statements with named participant slots. See parent property CLCO:0002500 for further rationale.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0002502</oboInOwl:id>
         <rdfs:label>has subject</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES: In "The patient has pneumonia", patient is the subject; in "The MRI showed a mass", MRI is the subject; in "The pain is severe", pain is the subject.
+NEGATIVE EXAMPLES: pneumonia, mass, and severe are objects in those statements, not subjects.
+CONTEXTUAL EXAMPLES: Record SUBJECT patient, MRI, and pain for the three corresponding statements above.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -276,7 +441,22 @@
         <oboInOwl:id>CLCO:0002603</oboInOwl:id>
         <rdfs:label>has temporal frame</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"The patient had pneumonia last year."
+SOURCE: "pneumonia" =&gt; finding
+TARGET: "last year" =&gt; temporal frame
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+
+"The patient will undergo surgery tomorrow."
+SOURCE: "surgery" =&gt; intervention
+TARGET: "tomorrow" =&gt; temporal frame
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+
+NEGATIVE EXAMPLE:
+
+"The patient has had headaches for three weeks."
+"three weeks" describes duration, NOT the document-relative temporal frame.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -290,7 +470,22 @@
         <obo:RO_0001900 rdf:resource="http://purl.obolibrary.org/obo/RO_0001901"/>
         <oboInOwl:id>CLCO:0002604</oboInOwl:id>
         <rdfs:label>has completion status</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"The CT results are pending."
+SOURCE: "CT results" =&gt; finding
+TARGET: "pending" =&gt; completion status
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+
+"The biopsy was completed."
+SOURCE: "biopsy" =&gt; intervention
+TARGET: "completed" =&gt; completion status
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+
+NEGATIVE EXAMPLE:
+
+"The patient will undergo a biopsy."
+"will undergo" indicates intention or future temporal frame, NOT completion status.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -301,7 +496,35 @@
         <obo:IAO_0000115>Relates a clinical association to a statement-level qualifier that modifies the entire assertion, such as intention, recommendation, or completion status.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0003000</oboInOwl:id>
         <rdfs:label>has statement qualifier</rdfs:label>
-    </owl:ObjectProperty>
+    <obo:IAO_0000112>POSITIVE EXAMPLE:
+
+"The physician recommended a biopsy."
+SOURCE: "biopsy" =&gt; intervention
+TARGET: "recommended" =&gt; statement qualifier
+RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+
+"The patient intends to begin physical therapy."
+SOURCE: "physical therapy" =&gt; intervention
+TARGET: "intends" =&gt; statement qualifier
+RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+
+"The CT results are pending."
+SOURCE: "CT results" =&gt; finding
+TARGET: "pending" =&gt; statement qualifier
+RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+
+NEGATIVE EXAMPLES:
+
+"The patient's mother has breast cancer."
+Use: has participant qualifier for a qualifier modifying a participant, NOT has statement qualifier.
+
+"The patient reported pain in his left knee."
+Use: has participant qualifier for a qualifier modifying a participant, NOT has statement qualifier.
+
+"The patient has had headaches for three weeks."
+Use: has temporal frame or a duration representation as appropriate, NOT has statement qualifier for the time expression alone.
+
+Use a specific subproperty when one exists, such as has intention, has recommended, or has completion status. Statement qualifiers modify the entire assertion.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -370,7 +593,9 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000001">
         <obo:IAO_0000115>An entity is anything that exists or has existed or will exist.</obo:IAO_0000115>
         <rdfs:label>entity</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES: patient, pneumonia, and MRI are entities.
+NEGATIVE EXAMPLES: quickly, because, and was are not entities.
+CONTEXTUAL EXAMPLES: In "The patient has pneumonia", patient and pneumonia are entities; in "The MRI showed a mass", MRI and mass are entities.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -389,7 +614,26 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:1014654</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000002</oboInOwl:id>
         <rdfs:label>is transferred to</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"transferred to the ICU" =&gt; is transferred to
+"sent to the rehabilitation unit" =&gt; is transferred to
+"moved to the operating room" =&gt; is transferred to
+
+NEGATIVE EXAMPLES:
+"admitted to the ICU" =&gt; is admitted, NOT is transferred to
+"referred to cardiology" =&gt; is referred by, NOT is transferred to
+"discharged home" =&gt; is discharged, NOT is transferred to
+
+CONTEXTUAL EXAMPLES:
+"The patient was transferred to the ICU."
+SOURCE: "patient" =&gt; patient; TARGET: "ICU" =&gt; setting
+RELATION: SOURCE =&gt; is transferred to =&gt; TARGET
+"She was sent to the rehabilitation unit."
+SOURCE: "patient" =&gt; patient; TARGET: "rehabilitation unit" =&gt; setting
+RELATION: SOURCE =&gt; is transferred to =&gt; TARGET
+"He was moved to the operating room."
+SOURCE: "patient" =&gt; patient; TARGET: "operating room" =&gt; setting
+RELATION: SOURCE =&gt; is transferred to =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -401,7 +645,26 @@
         <obo:IAO_0000232>Do not instantiate.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000003</oboInOwl:id>
         <rdfs:label>clinical administration</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"admitted to the hospital" =&gt; clinical administration
+"referred to cardiology" =&gt; clinical administration
+"discharged home" =&gt; clinical administration
+
+NEGATIVE EXAMPLES:
+"chest pain" =&gt; finding, NOT clinical administration
+"MRI" =&gt; intervention, NOT clinical administration
+"recommended surgery" =&gt; clinical decision, NOT clinical administration
+
+CONTEXTUAL EXAMPLES:
+"The patient was admitted to the hospital."
+SOURCE: "patient" =&gt; patient; TARGET: "admitted to the hospital" =&gt; clinical administration
+RELATION: SOURCE =&gt; clinical administration =&gt; TARGET
+"She was referred to cardiology."
+SOURCE: "patient" =&gt; patient; TARGET: "referred to cardiology" =&gt; clinical administration
+RELATION: SOURCE =&gt; clinical administration =&gt; TARGET
+"He was discharged home."
+SOURCE: "patient" =&gt; patient; TARGET: "discharged home" =&gt; clinical administration
+RELATION: SOURCE =&gt; clinical administration =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -412,7 +675,26 @@
         <obo:IAO_0000115>A clinical association representing a decision made during patient care, such as a treatment plan, referral, or diagnostic strategy.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000005</oboInOwl:id>
         <rdfs:label>clinical decision</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"decided to start chemotherapy" =&gt; clinical decision
+"plan for surgical repair" =&gt; clinical decision
+"decision to order an MRI" =&gt; clinical decision
+
+NEGATIVE EXAMPLES:
+"chest pain" =&gt; finding, NOT clinical decision
+"MRI" =&gt; intervention, NOT clinical decision
+"admitted to the hospital" =&gt; clinical administration, NOT clinical decision
+
+CONTEXTUAL EXAMPLES:
+"The team decided to start chemotherapy."
+SOURCE: "team" =&gt; clinician; TARGET: "start chemotherapy" =&gt; intervention
+RELATION: SOURCE =&gt; clinical decision =&gt; TARGET
+"The plan was for surgical repair."
+SOURCE: "plan" =&gt; clinical decision; TARGET: "surgical repair" =&gt; intervention
+RELATION: SOURCE =&gt; clinical decision =&gt; TARGET
+"The physician decided to order an MRI."
+SOURCE: "physician" =&gt; clinician; TARGET: "order an MRI" =&gt; intervention
+RELATION: SOURCE =&gt; clinical decision =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -423,7 +705,26 @@
         <obo:IAO_0000115>A clinical reason explaining the reasoning behind a treatment, intervention, condition or medical statement.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000006</oboInOwl:id>
         <rdfs:label>clinical explanation</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"because of persistent pain" =&gt; clinical explanation
+"due to concern for infection" =&gt; clinical explanation
+"to reduce the risk of recurrence" =&gt; clinical explanation
+
+NEGATIVE EXAMPLES:
+"chest pain" =&gt; finding, NOT clinical explanation
+"MRI" =&gt; intervention, NOT clinical explanation
+"physician" =&gt; clinician, NOT clinical explanation
+
+CONTEXTUAL EXAMPLES:
+"The MRI was ordered because of persistent pain."
+SOURCE: "MRI" =&gt; intervention; TARGET: "persistent pain" =&gt; reason
+RELATION: SOURCE =&gt; clinical explanation =&gt; TARGET
+"Antibiotics were started due to concern for infection."
+SOURCE: "antibiotics" =&gt; intervention; TARGET: "concern for infection" =&gt; reason
+RELATION: SOURCE =&gt; clinical explanation =&gt; TARGET
+"Surgery was performed to reduce the risk of recurrence."
+SOURCE: "surgery" =&gt; intervention; TARGET: "reduce the risk of recurrence" =&gt; reason
+RELATION: SOURCE =&gt; clinical explanation =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -456,7 +757,26 @@
         <oboInOwl:hasDbXref>SNOMED:129450000</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000007</oboInOwl:id>
         <rdfs:label>has action</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"scheduled the procedure" =&gt; has action
+"uploaded the record" =&gt; has action
+"called the patient" =&gt; has action
+
+NEGATIVE EXAMPLES:
+"chest pain" =&gt; finding, NOT has action
+"MRI" =&gt; intervention, NOT has action
+"physician" =&gt; clinician, NOT has action
+
+CONTEXTUAL EXAMPLES:
+"The nurse scheduled the procedure."
+SOURCE: "nurse" =&gt; clinician; TARGET: "scheduled the procedure" =&gt; task
+RELATION: SOURCE =&gt; has action =&gt; TARGET
+"Staff uploaded the record."
+SOURCE: "staff" =&gt; clinician; TARGET: "uploaded the record" =&gt; task
+RELATION: SOURCE =&gt; has action =&gt; TARGET
+"The office called the patient."
+SOURCE: "office" =&gt; setting; TARGET: "called the patient" =&gt; task
+RELATION: SOURCE =&gt; has action =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -475,7 +795,26 @@
         <obo:IAO_0000232>Does not exist in OMOP, admission is specific for inpatients or other facility types.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000010</oboInOwl:id>
         <rdfs:label>is admitted</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"admitted to the hospital" =&gt; is admitted
+"admitted to the ICU" =&gt; is admitted
+"admitted for observation" =&gt; is admitted
+
+NEGATIVE EXAMPLES:
+"transferred to the ICU" =&gt; is transferred to, NOT is admitted
+"discharged home" =&gt; is discharged, NOT is admitted
+"referred to cardiology" =&gt; is referred by, NOT is admitted
+
+CONTEXTUAL EXAMPLES:
+"The patient was admitted to the hospital."
+SOURCE: "patient" =&gt; patient; TARGET: "hospital" =&gt; setting
+RELATION: SOURCE =&gt; is admitted =&gt; TARGET
+"She was admitted to the ICU."
+SOURCE: "patient" =&gt; patient; TARGET: "ICU" =&gt; setting
+RELATION: SOURCE =&gt; is admitted =&gt; TARGET
+"He was admitted for observation."
+SOURCE: "patient" =&gt; patient; TARGET: "observation" =&gt; setting
+RELATION: SOURCE =&gt; is admitted =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -504,12 +843,31 @@
         </rdfs:subClassOf>
         <obo:IAO_0000112>Here for packing and splint removal after recent discharge from rehab</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that an intervention or finding precedes an intervention or finding.</obo:IAO_0000115>
-        <obo:IAO_0000232>Used to be &quot;is followed by&quot; but this causes confusion when following refers to a particular clilnician responsible for a patient&apos;s care</obo:IAO_0000232>
+        <obo:IAO_0000232>Used to be "is followed by" but this causes confusion when following refers to a particular clilnician responsible for a patient's care</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4272244</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:367409002</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000011</oboInOwl:id>
         <rdfs:label>precedes</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"preceded by" =&gt; precedes
+"before" =&gt; precedes
+"followed by" =&gt; precedes
+
+NEGATIVE EXAMPLES:
+"because of" =&gt; has reason, NOT precedes
+"caused by" =&gt; is caused by, NOT precedes
+"recommended" =&gt; recommended, NOT precedes
+
+CONTEXTUAL EXAMPLES:
+"The biopsy preceded the surgery."
+SOURCE: "biopsy" =&gt; intervention; TARGET: "surgery" =&gt; intervention
+RELATION: SOURCE =&gt; precedes =&gt; TARGET
+"The fever occurred before the rash."
+SOURCE: "fever" =&gt; finding; TARGET: "rash" =&gt; finding
+RELATION: SOURCE =&gt; precedes =&gt; TARGET
+"The follow-up visit followed hospital discharge."
+SOURCE: "hospital discharge" =&gt; intervention; TARGET: "follow-up visit" =&gt; intervention
+RELATION: SOURCE =&gt; precedes =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -534,7 +892,26 @@
         <obo:IAO_0000232>There is OMOP 4160030, but it is a more general type of performed.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000012</oboInOwl:id>
         <rdfs:label>is performed by</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"performed by Dr. Smith" =&gt; is performed by
+"administered by the nurse" =&gt; is performed by
+"read by the radiologist" =&gt; is performed by
+
+NEGATIVE EXAMPLES:
+"referred by Dr. Smith" =&gt; is referred by, NOT is performed by
+"seen by the cardiologist" =&gt; is seen by, NOT is performed by
+"recommended by the physician" =&gt; recommended, NOT is performed by
+
+CONTEXTUAL EXAMPLES:
+"The barium swallow was performed by Dr. Smith."
+SOURCE: "barium swallow" =&gt; intervention; TARGET: "Dr. Smith" =&gt; clinician
+RELATION: SOURCE =&gt; is performed by =&gt; TARGET
+"The medication was administered by the nurse."
+SOURCE: "medication" =&gt; intervention; TARGET: "nurse" =&gt; clinician
+RELATION: SOURCE =&gt; is performed by =&gt; TARGET
+"The scan was read by the radiologist."
+SOURCE: "scan" =&gt; intervention; TARGET: "radiologist" =&gt; clinician
+RELATION: SOURCE =&gt; is performed by =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -560,7 +937,26 @@
         <oboInOwl:hasDbXref>SNOMED:342701000000109</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000013</oboInOwl:id>
         <rdfs:label>is referred by</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"referred by her primary care physician" =&gt; is referred by
+"sent by the emergency physician" =&gt; is referred by
+"referred by the oncologist" =&gt; is referred by
+
+NEGATIVE EXAMPLES:
+"performed by Dr. Smith" =&gt; is performed by, NOT is referred by
+"seen by the cardiologist" =&gt; is seen by, NOT is referred by
+"recommended by the physician" =&gt; recommended, NOT is referred by
+
+CONTEXTUAL EXAMPLES:
+"The patient was referred by her primary care physician."
+SOURCE: "patient" =&gt; patient; TARGET: "primary care physician" =&gt; clinician
+RELATION: SOURCE =&gt; is referred by =&gt; TARGET
+"He was sent by the emergency physician."
+SOURCE: "patient" =&gt; patient; TARGET: "emergency physician" =&gt; clinician
+RELATION: SOURCE =&gt; is referred by =&gt; TARGET
+"She was referred by the oncologist."
+SOURCE: "patient" =&gt; patient; TARGET: "oncologist" =&gt; clinician
+RELATION: SOURCE =&gt; is referred by =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -587,7 +983,26 @@
         <oboInOwl:hasDbXref>SNOMED:281033004</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000014</oboInOwl:id>
         <rdfs:label>is seen by</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"seen by cardiology" =&gt; is seen by
+"evaluated by the surgeon" =&gt; is seen by
+"followed by a neurologist" =&gt; is seen by
+
+NEGATIVE EXAMPLES:
+"referred by Dr. Smith" =&gt; is referred by, NOT is seen by
+"performed by Dr. Smith" =&gt; is performed by, NOT is seen by
+"recommended by the physician" =&gt; recommended, NOT is seen by
+
+CONTEXTUAL EXAMPLES:
+"The patient was seen by cardiology."
+SOURCE: "patient" =&gt; patient; TARGET: "cardiology" =&gt; clinician
+RELATION: SOURCE =&gt; is seen by =&gt; TARGET
+"She was evaluated by the surgeon."
+SOURCE: "patient" =&gt; patient; TARGET: "surgeon" =&gt; clinician
+RELATION: SOURCE =&gt; is seen by =&gt; TARGET
+"He is followed by a neurologist."
+SOURCE: "patient" =&gt; patient; TARGET: "neurologist" =&gt; clinician
+RELATION: SOURCE =&gt; is seen by =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -602,12 +1017,31 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Source of patient transference</obo:IAO_0000115>
-        <obo:IAO_0000232>Actually &quot;transferred from department&quot; but it includes hospitals and other facilities and appears to be a general concept.</obo:IAO_0000232>
+        <obo:IAO_0000232>Actually "transferred from department" but it includes hospitals and other facilities and appears to be a general concept.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4144257</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:266751003</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000015</oboInOwl:id>
         <rdfs:label>is transferred from</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"transferred from the emergency department" =&gt; is transferred from
+"sent from the outside hospital" =&gt; is transferred from
+"moved from the ward" =&gt; is transferred from
+
+NEGATIVE EXAMPLES:
+"transferred to the ICU" =&gt; is transferred to, NOT is transferred from
+"admitted to the hospital" =&gt; is admitted, NOT is transferred from
+"discharged home" =&gt; is discharged, NOT is transferred from
+
+CONTEXTUAL EXAMPLES:
+"The patient was transferred from the emergency department."
+SOURCE: "patient" =&gt; patient; TARGET: "emergency department" =&gt; setting
+RELATION: SOURCE =&gt; is transferred from =&gt; TARGET
+"She was sent from the outside hospital."
+SOURCE: "patient" =&gt; patient; TARGET: "outside hospital" =&gt; setting
+RELATION: SOURCE =&gt; is transferred from =&gt; TARGET
+"He was moved from the ward."
+SOURCE: "patient" =&gt; patient; TARGET: "ward" =&gt; setting
+RELATION: SOURCE =&gt; is transferred from =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -639,6 +1073,57 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44818727</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000017</oboInOwl:id>
         <rdfs:label>has effect</rdfs:label>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"relieved the pain" =&gt; has effect
+"lowered blood pressure" =&gt; has effect
+"caused nausea" =&gt; has effect
+
+NEGATIVE EXAMPLES:
+"was given for pain" =&gt; has reason, NOT has effect
+"was recommended" =&gt; recommended, NOT has effect
+"was performed by the surgeon" =&gt; is performed by, NOT has effect
+
+CONTEXTUAL EXAMPLES:
+"Nitroglycerin relieved the chest pain."
+SOURCE: "nitroglycerin" =&gt; intervention; TARGET: "chest pain" =&gt; finding
+RELATION: SOURCE =&gt; has effect =&gt; TARGET
+"The medication lowered her blood pressure."
+SOURCE: "medication" =&gt; intervention; TARGET: "blood pressure" =&gt; finding
+RELATION: SOURCE =&gt; has effect =&gt; TARGET
+"The antibiotic caused diarrhea."
+SOURCE: "antibiotic" =&gt; intervention; TARGET: "diarrhea" =&gt; finding
+RELATION: SOURCE =&gt; has effect =&gt; TARGET</obo:IAO_0000112></owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CLCO_0000019 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000019">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000103"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>Statement indicating the frequency of a finding/condition or intervention</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>biolink:frequency_qualifier</oboInOwl:hasDbXref>
+        <oboInOwl:id>CLCO:0000019</oboInOwl:id>
+        <rdfs:label>has frequency</rdfs:label>
     </owl:Class>
     
 
@@ -666,13 +1151,32 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000112>Chest Pain: &quot;she took a SL NTG&quot;</obo:IAO_0000112>
+        <obo:IAO_0000112>Chest Pain: "she took a SL NTG"</obo:IAO_0000112>
         <obo:IAO_0000115>Intervention is initiated or executed to treat a present or presumed finding or condition.</obo:IAO_0000115>
         <obo:IAO_0000232>SNOMED has partial mapping as qualifier.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>SNOMED:718771000000107</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000021</oboInOwl:id>
         <rdfs:label>has intervention</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"started chemotherapy" =&gt; has intervention
+"underwent surgery" =&gt; has intervention
+"received physical therapy" =&gt; has intervention
+
+NEGATIVE EXAMPLES:
+"was diagnosed with pneumonia" =&gt; has finding, NOT has intervention
+"was referred to cardiology" =&gt; is referred by, NOT has intervention
+"was admitted to the ICU" =&gt; is admitted, NOT has intervention
+
+CONTEXTUAL EXAMPLES:
+"The patient started chemotherapy for lymphoma."
+SOURCE: "patient" =&gt; patient; TARGET: "chemotherapy" =&gt; intervention
+RELATION: SOURCE =&gt; has intervention =&gt; TARGET
+"She underwent surgery for appendicitis."
+SOURCE: "patient" =&gt; patient; TARGET: "surgery" =&gt; intervention
+RELATION: SOURCE =&gt; has intervention =&gt; TARGET
+"He received physical therapy after the stroke."
+SOURCE: "patient" =&gt; patient; TARGET: "physical therapy" =&gt; intervention
+RELATION: SOURCE =&gt; has intervention =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -699,7 +1203,26 @@
         <oboInOwl:hasDbXref>biolink:onset_qualifier</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000022</oboInOwl:id>
         <rdfs:label>has onset</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"began yesterday" =&gt; has onset
+"started two weeks ago" =&gt; has onset
+"new-onset atrial fibrillation" =&gt; has onset
+
+NEGATIVE EXAMPLES:
+"lasting two weeks" =&gt; has duration, NOT has onset
+"worsening over time" =&gt; has course, NOT has onset
+"at the hospital" =&gt; has setting, NOT has onset
+
+CONTEXTUAL EXAMPLES:
+"The vomiting began this morning."
+SOURCE: "vomiting" =&gt; finding; TARGET: "this morning" =&gt; time
+RELATION: SOURCE =&gt; has onset =&gt; TARGET
+"She developed atrial fibrillation yesterday."
+SOURCE: "atrial fibrillation" =&gt; finding; TARGET: "yesterday" =&gt; time
+RELATION: SOURCE =&gt; has onset =&gt; TARGET
+"He has new-onset weakness."
+SOURCE: "weakness" =&gt; finding; TARGET: "new-onset" =&gt; time
+RELATION: SOURCE =&gt; has onset =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -731,7 +1254,26 @@
         <oboInOwl:hasDbXref>SNOMED:18720000</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000023</oboInOwl:id>
         <rdfs:label>has location</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"performed in the operating room" =&gt; has location
+"seen in clinic" =&gt; has location
+"treated at home" =&gt; has location
+
+NEGATIVE EXAMPLES:
+"performed by Dr. Smith" =&gt; is performed by, NOT has location
+"performed tomorrow" =&gt; has date, NOT has location
+"performed because of pain" =&gt; has reason, NOT has location
+
+CONTEXTUAL EXAMPLES:
+"The procedure was performed in the operating room."
+SOURCE: "procedure" =&gt; intervention; TARGET: "operating room" =&gt; setting
+RELATION: SOURCE =&gt; has location =&gt; TARGET
+"The patient was seen in clinic."
+SOURCE: "patient" =&gt; patient; TARGET: "clinic" =&gt; setting
+RELATION: SOURCE =&gt; has location =&gt; TARGET
+"The wound was treated at home."
+SOURCE: "wound" =&gt; finding; TARGET: "home" =&gt; setting
+RELATION: SOURCE =&gt; has location =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -764,7 +1306,26 @@
         <oboInOwl:hasDbXref>SNOMED:83568003</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000024</oboInOwl:id>
         <rdfs:label>has value</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"38.5 degrees Celsius" =&gt; has value
+"severe" =&gt; has value
+"positive for influenza" =&gt; has value
+
+NEGATIVE EXAMPLES:
+"fever" =&gt; finding, NOT has value
+"MRI" =&gt; intervention, NOT has value
+"three weeks" =&gt; time, NOT has value
+
+CONTEXTUAL EXAMPLES:
+"The temperature was 38.5 degrees Celsius."
+SOURCE: "temperature" =&gt; finding; TARGET: "38.5 degrees Celsius" =&gt; value
+RELATION: SOURCE =&gt; has value =&gt; TARGET
+"The pain was severe."
+SOURCE: "pain" =&gt; finding; TARGET: "severe" =&gt; value
+RELATION: SOURCE =&gt; has value =&gt; TARGET
+"The test was positive for influenza."
+SOURCE: "test" =&gt; intervention; TARGET: "positive for influenza" =&gt; value
+RELATION: SOURCE =&gt; has value =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -797,7 +1358,26 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44818789</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000025</oboInOwl:id>
         <rdfs:label>has finding</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"patient has pneumonia" =&gt; has finding
+"examination revealed a murmur" =&gt; has finding
+"the scan showed a mass" =&gt; has finding
+
+NEGATIVE EXAMPLES:
+"patient underwent surgery" =&gt; has intervention, NOT has finding
+"patient is a physician" =&gt; has participant qualifier, NOT has finding
+"patient was admitted" =&gt; is admitted, NOT has finding
+
+CONTEXTUAL EXAMPLES:
+"The patient has pneumonia."
+SOURCE: "patient" =&gt; patient; TARGET: "pneumonia" =&gt; finding
+RELATION: SOURCE =&gt; has finding =&gt; TARGET
+"Examination revealed a heart murmur."
+SOURCE: "examination" =&gt; intervention; TARGET: "heart murmur" =&gt; finding
+RELATION: SOURCE =&gt; has finding =&gt; TARGET
+"The CT scan showed a pulmonary mass."
+SOURCE: "CT scan" =&gt; intervention; TARGET: "pulmonary mass" =&gt; finding
+RELATION: SOURCE =&gt; has finding =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -835,7 +1415,26 @@
         <obo:IAO_0000115>Statement providing the reason for abandoning an intervention or diagnostic process</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000027</oboInOwl:id>
         <rdfs:label>has abandonment reason</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"stopped because of hypotension" =&gt; has abandonment reason
+"procedure canceled due to poor tolerance" =&gt; has abandonment reason
+"test was not completed because the patient declined" =&gt; has abandonment reason
+
+NEGATIVE EXAMPLES:
+"procedure was completed" =&gt; completed, NOT has abandonment reason
+"procedure was recommended" =&gt; recommended, NOT has abandonment reason
+"procedure caused bleeding" =&gt; has effect, NOT has abandonment reason
+
+CONTEXTUAL EXAMPLES:
+"The cystogram was abandoned because the catheter could not be accessed."
+SOURCE: "cystogram" =&gt; intervention; TARGET: "catheter could not be accessed" =&gt; reason
+RELATION: SOURCE =&gt; has abandonment reason =&gt; TARGET
+"The infusion was stopped due to hypotension."
+SOURCE: "infusion" =&gt; intervention; TARGET: "hypotension" =&gt; finding
+RELATION: SOURCE =&gt; has abandonment reason =&gt; TARGET
+"The patient declined the procedure, so it was canceled."
+SOURCE: "procedure" =&gt; intervention; TARGET: "patient declined" =&gt; reason
+RELATION: SOURCE =&gt; has abandonment reason =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -868,7 +1467,26 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4195693</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000028</oboInOwl:id>
         <rdfs:label>has assessment</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"assessed for pulmonary embolism" =&gt; has assessment
+"evaluated for appendicitis" =&gt; has assessment
+"screened for depression" =&gt; has assessment
+
+NEGATIVE EXAMPLES:
+"unable to assess for syncope" =&gt; do not assert has assessment
+"treated for pneumonia" =&gt; has intervention, NOT has assessment
+"history of diabetes" =&gt; has finding, NOT has assessment
+
+CONTEXTUAL EXAMPLES:
+"The patient was assessed for pulmonary embolism."
+SOURCE: "patient" =&gt; patient; TARGET: "pulmonary embolism" =&gt; finding
+RELATION: SOURCE =&gt; has assessment =&gt; TARGET
+"She was evaluated for appendicitis."
+SOURCE: "patient" =&gt; patient; TARGET: "appendicitis" =&gt; finding
+RELATION: SOURCE =&gt; has assessment =&gt; TARGET
+"The patient was screened for depression."
+SOURCE: "patient" =&gt; patient; TARGET: "depression" =&gt; finding
+RELATION: SOURCE =&gt; has assessment =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -902,7 +1520,26 @@
         <oboInOwl:hasDbXref>SNOMED:416083004</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000030</oboInOwl:id>
         <rdfs:label>has reason</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"ordered because of hyperkalemia" =&gt; has reason
+"started for treatment of pneumonia" =&gt; has reason
+"discontinued due to adverse effects" =&gt; has reason
+
+NEGATIVE EXAMPLES:
+"was caused by pneumonia" =&gt; is caused by, NOT has reason
+"was recommended" =&gt; recommended, NOT has reason
+"was suspected" =&gt; uncertainty, NOT has reason
+
+CONTEXTUAL EXAMPLES:
+"Bactrim was stopped because it worsened hyperkalemia."
+SOURCE: "Bactrim" =&gt; intervention; TARGET: "worsened hyperkalemia" =&gt; reason
+RELATION: SOURCE =&gt; has reason =&gt; TARGET
+"The MRI was ordered because of persistent headaches."
+SOURCE: "MRI" =&gt; intervention; TARGET: "persistent headaches" =&gt; finding
+RELATION: SOURCE =&gt; has reason =&gt; TARGET
+"Physical therapy was started to improve mobility."
+SOURCE: "physical therapy" =&gt; intervention; TARGET: "improve mobility" =&gt; reason
+RELATION: SOURCE =&gt; has reason =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -923,12 +1560,31 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Statement related to patient physiologic state</obo:IAO_0000115>
-        <obo:IAO_0000232>Was represented earlier as &quot;finding related physiological patient state&quot;</obo:IAO_0000232>
+        <obo:IAO_0000232>Was represented earlier as "finding related physiological patient state"</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4028872</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:128973006</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000031</oboInOwl:id>
         <rdfs:label>has state</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"patient is stable" =&gt; has state
+"patient is improving" =&gt; has state
+"patient is alert and oriented" =&gt; has state
+
+NEGATIVE EXAMPLES:
+"stable disease" =&gt; has course, NOT has state
+"chest pain" =&gt; has finding, NOT has state
+"physician" =&gt; clinician, NOT has state
+
+CONTEXTUAL EXAMPLES:
+"The patient is clinically stable."
+SOURCE: "patient" =&gt; patient; TARGET: "clinically stable" =&gt; patient state
+RELATION: SOURCE =&gt; has state =&gt; TARGET
+"The patient is improving after treatment."
+SOURCE: "patient" =&gt; patient; TARGET: "improving" =&gt; patient state
+RELATION: SOURCE =&gt; has state =&gt; TARGET
+"The patient is alert and oriented."
+SOURCE: "patient" =&gt; patient; TARGET: "alert and oriented" =&gt; patient state
+RELATION: SOURCE =&gt; has state =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -969,7 +1625,26 @@
         <oboInOwl:hasDbXref>SNOMED:109721000000108</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000034</oboInOwl:id>
         <rdfs:label>has trigger</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"if fever develops, call the clinic" =&gt; has trigger
+"abnormal results prompted admission" =&gt; has trigger
+"worsening symptoms led to escalation" =&gt; has trigger
+
+NEGATIVE EXAMPLES:
+"admission was caused by pneumonia" =&gt; is caused by, NOT has trigger
+"admission was recommended" =&gt; recommended, NOT has trigger
+"admission is suspected" =&gt; uncertainty, NOT has trigger
+
+CONTEXTUAL EXAMPLES:
+"If the fever returns, call the clinic."
+SOURCE: "fever returns" =&gt; finding; TARGET: "call the clinic" =&gt; task
+RELATION: SOURCE =&gt; has trigger =&gt; TARGET
+"The abnormal CT result prompted admission."
+SOURCE: "abnormal CT result" =&gt; finding; TARGET: "admission" =&gt; intervention
+RELATION: SOURCE =&gt; has trigger =&gt; TARGET
+"Worsening hypoxia led to escalation of respiratory support."
+SOURCE: "worsening hypoxia" =&gt; finding; TARGET: "escalation of respiratory support" =&gt; intervention
+RELATION: SOURCE =&gt; has trigger =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -998,12 +1673,31 @@
         </rdfs:subClassOf>
         <obo:IAO_0000112>PHI presents today for follow-up evaluation regarding management of lower urinary tract symptoms.</obo:IAO_0000112>
         <obo:IAO_0000115>Rationale for an outpatient visit</obo:IAO_0000115>
-        <obo:IAO_0000232>Was previously &quot;has visit reason&quot; but the object was finding or intervention, not reason. Name was therefore changed to rationale to avoid confusion.</obo:IAO_0000232>
+        <obo:IAO_0000232>Was previously "has visit reason" but the object was finding or intervention, not reason. Name was therefore changed to rationale to avoid confusion.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>LOINC:29298-7</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:3025141</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000035</oboInOwl:id>
         <rdfs:label>has visit rationale</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"visit for follow-up of lower urinary tract symptoms" =&gt; has visit rationale
+"seen for evaluation of chest pain" =&gt; has visit rationale
+"return visit for medication management" =&gt; has visit rationale
+
+NEGATIVE EXAMPLES:
+"was referred by Dr. Smith" =&gt; is referred by, NOT has visit rationale
+"was admitted to the ICU" =&gt; is admitted, NOT has visit rationale
+"was treated with antibiotics" =&gt; has intervention, NOT has visit rationale
+
+CONTEXTUAL EXAMPLES:
+"The patient presented for follow-up of lower urinary tract symptoms."
+SOURCE: "patient" =&gt; patient; TARGET: "lower urinary tract symptoms" =&gt; finding
+RELATION: SOURCE =&gt; has visit rationale =&gt; TARGET
+"She was seen for evaluation of chest pain."
+SOURCE: "patient" =&gt; patient; TARGET: "chest pain" =&gt; finding
+RELATION: SOURCE =&gt; has visit rationale =&gt; TARGET
+"He returned for medication management."
+SOURCE: "patient" =&gt; patient; TARGET: "medication management" =&gt; intervention
+RELATION: SOURCE =&gt; has visit rationale =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1037,7 +1731,26 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:1992175</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000036</oboInOwl:id>
         <rdfs:label>is caused by</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"fracture caused by a fall" =&gt; is caused by
+"dyspnea due to pneumonia" =&gt; is caused by
+"bleeding secondary to anticoagulation" =&gt; is caused by
+
+NEGATIVE EXAMPLES:
+"MRI ordered because of headache" =&gt; has reason, NOT is caused by
+"possible pneumonia" =&gt; uncertainty, NOT is caused by
+"fever preceded the rash" =&gt; precedes, NOT is caused by
+
+CONTEXTUAL EXAMPLES:
+"The fracture was caused by a fall."
+SOURCE: "fracture" =&gt; finding; TARGET: "fall" =&gt; finding
+RELATION: SOURCE =&gt; is caused by =&gt; TARGET
+"The dyspnea was due to pneumonia."
+SOURCE: "dyspnea" =&gt; finding; TARGET: "pneumonia" =&gt; finding
+RELATION: SOURCE =&gt; is caused by =&gt; TARGET
+"Bleeding was secondary to anticoagulation."
+SOURCE: "bleeding" =&gt; finding; TARGET: "anticoagulation" =&gt; intervention
+RELATION: SOURCE =&gt; is caused by =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1071,7 +1784,26 @@
         <oboInOwl:hasDbXref>SNOMED:263718001</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000037</oboInOwl:id>
         <rdfs:label>is complicated by</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"wound complicated by infection" =&gt; is complicated by
+"surgery complicated by bleeding" =&gt; is complicated by
+"fracture complicated by nonunion" =&gt; is complicated by
+
+NEGATIVE EXAMPLES:
+"infection caused the wound" =&gt; is caused by, NOT is complicated by
+"surgery was followed by bleeding" =&gt; precedes, NOT is complicated by
+"bleeding was suspected" =&gt; uncertainty, NOT is complicated by
+
+CONTEXTUAL EXAMPLES:
+"The wound was complicated by infection."
+SOURCE: "wound" =&gt; finding; TARGET: "infection" =&gt; finding
+RELATION: SOURCE =&gt; is complicated by =&gt; TARGET
+"The surgery was complicated by bleeding."
+SOURCE: "surgery" =&gt; intervention; TARGET: "bleeding" =&gt; finding
+RELATION: SOURCE =&gt; is complicated by =&gt; TARGET
+"The fracture was complicated by nonunion."
+SOURCE: "fracture" =&gt; finding; TARGET: "nonunion" =&gt; finding
+RELATION: SOURCE =&gt; is complicated by =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1099,10 +1831,29 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>A diagnostic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed.</obo:IAO_0000115>
-        <obo:IAO_0000232>Was &quot;Statement indicating that a diagnostic process does not suggest a finding/condition&quot;.</obo:IAO_0000232>
+        <obo:IAO_0000232>Was "Statement indicating that a diagnostic process does not suggest a finding/condition".</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000038</oboInOwl:id>
         <rdfs:label>is consistent with diagnosis</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"imaging consistent with pneumonia" =&gt; is consistent with diagnosis
+"biopsy consistent with malignancy" =&gt; is consistent with diagnosis
+"findings consistent with appendicitis" =&gt; is consistent with diagnosis
+
+NEGATIVE EXAMPLES:
+"imaging ruled out pneumonia" =&gt; negation, NOT is consistent with diagnosis
+"biopsy suggested possible malignancy" =&gt; uncertainty, NOT is consistent with diagnosis
+"MRI was ordered for headache" =&gt; has reason, NOT is consistent with diagnosis
+
+CONTEXTUAL EXAMPLES:
+"The CT findings were consistent with pneumonia."
+SOURCE: "CT findings" =&gt; finding; TARGET: "pneumonia" =&gt; finding
+RELATION: SOURCE =&gt; is consistent with diagnosis =&gt; TARGET
+"The biopsy was consistent with malignancy."
+SOURCE: "biopsy" =&gt; intervention; TARGET: "malignancy" =&gt; finding
+RELATION: SOURCE =&gt; is consistent with diagnosis =&gt; TARGET
+"The clinical findings were consistent with appendicitis."
+SOURCE: "clinical findings" =&gt; finding; TARGET: "appendicitis" =&gt; finding
+RELATION: SOURCE =&gt; is consistent with diagnosis =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1113,7 +1864,26 @@
         <obo:IAO_0000115>A clinical reason related to a treatment such as procedure, medication, or lifestyle recommendation.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000040</oboInOwl:id>
         <rdfs:label>treatment reason</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"antibiotics for pneumonia" =&gt; treatment reason
+"physical therapy to improve mobility" =&gt; treatment reason
+"smoking cessation to reduce cardiovascular risk" =&gt; treatment reason
+
+NEGATIVE EXAMPLES:
+"antibiotics caused diarrhea" =&gt; has effect, NOT treatment reason
+"antibiotics were recommended" =&gt; recommended, NOT treatment reason
+"antibiotics were suspected" =&gt; uncertainty, NOT treatment reason
+
+CONTEXTUAL EXAMPLES:
+"Antibiotics were prescribed for pneumonia."
+SOURCE: "antibiotics" =&gt; intervention; TARGET: "pneumonia" =&gt; finding
+RELATION: SOURCE =&gt; treatment reason =&gt; TARGET
+"Physical therapy was ordered to improve mobility."
+SOURCE: "physical therapy" =&gt; intervention; TARGET: "improve mobility" =&gt; reason
+RELATION: SOURCE =&gt; treatment reason =&gt; TARGET
+"Smoking cessation was advised to reduce cardiovascular risk."
+SOURCE: "smoking cessation" =&gt; intervention; TARGET: "reduce cardiovascular risk" =&gt; reason
+RELATION: SOURCE =&gt; treatment reason =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1152,13 +1922,32 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>I saw and evaluated the patient. I reviewed the findings and assessment/plan outlined above by PHI and agree</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement denoting a clinician&apos;s or patient&apos;s agreement with another clinician&apos;s assessment, recommendation or reasoning.</obo:IAO_0000115>
-        <obo:IAO_0000232>Mapping to &quot;does agree with care plan&quot;.</obo:IAO_0000232>
+        <obo:IAO_0000115>Statement denoting a clinician's or patient's agreement with another clinician's assessment, recommendation or reasoning.</obo:IAO_0000115>
+        <obo:IAO_0000232>Mapping to "does agree with care plan".</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:37018830</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:714831004</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000041</oboInOwl:id>
         <rdfs:label>agree with</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"agreed to proceed with surgery" =&gt; agree with
+"concurred with the treatment plan" =&gt; agree with
+"accepted the recommendation" =&gt; agree with
+
+NEGATIVE EXAMPLES:
+"declined surgery" =&gt; negation or has decision, NOT agree with
+"recommended surgery" =&gt; recommended, NOT agree with
+"suspected pneumonia" =&gt; uncertainty, NOT agree with
+
+CONTEXTUAL EXAMPLES:
+"The patient agreed to proceed with surgery."
+SOURCE: "patient" =&gt; patient; TARGET: "surgery" =&gt; intervention
+RELATION: SOURCE =&gt; agree with =&gt; TARGET
+"The family concurred with the treatment plan."
+SOURCE: "family" =&gt; family member; TARGET: "treatment plan" =&gt; intervention
+RELATION: SOURCE =&gt; agree with =&gt; TARGET
+"The patient accepted the recommendation."
+SOURCE: "patient" =&gt; patient; TARGET: "recommendation" =&gt; clinical decision
+RELATION: SOURCE =&gt; agree with =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1194,11 +1983,30 @@
         </rdfs:subClassOf>
         <obo:IAO_0000112>Ultimately her goal is to not have to live with bilateral nephrostomy tubes.</obo:IAO_0000112>
         <obo:IAO_0000115>Indication that an intervention or the patient has an outcome goal (target)</obo:IAO_0000115>
-        <obo:IAO_0000232>OMOP 4253630 &quot;Goal&quot;  doesn&apos;t really match well, we may need a new term.</obo:IAO_0000232>
+        <obo:IAO_0000232>OMOP 4253630 "Goal"  doesn't really match well, we may need a new term.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4253630</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000042</oboInOwl:id>
         <rdfs:label>has goal</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"goal of pain control" =&gt; has goal
+"target blood pressure below 130/80" =&gt; has goal
+"aim of preventing recurrence" =&gt; has goal
+
+NEGATIVE EXAMPLES:
+"reason for surgery" =&gt; has reason, NOT has goal
+"recommended surgery" =&gt; recommended, NOT has goal
+"completed treatment" =&gt; completed, NOT has goal
+
+CONTEXTUAL EXAMPLES:
+"The goal is pain control."
+SOURCE: "intervention" =&gt; intervention; TARGET: "pain control" =&gt; finding
+RELATION: SOURCE =&gt; has goal =&gt; TARGET
+"The target blood pressure is below 130/80."
+SOURCE: "blood pressure management" =&gt; intervention; TARGET: "below 130/80" =&gt; value
+RELATION: SOURCE =&gt; has goal =&gt; TARGET
+"The aim is to prevent recurrence."
+SOURCE: "treatment" =&gt; intervention; TARGET: "prevent recurrence" =&gt; finding
+RELATION: SOURCE =&gt; has goal =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1230,7 +2038,26 @@
         <obo:IAO_0000232>May needs new label, was previously has_pending_decision, but with modifieres this can be scoped more specifically.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000043</oboInOwl:id>
         <rdfs:label>has decision</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"decided to order an MRI" =&gt; has decision
+"decision to start chemotherapy" =&gt; has decision
+"will discuss surgical repair" =&gt; has decision
+
+NEGATIVE EXAMPLES:
+"MRI was performed" =&gt; is performed by or completed, NOT has decision
+"MRI was recommended" =&gt; recommended, NOT has decision
+"MRI was suspected" =&gt; uncertainty, NOT has decision
+
+CONTEXTUAL EXAMPLES:
+"The clinician decided to order an MRI."
+SOURCE: "clinician" =&gt; clinician; TARGET: "order an MRI" =&gt; intervention
+RELATION: SOURCE =&gt; has decision =&gt; TARGET
+"The team decided to start chemotherapy."
+SOURCE: "team" =&gt; clinician; TARGET: "start chemotherapy" =&gt; intervention
+RELATION: SOURCE =&gt; has decision =&gt; TARGET
+"The patient will discuss surgical repair."
+SOURCE: "patient" =&gt; patient; TARGET: "surgical repair" =&gt; intervention
+RELATION: SOURCE =&gt; has decision =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1263,7 +2090,26 @@
         <oboInOwl:hasDbXref>SNOMED:390802008</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000044</oboInOwl:id>
         <rdfs:label>is at goal</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"at goal" =&gt; is at goal
+"met the target" =&gt; is at goal
+"reached the desired blood pressure" =&gt; is at goal
+
+NEGATIVE EXAMPLES:
+"goal of pain control" =&gt; has goal, NOT is at goal
+"worsening symptoms" =&gt; has course, NOT is at goal
+"recommended target" =&gt; recommended, NOT is at goal
+
+CONTEXTUAL EXAMPLES:
+"The patient's blood pressure is at goal."
+SOURCE: "blood pressure" =&gt; finding; TARGET: "at goal" =&gt; patient state
+RELATION: SOURCE =&gt; is at goal =&gt; TARGET
+"The treatment met the target."
+SOURCE: "treatment" =&gt; intervention; TARGET: "target" =&gt; value
+RELATION: SOURCE =&gt; is at goal =&gt; TARGET
+"The patient reached the desired glucose level."
+SOURCE: "patient" =&gt; patient; TARGET: "desired glucose level" =&gt; value
+RELATION: SOURCE =&gt; is at goal =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1289,7 +2135,26 @@
         <oboInOwl:hasDbXref>SNOMED:308910008</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000045</oboInOwl:id>
         <rdfs:label>documentation of finding</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"the record documents hypertension" =&gt; documentation of finding
+"the imaging report describes a mass" =&gt; documentation of finding
+"the discharge summary notes anemia" =&gt; documentation of finding
+
+NEGATIVE EXAMPLES:
+"the patient has hypertension" =&gt; has finding, NOT documentation of finding
+"the patient underwent surgery" =&gt; has intervention, NOT documentation of finding
+"the physician recommended treatment" =&gt; recommended, NOT documentation of finding
+
+CONTEXTUAL EXAMPLES:
+"The medical record documents hypertension."
+SOURCE: "medical record" =&gt; documentation; TARGET: "hypertension" =&gt; finding
+RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET
+"The imaging report describes a pulmonary mass."
+SOURCE: "imaging report" =&gt; documentation; TARGET: "pulmonary mass" =&gt; finding
+RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET
+"The discharge summary notes anemia."
+SOURCE: "discharge summary" =&gt; documentation; TARGET: "anemia" =&gt; finding
+RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1312,7 +2177,26 @@
         <obo:IAO_0000115>Statement indicating that the patient is a candidate for a given intervention, commonly used in the negative.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000046</oboInOwl:id>
         <rdfs:label>is eligible</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"eligible for surgery" =&gt; is eligible
+"eligible for transplant evaluation" =&gt; is eligible
+"meets criteria for chemotherapy" =&gt; is eligible
+
+NEGATIVE EXAMPLES:
+"contraindicated for surgery" =&gt; has contraindication, NOT is eligible
+"referred for surgery" =&gt; is referred by, NOT is eligible
+"scheduled for surgery" =&gt; has intention, NOT is eligible
+
+CONTEXTUAL EXAMPLES:
+"The patient is eligible for surgery."
+SOURCE: "patient" =&gt; patient; TARGET: "surgery" =&gt; intervention
+RELATION: SOURCE =&gt; is eligible =&gt; TARGET
+"She meets criteria for transplant evaluation."
+SOURCE: "patient" =&gt; patient; TARGET: "transplant evaluation" =&gt; intervention
+RELATION: SOURCE =&gt; is eligible =&gt; TARGET
+"He is eligible for chemotherapy."
+SOURCE: "patient" =&gt; patient; TARGET: "chemotherapy" =&gt; intervention
+RELATION: SOURCE =&gt; is eligible =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1350,7 +2234,26 @@
         <obo:IAO_0000232>Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharmacist, payer, etc...</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000048</oboInOwl:id>
         <rdfs:label>discussed with</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"discussed surgery with the patient" =&gt; discussed with
+"reviewed chemotherapy with the family" =&gt; discussed with
+"discussed the MRI with cardiology" =&gt; discussed with
+
+NEGATIVE EXAMPLES:
+"recommended surgery" =&gt; recommended, NOT discussed with
+"performed surgery" =&gt; completed, NOT discussed with
+"referred to cardiology" =&gt; is referred by, NOT discussed with
+
+CONTEXTUAL EXAMPLES:
+"The surgeon discussed surgery with the patient."
+SOURCE: "surgery" =&gt; intervention; TARGET: "patient" =&gt; patient
+RELATION: SOURCE =&gt; discussed with =&gt; TARGET
+"Chemotherapy was reviewed with the family."
+SOURCE: "chemotherapy" =&gt; intervention; TARGET: "family" =&gt; family member
+RELATION: SOURCE =&gt; discussed with =&gt; TARGET
+"The MRI was discussed with cardiology."
+SOURCE: "MRI" =&gt; intervention; TARGET: "cardiology" =&gt; clinician
+RELATION: SOURCE =&gt; discussed with =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1363,7 +2266,26 @@
         <oboInOwl:hasDbXref>SNOMED:74996004</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000049</oboInOwl:id>
         <rdfs:label>has confirmation</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"confirmed diagnosis" =&gt; has confirmation
+"confirmed treatment plan" =&gt; has confirmation
+"confirmed appointment" =&gt; has confirmation
+
+NEGATIVE EXAMPLES:
+"suspected diagnosis" =&gt; uncertainty, NOT has confirmation
+"recommended treatment" =&gt; recommended, NOT has confirmation
+"denied symptoms" =&gt; negation, NOT has confirmation
+
+CONTEXTUAL EXAMPLES:
+"The diagnosis was confirmed."
+SOURCE: "diagnosis" =&gt; finding; TARGET: "confirmed"
+RELATION: SOURCE =&gt; has confirmation =&gt; TARGET
+"The treatment plan was confirmed."
+SOURCE: "treatment plan" =&gt; intervention; TARGET: "confirmed"
+RELATION: SOURCE =&gt; has confirmation =&gt; TARGET
+"The appointment was confirmed."
+SOURCE: "appointment" =&gt; task; TARGET: "confirmed"
+RELATION: SOURCE =&gt; has confirmation =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1389,7 +2311,26 @@
         <oboInOwl:hasDbXref>SNOMED:103306004</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000050</oboInOwl:id>
         <rdfs:label>has contraindication</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"warfarin contraindicated in pregnancy" =&gt; has contraindication
+"NSAIDs contraindicated in renal failure" =&gt; has contraindication
+"chemotherapy contraindicated by severe neutropenia" =&gt; has contraindication
+
+NEGATIVE EXAMPLES:
+"warfarin prescribed for atrial fibrillation" =&gt; has reason, NOT has contraindication
+"chemotherapy was recommended" =&gt; recommended, NOT has contraindication
+"chemotherapy was suspected" =&gt; uncertainty, NOT has contraindication
+
+CONTEXTUAL EXAMPLES:
+"Warfarin is contraindicated in pregnancy."
+SOURCE: "warfarin" =&gt; intervention; TARGET: "pregnancy" =&gt; finding
+RELATION: SOURCE =&gt; has contraindication =&gt; TARGET
+"NSAIDs are contraindicated in severe renal failure."
+SOURCE: "NSAIDs" =&gt; intervention; TARGET: "severe renal failure" =&gt; finding
+RELATION: SOURCE =&gt; has contraindication =&gt; TARGET
+"Chemotherapy is contraindicated because of severe neutropenia."
+SOURCE: "chemotherapy" =&gt; intervention; TARGET: "severe neutropenia" =&gt; finding
+RELATION: SOURCE =&gt; has contraindication =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1416,7 +2357,26 @@
         <oboInOwl:hasDbXref>SNOMED:263502005</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000051</oboInOwl:id>
         <rdfs:label>has course</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"worsening" =&gt; has course
+"stable" =&gt; has course
+"intermittent" =&gt; has course
+
+NEGATIVE EXAMPLES:
+"three weeks" =&gt; has duration, NOT has course
+"yesterday" =&gt; has date, NOT has course
+"severe" =&gt; has severity, NOT has course
+
+CONTEXTUAL EXAMPLES:
+"The patient reports worsening weakness."
+SOURCE: "weakness" =&gt; finding; TARGET: "worsening" =&gt; course
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+"Her symptoms remain stable."
+SOURCE: "symptoms" =&gt; finding; TARGET: "stable" =&gt; course
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+"He has intermittent chest pain."
+SOURCE: "chest pain" =&gt; finding; TARGET: "intermittent" =&gt; course
+RELATION: SOURCE =&gt; has course =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1450,7 +2410,26 @@
         <oboInOwl:hasDbXref>SNOMED:410671006</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000052</oboInOwl:id>
         <rdfs:label>has date</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"tomorrow" =&gt; has date
+"on March 3" =&gt; has date
+"last Tuesday" =&gt; has date
+
+NEGATIVE EXAMPLES:
+"for three weeks" =&gt; has duration, NOT has date
+"currently" =&gt; has temporal frame, NOT has date
+"worsening" =&gt; has course, NOT has date
+
+CONTEXTUAL EXAMPLES:
+"The patient has an appointment tomorrow."
+SOURCE: "appointment" =&gt; intervention; TARGET: "tomorrow" =&gt; time
+RELATION: SOURCE =&gt; has date =&gt; TARGET
+"Surgery is scheduled for March 3."
+SOURCE: "surgery" =&gt; intervention; TARGET: "March 3" =&gt; time
+RELATION: SOURCE =&gt; has date =&gt; TARGET
+"The symptoms began last Tuesday."
+SOURCE: "symptoms" =&gt; finding; TARGET: "last Tuesday" =&gt; time
+RELATION: SOURCE =&gt; has date =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1482,9 +2461,80 @@
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4014044</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000053</oboInOwl:id>
         <rdfs:label>has duration</rdfs:label>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"for two weeks" =&gt; has duration
+"lasting three months" =&gt; has duration
+"over the past year" =&gt; has duration
+
+NEGATIVE EXAMPLES:
+"yesterday" =&gt; has date, NOT has duration
+"worsening" =&gt; has course, NOT has duration
+"severe" =&gt; has severity, NOT has duration
+
+CONTEXTUAL EXAMPLES:
+"She has had nausea for two weeks."
+SOURCE: "nausea" =&gt; finding; TARGET: "for two weeks" =&gt; time
+RELATION: SOURCE =&gt; has duration =&gt; TARGET
+"The cough has lasted three months."
+SOURCE: "cough" =&gt; finding; TARGET: "three months" =&gt; time
+RELATION: SOURCE =&gt; has duration =&gt; TARGET
+"Pain has persisted over the past year."
+SOURCE: "pain" =&gt; finding; TARGET: "over the past year" =&gt; time
+RELATION: SOURCE =&gt; has duration =&gt; TARGET</obo:IAO_0000112></owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CLCO_0000054 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000054">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000112>The patient underwent two kidney transplants (2002, 2012)</obo:IAO_0000112>
+        <obo:IAO_0000115>Statement of fact about a patient that constitutes past medical history</obo:IAO_0000115>
+        <obo:IAO_0000232>SNOMED CT United Kingdom clinical extension module sourced.</obo:IAO_0000232>
+        <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:44813766</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SNOMED:722291000000108</oboInOwl:hasDbXref>
+        <oboInOwl:id>CLCO:0000054</oboInOwl:id>
+        <rdfs:label>has history</rdfs:label>
     </owl:Class>
     
 
+
+    <!-- http://purl.obolibrary.org/obo/CLCO_0000055 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000055">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000025"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000112>Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type</obo:IAO_0000112>
+        <obo:IAO_0000115>Statement indicating the patient is at risk for a condition or procedure.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>SNOMED:80943009</oboInOwl:hasDbXref>
+        <oboInOwl:id>CLCO:0000055</oboInOwl:id>
+        <rdfs:label>has risk factor</rdfs:label>
+    </owl:Class>
+    
 
 
     <!-- http://purl.obolibrary.org/obo/CLCO_0000057 -->
@@ -1494,11 +2544,13 @@
         <obo:IAO_0000115>A reified assertion relating two or more clinical entities, representing a contextualized clinical statement that can carry qualifiers such as negation, uncertainty, and temporality.</obo:IAO_0000115>
         <obo:IAO_0000232>Although these structures represent relationships between clinical entities, we model them as reified associations rather than relations, because they represent contextualized assertions with additional attributes (e.g., negation, uncertainty, temporality), which cannot be expressed using binary object properties in OWL.
 These relations include the most frequently documented relation types as defined in:
-Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.</obo:IAO_0000232>
+Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. "Formal representation of patients’ care context data: the path to improving the electronic health record." Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.</obo:IAO_0000232>
         <obo:IAO_0000232>CLCO represents temporal information through four orthogonal mechanisms: (1) temporal_frame (qualifier axis) -- document-relative context via has_temporal_frame, values historical/current/future/hypothetical; (2) completion_status (qualifier axis) -- workflow state via has_completion_status, values pending/in_progress/completed; (3) datatype time properties (data axis) -- computable timestamps via has_start_time, has_end_time, has_duration_value with xsd typed literals; (4) reified temporal associations (entity axis) -- narrative temporal entities such as has_onset, has_date, has_duration where the temporal expression is a first-class clinical_entity linked via has_object. These mechanisms are independent: a single association may carry values from any combination.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000057</oboInOwl:id>
         <rdfs:label>clinical association</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES: "The patient has pneumonia", "The MRI showed a mass", and "Surgery was recommended" are clinical associations.
+NEGATIVE EXAMPLES: patient, pneumonia, and severe are entities or values, not associations by themselves.
+CONTEXTUAL EXAMPLES: The first statement expresses a has finding association, the second a has finding association, and the third a recommendation association.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1528,7 +2580,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:32462</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000058</oboInOwl:id>
         <rdfs:label>has setting</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"in the emergency department" =&gt; has setting
+"at home" =&gt; has setting
+"in the intensive care unit" =&gt; has setting
+
+NEGATIVE EXAMPLES:
+"chest pain" =&gt; finding, NOT has setting
+"tomorrow" =&gt; has date, NOT has setting
+"physician" =&gt; clinician, NOT has setting
+
+CONTEXTUAL EXAMPLES:
+"The patient was treated in the emergency department."
+SOURCE: "treated" =&gt; intervention; TARGET: "emergency department" =&gt; setting
+RELATION: SOURCE =&gt; has setting =&gt; TARGET
+"The wound was managed at home."
+SOURCE: "wound management" =&gt; intervention; TARGET: "at home" =&gt; setting
+RELATION: SOURCE =&gt; has setting =&gt; TARGET
+"He was monitored in the intensive care unit."
+SOURCE: "monitored" =&gt; task; TARGET: "intensive care unit" =&gt; setting
+RELATION: SOURCE =&gt; has setting =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1540,7 +2611,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000232>Epistemic modality axis: captures whether the association describes an actual event or an intended/planned one. Orthogonal to temporal_frame (CLCO_0000082), which captures WHEN relative to the document, and completion_status (CLCO_0000063), which captures workflow state. An intended event may be past (we intended chemo but did not start), present, or future.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000060</oboInOwl:id>
         <rdfs:label>intention</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"will start chemotherapy" =&gt; intention
+"intended to undergo surgery" =&gt; intention
+"plans to begin therapy" =&gt; intention
+"scheduled for an MRI" =&gt; intention
+
+NEGATIVE EXAMPLES:
+"underwent surgery" =&gt; completed, NOT intention
+"recommended an MRI" =&gt; recommended, NOT intention
+"may have pneumonia" =&gt; uncertainty, NOT intention
+"had pneumonia last year" =&gt; historical, NOT intention
+
+CONTEXTUAL EXAMPLES:
+"The patient will start chemotherapy."
+SOURCE: "chemotherapy" =&gt; intervention; TARGET: "will start" =&gt; intention
+RELATION: SOURCE =&gt; has intention =&gt; TARGET
+"The patient intended to undergo surgery."
+SOURCE: "surgery" =&gt; intervention; TARGET: "intended" =&gt; intention
+RELATION: SOURCE =&gt; has intention =&gt; TARGET
+"She plans to begin physical therapy."
+SOURCE: "physical therapy" =&gt; intervention; TARGET: "plans to begin" =&gt; intention
+RELATION: SOURCE =&gt; has intention =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1551,7 +2643,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>The modified relationship is recommended, for example an intervention, admission or some action. Boolean.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000062</oboInOwl:id>
         <rdfs:label>recommended</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"recommended an MRI" =&gt; recommended
+"should follow up" =&gt; recommended
+"advised to stop smoking" =&gt; recommended
+"the patient was told to rest" =&gt; recommended
+
+NEGATIVE EXAMPLES:
+"underwent an MRI" =&gt; completed, NOT recommended
+"will undergo surgery" =&gt; intention, NOT recommended
+"may have pneumonia" =&gt; uncertainty, NOT recommended
+"denied chest pain" =&gt; negation, NOT recommended
+
+CONTEXTUAL EXAMPLES:
+"The physician recommended an MRI."
+SOURCE: "MRI" =&gt; intervention; TARGET: "recommended" =&gt; recommended
+RELATION: SOURCE =&gt; has recommended =&gt; TARGET
+"The patient should follow up in two weeks."
+SOURCE: "follow up" =&gt; intervention; TARGET: "should" =&gt; recommended
+RELATION: SOURCE =&gt; has recommended =&gt; TARGET
+"She was advised to stop smoking."
+SOURCE: "stop smoking" =&gt; intervention; TARGET: "advised" =&gt; recommended
+RELATION: SOURCE =&gt; has recommended =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1560,12 +2673,33 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000063">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000068"/>
         <obo:IAO_0000115>The workflow completion state of a process. Orthogonal to temporal_frame (which captures when relative to the document) and intention (which captures intent). A process may be pending regardless of whether its temporal frame is past, present, or future.</obo:IAO_0000115>
-        <obo:IAO_0000232>Refactored from the original &quot;status&quot; class. Children include pending (moved from temporal), in_progress, and completed. Aligns with SNOMED procedure status qualifier values and EHR order status fields. No equivalent in NLP temporal annotation schemes like THYME or I2b2.</obo:IAO_0000232>
+        <obo:IAO_0000232>Refactored from the original "status" class. Children include pending (moved from temporal), in_progress, and completed. Aligns with SNOMED procedure status qualifier values and EHR order status fields. No equivalent in NLP temporal annotation schemes like THYME or I2b2.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4138595</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:40642538</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000063</oboInOwl:id>
         <rdfs:label>completion status</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"pending" =&gt; completion status
+"in progress" =&gt; completion status
+"completed" =&gt; completion status
+"finished" =&gt; completion status
+
+NEGATIVE EXAMPLES:
+"will undergo" =&gt; intention, NOT completion status
+"recommended" =&gt; recommended, NOT completion status
+"may undergo" =&gt; uncertainty, NOT completion status
+"last year" =&gt; historical, NOT completion status
+
+CONTEXTUAL EXAMPLES:
+"The CT results are pending."
+SOURCE: "CT results" =&gt; finding; TARGET: "pending" =&gt; completion status
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"The biopsy is in progress."
+SOURCE: "biopsy" =&gt; intervention; TARGET: "in progress" =&gt; completion status
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"The procedure was completed."
+SOURCE: "procedure" =&gt; intervention; TARGET: "completed" =&gt; completion status
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1579,7 +2713,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>SNOMED:385645004</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000065</oboInOwl:id>
         <rdfs:label>pending</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"results pending" =&gt; pending
+"awaiting pathology" =&gt; pending
+"order pending" =&gt; pending
+"not yet resulted" =&gt; pending
+
+NEGATIVE EXAMPLES:
+"procedure completed" =&gt; completed, NOT pending
+"currently receiving therapy" =&gt; in progress, NOT pending
+"will undergo surgery" =&gt; intention, NOT pending
+"last year" =&gt; historical, NOT pending
+
+CONTEXTUAL EXAMPLES:
+"The CT results are pending."
+SOURCE: "CT results" =&gt; finding; TARGET: "pending" =&gt; pending
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"The pathology report is still pending."
+SOURCE: "pathology report" =&gt; documentation; TARGET: "pending" =&gt; pending
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"The laboratory order remains pending."
+SOURCE: "laboratory order" =&gt; intervention; TARGET: "pending" =&gt; pending
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1590,7 +2745,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>A modifier that provides additional context to a clinical association, such as temporal frame, certainty, negation, or participant-level detail.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000067</oboInOwl:id>
         <rdfs:label>association qualifier</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"suspected" =&gt; association qualifier
+"denied" =&gt; association qualifier
+"pending" =&gt; association qualifier
+"last year" =&gt; association qualifier
+
+NEGATIVE EXAMPLES:
+"chest pain" =&gt; finding, NOT association qualifier
+"MRI" =&gt; intervention, NOT association qualifier
+"physician" =&gt; clinician, NOT association qualifier
+"three weeks" =&gt; time, NOT association qualifier
+
+CONTEXTUAL EXAMPLES:
+"A tumor was suspected."
+SOURCE: "tumor" =&gt; finding; TARGET: "suspected" =&gt; association qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+"The patient denied fever."
+SOURCE: "fever" =&gt; finding; TARGET: "denied" =&gt; association qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+"The results are pending."
+SOURCE: "results" =&gt; finding; TARGET: "pending" =&gt; association qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1602,7 +2778,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000232>Qualifiers for the entire statement.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000068</oboInOwl:id>
         <rdfs:label>statement qualifier</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"intended" =&gt; statement qualifier
+"recommended" =&gt; statement qualifier
+"pending" =&gt; statement qualifier
+"completed" =&gt; statement qualifier
+
+NEGATIVE EXAMPLES:
+"suspected" =&gt; uncertainty, NOT statement qualifier
+"denied" =&gt; negation, NOT statement qualifier
+"left" =&gt; has participant qualifier, NOT statement qualifier
+"last year" =&gt; temporal frame, NOT statement qualifier
+
+CONTEXTUAL EXAMPLES:
+"The patient intended to undergo surgery."
+SOURCE: "surgery" =&gt; intervention; TARGET: "intended" =&gt; statement qualifier
+RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+"The physician recommended an MRI."
+SOURCE: "MRI" =&gt; intervention; TARGET: "recommended" =&gt; statement qualifier
+RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+"The biopsy was completed."
+SOURCE: "biopsy" =&gt; intervention; TARGET: "completed" =&gt; statement qualifier
+RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1614,7 +2811,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000232>For situations where the modifier of the predicate is different from the overall statement, these are likely to be rare.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000069</oboInOwl:id>
         <rdfs:label>predicate qualifier</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"has finding: suspected" =&gt; predicate qualifier
+"has intervention: recommended" =&gt; predicate qualifier
+"has finding: negated" =&gt; predicate qualifier
+"has finding: historical" =&gt; predicate qualifier
+
+NEGATIVE EXAMPLES:
+"suspected tumor" =&gt; uncertainty, NOT predicate qualifier
+"denied fever" =&gt; negation, NOT predicate qualifier
+"completed biopsy" =&gt; completion status, NOT predicate qualifier
+"patient's mother" =&gt; has participant qualifier, NOT predicate qualifier
+
+CONTEXTUAL EXAMPLES:
+"The scan suggested a tumor."
+SOURCE: "has finding" (the predicate itself); TARGET: "suggested" =&gt; predicate qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+"The record documented a historical diagnosis."
+SOURCE: "has diagnosis" (the predicate itself); TARGET: "historical" =&gt; predicate qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+"The note described a negated finding."
+SOURCE: "has finding" (the predicate itself); TARGET: "negated" =&gt; predicate qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1639,7 +2857,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000232>Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000071</oboInOwl:id>
         <rdfs:label>has aspect</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"bone density" =&gt; has aspect
+"cancer progression" =&gt; has aspect
+"cardiac function" =&gt; has aspect
+
+NEGATIVE EXAMPLES:
+"left knee" =&gt; has spatial orientation or has laterality, NOT has aspect
+"severe pain" =&gt; has severity, NOT has aspect
+"three weeks" =&gt; has duration, NOT has aspect
+
+CONTEXTUAL EXAMPLES:
+"Bone density is decreasing."
+SOURCE: "bone" =&gt; finding site; TARGET: "density" =&gt; value
+RELATION: SOURCE =&gt; has aspect =&gt; TARGET
+"Cancer progression is rapid."
+SOURCE: "cancer" =&gt; finding; TARGET: "progression" =&gt; course
+RELATION: SOURCE =&gt; has aspect =&gt; TARGET
+"Cardiac function is preserved."
+SOURCE: "cardiac" =&gt; finding site; TARGET: "function" =&gt; value
+RELATION: SOURCE =&gt; has aspect =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1664,7 +2901,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000232>Spatial orientation qualifiers reuse PATO quality terms directly; CLCO defines only the attachment role.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000072</oboInOwl:id>
         <rdfs:label>has spatial orientation</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"anterior to the knee" =&gt; has spatial orientation
+"below the diaphragm" =&gt; has spatial orientation
+"posterior to the heart" =&gt; has spatial orientation
+
+NEGATIVE EXAMPLES:
+"left knee" =&gt; has laterality, NOT has spatial orientation
+"severe pain" =&gt; has severity, NOT has spatial orientation
+"three weeks" =&gt; has duration, NOT has spatial orientation
+
+CONTEXTUAL EXAMPLES:
+"The lesion is anterior to the knee."
+SOURCE: "lesion" =&gt; finding; TARGET: "anterior to the knee" =&gt; finding site
+RELATION: SOURCE =&gt; has spatial orientation =&gt; TARGET
+"The mass is below the diaphragm."
+SOURCE: "mass" =&gt; finding; TARGET: "below the diaphragm" =&gt; finding site
+RELATION: SOURCE =&gt; has spatial orientation =&gt; TARGET
+"The opacity is posterior to the heart."
+SOURCE: "opacity" =&gt; finding; TARGET: "posterior to the heart" =&gt; finding site
+RELATION: SOURCE =&gt; has spatial orientation =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1695,7 +2951,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
       or PATO:0000610) # midline</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000073</oboInOwl:id>
         <rdfs:label>has laterality</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"left" =&gt; has laterality
+"right-sided" =&gt; has laterality
+"bilateral" =&gt; has laterality
+
+NEGATIVE EXAMPLES:
+"anterior" =&gt; has spatial orientation, NOT has laterality
+"severe" =&gt; has severity, NOT has laterality
+"intermittent" =&gt; has course, NOT has laterality
+
+CONTEXTUAL EXAMPLES:
+"The patient has left knee pain."
+SOURCE: "knee pain" =&gt; finding; TARGET: "left" =&gt; finding site
+RELATION: SOURCE =&gt; has laterality =&gt; TARGET
+"A right-sided pneumothorax was seen."
+SOURCE: "pneumothorax" =&gt; finding; TARGET: "right-sided" =&gt; finding site
+RELATION: SOURCE =&gt; has laterality =&gt; TARGET
+"She has bilateral knee pain."
+SOURCE: "knee pain" =&gt; finding; TARGET: "bilateral" =&gt; finding site
+RELATION: SOURCE =&gt; has laterality =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1720,7 +2995,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>HP:0012824</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000074</oboInOwl:id>
         <rdfs:label>has severity</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"severe" =&gt; has severity
+"mild" =&gt; has severity
+"moderate" =&gt; has severity
+
+NEGATIVE EXAMPLES:
+"worsening" =&gt; has course, NOT has severity
+"left" =&gt; has laterality, NOT has severity
+"for three weeks" =&gt; has duration, NOT has severity
+
+CONTEXTUAL EXAMPLES:
+"The patient has severe abdominal pain."
+SOURCE: "abdominal pain" =&gt; finding; TARGET: "severe" =&gt; value
+RELATION: SOURCE =&gt; has severity =&gt; TARGET
+"She reports mild hearing loss."
+SOURCE: "hearing loss" =&gt; finding; TARGET: "mild" =&gt; value
+RELATION: SOURCE =&gt; has severity =&gt; TARGET
+"He has moderate shortness of breath."
+SOURCE: "shortness of breath" =&gt; finding; TARGET: "moderate" =&gt; value
+RELATION: SOURCE =&gt; has severity =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1732,7 +3026,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>Information that qualitatively describes a finding, condition, or intervention.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000075</oboInOwl:id>
         <rdfs:label>has descriptive value</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"room-spinning" =&gt; has descriptive value
+"pressure-like" =&gt; has descriptive value
+"nonproductive" =&gt; has descriptive value
+
+NEGATIVE EXAMPLES:
+"38.5 degrees Celsius" =&gt; has quantifiable value, NOT has descriptive value
+"headache" =&gt; finding, NOT has descriptive value
+"MRI" =&gt; intervention, NOT has descriptive value
+
+CONTEXTUAL EXAMPLES:
+"The patient described dizziness as room-spinning."
+SOURCE: "dizziness" =&gt; finding; TARGET: "room-spinning" =&gt; value
+RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET
+"She described the pain as pressure-like."
+SOURCE: "pain" =&gt; finding; TARGET: "pressure-like" =&gt; value
+RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET
+"The cough was nonproductive."
+SOURCE: "cough" =&gt; finding; TARGET: "nonproductive" =&gt; value
+RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1745,7 +3058,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>IAO:0000109</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000076</oboInOwl:id>
         <rdfs:label>has quantifiable value</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"38.5 degrees Celsius" =&gt; has quantifiable value
+"120/80 mmHg" =&gt; has quantifiable value
+"10.2 g/dL" =&gt; has quantifiable value
+
+NEGATIVE EXAMPLES:
+"severe" =&gt; has descriptive value or has severity, NOT has quantifiable value
+"fever" =&gt; finding, NOT has quantifiable value
+"MRI" =&gt; intervention, NOT has quantifiable value
+
+CONTEXTUAL EXAMPLES:
+"The temperature was 38.5 degrees Celsius."
+SOURCE: "temperature" =&gt; finding; TARGET: "38.5 degrees Celsius" =&gt; value
+RELATION: SOURCE =&gt; has quantifiable value =&gt; TARGET
+"Blood pressure was 120/80 mmHg."
+SOURCE: "blood pressure" =&gt; finding; TARGET: "120/80 mmHg" =&gt; value
+RELATION: SOURCE =&gt; has quantifiable value =&gt; TARGET
+"Hemoglobin was 10.2 g/dL."
+SOURCE: "hemoglobin" =&gt; finding; TARGET: "10.2 g/dL" =&gt; value
+RELATION: SOURCE =&gt; has quantifiable value =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1777,7 +3109,26 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>A finding or condition suggested by a diagnostic process, documentation, another finding or condition, or an intervention.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000077</oboInOwl:id>
         <rdfs:label>suggests finding</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"imaging suggested pneumonia" =&gt; suggests finding
+"the note raised concern for malignancy" =&gt; suggests finding
+"the symptom pattern pointed to appendicitis" =&gt; suggests finding
+
+NEGATIVE EXAMPLES:
+"imaging confirmed pneumonia" =&gt; is consistent with diagnosis, NOT suggests finding
+"the patient denied pneumonia" =&gt; negation, NOT suggests finding
+"MRI was ordered for headache" =&gt; has reason, NOT suggests finding
+
+CONTEXTUAL EXAMPLES:
+"The chest x-ray suggested pneumonia."
+SOURCE: "chest x-ray" =&gt; intervention; TARGET: "pneumonia" =&gt; finding
+RELATION: SOURCE =&gt; suggests finding =&gt; TARGET
+"The note raised concern for malignancy."
+SOURCE: "note" =&gt; documentation; TARGET: "malignancy" =&gt; finding
+RELATION: SOURCE =&gt; suggests finding =&gt; TARGET
+"The symptom pattern pointed to appendicitis."
+SOURCE: "symptom pattern" =&gt; finding; TARGET: "appendicitis" =&gt; finding
+RELATION: SOURCE =&gt; suggests finding =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1785,11 +3136,35 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000080">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
-        <obo:IAO_0000112>&quot;Patient denies chest pain&quot; (statement-level); &quot;Tenderness is present, but not in the right upper quadrant&quot; (participant-level).</obo:IAO_0000112>
+        <obo:IAO_0000112>"Patient denies chest pain" (statement-level); "Tenderness is present, but not in the right upper quadrant" (participant-level).</obo:IAO_0000112>
         <obo:IAO_0000115>Signifies that the qualified element is negated. Applies at any scope: statement-level negation negates the entire association; participant-level negation negates a specific subject or object.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000080</oboInOwl:id>
         <rdfs:label>negation</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"denied" =&gt; negation
+"no evidence of" =&gt; negation
+"without" =&gt; negation
+"not present" =&gt; negation
+
+NEGATIVE EXAMPLES:
+"suspected" =&gt; uncertainty, NOT negation
+"recommended" =&gt; recommended, NOT negation
+"completed" =&gt; completed, NOT negation
+"severe" =&gt; value, NOT negation
+"not always present" =&gt; do not negate the finding without checking scope
+
+Negation cues must be interpreted with their scope. The word "not" alone does not always negate the clinical finding.
+
+CONTEXTUAL EXAMPLES:
+"The patient denied having a fever."
+SOURCE: "fever" =&gt; finding; TARGET: "denied" =&gt; negation
+RELATION: SOURCE =&gt; has negation status =&gt; TARGET
+"No evidence of pneumonia was found."
+SOURCE: "pneumonia" =&gt; finding; TARGET: "no evidence" =&gt; negation
+RELATION: SOURCE =&gt; has negation status =&gt; TARGET
+"There was no fracture."
+SOURCE: "fracture" =&gt; finding; TARGET: "no" =&gt; negation
+RELATION: SOURCE =&gt; has negation status =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1800,7 +3175,31 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>Signifies that the qualified element is uncertain or suspected. Applies at any scope: statement-level uncertainty qualifies the entire association; participant-level uncertainty qualifies a specific subject or object.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000081</oboInOwl:id>
         <rdfs:label>uncertainty</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"suspected" =&gt; uncertainty
+"possible" =&gt; uncertainty
+"probable" =&gt; uncertainty
+"may have" =&gt; uncertainty
+
+NEGATIVE EXAMPLES:
+"denied" =&gt; negation, NOT uncertainty
+"recommended" =&gt; recommended, NOT uncertainty
+"completed" =&gt; completed, NOT uncertainty
+"severe" =&gt; value, NOT uncertainty
+"does not exclude" =&gt; uncertainty, NOT negation
+
+"Does not exclude pulmonary embolism" indicates that pulmonary embolism remains possible; it does not assert that pulmonary embolism is absent.
+
+CONTEXTUAL EXAMPLES:
+"A soft-tissue tumor was suspected."
+SOURCE: "soft-tissue tumor" =&gt; finding; TARGET: "suspected" =&gt; uncertainty
+RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+"CT findings suggested possible pneumonia."
+SOURCE: "pneumonia" =&gt; finding; TARGET: "possible" =&gt; uncertainty
+RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+"The patient may have a pulmonary embolism."
+SOURCE: "pulmonary embolism" =&gt; finding; TARGET: "may have" =&gt; uncertainty
+RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1813,7 +3212,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000082</oboInOwl:id>
         <rdfs:label>temporal frame</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"last year" =&gt; temporal frame
+"currently" =&gt; temporal frame
+"tomorrow" =&gt; temporal frame
+"if symptoms recur" =&gt; temporal frame
+
+NEGATIVE EXAMPLES:
+"three weeks" =&gt; time, NOT temporal frame
+"will start" =&gt; intention, NOT temporal frame
+"pending" =&gt; completion status, NOT temporal frame
+"suspected" =&gt; uncertainty, NOT temporal frame
+
+CONTEXTUAL EXAMPLES:
+"The patient had pneumonia last year."
+SOURCE: "pneumonia" =&gt; finding; TARGET: "last year" =&gt; temporal frame
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"The patient will undergo surgery tomorrow."
+SOURCE: "surgery" =&gt; intervention; TARGET: "tomorrow" =&gt; temporal frame
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"If symptoms recur, restart treatment."
+SOURCE: "restart treatment" =&gt; intervention; TARGET: "if symptoms recur" =&gt; temporal frame
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1826,7 +3246,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>THYME:DocTimeRel_BEFORE</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000083</oboInOwl:id>
         <rdfs:label>historical</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"last year" =&gt; historical
+"previously" =&gt; historical
+"history of" =&gt; historical
+"in childhood" =&gt; historical
+
+NEGATIVE EXAMPLES:
+"currently" =&gt; current, NOT historical
+"tomorrow" =&gt; future, NOT historical
+"may occur" =&gt; hypothetical, NOT historical
+"pending" =&gt; pending, NOT historical
+
+CONTEXTUAL EXAMPLES:
+"The patient had pneumonia last year."
+SOURCE: "pneumonia" =&gt; finding; TARGET: "last year" =&gt; historical
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"She previously underwent surgery."
+SOURCE: "surgery" =&gt; intervention; TARGET: "previously" =&gt; historical
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"He has a history of diabetes."
+SOURCE: "diabetes" =&gt; finding; TARGET: "history of" =&gt; historical
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1839,7 +3280,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>THYME:DocTimeRel_OVERLAP</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000084</oboInOwl:id>
         <rdfs:label>current</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"currently" =&gt; current
+"now" =&gt; current
+"at present" =&gt; current
+"today" =&gt; current
+
+NEGATIVE EXAMPLES:
+"last year" =&gt; historical, NOT current
+"tomorrow" =&gt; future, NOT current
+"if symptoms recur" =&gt; hypothetical, NOT current
+"pending" =&gt; pending, NOT current
+
+CONTEXTUAL EXAMPLES:
+"The patient is currently on metformin."
+SOURCE: "on metformin" =&gt; intervention; TARGET: "currently" =&gt; current
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"The infection is present now."
+SOURCE: "infection" =&gt; finding; TARGET: "now" =&gt; current
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"The patient is currently receiving therapy."
+SOURCE: "receiving therapy" =&gt; intervention; TARGET: "currently" =&gt; current
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1852,7 +3314,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>THYME:DocTimeRel_AFTER</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000085</oboInOwl:id>
         <rdfs:label>future</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"tomorrow" =&gt; future
+"next week" =&gt; future
+"will begin" =&gt; future
+"scheduled for next month" =&gt; future
+
+NEGATIVE EXAMPLES:
+"last year" =&gt; historical, NOT future
+"currently" =&gt; current, NOT future
+"if symptoms recur" =&gt; hypothetical, NOT future
+"pending" =&gt; pending, NOT future
+
+CONTEXTUAL EXAMPLES:
+"Chemotherapy will begin next Tuesday."
+SOURCE: "chemotherapy" =&gt; intervention; TARGET: "next Tuesday" =&gt; future
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"The patient will undergo surgery tomorrow."
+SOURCE: "surgery" =&gt; intervention; TARGET: "tomorrow" =&gt; future
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"A follow-up visit is scheduled for next month."
+SOURCE: "follow-up visit" =&gt; intervention; TARGET: "next month" =&gt; future
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1866,7 +3349,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <oboInOwl:hasDbXref>THYME:contextual_modality_HYPOTHETICAL</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000086</oboInOwl:id>
         <rdfs:label>hypothetical</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"if symptoms recur" =&gt; hypothetical
+"should fever develop" =&gt; hypothetical
+"in case of bleeding" =&gt; hypothetical
+"could require admission" =&gt; hypothetical
+
+NEGATIVE EXAMPLES:
+"last year" =&gt; historical, NOT hypothetical
+"currently" =&gt; current, NOT hypothetical
+"tomorrow" =&gt; future, NOT hypothetical
+"completed" =&gt; completed, NOT hypothetical
+
+CONTEXTUAL EXAMPLES:
+"If symptoms recur, restart treatment."
+SOURCE: "restart treatment" =&gt; intervention; TARGET: "if symptoms recur" =&gt; hypothetical
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"Should fever develop, call the clinic."
+SOURCE: "call the clinic" =&gt; task; TARGET: "Should fever develop" =&gt; hypothetical
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET
+"The patient could require admission."
+SOURCE: "admission" =&gt; intervention; TARGET: "could require" =&gt; hypothetical
+RELATION: SOURCE =&gt; has temporal frame =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1878,7 +3382,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>The process described by the association is actively executing but has not yet reached its terminal state.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000087</oboInOwl:id>
         <rdfs:label>in progress</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"in progress" =&gt; in progress
+"ongoing" =&gt; in progress
+"currently receiving" =&gt; in progress
+"underway" =&gt; in progress
+
+NEGATIVE EXAMPLES:
+"pending" =&gt; pending, NOT in progress
+"completed" =&gt; completed, NOT in progress
+"will begin" =&gt; future or intention, NOT in progress
+"last year" =&gt; historical, NOT in progress
+
+CONTEXTUAL EXAMPLES:
+"The antibiotic course is in progress."
+SOURCE: "antibiotic course" =&gt; intervention; TARGET: "in progress" =&gt; in progress
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"Physical therapy is ongoing."
+SOURCE: "physical therapy" =&gt; intervention; TARGET: "ongoing" =&gt; in progress
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"The patient is currently receiving chemotherapy."
+SOURCE: "chemotherapy" =&gt; intervention; TARGET: "currently receiving" =&gt; in progress
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1890,7 +3415,28 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <obo:IAO_0000115>The process described by the association has reached its terminal output state.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000088</oboInOwl:id>
         <rdfs:label>completed</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"completed" =&gt; completed
+"finished" =&gt; completed
+"performed" =&gt; completed
+"concluded" =&gt; completed
+
+NEGATIVE EXAMPLES:
+"pending" =&gt; pending, NOT completed
+"in progress" =&gt; in progress, NOT completed
+"will undergo" =&gt; intention or future, NOT completed
+"may undergo" =&gt; uncertainty, NOT completed
+
+CONTEXTUAL EXAMPLES:
+"The biopsy was completed."
+SOURCE: "biopsy" =&gt; intervention; TARGET: "completed" =&gt; completed
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"The procedure was performed."
+SOURCE: "procedure" =&gt; intervention; TARGET: "performed" =&gt; completed
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET
+"Physical therapy has concluded."
+SOURCE: "physical therapy" =&gt; intervention; TARGET: "concluded" =&gt; completed
+RELATION: SOURCE =&gt; has completion status =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1900,11 +3446,13 @@ Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
         <obo:IAO_0000115>A core clinical entity over which all clinical context associations occur.</obo:IAO_0000115>
         <obo:IAO_0000232>The 14 core clinical entity classes defined in:
-Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. &quot;Formal representation of patients’ care context data: the path to improving the electronic health record.&quot; Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.
+Colicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. "Formal representation of patients’ care context data: the path to improving the electronic health record." Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.
 All of these should correspond to a subject or object in relations extracted by NLP systems. The exception to that is patient which may be inferred.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000100</oboInOwl:id>
         <rdfs:label>clinical entity</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES: patient, chest pain, and appendectomy are clinical entities.
+NEGATIVE EXAMPLES: has, severely, and because are a relation, modifier, and conjunction rather than clinical entities.
+CONTEXTUAL EXAMPLES: In "The patient has chest pain", patient and chest pain are clinical entities; in "Appendectomy was scheduled", appendectomy is a clinical entity.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1917,7 +3465,42 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>biolink:DiseaseOrPhenotypicFeature</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000101</oboInOwl:id>
         <rdfs:label>finding</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Chest pain" =&gt; finding
+"Fever" =&gt; finding
+"Headache" =&gt; finding
+"Muscle weakness" =&gt; finding
+"Shortness of breath" =&gt; finding
+
+
+NEGATIVE EXAMPLES:
+"MRI" =&gt; intervention, NOT finding
+"Biopsy" =&gt; intervention, NOT finding
+"Physician" =&gt; clinician, NOT finding
+"Mother" =&gt; family member, NOT finding
+"Three weeks" =&gt; time, NOT finding
+"Worsening" =&gt; course, NOT finding
+"Severe" =&gt; value, NOT finding
+"Suspected" =&gt; uncertainty, NOT finding
+
+
+CONTEXTUAL EXAMPLES:
+"The patient presented with severe chest pain."
+Annotate: "chest pain" =&gt; finding
+Annotate: "severe" =&gt; value
+
+"The patient reported progressively worsening muscle weakness."
+Annotate: "muscle weakness" =&gt; finding
+Annotate: "progressively worsening" =&gt; course
+
+"MRI revealed a pulmonary nodule."
+Annotate: "pulmonary nodule" =&gt; finding
+Annotate: "MRI" =&gt; intervention
+
+"The patient experienced intermittent headaches for three weeks."
+Annotate: "headaches" =&gt; finding
+Annotate: "intermittent" =&gt; course
+Annotate: "three weeks" =&gt; time</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1930,7 +3513,29 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>biolink:Procedure</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000102</oboInOwl:id>
         <rdfs:label>intervention</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"MRI" =&gt; intervention
+"Biopsy" =&gt; intervention
+"Surgery" =&gt; intervention
+"Antibiotic treatment" =&gt; intervention
+
+NEGATIVE EXAMPLES:
+"Chest pain" =&gt; finding, NOT intervention
+"Physician" =&gt; clinician, NOT intervention
+"Three weeks" =&gt; time, NOT intervention
+"Hospital" =&gt; setting, NOT intervention
+
+CONTEXTUAL EXAMPLES:
+"The patient underwent an MRI."
+Annotate: "MRI" =&gt; intervention
+
+"A biopsy was performed to evaluate the mass."
+Annotate: "biopsy" =&gt; intervention
+Annotate: "mass" =&gt; finding
+
+"The patient started antibiotic treatment for pneumonia."
+Annotate: "antibiotic treatment" =&gt; intervention
+Annotate: "pneumonia" =&gt; finding</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1943,7 +3548,30 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>SNOMEDCT:410669006</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000103</oboInOwl:id>
         <rdfs:label>time</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Three weeks" =&gt; time
+"Yesterday" =&gt; time
+"Since childhood" =&gt; time
+"For two months" =&gt; time
+
+NEGATIVE EXAMPLES:
+"Chest pain" =&gt; finding, NOT time
+"Worsening" =&gt; course, NOT time
+"Severe" =&gt; value, NOT time
+"MRI" =&gt; intervention, NOT time
+
+CONTEXTUAL EXAMPLES:
+"The patient has had headaches for three weeks."
+Annotate: "headaches" =&gt; finding
+Annotate: "three weeks" =&gt; time
+
+"The symptoms began yesterday."
+Annotate: "symptoms" =&gt; finding
+Annotate: "yesterday" =&gt; time
+
+"The patient has experienced pain since childhood."
+Annotate: "pain" =&gt; finding
+Annotate: "since childhood" =&gt; time</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1952,11 +3580,31 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000104">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Justifications and reasons for ordering, performing, planning, or discontinuing an intervention or diagnostic process</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOMEDCT sourced from Athena OHDSI &quot;Reason and justification&quot; (https://athena.ohdsi.org/search-terms/terms/4128496)</obo:IAO_0000232>
+        <obo:IAO_0000232>SNOMEDCT sourced from Athena OHDSI "Reason and justification" (https://athena.ohdsi.org/search-terms/terms/4128496)</obo:IAO_0000232>
         <oboInOwl:hasDbXref>SNOMEDCT:288830005</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000104</oboInOwl:id>
         <rdfs:label>reason</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Because of worsening pain" =&gt; reason
+"History of diabetes" =&gt; reason
+"Abnormal imaging result" =&gt; reason
+"Patient preference" =&gt; reason
+
+NEGATIVE EXAMPLES:
+"Chest pain" =&gt; finding, NOT reason
+"MRI" =&gt; intervention, NOT reason
+"Physician" =&gt; clinician, NOT reason
+"Three weeks" =&gt; time, NOT reason
+
+CONTEXTUAL EXAMPLES:
+"The MRI was ordered because of persistent headaches."
+Annotate: "MRI" =&gt; intervention
+Annotate: "persistent headaches" =&gt; finding
+Annotate: "because of persistent headaches" =&gt; reason
+
+"Surgery was postponed due to the patient's cardiac risk."
+Annotate: "surgery" =&gt; intervention
+Annotate: "cardiac risk" =&gt; reason</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1968,7 +3616,27 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>SNOMEDCT:260908002</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000105</oboInOwl:id>
         <rdfs:label>course</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Stable" =&gt; course
+"Worsening" =&gt; course
+"Intermittent" =&gt; course
+"Rapidly progressing" =&gt; course
+
+NEGATIVE EXAMPLES:
+"Two weeks" =&gt; time, not course
+"sudden onset" =&gt; time, not course
+
+
+CONTEXTUAL EXAMPLES:
+"The patient reported progressively worsening weakness."
+Annotate: "progressively worsening" =&gt; course
+Annotate: "weakness" =&gt; finding
+
+"The patient's symptoms have remained stable."
+Annotate: "stable" =&gt; course
+
+"The patient experienced intermittent episodes of chest pain."
+Annotate: "intermittent" =&gt; course</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1977,11 +3645,30 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000106">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Any numerical or narrative description of a finding/condition or intervention</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOWMEDCT code for &quot;hasvalue&quot; sourced from Athena OHDSI database (https://athena.ohdsi.org/search-terms/terms/4306768)</obo:IAO_0000232>
+        <obo:IAO_0000232>SNOWMEDCT code for "hasvalue" sourced from Athena OHDSI database (https://athena.ohdsi.org/search-terms/terms/4306768)</obo:IAO_0000232>
         <oboInOwl:hasDbXref>SNOWMEDCT:83568003</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000106</oboInOwl:id>
         <rdfs:label>value</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"38.5 degrees Celsius" =&gt; value
+"120/80 mmHg" =&gt; value
+"Positive" =&gt; value
+"No improvement" =&gt; value
+
+NEGATIVE EXAMPLES:
+"Fever" =&gt; finding, NOT value
+"MRI" =&gt; intervention, NOT value
+"Three weeks" =&gt; time, NOT value
+
+CONTEXTUAL EXAMPLES:
+"The patient's temperature was 38.5 degrees Celsius."
+Annotate: "temperature" =&gt; finding
+Annotate: "38.5 degrees Celsius" =&gt; value
+
+"The CT result was positive for pneumonia."
+Annotate: "CT" =&gt; intervention
+Annotate: "positive" =&gt; value
+Annotate: "pneumonia" =&gt; finding</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1993,7 +3680,26 @@ All of these should correspond to a subject or object in relations extracted by 
         <obo:IAO_0000232>There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000107</oboInOwl:id>
         <rdfs:label>setting</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Emergency department" =&gt; setting
+"Intensive care unit" =&gt; setting
+"Outpatient clinic" =&gt; setting
+"Home" =&gt; setting
+
+NEGATIVE EXAMPLES:
+"Chest pain" =&gt; finding, NOT setting
+"Physician" =&gt; clinician, NOT setting
+"MRI" =&gt; intervention, NOT setting
+"Three weeks" =&gt; time, NOT setting
+
+CONTEXTUAL EXAMPLES:
+"The patient was admitted to the intensive care unit."
+Annotate: "patient" =&gt; patient
+Annotate: "intensive care unit" =&gt; setting
+
+"The procedure was performed in the outpatient clinic."
+Annotate: "procedure" =&gt; intervention
+Annotate: "outpatient clinic" =&gt; setting</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2005,7 +3711,18 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>SNOMEDCT:44804106</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000108</oboInOwl:id>
         <rdfs:label>clinician</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Physician" =&gt; clinician
+"Nurse practitioner" =&gt; clinician
+"Physician assistant" =&gt; clinician
+"Radiologist" =&gt; clinician
+"Pathologist" =&gt; clinician
+"Pharmacist" =&gt; clinician
+
+NEGATIVE EXAMPLES:
+"Mother" =&gt; family member, NOT clinician
+"MRI" =&gt; intervention, NOT clinician
+"30-year-old male patient" =&gt; patient, NOT clinician</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2014,11 +3731,30 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000109">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Any healthcare related task not related to direct clinical activities (e.g., phone call or uploading a medical record file).</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOMEDCT code sourced from Athena OHDSI &quot;TASK&quot; (https://athena.ohdsi.org/search-terms/terms/4008963)</obo:IAO_0000232>
+        <obo:IAO_0000232>SNOMEDCT code sourced from Athena OHDSI "TASK" (https://athena.ohdsi.org/search-terms/terms/4008963)</obo:IAO_0000232>
         <oboInOwl:hasDbXref>SNOMEDCT:101878003</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000109</oboInOwl:id>
         <rdfs:label>task</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Phone call" =&gt; task
+"Uploading a medical record" =&gt; task
+"Scheduling an appointment" =&gt; task
+"Reviewing the chart" =&gt; task
+
+NEGATIVE EXAMPLES:
+"MRI" =&gt; intervention, NOT task
+"Chest pain" =&gt; finding, NOT task
+"Physician" =&gt; clinician, NOT task
+"Emergency department" =&gt; setting, NOT task
+
+CONTEXTUAL EXAMPLES:
+"The nurse called the patient to confirm the appointment."
+Annotate: "nurse" =&gt; clinician
+Annotate: "called the patient" =&gt; task
+
+"The staff uploaded the medical record to the portal."
+Annotate: "uploaded the medical record" =&gt; task
+Annotate: "medical record" =&gt; documentation</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2031,7 +3767,27 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>biolink:Case</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000110</oboInOwl:id>
         <rdfs:label>patient</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"The patient" =&gt; patient
+"The 30-year-old man" =&gt; patient
+"The child" =&gt; patient
+"She" =&gt; patient, when the clinical note clearly identifies the referent as the patient
+
+NEGATIVE EXAMPLES:
+"Physician" =&gt; clinician, NOT patient
+"Mother" =&gt; family member, NOT patient
+"Chest pain" =&gt; finding, NOT patient
+"MRI" =&gt; intervention, NOT patient
+
+CONTEXTUAL EXAMPLES:
+"The patient reported chest pain."
+Annotate: "patient" =&gt; patient
+Annotate: "chest pain" =&gt; finding
+
+"She underwent surgery for a fractured femur."
+Annotate: "She" =&gt; patient
+Annotate: "surgery" =&gt; intervention
+Annotate: "fractured femur" =&gt; finding</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2043,7 +3799,28 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>IAO:0000310</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000111</oboInOwl:id>
         <rdfs:label>documentation</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112/><obo:IAO_0000112>POSITIVE EXAMPLES:
+"Medical Record" =&gt; documentation
+"Discharge summary" =&gt; documentation
+"Patient chart" =&gt; documentation
+"Clinical note" =&gt; documentation
+
+NEGATIVE EXAMPLES:
+"Chest pain" =&gt; finding, NOT documentation
+"MRI" =&gt; intervention, NOT documentation
+"Three weeks" =&gt; time, NOT documentation
+"Physician" =&gt; clinician, NOT documentation
+"Worsening" =&gt; course, NOT documentation
+
+CONTEXTUAL EXAMPLES:
+
+"The medical record noted a history of hypertension."
+Annotate: "medical record" =&gt; documentation
+Annotate: "hypertension" =&gt; finding
+
+"According to the clinical notes, the patient underwent surgery."
+Annotate: According to the "clinical notes" =&gt; documentation
+Annotate: "surgery" =&gt; intervention</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2056,7 +3833,45 @@ All of these should correspond to a subject or object in relations extracted by 
         <oboInOwl:hasDbXref>UBERON:0001062</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000112</oboInOwl:id>
         <rdfs:label>finding site</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Chest" =&gt; finding site
+"Cervical spine" =&gt; finding site
+"Pituitary" =&gt; finding site
+"Ovary" =&gt; finding site
+
+NEGATIVE EXAMPLES:
+"Chest pain" =&gt; finding, NOT finding site as a whole
+"Headache" =&gt; finding, NOT finding site
+"Swelling" =&gt; finding, NOT finding site
+"MRI" =&gt; intervention, NOT finding site
+
+CONTEXTUAL EXAMPLES:
+
+"The patient reported pain in the left knee."
+Annotate: "pain" =&gt; finding
+Annotate: "left knee" =&gt; finding site
+
+"The patient presented with swelling of the right ankle."
+Annotate: "swelling" =&gt; finding
+Annotate: "right ankle" =&gt; finding site
+
+"CT revealed a mass in the left lung."
+Annotate: "mass" =&gt; finding
+Annotate: "left lung" =&gt; finding site
+Annotate: "CT" =&gt; intervention
+
+"The patient experienced tenderness over the lower abdomen."
+Annotate: "tenderness" =&gt; finding
+Annotate: "lower abdomen" =&gt; finding site
+
+"The patient had a fracture of the left femur."
+Annotate: "fracture" =&gt; finding
+Annotate: "left femur" =&gt; finding site
+
+"MRI demonstrated a lesion in the right temporal lobe."
+Annotate: "lesion" =&gt; finding
+Annotate: "right temporal lobe" =&gt; finding site
+Annotate: "MRI" =&gt; intervention</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2065,11 +3880,35 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000113">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
         <obo:IAO_0000115>Patient state, e.g., stable, improving. The overall patient state, not whether a particular disease or condition is stable or improving.</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOMEDCT was sourced from Athena OHDSI &quot;Patient Status&quot; (http://athena.ohdsi.org/search-terms/terms/4077556)</obo:IAO_0000232>
+        <obo:IAO_0000232>SNOMEDCT was sourced from Athena OHDSI "Patient Status" (http://athena.ohdsi.org/search-terms/terms/4077556)</obo:IAO_0000232>
         <oboInOwl:hasDbXref>SNOWMEDCT:246097001</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000113</oboInOwl:id>
         <rdfs:label>patient state</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Stable" =&gt; patient state
+"Improving" =&gt; patient state
+"Unstable" =&gt; patient state
+"Alert and oriented" =&gt; patient state
+
+NEGATIVE EXAMPLES:
+"Stable disease" =&gt; course, NOT patient state
+"Chest pain" =&gt; finding, NOT patient state
+"Physician" =&gt; clinician, NOT patient state
+"Three weeks" =&gt; time, NOT patient state
+
+CONTEXTUAL EXAMPLES:
+"The patient is clinically stable."
+Annotate: "patient" =&gt; patient
+Annotate: "clinically stable" =&gt; patient state
+
+"The patient is improving after treatment."
+Annotate: "patient" =&gt; patient
+Annotate: "improving" =&gt; patient state
+Annotate: "treatment" =&gt; intervention
+
+"The patient's symptoms are stable."
+Annotate: "symptoms" =&gt; finding
+Annotate: "stable" =&gt; course</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2084,13 +3923,31 @@ All of these should correspond to a subject or object in relations extracted by 
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>Patient discharged this morning with family</obo:IAO_0000112>
-        <obo:IAO_0000112>Patient will be discharged</obo:IAO_0000112>
         <obo:IAO_0000115>Statement indicating that the patient has been discharged from a clinical setting</obo:IAO_0000115>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4137031</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:58000006</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000114</oboInOwl:id>
         <rdfs:label>is discharged</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"discharged home" =&gt; is discharged
+"discharged from the hospital" =&gt; is discharged
+"ready for discharge" =&gt; is discharged
+
+NEGATIVE EXAMPLES:
+"admitted to the hospital" =&gt; is admitted, NOT is discharged
+"transferred to rehabilitation" =&gt; is transferred to, NOT is discharged
+"referred to cardiology" =&gt; is referred by, NOT is discharged
+
+CONTEXTUAL EXAMPLES:
+"The patient was discharged home."
+SOURCE: "patient" =&gt; patient; TARGET: "home" =&gt; setting
+RELATION: SOURCE =&gt; is discharged =&gt; TARGET
+"She was discharged from the hospital."
+SOURCE: "patient" =&gt; patient; TARGET: "hospital" =&gt; setting
+RELATION: SOURCE =&gt; is discharged =&gt; TARGET
+"He is ready for discharge."
+SOURCE: "patient" =&gt; patient; TARGET: "discharge" =&gt; clinical administration
+RELATION: SOURCE =&gt; is discharged =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2098,11 +3955,34 @@ All of these should correspond to a subject or object in relations extracted by 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000115">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000100"/>
-        <obo:IAO_0000115>A person who is a member of the patient&apos;s family. A caregiver who is not a family member would be identified as a clinician.</obo:IAO_0000115>
+        <obo:IAO_0000115>A person who is a member of the patient's family. A caregiver who is not a family member would be identified as a clinician.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>SNOMED:303071001</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000115</oboInOwl:id>
         <rdfs:label>family member</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+"Mother" =&gt; family member
+"Father" =&gt; family member
+"Sister" =&gt; family member
+"Brother" =&gt; family member
+"Daughter" =&gt; family member
+
+NEGATIVE EXAMPLES:
+"Patient" =&gt; patient, NOT family member
+"Physician" =&gt; clinician, NOT family member
+"Nurse practitioner" =&gt; clinician, NOT family member
+
+
+CONTEXTUAL EXAMPLES:
+"The patient's mother has a history of breast cancer."
+Annotate: "mother" =&gt; family member
+Annotate: "breast cancer" =&gt; finding
+
+"His father was diagnosed with diabetes."
+Annotate: "father" =&gt; family member
+Annotate: "diabetes" =&gt; finding
+
+"The patient's sister reported similar symptoms."
+Annotate: "sister" =&gt; family member</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2111,36 +3991,9 @@ All of these should correspond to a subject or object in relations extracted by 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000030">
         <obo:IAO_0000115>A generically dependent continuant that is about some entity.</obo:IAO_0000115>
         <rdfs:label>information content entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_family_history -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_family_history">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000083"/>
-        <obo:IAO_0000112>The patient&apos;s mother has a past medical history of hypercholoesterolemia.</obo:IAO_0000112>
-        <obo:IAO_0000115>History of chronic illness in family members</obo:IAO_0000115>
-        <obo:IAO_0000232>Sourced from Athena OHDSI &quot;family history&quot; (https://athena.ohdsi.org/search-terms/terms/40306697)</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>SNOMEDCT:137667000</oboInOwl:hasDbXref>
-        <rdfs:label>has family history</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/clco.owl#has_timing -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/clco.owl#has_timing">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <obo:IAO_0000112>Patient explains that her significant pelvic discomfort occurs 2-3 days a month concurrent with the onset of menstruation for the past 4 months.</obo:IAO_0000112>
-        <obo:IAO_0000115>Statement indicates the reccurence/or frequency of a finding/condition/intervention with a specific time of day or month.</obo:IAO_0000115>
-        <obo:IAO_0000232>SNOMEDCT sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/4079053)</obo:IAO_0000232>
-        <obo:IAO_0000232>This class also encompases the prior has frequency class that was provided in earlier versions of clco-edit.owl. SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency.</obo:IAO_0000232>
-        <oboInOwl:hasDbXref>SNOMEDCT:246512002</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>biolink:frequency_qualifier</oboInOwl:hasDbXref>
-        <oboInOwl:id>CLCO:0000019</oboInOwl:id>
-        <rdfs:label>has timing</rdfs:label>
-    </owl:Class>
+    <obo:IAO_0000112>POSITIVE EXAMPLES: a clinical statement, MRI report, and discharge summary are information content entities.
+NEGATIVE EXAMPLES: patient, pneumonia, and an MRI machine are respectively a clinical entity, finding, and physical object.
+CONTEXTUAL EXAMPLES: In "The report states that the patient has pneumonia", the report is an information content entity; MRI report and discharge summary function similarly.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2170,8 +4023,4 @@ All of these should correspond to a subject or object in relations extracted by 
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
+<!-- Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi -->
