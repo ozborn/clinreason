@@ -163,7 +163,7 @@ RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 
 "The patient denied having a fever."
 SOURCE: "fever" =&gt; finding
-TARGET: "denied" =&gt; negation status
+TARGET: "denied" =&gt; negation
 RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 
 "The biopsy was completed."
@@ -252,12 +252,12 @@ NEGATIVE EXAMPLE:
 
 "The patient denied having a fever."
 SOURCE: "fever" =&gt; finding
-TARGET: "denied" =&gt; negation status
+TARGET: "denied" =&gt; negation
 RELATION: SOURCE =&gt; has negation status =&gt; TARGET
 
 "No evidence of pneumonia was found."
 SOURCE: "pneumonia" =&gt; finding
-TARGET: "no evidence" =&gt; negation status
+TARGET: "no evidence" =&gt; negation
 RELATION: SOURCE =&gt; has negation status =&gt; TARGET
 
 NEGATIVE EXAMPLES:
@@ -337,7 +337,7 @@ Do NOT attach "suspected" to "biopsy".
 
 "The patient denied having a fever."
 Annotate: "fever" =&gt; finding
-Annotate: "denied" =&gt; negation status
+Annotate: "denied" =&gt; negation
 Do NOT create a has uncertainty status relation.
 
 "The physician performed a biopsy."
@@ -1314,7 +1314,7 @@ RELATION: SOURCE =&gt; has location =&gt; TARGET</obo:IAO_0000112></owl:Class>
 NEGATIVE EXAMPLES:
 "fever" =&gt; finding, NOT has value
 "MRI" =&gt; intervention, NOT has value
-"three weeks" =&gt; time or duration, NOT has value
+"three weeks" =&gt; time, NOT has value
 
 CONTEXTUAL EXAMPLES:
 "The temperature was 38.5 degrees Celsius."
@@ -2963,13 +2963,13 @@ NEGATIVE EXAMPLES:
 
 CONTEXTUAL EXAMPLES:
 "The patient has left knee pain."
-SOURCE: "knee pain" =&gt; finding; TARGET: "left" =&gt; laterality
+SOURCE: "knee pain" =&gt; finding; TARGET: "left" =&gt; finding site
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET
 "A right-sided pneumothorax was seen."
-SOURCE: "pneumothorax" =&gt; finding; TARGET: "right-sided" =&gt; laterality
+SOURCE: "pneumothorax" =&gt; finding; TARGET: "right-sided" =&gt; finding site
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET
 "She has bilateral knee pain."
-SOURCE: "knee pain" =&gt; finding; TARGET: "bilateral" =&gt; laterality
+SOURCE: "knee pain" =&gt; finding; TARGET: "bilateral" =&gt; finding site
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -3007,13 +3007,13 @@ NEGATIVE EXAMPLES:
 
 CONTEXTUAL EXAMPLES:
 "The patient has severe abdominal pain."
-SOURCE: "abdominal pain" =&gt; finding; TARGET: "severe" =&gt; severity
+SOURCE: "abdominal pain" =&gt; finding; TARGET: "severe" =&gt; value
 RELATION: SOURCE =&gt; has severity =&gt; TARGET
 "She reports mild hearing loss."
-SOURCE: "hearing loss" =&gt; finding; TARGET: "mild" =&gt; severity
+SOURCE: "hearing loss" =&gt; finding; TARGET: "mild" =&gt; value
 RELATION: SOURCE =&gt; has severity =&gt; TARGET
 "He has moderate shortness of breath."
-SOURCE: "shortness of breath" =&gt; finding; TARGET: "moderate" =&gt; severity
+SOURCE: "shortness of breath" =&gt; finding; TARGET: "moderate" =&gt; value
 RELATION: SOURCE =&gt; has severity =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -3150,7 +3150,7 @@ NEGATIVE EXAMPLES:
 "suspected" =&gt; uncertainty, NOT negation
 "recommended" =&gt; recommended, NOT negation
 "completed" =&gt; completed, NOT negation
-"severe" =&gt; severity, NOT negation
+"severe" =&gt; value, NOT negation
 "not always present" =&gt; do not negate the finding without checking scope
 
 Negation cues must be interpreted with their scope. The word "not" alone does not always negate the clinical finding.
@@ -3185,7 +3185,7 @@ NEGATIVE EXAMPLES:
 "denied" =&gt; negation, NOT uncertainty
 "recommended" =&gt; recommended, NOT uncertainty
 "completed" =&gt; completed, NOT uncertainty
-"severe" =&gt; severity, NOT uncertainty
+"severe" =&gt; value, NOT uncertainty
 "does not exclude" =&gt; uncertainty, NOT negation
 
 "Does not exclude pulmonary embolism" indicates that pulmonary embolism remains possible; it does not assert that pulmonary embolism is absent.
@@ -3219,7 +3219,7 @@ RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET</obo:IAO_0000112></ow
 "if symptoms recur" =&gt; temporal frame
 
 NEGATIVE EXAMPLES:
-"three weeks" =&gt; time or duration, NOT temporal frame
+"three weeks" =&gt; time, NOT temporal frame
 "will start" =&gt; intention, NOT temporal frame
 "pending" =&gt; completion status, NOT temporal frame
 "suspected" =&gt; uncertainty, NOT temporal frame
@@ -3478,16 +3478,16 @@ NEGATIVE EXAMPLES:
 "Biopsy" =&gt; intervention, NOT finding
 "Physician" =&gt; clinician, NOT finding
 "Mother" =&gt; family member, NOT finding
-"Three weeks" =&gt; duration, NOT finding
+"Three weeks" =&gt; time, NOT finding
 "Worsening" =&gt; course, NOT finding
-"Severe" =&gt; severity, NOT finding
+"Severe" =&gt; value, NOT finding
 "Suspected" =&gt; uncertainty, NOT finding
 
 
 CONTEXTUAL EXAMPLES:
 "The patient presented with severe chest pain."
 Annotate: "chest pain" =&gt; finding
-Annotate: "severe" =&gt; severity
+Annotate: "severe" =&gt; value
 
 "The patient reported progressively worsening muscle weakness."
 Annotate: "muscle weakness" =&gt; finding
@@ -3500,7 +3500,7 @@ Annotate: "MRI" =&gt; intervention
 "The patient experienced intermittent headaches for three weeks."
 Annotate: "headaches" =&gt; finding
 Annotate: "intermittent" =&gt; course
-Annotate: "three weeks" =&gt; duration</obo:IAO_0000112></owl:Class>
+Annotate: "three weeks" =&gt; time</obo:IAO_0000112></owl:Class>
     
 
 
@@ -3557,7 +3557,7 @@ Annotate: "pneumonia" =&gt; finding</obo:IAO_0000112></owl:Class>
 NEGATIVE EXAMPLES:
 "Chest pain" =&gt; finding, NOT time
 "Worsening" =&gt; course, NOT time
-"Severe" =&gt; severity, NOT time
+"Severe" =&gt; value, NOT time
 "MRI" =&gt; intervention, NOT time
 
 CONTEXTUAL EXAMPLES:
@@ -3623,8 +3623,8 @@ Annotate: "cardiac risk" =&gt; reason</obo:IAO_0000112></owl:Class>
 "Rapidly progressing" =&gt; course
 
 NEGATIVE EXAMPLES:
-"Two weeks" =&gt; duration, not course
-"sudden onset" =&gt; timing, not course
+"Two weeks" =&gt; time, not course
+"sudden onset" =&gt; time, not course
 
 
 CONTEXTUAL EXAMPLES:
@@ -3657,7 +3657,6 @@ Annotate: "intermittent" =&gt; course</obo:IAO_0000112></owl:Class>
 
 NEGATIVE EXAMPLES:
 "Fever" =&gt; finding, NOT value
-"Severe" =&gt; severity, NOT value
 "MRI" =&gt; intervention, NOT value
 "Three weeks" =&gt; time, NOT value
 
@@ -3809,7 +3808,7 @@ Annotate: "fractured femur" =&gt; finding</obo:IAO_0000112></owl:Class>
 NEGATIVE EXAMPLES:
 "Chest pain" =&gt; finding, NOT documentation
 "MRI" =&gt; intervention, NOT documentation
-"Three weeks" =&gt; duration, NOT documentation
+"Three weeks" =&gt; time, NOT documentation
 "Physician" =&gt; clinician, NOT documentation
 "Worsening" =&gt; course, NOT documentation
 
