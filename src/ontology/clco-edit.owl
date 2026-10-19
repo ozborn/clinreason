@@ -358,17 +358,17 @@ Do NOT create a has uncertainty status relation.</obo:IAO_0000112></owl:ObjectPr
 
 "The patient's mother has breast cancer."
 SOURCE: "mother" =&gt; family member
-TARGET: "patient's" =&gt; participant qualifier
+TARGET: "patient's"
 RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
 
 "The patient reported pain in his left knee."
 SOURCE: "knee" =&gt; finding site
-TARGET: "his" =&gt; participant qualifier
+TARGET: "his"
 RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
 
 "Her mother reported a history of diabetes."
 SOURCE: "mother" =&gt; family member
-TARGET: "her" =&gt; participant qualifier
+TARGET: "her"
 RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
 
 NEGATIVE EXAMPLES:
@@ -2278,13 +2278,13 @@ NEGATIVE EXAMPLES:
 
 CONTEXTUAL EXAMPLES:
 "The diagnosis was confirmed."
-SOURCE: "diagnosis" =&gt; finding; TARGET: "confirmed" =&gt; confirmation
+SOURCE: "diagnosis" =&gt; finding; TARGET: "confirmed"
 RELATION: SOURCE =&gt; has confirmation =&gt; TARGET
 "The treatment plan was confirmed."
-SOURCE: "treatment plan" =&gt; intervention; TARGET: "confirmed" =&gt; confirmation
+SOURCE: "treatment plan" =&gt; intervention; TARGET: "confirmed"
 RELATION: SOURCE =&gt; has confirmation =&gt; TARGET
 "The appointment was confirmed."
-SOURCE: "appointment" =&gt; task; TARGET: "confirmed" =&gt; confirmation
+SOURCE: "appointment" =&gt; task; TARGET: "confirmed"
 RELATION: SOURCE =&gt; has confirmation =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -2787,7 +2787,7 @@ RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112><
 NEGATIVE EXAMPLES:
 "suspected" =&gt; uncertainty, NOT statement qualifier
 "denied" =&gt; negation, NOT statement qualifier
-"left" =&gt; participant qualifier, NOT statement qualifier
+"left" =&gt; has participant qualifier, NOT statement qualifier
 "last year" =&gt; temporal frame, NOT statement qualifier
 
 CONTEXTUAL EXAMPLES:
@@ -2821,18 +2821,18 @@ NEGATIVE EXAMPLES:
 "suspected tumor" =&gt; uncertainty, NOT predicate qualifier
 "denied fever" =&gt; negation, NOT predicate qualifier
 "completed biopsy" =&gt; completion status, NOT predicate qualifier
-"patient's mother" =&gt; participant qualifier, NOT predicate qualifier
+"patient's mother" =&gt; has participant qualifier, NOT predicate qualifier
 
 CONTEXTUAL EXAMPLES:
 "The scan suggested a tumor."
-SOURCE: "has finding" =&gt; predicate; TARGET: "suggested" =&gt; predicate qualifier
-RELATION: SOURCE =&gt; has predicate qualifier =&gt; TARGET
+SOURCE: "has finding" (the predicate itself); TARGET: "suggested" =&gt; predicate qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "The record documented a historical diagnosis."
-SOURCE: "has diagnosis" =&gt; predicate; TARGET: "historical" =&gt; predicate qualifier
-RELATION: SOURCE =&gt; has predicate qualifier =&gt; TARGET
+SOURCE: "has diagnosis" (the predicate itself); TARGET: "historical" =&gt; predicate qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "The note described a negated finding."
-SOURCE: "has finding" =&gt; predicate; TARGET: "negated" =&gt; predicate qualifier
-RELATION: SOURCE =&gt; has predicate qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
+SOURCE: "has finding" (the predicate itself); TARGET: "negated" =&gt; predicate qualifier
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
