@@ -37,105 +37,84 @@ Direct object properties cannot be instantiated as templates. A property like `i
 ## Qualifier Scope Is Carried by the Property, Not the Class
 
 A qualifier has two independent dimensions: **which axis** it belongs to, and **what it scopes
-over**. CLCO assigns one to the class hierarchy and the other to the property.
-
-- **Class = the axis.** `qualifier` (CLCO\_0000067) has exactly six direct children, the six
-  orthogonal axes named above: `negation`, `uncertainty`, `temporal_frame`, `completion_status`,
-  `intention`, `recommended`. Values hang below their axis (`pending` under `completion_status`,
-  `historical` under `temporal_frame`).
-- **Property = the scope.** `has_qualifier` (CLCO\_0002000) is a scope-neutral grouping property
-  with three scoped children:
+over**. CLCO assigns the axis to the class hierarchy and the scope to the property.
 
 ```
-has_qualifier (CLCO:0002000)                    range: qualifier
-  ├─ has_association_qualifier (CLCO:0003000)   range: qualifier
-  │    ├─ has_temporal_frame     (CLCO:0002603) range: temporal_frame
-  │    ├─ has_intention          (CLCO:0002002) range: intention
-  │    ├─ has_recommended        (CLCO:0002003) range: recommended
-  │    └─ has_completion_status  (CLCO:0002604) range: completion_status
-  ├─ has_subject_qualifier     (CLCO:0003001)   range: negation or uncertainty
-  └─ has_object_qualifier      (CLCO:0003002)   range: negation or uncertainty
+CLASS     qualifier (CLCO:0000067)          PROPERTY  has_qualifier (CLCO:0002000)
+            ├─ negation                                 ├─ has_association_qualifier (CLCO:0003000)
+            ├─ uncertainty                              │    ├─ has_temporal_frame     (CLCO:0002603)
+            ├─ temporal_frame                           │    ├─ has_intention          (CLCO:0002002)
+            │    └─ current / future /                  │    ├─ has_recommended        (CLCO:0002003)
+            │       historical / hypothetical           │    └─ has_completion_status  (CLCO:0002604)
+            ├─ completion_status                        ├─ has_subject_qualifier     (CLCO:0003001)
+            │    └─ pending / in progress /             └─ has_object_qualifier      (CLCO:0003002)
+            │       completed
+            ├─ intention
+            └─ recommended
 ```
 
-The definitions of `negation` and `uncertainty` state that they apply at any scope, so the same
-class must be reachable at more than one scope. That is only expressible if scope lives on the
-property.
+| property | range | scopes |
+| --- | --- | --- |
+| `has_qualifier` | `qualifier` | nothing — grouping property, see below |
+| `has_association_qualifier` | `qualifier` | the whole assertion |
+| `has_subject_qualifier` | `negation` or `uncertainty` | the entity in the `has_subject` slot |
+| `has_object_qualifier` | `negation` or `uncertainty` | the entity in the `has_object` slot |
 
-### There is no statement tier separate from the association tier
+`negation` and `uncertainty` apply at any scope, so the same class has to be reachable from more
+than one property — which is only possible if scope lives on the property. The other four axes
+modify an assertion rather than a participant, so they are statement-only; the ranges on the two
+participant properties are what enforce that, and the four axis shorthands
+(`has_temporal_frame`, `has_intention`, `has_recommended`, `has_completion_status`) sit under
+`has_association_qualifier` because there is only one scope they could mean. `temporal_frame` may
+become participant-scopeable later; see its curation note.
 
-CLCO briefly had both `has_association_qualifier` and `has_statement_qualifier`. They were
-axiomatically identical — same domain (`clinical_association`, the second inheriting it), same range
-— because a `clinical_association` **is** the reified statement: it is a subclass of `IAO:0000030`,
-it carries its participants through `has_subject` / `has_object` under the n-ary pattern, and CLCO
-has no separate `statement` class. "Statement scope" and "association scope" denote the same node.
-The two were collapsed on 2026-10-20, with `has_statement_qualifier` (CLCO\_0003000) taking the
-`has_association_qualifier` label and the old parent (CLCO\_0002000) renamed `has_qualifier`.
+`has_qualifier` exists for querying, not annotation. Every scoped assertion entails it, so one
+query retrieves qualifiers at any scope. The only legitimate direct use is data whose source did not
+record scope.
 
-Note for anyone resolving terms by label rather than IRI: the label *has association qualifier*
-belonged to CLCO\_0002000 before 2026-10-20 and to CLCO\_0003000 after it. Both properties carry a
-curation note recording the swap.
+### Why scope is not in the class hierarchy
 
-This matches the two closest precedents. SNOMED CT's *Situation with explicit context* attaches all
-six of its context attributes to the situation — the reified, contextualised assertion — with no
-intermediate tier. The Biolink Model has a `qualifier` grouping slot whose children encode scope in
-the slot name (`subject_*_qualifier`, `object_*_qualifier`, `qualified_predicate`), and treats
-association-level qualifiers as simply those slots carrying no scope prefix; it has no
-`statement_qualifier` slot.
-
-### Why not encode scope in the class hierarchy
-
-CLCO also had `statement_qualifier` (CLCO\_0000068) and `predicate_qualifier` (CLCO\_0000069) as
-classes under `association_qualifier`. Both were obsoleted on 2026-10-19:
-
-1. **It cannot express the cross-product.** Six axes over three scopes is eighteen combinations.
-   The hierarchy only ever had two scope classes, and the axes were split across them
-   arbitrarily — `negation`, `uncertainty` and `temporal_frame` sat beside `statement_qualifier`
-   rather than under it, so *statement-scoped negation had no class at all*. The property was
-   already the only thing carrying scope.
-2. **It constrained nothing.** Neither scope property declared a range, so the class hierarchy was
-   decorative: nothing prevented attaching `intention` to a single participant.
+1. **A class hierarchy cannot express the cross-product.** Six axes over three scopes is eighteen
+   combinations. Any workable scope-as-class scheme has to either enumerate all eighteen or split
+   the axes arbitrarily across scope classes, at which point some legitimate combinations have no
+   class at all.
+2. **Classes cannot constrain attachment.** The constraint that matters — `intention` may not scope
+   a single participant — is a property range. Expressed as a class parent it is decorative; a
+   reasoner cannot check it.
 3. **Predicate scope is not annotatable.** In the reified pattern the association node is anchored
    on the predicate itself, so a qualifier scoped to the predicate lands on the same node as one
-   scoped to the statement. All three contextual examples formerly under `predicate_qualifier`
-   turned out to be ordinary `uncertainty`, `historical` and `negation`. A
-   `has_predicate_qualifier` sub-property can be added if a genuine case is ever found.
+   scoped to the whole statement. The distinction cannot be drawn in an annotation tool, and every
+   candidate example examined turned out to be ordinary `uncertainty`, `temporal_frame` or
+   `negation`. A `has_predicate_qualifier` sub-property can be added if a genuine case appears.
 
-### Why the axis-only properties were dropped
+### Why there is no statement tier
 
-`has_negation_status` (CLCO\_0002004) and `has_uncertainty_status` (CLCO\_0002009) were obsoleted on
-2026-10-20. They named the axis but not the scope, and because their axes are scope-polymorphic the
-same annotation could legitimately be spelled three ways — through the axis property, through
-`has_association_qualifier`, or through a participant property — with the first silently discarding
-the scope. The axis is already carried by the value class, so nothing is lost by requiring a scoped
-property.
+A `clinical_association` **is** the reified statement: a subclass of `IAO:0000030`, carrying its
+participants through `has_subject` / `has_object`, with no separate `statement` class anywhere in
+CLCO. "Statement scope" and "association scope" therefore denote the same node, and a property for
+each would have identical domain and range. There is one property, `has_association_qualifier`.
 
-The four axis properties that survive (`has_temporal_frame`, `has_intention`, `has_recommended`,
-`has_completion_status`) are unambiguous shorthands: their axes are statement-only, so there is only
-one scope they could mean, and all four sit under `has_association_qualifier`.
+### Why axis-only properties are avoided
 
-`has_participant_qualifier` (CLCO\_0002100) was obsoleted the same day and split into
-`has_subject_qualifier` and `has_object_qualifier`. Its domain was the association, so it could not
-say *which* participant was qualified, while `negation`'s definition promises "a **specific** subject
-or object". Encoding the participant role in the property name follows SNOMED CT's *Subject
-relationship context* and Biolink's `subject_` / `object_` slot prefixes.
+A property naming the axis but not the scope — `has_negation_status`, say — discards the scope for
+any axis that is scope-polymorphic, and makes the same annotation expressible several ways. Since
+the axis is already carried by the value class, nothing is lost by requiring a scoped property. The
+four axis shorthands that remain are unambiguous only because their axes are statement-only.
 
-### How this is enforced
+### Alignment with other models
 
-| property | range | meaning |
-| --- | --- | --- |
-| `has_qualifier` (CLCO\_0002000) | `qualifier` | any axis, scope unspecified |
-| `has_association_qualifier` (CLCO\_0003000) | `qualifier` | any axis, scoped to the whole assertion |
-| `has_subject_qualifier` (CLCO\_0003001) | `negation` or `uncertainty` | scoped to the subject participant |
-| `has_object_qualifier` (CLCO\_0003002) | `negation` or `uncertainty` | scoped to the object participant |
+- **SNOMED CT** *Situation with explicit context* attaches all six of its context attributes to the
+  situation — the reified, contextualised assertion — with no intermediate tier. Its *Subject
+  relationship context* identifies the participant role in the attribute name.
+- **Biolink Model** has a `qualifier` grouping slot whose children encode scope in the slot name
+  (`subject_*_qualifier`, `object_*_qualifier`), treats association-level qualifiers as the slots
+  carrying no scope prefix, and has no `statement_qualifier` slot.
 
-The ranges on the two participant properties preserve the one fact the old class hierarchy was
-gesturing at: `intention`, `recommended` and `completion_status` are statement-only, because they
-modify an assertion rather than a participant. `temporal_frame` is excluded for now and may be
-revisited — see its curation note.
-
-`has_qualifier` exists for querying, not for annotation. Every scoped assertion entails it, so a
-single query retrieves qualifiers at any scope; annotation should always commit to a scope. The one
-legitimate direct use is data whose source did not record scope.
+CLCO differs from Biolink in putting the axis in the value class rather than the slot name, which
+trades a tailored range per axis for four properties instead of roughly nineteen slots. It also
+differs on negation: Biolink's `negated` is a Boolean on `Association`, which cannot express
+participant-scoped negation, whereas clinical text requires it ("Tenderness is present, but not in
+the right upper quadrant"). That divergence is deliberate.
 
 ### What this means for annotation
 
@@ -162,43 +141,50 @@ diagnosis is uncertain, which is what this sentence means. Attaching to `[treate
 treatment itself may not have happened — correct for "The patient was possibly treated with
 antibiotics elsewhere", wrong here.
 
-This keeps the annotation tagset at six axes plus their values, with no scope entries, and makes
-scope a consequence of where the annotator points rather than a separate judgement they must
-record. Because the arc already lands on a specific participant, the subject/object split is what
-lets the exported OWL retain what the annotation captured.
+The annotation tagset stays at six axes plus their values, with no scope entries, and scope becomes
+a consequence of where the annotator points rather than a separate judgement to record. Because the
+arc already lands on a specific participant, the subject/object split is what lets the exported OWL
+retain what the annotation captured.
 
 ## Placement of Clinical Entities Under BFO entity
 
-CLCO organizes its three top-level class hierarchies under BFO/IAO as follows:
+CLCO's three top-level hierarchies sit as follows:
 
 - `clinical_association` (CLCO\_0000057) — subClassOf `IAO:0000030` (information content entity)
-- `association_qualifier` (CLCO\_0000067) — subClassOf `IAO:0000030` (information content entity)
+- `qualifier` (CLCO\_0000067) — subClassOf `IAO:0000030` (information content entity)
 - `clinical_entity` (CLCO\_0000100) — subClassOf `BFO:0000001` (entity)
 
-The 13 clinical entity types (finding, intervention, patient, clinician, time, reason, course, value, setting, task, documentation, finding site, patient state) are all subclasses of `clinical_entity` and therefore sit directly under BFO's root `entity` class.
+The 14 clinical entity types (finding, intervention, patient, clinician, family member, time,
+reason, course, value, setting, task, documentation, finding site, patient state) are all direct
+subclasses of `clinical_entity`, and therefore sit directly under BFO's root `entity`.
 
-### Rationale for the current placement
+### Rationale
 
-The current design treats clinical entities as proxies for real-world things. A `patient` stands for an actual person, a `finding` for an actual clinical observation, an `intervention` for an actual procedure or treatment. Under BFO-realist semantics, these are different ontological categories — a patient is a material entity, a finding is a quality or disposition, an intervention is a process, time is a temporal region — but they share no single BFO parent below `entity`. Placing `clinical_entity` under `BFO:0000001` acknowledges this heterogeneity without making a false commitment to any more specific BFO category.
+Clinical entities are treated as proxies for real-world things: a `patient` stands for an actual
+person, a `finding` for an actual observation, an `intervention` for an actual procedure. Under
+BFO-realist semantics those are disjoint categories — material entity, quality or disposition,
+process, temporal region — with no shared BFO parent below `entity`. Placing `clinical_entity`
+under `BFO:0000001` acknowledges that heterogeneity without committing to a more specific category
+that would be wrong for most of the 14.
 
-### Considerations for an alternative placement under information content entity
+### Open question: reclassification under information content entity
 
-There is a case for reclassifying `clinical_entity` under `IAO:0000030` (information content entity) alongside `clinical_association` and `association_qualifier`:
+Unresolved, and recorded here because it affects how CLCO positions itself in OBO.
 
-1. **Consistency within CLCO.** Two of the three CLCO pillars are already information content entities. Clinical entities fill the subject and object slots of those information structures. Placing them under a different BFO branch creates an asymmetry: the container is an information entity but its contents are not.
+**For.** Two of the three CLCO pillars are already information content entities, and clinical
+entities fill the subject and object slots of those structures, so the current split makes the
+container an information entity while its contents are not. CLCO does not model real patients or
+real diseases; it models the types of thing *mentioned in clinical text*, which is what
+`clinical_entity`'s definition says — "A core clinical entity over which all clinical context
+associations occur". Both use cases, annotation and data generation, operate at the information
+level, and downstream systems use SNOMED CT, RxNorm or LOINC for real-world typing.
 
-2. **What CLCO actually models.** CLCO's clinical entity types do not model real patients, real diseases, or real drugs. They model the *types of things mentioned in clinical text* that fill slots in reified associations. When an annotator tags "diabetes" in a note, they create a reference to a concept, not an instance of the disease itself. The definition of `clinical_entity` reflects this: "A core clinical entity over which all clinical context associations occur."
+**Against.** `IAO:0000030` is defined as "a generically dependent continuant that is *about* some
+entity", and a patient is not *about* anything, so OBO reviewers may find the classification
+unintuitive. It would also mark CLCO unambiguously as an information ontology rather than a domain
+ontology — accurate for its purpose, but possibly limiting for projects wanting to bridge CLCO
+associations to real-world clinical data models.
 
-3. **Avoiding impossible BFO commitments.** Properly aligning each entity type under its correct BFO category (patient under material entity, finding under quality, intervention under process, time under temporal region) would prevent them from sharing a common CLCO parent class, since those BFO categories are disjoint. The only BFO class broad enough to serve as a shared parent for all 13 types is `entity` itself — which conveys no more information than `owl:Thing`.
-
-4. **Alignment with CLCO's use cases.** Both primary applications (NLP annotation and clinical data generation) operate at the information level. Annotators mark up text mentions; generators produce structured data. Neither application requires a commitment to BFO-realist typing of the entities themselves — downstream systems use SNOMED CT, RxNorm, or LOINC codes for that purpose.
-
-However, there are also reasons for caution:
-
-- **BFO-realist expectations.** OBO reviewers accustomed to BFO-realist ontologies may find it unintuitive that a `patient` or `clinician` is classified as an information content entity. IAO:0000030 is defined as "a generically dependent continuant that is *about* some entity" — a patient is not *about* something. The counter-argument is that CLCO's `patient` class represents the concept-as-used-in-documentation, not an actual person.
-
-- **Scope clarity.** Classifying entities as ICEs makes CLCO unambiguously an information ontology rather than a domain ontology. This is accurate for its stated purpose but may limit reuse by projects that want to bridge CLCO associations to real-world clinical data models.
-
-### Status
-
-This decision will be reviewed at a later date. The current placement under `BFO:0000001` is functional and does not cause validation or reasoning issues. A reclassification to `IAO:0000030` would be a one-line change (`CLCO_0000100 subClassOf IAO:0000030` instead of `BFO:0000001`) with no impact on restriction axioms or property declarations, but it carries implications for how the ontology positions itself relative to other OBO ontologies and should be made in consultation with OBO reviewers.
+The change itself is one line (`CLCO_0000100 subClassOf IAO:0000030`) with no effect on restriction
+axioms or property declarations. The current placement is functional and raises no validation or
+reasoning errors, so the decision should be made with OBO reviewers rather than unilaterally.

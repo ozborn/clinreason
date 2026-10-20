@@ -417,7 +417,7 @@ Use: has subject qualifier or has object qualifier for a qualifier modifying a p
 "The patient has had headaches for three weeks."
 Use: has temporal frame or a duration representation as appropriate, NOT has association qualifier for the time expression alone.
 
-Use a specific subproperty when one exists, such as has intention, has recommended, or has completion status. Statement qualifiers modify the entire assertion.</obo:IAO_0000112></owl:ObjectProperty>    
+Use a specific subproperty when one exists, such as has intention, has recommended, or has completion status. These four axes apply only to the whole assertion. For negation and uncertainty, which may apply at any scope, choose has association qualifier, has subject qualifier or has object qualifier according to what the qualifier modifies.</obo:IAO_0000112></owl:ObjectProperty>    
 
 
     <!-- http://purl.obolibrary.org/obo/CLCO_0003001 -->
@@ -3087,7 +3087,15 @@ SOURCE: "pneumonia" =&gt; finding; TARGET: "no evidence" =&gt; negation
 RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "There was no fracture."
 SOURCE: "fracture" =&gt; finding; TARGET: "no" =&gt; negation
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+
+PARTICIPANT-SCOPED EXAMPLE:
+"Tenderness is present, but not in the right upper quadrant."
+SOURCE: "tenderness" =&gt; finding; TARGET: "not" =&gt; negation
+RELATION: SOURCE =&gt; has object qualifier =&gt; TARGET
+The finding is asserted and only its site is negated, so the negation attaches to the participant
+filling the object slot. Using has association qualifier here would wrongly deny the tenderness.
+Negation and uncertainty are the only two axes that may be attached at participant scope.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -3123,7 +3131,16 @@ SOURCE: "pneumonia" =&gt; finding; TARGET: "possible" =&gt; uncertainty
 RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "The patient may have a pulmonary embolism."
 SOURCE: "pulmonary embolism" =&gt; finding; TARGET: "may have" =&gt; uncertainty
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+
+PARTICIPANT-SCOPED EXAMPLE:
+"Possible pneumonia was treated with antibiotics."
+SOURCE: "pneumonia" =&gt; finding; TARGET: "Possible" =&gt; uncertainty
+RELATION: SOURCE =&gt; has subject qualifier =&gt; TARGET
+The treatment did happen and only the diagnosis is uncertain, so the uncertainty attaches to the
+participant filling the subject slot. Using has association qualifier here would wrongly say the
+treatment may not have happened. Negation and uncertainty are the only two axes that may be
+attached at participant scope.</obo:IAO_0000112></owl:Class>
     
 
 
