@@ -39,50 +39,103 @@ Direct object properties cannot be instantiated as templates. A property like `i
 A qualifier has two independent dimensions: **which axis** it belongs to, and **what it scopes
 over**. CLCO assigns one to the class hierarchy and the other to the property.
 
-- **Class = the axis.** `association_qualifier` (CLCO\_0000067) has exactly six direct children,
-  the six orthogonal axes named above: `negation`, `uncertainty`, `temporal_frame`,
-  `completion_status`, `intention`, `recommended`.
-- **Property = the scope.** `has_statement_qualifier` (CLCO\_0003000) attaches a qualifier to the
-  whole association; `has_participant_qualifier` (CLCO\_0002100) attaches it to a single
-  `has_subject` or `has_object` participant. Both are sub-properties of
-  `has_association_qualifier` (CLCO\_0002000), which is used when scope is deliberately left open.
+- **Class = the axis.** `qualifier` (CLCO\_0000067) has exactly six direct children, the six
+  orthogonal axes named above: `negation`, `uncertainty`, `temporal_frame`, `completion_status`,
+  `intention`, `recommended`. Values hang below their axis (`pending` under `completion_status`,
+  `historical` under `temporal_frame`).
+- **Property = the scope.** `has_qualifier` (CLCO\_0002000) is a scope-neutral grouping property
+  with three scoped children:
 
-The definitions of `negation` and `uncertainty` already state that they apply at any scope, so the
-same class must be reachable at more than one scope. That is only expressible if scope lives on the
+```
+has_qualifier (CLCO:0002000)                    range: qualifier
+  ├─ has_association_qualifier (CLCO:0003000)   range: qualifier
+  │    ├─ has_temporal_frame     (CLCO:0002603) range: temporal_frame
+  │    ├─ has_intention          (CLCO:0002002) range: intention
+  │    ├─ has_recommended        (CLCO:0002003) range: recommended
+  │    └─ has_completion_status  (CLCO:0002604) range: completion_status
+  ├─ has_subject_qualifier     (CLCO:0003001)   range: negation or uncertainty
+  └─ has_object_qualifier      (CLCO:0003002)   range: negation or uncertainty
+```
+
+The definitions of `negation` and `uncertainty` state that they apply at any scope, so the same
+class must be reachable at more than one scope. That is only expressible if scope lives on the
 property.
+
+### There is no statement tier separate from the association tier
+
+CLCO briefly had both `has_association_qualifier` and `has_statement_qualifier`. They were
+axiomatically identical — same domain (`clinical_association`, the second inheriting it), same range
+— because a `clinical_association` **is** the reified statement: it is a subclass of `IAO:0000030`,
+it carries its participants through `has_subject` / `has_object` under the n-ary pattern, and CLCO
+has no separate `statement` class. "Statement scope" and "association scope" denote the same node.
+The two were collapsed on 2026-10-20, with `has_statement_qualifier` (CLCO\_0003000) taking the
+`has_association_qualifier` label and the old parent (CLCO\_0002000) renamed `has_qualifier`.
+
+Note for anyone resolving terms by label rather than IRI: the label *has association qualifier*
+belonged to CLCO\_0002000 before 2026-10-20 and to CLCO\_0003000 after it. Both properties carry a
+curation note recording the swap.
+
+This matches the two closest precedents. SNOMED CT's *Situation with explicit context* attaches all
+six of its context attributes to the situation — the reified, contextualised assertion — with no
+intermediate tier. The Biolink Model has a `qualifier` grouping slot whose children encode scope in
+the slot name (`subject_*_qualifier`, `object_*_qualifier`, `qualified_predicate`), and treats
+association-level qualifiers as simply those slots carrying no scope prefix; it has no
+`statement_qualifier` slot.
 
 ### Why not encode scope in the class hierarchy
 
-CLCO previously also had `statement_qualifier` (CLCO\_0000068) and `predicate_qualifier`
-(CLCO\_0000069) as classes under `association_qualifier`. Both were obsoleted on 2026-10-19:
+CLCO also had `statement_qualifier` (CLCO\_0000068) and `predicate_qualifier` (CLCO\_0000069) as
+classes under `association_qualifier`. Both were obsoleted on 2026-10-19:
 
 1. **It cannot express the cross-product.** Six axes over three scopes is eighteen combinations.
    The hierarchy only ever had two scope classes, and the axes were split across them
    arbitrarily — `negation`, `uncertainty` and `temporal_frame` sat beside `statement_qualifier`
    rather than under it, so *statement-scoped negation had no class at all*. The property was
    already the only thing carrying scope.
-2. **It constrained nothing.** Neither `has_statement_qualifier` nor `has_participant_qualifier`
-   declared a range, so the class hierarchy was decorative: nothing prevented attaching
-   `intention` to a single participant. Scope constraints are now asserted where a reasoner can
-   check them — see below.
+2. **It constrained nothing.** Neither scope property declared a range, so the class hierarchy was
+   decorative: nothing prevented attaching `intention` to a single participant.
 3. **Predicate scope is not annotatable.** In the reified pattern the association node is anchored
    on the predicate itself, so a qualifier scoped to the predicate lands on the same node as one
    scoped to the statement. All three contextual examples formerly under `predicate_qualifier`
    turned out to be ordinary `uncertainty`, `historical` and `negation`. A
    `has_predicate_qualifier` sub-property can be added if a genuine case is ever found.
 
+### Why the axis-only properties were dropped
+
+`has_negation_status` (CLCO\_0002004) and `has_uncertainty_status` (CLCO\_0002009) were obsoleted on
+2026-10-20. They named the axis but not the scope, and because their axes are scope-polymorphic the
+same annotation could legitimately be spelled three ways — through the axis property, through
+`has_association_qualifier`, or through a participant property — with the first silently discarding
+the scope. The axis is already carried by the value class, so nothing is lost by requiring a scoped
+property.
+
+The four axis properties that survive (`has_temporal_frame`, `has_intention`, `has_recommended`,
+`has_completion_status`) are unambiguous shorthands: their axes are statement-only, so there is only
+one scope they could mean, and all four sit under `has_association_qualifier`.
+
+`has_participant_qualifier` (CLCO\_0002100) was obsoleted the same day and split into
+`has_subject_qualifier` and `has_object_qualifier`. Its domain was the association, so it could not
+say *which* participant was qualified, while `negation`'s definition promises "a **specific** subject
+or object". Encoding the participant role in the property name follows SNOMED CT's *Subject
+relationship context* and Biolink's `subject_` / `object_` slot prefixes.
+
 ### How this is enforced
 
 | property | range | meaning |
 | --- | --- | --- |
-| `has_association_qualifier` (CLCO\_0002000) | `association_qualifier` | any axis, scope unspecified |
-| `has_statement_qualifier` (CLCO\_0003000) | `association_qualifier` | any axis, scoped to the whole association |
-| `has_participant_qualifier` (CLCO\_0002100) | `negation` or `uncertainty` | only the scope-polymorphic axes may scope to a participant |
+| `has_qualifier` (CLCO\_0002000) | `qualifier` | any axis, scope unspecified |
+| `has_association_qualifier` (CLCO\_0003000) | `qualifier` | any axis, scoped to the whole assertion |
+| `has_subject_qualifier` (CLCO\_0003001) | `negation` or `uncertainty` | scoped to the subject participant |
+| `has_object_qualifier` (CLCO\_0003002) | `negation` or `uncertainty` | scoped to the object participant |
 
-The range on `has_participant_qualifier` is what preserves the one fact the old hierarchy was
+The ranges on the two participant properties preserve the one fact the old class hierarchy was
 gesturing at: `intention`, `recommended` and `completion_status` are statement-only, because they
 modify an assertion rather than a participant. `temporal_frame` is excluded for now and may be
 revisited — see its curation note.
+
+`has_qualifier` exists for querying, not for annotation. Every scoped assertion entails it, so a
+single query retrieves qualifiers at any scope; annotation should always commit to a scope. The one
+legitimate direct use is data whose source did not record scope.
 
 ### What this means for annotation
 
@@ -92,25 +145,27 @@ one arc; **the arc's target determines the scope, and therefore the property.**
 ```
 "Possible pneumonia was treated with antibiotics."
 
-  [pneumonia]     clinical entity      = finding
-  [antibiotics]   clinical entity      = intervention
+  [pneumonia]     clinical entity = finding
+  [antibiotics]   clinical entity = intervention
   [treated with]  clinical association = has_intervention
                                          has_subject -> [pneumonia]
                                          has_object  -> [antibiotics]
-  [Possible]      association qualifier = uncertainty
+  [Possible]      qualifier = uncertainty
 
-  arc from [Possible] -> [pneumonia]      ==> has_participant_qualifier
-  arc from [Possible] -> [treated with]   ==> has_statement_qualifier
+  arc from [Possible] -> [pneumonia]      ==> has_subject_qualifier
+  arc from [Possible] -> [antibiotics]    ==> has_object_qualifier
+  arc from [Possible] -> [treated with]   ==> has_association_qualifier
 ```
 
-The two readings differ clinically. Attaching to `[pneumonia]` says the treatment happened but the
+The readings differ clinically. Attaching to `[pneumonia]` says the treatment happened but the
 diagnosis is uncertain, which is what this sentence means. Attaching to `[treated with]` says the
 treatment itself may not have happened — correct for "The patient was possibly treated with
-antibiotics elsewhere", wrong here. One qualifier class, one arc, two scopes.
+antibiotics elsewhere", wrong here.
 
 This keeps the annotation tagset at six axes plus their values, with no scope entries, and makes
 scope a consequence of where the annotator points rather than a separate judgement they must
-record.
+record. Because the arc already lands on a specific participant, the subject/object split is what
+lets the exported OWL retain what the annotation captured.
 
 ## Placement of Clinical Entities Under BFO entity
 
