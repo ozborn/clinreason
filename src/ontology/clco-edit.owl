@@ -2854,7 +2854,7 @@ RELATION: SOURCE =&gt; has spatial orientation =&gt; TARGET</obo:IAO_0000112></o
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000112"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000106"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2864,14 +2864,20 @@ RELATION: SOURCE =&gt; has spatial orientation =&gt; TARGET</obo:IAO_0000112></o
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>Right-sided pneumothorax; bilateral knee pain.</obo:IAO_0000112>
-        <obo:IAO_0000115>A finding association specifying the laterality (left, right, bilateral, unilateral, or midline) of a finding relative to a body site.</obo:IAO_0000115>
-        <obo:IAO_0000232>laterality_qualifier
-  ⊑ has_participant_qualifier only
-     (PATO:0000611  # left
-      or PATO:0000612  # right
-      or PATO:0000613  # bilateral
-      or PATO:0000614  # unilateral
-      or PATO:0000610) # midline</obo:IAO_0000232>
+        <obo:IAO_0000115>A finding association specifying the laterality (left, right, bilateral, unilateral, or midline) of a finding. The object is the laterality value itself; the body site, where stated, is carried separately by has location.</obo:IAO_0000115>
+        <obo:IAO_0000232>Object changed from finding site (CLCO:0000112) to value (CLCO:0000106) on 2026-10-21. The previous restriction did not match the class's own examples: "left", "right-sided" and "bilateral" are laterality values, not body sites, whereas the sibling has spatial orientation (CLCO:0000072) genuinely does take a site ("anterior to the knee"). Where a site is also stated, express it separately with has location (CLCO:0000023).
+
+Recorded alternative, not adopted: an earlier draft modelled this as a participant-scoped qualifier over PATO quality terms rather than as an association --
+
+  laterality_qualifier
+    ⊑ has_participant_qualifier only
+       (PATO:0000611  # left
+        or PATO:0000612  # right
+        or PATO:0000613  # bilateral
+        or PATO:0000614  # unilateral
+        or PATO:0000610) # midline
+
+That remains defensible: "left" in "left knee pain" modifies the knee, which is participant scope, and the draft would now use has object qualifier (CLCO:0003002). It was not adopted because the qualifier family is currently all-modal -- negation, certainty, temporal frame, completion status, intention, recommended -- and admitting a physical quality axis would mean widening the range of the participant properties, which is what encodes the restriction to scope-polymorphic modal axes. Revisit together with has spatial orientation, whose own note states the same PATO intent.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000073</oboInOwl:id>
         <rdfs:label>has laterality</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLES:
@@ -2886,13 +2892,13 @@ NEGATIVE EXAMPLES:
 
 CONTEXTUAL EXAMPLES:
 "The patient has left knee pain."
-SOURCE: "knee pain" =&gt; finding; TARGET: "left" =&gt; finding site
+SOURCE: "knee pain" =&gt; finding; TARGET: "left" =&gt; value
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET
 "A right-sided pneumothorax was seen."
-SOURCE: "pneumothorax" =&gt; finding; TARGET: "right-sided" =&gt; finding site
+SOURCE: "pneumothorax" =&gt; finding; TARGET: "right-sided" =&gt; value
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET
 "She has bilateral knee pain."
-SOURCE: "knee pain" =&gt; finding; TARGET: "bilateral" =&gt; finding site
+SOURCE: "knee pain" =&gt; finding; TARGET: "bilateral" =&gt; value
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
