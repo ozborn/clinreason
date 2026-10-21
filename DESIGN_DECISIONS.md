@@ -116,6 +116,46 @@ differs on negation: Biolink's `negated` is a Boolean on `Association`, which ca
 participant-scoped negation, whereas clinical text requires it ("Tenderness is present, but not in
 the right upper quadrant"). That divergence is deliberate.
 
+### Omission semantics (TENTATIVE — not yet settled)
+
+> **Status: tentative.** The reading below is proposed, not decided. It is recorded because a
+> consumer cannot interpret a missing triple without *some* convention, and leaving it unstated means
+> every consumer invents its own. It should be confirmed or revised before the next release.
+
+A missing triple does not mean the same thing everywhere in CLCO. Three readings are possible and
+two of them are in use:
+
+| slot kind | proposed reading of omission | examples |
+| --- | --- | --- |
+| qualifier axes | the **unmarked clinical default** | `negation` absent, `temporal frame` current |
+| participant and value slots | genuinely **unspecified** | `finding site`, `has value`, `has duration` |
+| *(not used in CLCO)* | **unrestricted / universal** | Biolink `species_context_qualifier` |
+
+**Qualifier axes default to the unmarked reading.** Clinical documentation convention is that an
+unmarked finding is affirmed, actual, about the patient, and current; only departures from that are
+written down. This is the assumption behind ConText and NegEx, which flag deviations from
+affirmed/recent/patient, and behind the distribution of the i2b2 assertion task, where *present* is
+the majority class. SNOMED CT makes the same commitment explicitly by requiring default values for
+Finding context, Temporal context and Subject relationship context.
+
+**Participant and value slots are genuinely unspecified when absent.** "The patient has pain" with no
+`finding site` does not mean pain at every site; it means the site was not recorded. Nothing should
+be inferred.
+
+**The third reading does not apply to CLCO.** A Biolink association is a claim about types in
+general, so omitting a contextual qualifier leaves the claim unrestricted — which is why a
+mouse-only finding can be misread as a human one. CLCO associations are particulars: one patient, one
+document, one time. There is nothing to quantify over universally, so omission can never widen a
+CLCO claim. Both models are open-world, but the risk runs in opposite directions: omission in Biolink
+risks overclaiming, omission in CLCO risks underspecification.
+
+**Consequence for the qualifier axes.** The two readings have to be distinguishable in the data,
+because "affirmed because the annotator saw no negation cue" and "affirmed because nobody looked" are
+not the same claim. OWL cannot express a defeasible default — it is monotonic and open-world, so
+*not asserted* never entails *asserted not* — which means any default has to be either materialised
+as data or left to the consuming layer. See the editors' guide for the mechanism; the ontology
+itself only names the defaults.
+
 ### What this means for annotation
 
 The annotator never selects a property name. They tag the qualifier span with its axis, then draw
