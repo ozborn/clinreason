@@ -2569,7 +2569,7 @@ RELATION: SOURCE =&gt; has setting =&gt; TARGET</obo:IAO_0000112></owl:Class>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000060">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
-        <obo:IAO_0000115>Modifies a relation to indicate that the relation is intended rather than actual. Boolean.</obo:IAO_0000115>
+        <obo:IAO_0000115>Modifies a relation to indicate that the relation is intended rather than actual. Presence-only: the axis has no value set, so the qualifier is either asserted or absent.</obo:IAO_0000115>
         <obo:IAO_0000232>Epistemic modality axis: captures whether the association describes an actual event or an intended/planned one. Orthogonal to temporal_frame (CLCO_0000082), which captures WHEN relative to the document, and completion_status (CLCO_0000063), which captures workflow state. An intended event may be past (we intended chemo but did not start), present, or future.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000060</oboInOwl:id>
         <rdfs:label>intention</rdfs:label>
@@ -2602,7 +2602,7 @@ RELATION: SOURCE =&gt; has intention =&gt; TARGET</obo:IAO_0000112></owl:Class>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000062">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
-        <obo:IAO_0000115>The modified relationship is recommended, for example an intervention, admission or some action. Boolean.</obo:IAO_0000115>
+        <obo:IAO_0000115>The modified relationship is recommended, for example an intervention, admission or some action. Presence-only: the axis has no value set, so the qualifier is either asserted or absent.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000062</oboInOwl:id>
         <rdfs:label>recommended</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLES:
