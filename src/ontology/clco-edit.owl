@@ -2338,7 +2338,17 @@ SOURCE: "symptoms" =&gt; finding; TARGET: "stable" =&gt; course
 RELATION: SOURCE =&gt; has course =&gt; TARGET
 "He has intermittent chest pain."
 SOURCE: "chest pain" =&gt; finding; TARGET: "intermittent" =&gt; course
-RELATION: SOURCE =&gt; has course =&gt; TARGET</obo:IAO_0000112></owl:Class>
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+"Bone density is decreasing."
+SOURCE: "bone density" =&gt; finding; TARGET: "decreasing" =&gt; course
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+"Cancer progression is rapid."
+SOURCE: "cancer progression" =&gt; finding; TARGET: "rapid" =&gt; course
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+A measurable property of a body site or disease process, such as "bone density" or "cancer
+progression", is annotated as a single finding. Do not decompose it into the site plus the property;
+there is no cue licensing such a relation, and CLCO has no observable entity class to hold the
+property.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2762,44 +2772,13 @@ RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112><
     <!-- http://purl.obolibrary.org/obo/CLCO_0000071 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000071">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000106"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000112>Bone density is decreasing; cancer progression is rapid.</obo:IAO_0000112>
         <obo:IAO_0000115>A finding association specifying which facet, part, or functional dimension of an entity is being referred to in the assertion.</obo:IAO_0000115>
-        <obo:IAO_0000232>Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
+        <obo:IAO_0000232>Obsoleted 2026-10-23. Every pattern this class was created for is expressible with existing vocabulary once the noun phrase is typed as a finding: "Bone density is decreasing" is has course (CLCO:0000051) over the finding "bone density"; "Cancer progression is rapid" is has course over "cancer progression", and course (CLCO:0000105) already lists "Rapidly progressing" among its own values; "Cardiac function is preserved" is has descriptive value (CLCO:0000075) over "cardiac function". All three have been moved to those classes. Four further reasons: the class had no cue -- every other association is licensed by a verb, preposition or connective, while aspect was licensed only by noun-noun juxtaposition, leaving no span to annotate; all three of its own contextual examples contradicted its own restrictions, using a finding site subject where finding was declared and a course object where value was declared; it shared the finding-to-value signature with has severity, has value, has descriptive value, has quantifiable value and now has laterality, adding no discriminating power; and its negative examples had to borrow has laterality and has spatial orientation to say what it was not. What aspect reached for -- density or function as a measurable property of a site -- is the SNOMED CT observable entity axis, which CLCO does not model. Should CLCO ever post-coordinate against LOINC, where the property axis is first class, or against SNOMED observable entities, that capability should return as an observable entity class on the clinical entity side, not as a finding-to-value association. Obsoleting this class does not foreclose it.</obo:IAO_0000232>
+        <oboInOwl:consider>CLCO:0000051, CLCO:0000075, CLCO:0000024</oboInOwl:consider>
         <oboInOwl:id>CLCO:0000071</oboInOwl:id>
-        <rdfs:label>has aspect</rdfs:label>
-    <obo:IAO_0000112>POSITIVE EXAMPLES:
-"bone density" =&gt; has aspect
-"cancer progression" =&gt; has aspect
-"cardiac function" =&gt; has aspect
-
-NEGATIVE EXAMPLES:
-"left knee" =&gt; has spatial orientation or has laterality, NOT has aspect
-"severe pain" =&gt; has severity, NOT has aspect
-"three weeks" =&gt; has duration, NOT has aspect
-
-CONTEXTUAL EXAMPLES:
-"Bone density is decreasing."
-SOURCE: "bone" =&gt; finding site; TARGET: "density" =&gt; value
-RELATION: SOURCE =&gt; has aspect =&gt; TARGET
-"Cancer progression is rapid."
-SOURCE: "cancer" =&gt; finding; TARGET: "progression" =&gt; course
-RELATION: SOURCE =&gt; has aspect =&gt; TARGET
-"Cardiac function is preserved."
-SOURCE: "cardiac" =&gt; finding site; TARGET: "function" =&gt; value
-RELATION: SOURCE =&gt; has aspect =&gt; TARGET</obo:IAO_0000112></owl:Class>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:label>obsolete has aspect</rdfs:label>
+    </owl:Class>
     
 
 
@@ -2974,6 +2953,9 @@ SOURCE: "pain" =&gt; finding; TARGET: "pressure-like" =&gt; value
 RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET
 "The cough was nonproductive."
 SOURCE: "cough" =&gt; finding; TARGET: "nonproductive" =&gt; value
+RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET
+"Cardiac function is preserved."
+SOURCE: "cardiac function" =&gt; finding; TARGET: "preserved" =&gt; value
 RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
