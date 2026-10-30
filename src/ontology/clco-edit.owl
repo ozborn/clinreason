@@ -736,8 +736,8 @@ RELATION: SOURCE =&gt; has action =&gt; TARGET
 "Staff uploaded the record."
 SOURCE: "staff" =&gt; clinician; TARGET: "uploaded the record" =&gt; task
 RELATION: SOURCE =&gt; has action =&gt; TARGET
-"The office called the patient."
-SOURCE: "office" =&gt; setting; TARGET: "called the patient" =&gt; task
+"The office staff called the patient."
+SOURCE: "office staff" =&gt; clinician; TARGET: "called the patient" =&gt; task
 RELATION: SOURCE =&gt; has action =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -800,7 +800,14 @@ RELATION: SOURCE =&gt; is admitted =&gt; TARGET</obo:IAO_0000112></owl:Class>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>Here for packing and splint removal after recent discharge from rehab</obo:IAO_0000112>
@@ -1195,7 +1202,7 @@ RELATION: SOURCE =&gt; has onset =&gt; TARGET</obo:IAO_0000112></owl:Class>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000112"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000107"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1206,12 +1213,14 @@ RELATION: SOURCE =&gt; has onset =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>Inference about the location where an event happened</obo:IAO_0000115>
+        <obo:IAO_0000115>Inference about the care setting in which an event happened. The object is a setting, not an anatomical site; for the body site of a finding use has spatial orientation or has laterality.</obo:IAO_0000115>
+        <obo:IAO_0000232>Object changed from finding site (CLCO:0000112) to setting (CLCO:0000107) on 2026-10-30, and the subject widened to admit patient. The restriction asserted an anatomical site while every example used a care setting -- "operating room", "clinic", "home" -- and the class is subClassOf has setting (CLCO:0000058), so both the hierarchy and the examples indicated care setting. Anatomical location is reached through has spatial orientation (CLCO:0000072) or has laterality (CLCO:0000073).</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:3469026</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:18720000</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000023</oboInOwl:id>
@@ -1334,12 +1343,15 @@ CONTEXTUAL EXAMPLES:
 "The patient has pneumonia."
 SOURCE: "patient" =&gt; patient; TARGET: "pneumonia" =&gt; finding
 RELATION: SOURCE =&gt; has finding =&gt; TARGET
-"Examination revealed a heart murmur."
-SOURCE: "examination" =&gt; intervention; TARGET: "heart murmur" =&gt; finding
+"The patient has a heart murmur."
+SOURCE: "patient" =&gt; patient; TARGET: "heart murmur" =&gt; finding
 RELATION: SOURCE =&gt; has finding =&gt; TARGET
-"The CT scan showed a pulmonary mass."
-SOURCE: "CT scan" =&gt; intervention; TARGET: "pulmonary mass" =&gt; finding
-RELATION: SOURCE =&gt; has finding =&gt; TARGET</obo:IAO_0000112></owl:Class>
+"The right lower lobe shows consolidation."
+SOURCE: "right lower lobe" =&gt; finding site; TARGET: "consolidation" =&gt; finding
+RELATION: SOURCE =&gt; has finding =&gt; TARGET
+A diagnostic test or document that reveals a finding is not the bearer of it. "The CT scan showed a
+pulmonary mass" is suggests finding, whose subject may be an intervention or a documentation; the
+subject of has finding is the patient or the body site.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1420,7 +1432,14 @@ RELATION: SOURCE =&gt; has abandonment reason =&gt; TARGET</obo:IAO_0000112></ow
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>unable to assess for h/o exertional syncope, angina, dyspnea, etc which would warrant ICD placement</obo:IAO_0000112>
@@ -1599,13 +1618,13 @@ NEGATIVE EXAMPLES:
 
 CONTEXTUAL EXAMPLES:
 "If the fever returns, call the clinic."
-SOURCE: "fever returns" =&gt; finding; TARGET: "call the clinic" =&gt; task
+SOURCE: "call the clinic" =&gt; task; TARGET: "fever returns" =&gt; finding
 RELATION: SOURCE =&gt; has trigger =&gt; TARGET
 "The abnormal CT result prompted admission."
-SOURCE: "abnormal CT result" =&gt; finding; TARGET: "admission" =&gt; intervention
+SOURCE: "admission" =&gt; intervention; TARGET: "abnormal CT result" =&gt; finding
 RELATION: SOURCE =&gt; has trigger =&gt; TARGET
 "Worsening hypoxia led to escalation of respiratory support."
-SOURCE: "worsening hypoxia" =&gt; finding; TARGET: "escalation of respiratory support" =&gt; intervention
+SOURCE: "escalation of respiratory support" =&gt; intervention; TARGET: "worsening hypoxia" =&gt; finding
 RELATION: SOURCE =&gt; has trigger =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -1878,6 +1897,7 @@ RELATION: SOURCE =&gt; treatment reason =&gt; TARGET</obo:IAO_0000112></owl:Clas
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000108"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000115"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -1907,8 +1927,8 @@ RELATION: SOURCE =&gt; agree with =&gt; TARGET
 "The family concurred with the treatment plan."
 SOURCE: "family" =&gt; family member; TARGET: "treatment plan" =&gt; intervention
 RELATION: SOURCE =&gt; agree with =&gt; TARGET
-"The patient accepted the recommendation."
-SOURCE: "patient" =&gt; patient; TARGET: "recommendation" =&gt; clinical decision
+"The patient accepted the care plan."
+SOURCE: "patient" =&gt; patient; TARGET: "care plan" =&gt; documentation
 RELATION: SOURCE =&gt; agree with =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -1925,6 +1945,7 @@ RELATION: SOURCE =&gt; agree with =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000106"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -2035,6 +2056,7 @@ RELATION: SOURCE =&gt; has decision =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000105"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000106"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000113"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -2043,10 +2065,19 @@ RELATION: SOURCE =&gt; has decision =&gt; TARGET</obo:IAO_0000112></owl:Class>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>Statement indicating that a finding/condition is at goal</obo:IAO_0000115>
+        <obo:IAO_0000115>Statement indicating that a finding/condition, an intervention or the patient is at goal. Being at goal may be expressed as a value, a course, or a state of the patient.</obo:IAO_0000115>
+        <obo:IAO_0000232>Subject and object widened on 2026-10-30. Being at goal is asserted of a finding ("blood pressure is at goal"), of an intervention ("the treatment met the target") and of the patient ("the patient reached the desired glucose level"); the goal itself is sometimes a state of the patient rather than a value or a course.</obo:IAO_0000232>
         <obo:IAO_0000232>Goal achieved in SNOMED, rename if acceptable.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4191706</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:390802008</oboInOwl:hasDbXref>
@@ -2091,32 +2122,33 @@ RELATION: SOURCE =&gt; is at goal =&gt; TARGET</obo:IAO_0000112></owl:Class>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>Statement about documentation of a finding/condition</obo:IAO_0000115>
+        <obo:IAO_0000115>Statement that a finding or condition is documented in a clinical document. The subject is the finding; the object is the document that records it.</obo:IAO_0000115>
+        <obo:IAO_0000232>Renamed from "documentation of finding" on 2026-10-30. The asserted restrictions -- subject finding (CLCO:0000101), object documentation (CLCO:0000111) -- were kept, and the examples, which had subject and object the other way round, were flipped to match. The old label was a noun phrase that did not indicate a direction, so it could be read either way; "has documentation" follows the has-X convention used by the other associations and reads in the same direction as the axiom. The SNOMED and OMOP mappings are unchanged and still describe the same relation.</obo:IAO_0000232>
         <obo:IAO_0000232>Maps to SNOMED qualifier Reference documentation which is probably equivalent.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4205679</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:308910008</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000045</oboInOwl:id>
-        <rdfs:label>documentation of finding</rdfs:label>
+        <rdfs:label>has documentation</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLES:
-"the record documents hypertension" =&gt; documentation of finding
-"the imaging report describes a mass" =&gt; documentation of finding
-"the discharge summary notes anemia" =&gt; documentation of finding
+"hypertension is documented in the record" =&gt; has documentation
+"the mass is described in the imaging report" =&gt; has documentation
+"anemia is noted in the discharge summary" =&gt; has documentation
 
 NEGATIVE EXAMPLES:
-"the patient has hypertension" =&gt; has finding, NOT documentation of finding
-"the patient underwent surgery" =&gt; has intervention, NOT documentation of finding
-"the physician recommended treatment" =&gt; recommended, NOT documentation of finding
+"the patient has hypertension" =&gt; has finding, NOT has documentation
+"the patient underwent surgery" =&gt; has intervention, NOT has documentation
+"the physician recommended treatment" =&gt; recommended, NOT has documentation
 
 CONTEXTUAL EXAMPLES:
 "The medical record documents hypertension."
-SOURCE: "medical record" =&gt; documentation; TARGET: "hypertension" =&gt; finding
-RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET
+SOURCE: "hypertension" =&gt; finding; TARGET: "medical record" =&gt; documentation
+RELATION: SOURCE =&gt; has documentation =&gt; TARGET
 "The imaging report describes a pulmonary mass."
-SOURCE: "imaging report" =&gt; documentation; TARGET: "pulmonary mass" =&gt; finding
-RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET
+SOURCE: "pulmonary mass" =&gt; finding; TARGET: "imaging report" =&gt; documentation
+RELATION: SOURCE =&gt; has documentation =&gt; TARGET
 "The discharge summary notes anemia."
-SOURCE: "discharge summary" =&gt; documentation; TARGET: "anemia" =&gt; finding
-RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET</obo:IAO_0000112></owl:Class>
+SOURCE: "anemia" =&gt; finding; TARGET: "discharge summary" =&gt; documentation
+RELATION: SOURCE =&gt; has documentation =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2174,6 +2206,7 @@ RELATION: SOURCE =&gt; is eligible =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000108"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000115"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -3875,8 +3908,8 @@ RELATION: SOURCE =&gt; is discharged =&gt; TARGET
 "She was discharged from the hospital."
 SOURCE: "patient" =&gt; patient; TARGET: "hospital" =&gt; setting
 RELATION: SOURCE =&gt; is discharged =&gt; TARGET
-"He is ready for discharge."
-SOURCE: "patient" =&gt; patient; TARGET: "discharge" =&gt; clinical administration
+"He is ready for discharge to a skilled nursing facility."
+SOURCE: "patient" =&gt; patient; TARGET: "skilled nursing facility" =&gt; setting
 RELATION: SOURCE =&gt; is discharged =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
