@@ -115,6 +115,12 @@
     
 
 
+    <!-- http://www.geneontology.org/formats/oboInOwl#consider -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#consider"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -149,40 +155,32 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
-        <obo:IAO_0000115>A modifier of a clinical association</obo:IAO_0000115>
+        <obo:IAO_0000115>A modifier of a clinical association. Scope-neutral grouping property: annotation should assert through the sub-property that commits to a scope, and this property is used for querying across scopes or for data from a source that did not record scope.</obo:IAO_0000115>
         <obo:IAO_0000232>Analogous to RO:0000053 (has characteristic) in that the association bears the qualifier, but not declared as a sub-property because BFO type constraints require the bearer to be an independent continuant and the characteristic to be a specifically dependent continuant. CLCO associations are information content entities and qualifiers are not modeled as BFO dependent continuants.</obo:IAO_0000232>
+        <obo:IAO_0000232>Renamed from "has association qualifier" on 2026-10-20, when qualifier scope was moved onto the property. This is now the scope-neutral parent; its former label was transferred to CLCO:0003000, which is the statement-scoped child.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0002000</oboInOwl:id>
-        <rdfs:label>has association qualifier</rdfs:label>
+        <rdfs:label>has qualifier</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-    <obo:IAO_0000112>POSITIVE EXAMPLE:
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
 
-"A soft-tissue tumor was suspected."
-SOURCE: "soft-tissue tumor" =&gt; finding
-TARGET: "suspected" =&gt; uncertainty
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
-
-"The patient denied having a fever."
-SOURCE: "fever" =&gt; finding
-TARGET: "denied" =&gt; negation
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
-
-"The biopsy was completed."
-SOURCE: "biopsy" =&gt; intervention
-TARGET: "completed" =&gt; completion status
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+Use this property only when the scope of the qualifier is genuinely unknown or deliberately left
+open, for example in pre-adjudication annotation or when importing data that did not record scope.
 
 NEGATIVE EXAMPLES:
 
 "A soft-tissue tumor was suspected."
-Use: has uncertainty status, NOT the generic has association qualifier when a specific subproperty applies.
+Use: has association qualifier, NOT the grouping property has qualifier. The uncertainty applies to
+the whole statement.
 
-"The patient denied having a fever."
-Use: has negation status, NOT the generic has association qualifier.
+"Possible pneumonia was treated with antibiotics."
+Use: has subject qualifier, NOT the grouping property has qualifier. The treatment happened; only
+the diagnosis is uncertain.
 
-"The biopsy was completed."
-Use: has completion status, NOT the generic has association qualifier.
+"The patient reported pain in his left knee."
+Use: has object qualifier, NOT the grouping property has qualifier.
 
-Use a specific subproperty when one exists, such as has uncertainty status, has negation status, or has completion status.</obo:IAO_0000112></owl:ObjectProperty>
+Every sub-property entails this one, so a query on has qualifier retrieves qualifiers at any scope.
+Annotation should always commit to a scope.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -243,146 +241,39 @@ NEGATIVE EXAMPLE:
     <!-- http://purl.obolibrary.org/obo/CLCO_0002004 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CLCO_0002004">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000080"/>
         <obo:IAO_0000115>Relates a clinical association to its negation status, indicating whether the asserted relationship is negated.</obo:IAO_0000115>
+        <obo:IAO_0000232>Obsoleted 2026-10-20. Named the axis but not the scope. Because negation (CLCO:0000080) applies at any scope, an assertion through this property discarded the scope, and the same annotation could legitimately be spelled three different ways. The axis is already carried by the value class, so attach negation through the property that commits to a scope.</obo:IAO_0000232>
+        <oboInOwl:consider>CLCO:0003000, CLCO:0003001, CLCO:0003002</oboInOwl:consider>
         <oboInOwl:id>CLCO:0002004</oboInOwl:id>
-        <rdfs:label>has negation status</rdfs:label>
-    <obo:IAO_0000112>POSITIVE EXAMPLES:
-
-"The patient denied having a fever."
-SOURCE: "fever" =&gt; finding
-TARGET: "denied" =&gt; negation
-RELATION: SOURCE =&gt; has negation status =&gt; TARGET
-
-"No evidence of pneumonia was found."
-SOURCE: "pneumonia" =&gt; finding
-TARGET: "no evidence" =&gt; negation
-RELATION: SOURCE =&gt; has negation status =&gt; TARGET
-
-NEGATIVE EXAMPLES:
-
-"A soft-tissue tumor was suspected."
-Use: has uncertainty status, NOT has negation status.
-
-"The patient had severe chest pain."
-"severe" describes severity, NOT negation.</obo:IAO_0000112></owl:ObjectProperty>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:label>obsolete has negation status</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.obolibrary.org/obo/CLCO_0002009 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CLCO_0002009">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000081"/>
         <obo:IAO_0000115>Relates a clinical association to its uncertainty qualifier, indicating that the asserted relationship is uncertain or suspected.</obo:IAO_0000115>
+        <obo:IAO_0000232>Obsoleted 2026-10-20. Named the axis but not the scope. Because uncertainty (CLCO:0000081) applies at any scope, an assertion through this property discarded the scope. The axis is already carried by the value class, so attach uncertainty through the property that commits to a scope.</obo:IAO_0000232>
+        <oboInOwl:consider>CLCO:0003000, CLCO:0003001, CLCO:0003002</oboInOwl:consider>
         <oboInOwl:id>CLCO:0002009</oboInOwl:id>
-        <rdfs:label>has uncertainty status</rdfs:label>
-    <obo:IAO_0000112>POSITIVE EXAMPLES:
-
-"Soft-tissue tumor" =&gt; "suspected"
-RELATION: "soft-tissue tumor" =&gt; has uncertainty status =&gt; "suspected"
-
-"Pneumonia" =&gt; "possible"
-RELATION: "pneumonia" =&gt; has uncertainty status =&gt; "possible"
-
-"Pulmonary embolism" =&gt; "suspected"
-RELATION: "pulmonary embolism" =&gt; has uncertainty status =&gt; "suspected"
-
-"Malignancy" =&gt; "probable"
-RELATION: "malignancy" =&gt; has uncertainty status =&gt; "probable"
-
-"Viral infection" =&gt; "may"
-RELATION: "viral infection" =&gt; has uncertainty status =&gt; "may"
-
-NEGATIVE EXAMPLES:
-
-"Fever" =&gt; "denied"
-Use: has negation status, NOT has uncertainty status.
-
-"Biopsy" =&gt; "performed"
-Use: has completion status, NOT has uncertainty status.
-
-"Chest pain" =&gt; "severe"
-"Severe" describes severity, NOT uncertainty.
-
-"Muscle weakness" =&gt; "worsening"
-"Worsening" describes course, NOT uncertainty.
-
-"Hypertension" =&gt; "confirmed"
-Do NOT automatically create a has uncertainty status relation for a confirmed diagnosis.
-
-CONTEXTUAL EXAMPLES:
-
-"The physician suspected a soft-tissue tumor."
-SOURCE: "soft-tissue tumor" =&gt; finding
-TARGET: "suspected" =&gt; uncertainty
-RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
-
-"CT findings suggested possible pneumonia."
-SOURCE: "pneumonia" =&gt; finding
-TARGET: "possible" =&gt; uncertainty
-RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
-
-"The patient may have a pulmonary embolism."
-SOURCE: "pulmonary embolism" =&gt; finding
-TARGET: "may" =&gt; uncertainty
-RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
-
-"The clinician recommended a biopsy for a suspected malignancy."
-SOURCE: "malignancy" =&gt; finding
-TARGET: "suspected" =&gt; uncertainty
-RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
-Do NOT attach "suspected" to "biopsy".
-
-"The patient denied having a fever."
-Annotate: "fever" =&gt; finding
-Annotate: "denied" =&gt; negation
-Do NOT create a has uncertainty status relation.
-
-"The physician performed a biopsy."
-Annotate: "biopsy" =&gt; intervention
-Annotate: "performed" =&gt; completion status
-Do NOT create a has uncertainty status relation.</obo:IAO_0000112></owl:ObjectProperty>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:label>obsolete has uncertainty status</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.obolibrary.org/obo/CLCO_0002100 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CLCO_0002100">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
         <obo:IAO_0000115>Relates a clinical association to a qualifier that modifies a participant (subject or object) rather than the overall statement or predicate.</obo:IAO_0000115>
+        <obo:IAO_0000232>Obsoleted 2026-10-20. Its domain is the clinical association, so an assertion through this property could not say which participant was qualified, while the definitions of negation and uncertainty both promise a specific subject or object. Split into has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002).</obo:IAO_0000232>
+        <oboInOwl:consider>CLCO:0003001, CLCO:0003002</oboInOwl:consider>
         <oboInOwl:id>CLCO:0002100</oboInOwl:id>
-        <rdfs:label>has participant qualifier</rdfs:label>
-    <obo:IAO_0000112>POSITIVE EXAMPLES:
-
-"The patient's mother has breast cancer."
-SOURCE: "mother" =&gt; family member
-TARGET: "patient's"
-RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
-
-"The patient reported pain in his left knee."
-SOURCE: "knee" =&gt; finding site
-TARGET: "his"
-RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
-
-"Her mother reported a history of diabetes."
-SOURCE: "mother" =&gt; family member
-TARGET: "her"
-RELATION: SOURCE =&gt; has participant qualifier =&gt; TARGET
-
-NEGATIVE EXAMPLES:
-
-"A soft-tissue tumor was suspected."
-Use: has uncertainty status, NOT has participant qualifier.
-
-"The physician recommended a biopsy."
-Use: has recommended, NOT has participant qualifier.
-
-"The biopsy was completed."
-Use: has completion status, NOT has participant qualifier.
-
-The qualifier modifies a participant, not the entire clinical statement or predicate.</obo:IAO_0000112></owl:ObjectProperty>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:label>obsolete has participant qualifier</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -432,7 +323,7 @@ CONTEXTUAL EXAMPLES: Record SUBJECT patient, MRI, and pain for the three corresp
     <!-- http://purl.obolibrary.org/obo/CLCO_0002603 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CLCO_0002603">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0003000"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000082"/>
         <obo:IAO_0000115>Relates a clinical association to its temporal frame value (historical, current, future, or hypothetical) indicating when the association holds relative to the clinical document.</obo:IAO_0000115>
         <obo:IAO_0000232>Not a sub-property of RO:0002222 (temporally related to) because RO temporal relations use Allen interval algebra to order two occurrents (processes) relative to each other, whereas CLCO temporal frame is a categorical document-relative qualifier (historical/current/future/hypothetical) attached to a reified information entity. The RO_0001900 (temporal interpretation) annotation is retained to indicate that this property has temporal semantics.</obo:IAO_0000232>
@@ -493,38 +384,109 @@ NEGATIVE EXAMPLE:
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CLCO_0003000">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
-        <obo:IAO_0000115>Relates a clinical association to a statement-level qualifier that modifies the entire assertion, such as intention, recommendation, or completion status.</obo:IAO_0000115>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
+        <obo:IAO_0000115>Relates a clinical association to a qualifier that modifies the entire assertion rather than one of its participants, such as intention, recommendation, or completion status.</obo:IAO_0000115>
+        <obo:IAO_0000232>Renamed from "has statement qualifier" on 2026-10-20. A clinical association is the reified statement, so statement scope and association scope are the same scope; the two properties were axiomatically identical and have been collapsed into this one. The label "has association qualifier" was carried by CLCO:0002000 until 2026-10-20; label-based lookups from before that date resolve to the grouping property, not to this one.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0003000</oboInOwl:id>
-        <rdfs:label>has statement qualifier</rdfs:label>
+        <rdfs:label>has association qualifier</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLE:
 
 "The physician recommended a biopsy."
 SOURCE: "biopsy" =&gt; intervention
-TARGET: "recommended" =&gt; statement qualifier
-RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+TARGET: "recommended" =&gt; recommended
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 
 "The patient intends to begin physical therapy."
 SOURCE: "physical therapy" =&gt; intervention
-TARGET: "intends" =&gt; statement qualifier
-RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+TARGET: "intends" =&gt; intention
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 
 "The CT results are pending."
 SOURCE: "CT results" =&gt; finding
-TARGET: "pending" =&gt; statement qualifier
-RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
+TARGET: "pending" =&gt; pending
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 
 NEGATIVE EXAMPLES:
 
 "The patient's mother has breast cancer."
-Use: has participant qualifier for a qualifier modifying a participant, NOT has statement qualifier.
+Use: has subject qualifier or has object qualifier for a qualifier modifying a participant, NOT has association qualifier.
 
 "The patient reported pain in his left knee."
-Use: has participant qualifier for a qualifier modifying a participant, NOT has statement qualifier.
+Use: has subject qualifier or has object qualifier for a qualifier modifying a participant, NOT has association qualifier.
 
 "The patient has had headaches for three weeks."
-Use: has temporal frame or a duration representation as appropriate, NOT has statement qualifier for the time expression alone.
+Use: has temporal frame or a duration representation as appropriate, NOT has association qualifier for the time expression alone.
 
-Use a specific subproperty when one exists, such as has intention, has recommended, or has completion status. Statement qualifiers modify the entire assertion.</obo:IAO_0000112></owl:ObjectProperty>
+Use a specific subproperty when one exists, such as has intention, has recommended, or has completion status. These four axes apply only to the whole assertion. For negation and uncertainty, which may apply at any scope, choose has association qualifier, has subject qualifier or has object qualifier according to what the qualifier modifies.</obo:IAO_0000112></owl:ObjectProperty>    
+
+
+    <!-- http://purl.obolibrary.org/obo/CLCO_0003001 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CLCO_0003001">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000080"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000081"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <obo:IAO_0000115>Relates a clinical association to a qualifier that modifies the entity filling its has subject slot, rather than the assertion as a whole or the entity filling its has object slot.</obo:IAO_0000115>
+        <obo:IAO_0000232>Added 2026-10-20, replacing has participant qualifier (CLCO:0002100), whose domain is the association and which therefore could not say which participant was qualified. Range is restricted to negation (CLCO:0000080) and uncertainty (CLCO:0000081), the two axes whose definitions state that they apply at any scope. Follows the same convention as SNOMED CT "Subject relationship context" and the Biolink subject_/object_ qualifier slots, which both identify the participant role in the attribute name.</obo:IAO_0000232>
+        <oboInOwl:id>CLCO:0003001</oboInOwl:id>
+        <rdfs:label>has subject qualifier</rdfs:label>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"Possible pneumonia was treated with antibiotics."
+SOURCE: "pneumonia" =&gt; finding
+TARGET: "Possible" =&gt; uncertainty
+RELATION: SOURCE =&gt; has subject qualifier =&gt; TARGET
+The treatment did happen; only the diagnosis is uncertain. Attaching the uncertainty to the whole
+statement would wrongly say the treatment may not have happened.
+
+NEGATIVE EXAMPLES:
+
+"The patient was possibly treated with antibiotics elsewhere."
+Use: has association qualifier. Here the treatment itself is what is uncertain.
+
+"The patient will start chemotherapy."
+Use: has intention. Intention, recommended and completion status are statement-only axes and are
+outside the range of this property.</obo:IAO_0000112></owl:ObjectProperty>    
+
+
+    <!-- http://purl.obolibrary.org/obo/CLCO_0003002 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/CLCO_0003002">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002000"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000080"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000081"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <obo:IAO_0000115>Relates a clinical association to a qualifier that modifies the entity filling its has object slot, rather than the assertion as a whole or the entity filling its has subject slot.</obo:IAO_0000115>
+        <obo:IAO_0000232>Added 2026-10-20, replacing has participant qualifier (CLCO:0002100), whose domain is the association and which therefore could not say which participant was qualified. Range is restricted to negation (CLCO:0000080) and uncertainty (CLCO:0000081), the two axes whose definitions state that they apply at any scope. Follows the same convention as SNOMED CT "Subject relationship context" and the Biolink subject_/object_ qualifier slots, which both identify the participant role in the attribute name.</obo:IAO_0000232>
+        <oboInOwl:id>CLCO:0003002</oboInOwl:id>
+        <rdfs:label>has object qualifier</rdfs:label>
+    <obo:IAO_0000112>POSITIVE EXAMPLES:
+
+"Tenderness is present, but not in the right upper quadrant."
+SOURCE: "tenderness" =&gt; finding
+TARGET: "not" =&gt; negation
+RELATION: SOURCE =&gt; has object qualifier =&gt; TARGET
+The finding is asserted; only the site is negated.
+
+NEGATIVE EXAMPLES:
+
+"The patient denied having a fever."
+Use: has association qualifier. The whole assertion is negated, not one participant.
+
+"The biopsy was completed."
+Use: has completion status. Completion status is a statement-only axis and is outside the range of
+this property.</obo:IAO_0000112></owl:ObjectProperty>
     
 
 
@@ -774,8 +736,8 @@ RELATION: SOURCE =&gt; has action =&gt; TARGET
 "Staff uploaded the record."
 SOURCE: "staff" =&gt; clinician; TARGET: "uploaded the record" =&gt; task
 RELATION: SOURCE =&gt; has action =&gt; TARGET
-"The office called the patient."
-SOURCE: "office" =&gt; setting; TARGET: "called the patient" =&gt; task
+"The office staff called the patient."
+SOURCE: "office staff" =&gt; clinician; TARGET: "called the patient" =&gt; task
 RELATION: SOURCE =&gt; has action =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -838,7 +800,14 @@ RELATION: SOURCE =&gt; is admitted =&gt; TARGET</obo:IAO_0000112></owl:Class>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>Here for packing and splint removal after recent discharge from rehab</obo:IAO_0000112>
@@ -1233,7 +1202,7 @@ RELATION: SOURCE =&gt; has onset =&gt; TARGET</obo:IAO_0000112></owl:Class>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000112"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000107"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1244,12 +1213,14 @@ RELATION: SOURCE =&gt; has onset =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>Inference about the location where an event happened</obo:IAO_0000115>
+        <obo:IAO_0000115>Inference about the care setting in which an event happened. The object is a setting, not an anatomical site; for the body site of a finding use has spatial orientation or has laterality.</obo:IAO_0000115>
+        <obo:IAO_0000232>Object changed from finding site (CLCO:0000112) to setting (CLCO:0000107) on 2026-10-30, and the subject widened to admit patient. The restriction asserted an anatomical site while every example used a care setting -- "operating room", "clinic", "home" -- and the class is subClassOf has setting (CLCO:0000058), so both the hierarchy and the examples indicated care setting. Anatomical location is reached through has spatial orientation (CLCO:0000072) or has laterality (CLCO:0000073).</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:3469026</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:18720000</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000023</oboInOwl:id>
@@ -1365,19 +1336,22 @@ RELATION: SOURCE =&gt; has value =&gt; TARGET</obo:IAO_0000112></owl:Class>
 
 NEGATIVE EXAMPLES:
 "patient underwent surgery" =&gt; has intervention, NOT has finding
-"patient is a physician" =&gt; has participant qualifier, NOT has finding
+"patient is a physician" =&gt; has subject qualifier, NOT has finding
 "patient was admitted" =&gt; is admitted, NOT has finding
 
 CONTEXTUAL EXAMPLES:
 "The patient has pneumonia."
 SOURCE: "patient" =&gt; patient; TARGET: "pneumonia" =&gt; finding
 RELATION: SOURCE =&gt; has finding =&gt; TARGET
-"Examination revealed a heart murmur."
-SOURCE: "examination" =&gt; intervention; TARGET: "heart murmur" =&gt; finding
+"The patient has a heart murmur."
+SOURCE: "patient" =&gt; patient; TARGET: "heart murmur" =&gt; finding
 RELATION: SOURCE =&gt; has finding =&gt; TARGET
-"The CT scan showed a pulmonary mass."
-SOURCE: "CT scan" =&gt; intervention; TARGET: "pulmonary mass" =&gt; finding
-RELATION: SOURCE =&gt; has finding =&gt; TARGET</obo:IAO_0000112></owl:Class>
+"The right lower lobe shows consolidation."
+SOURCE: "right lower lobe" =&gt; finding site; TARGET: "consolidation" =&gt; finding
+RELATION: SOURCE =&gt; has finding =&gt; TARGET
+A diagnostic test or document that reveals a finding is not the bearer of it. "The CT scan showed a
+pulmonary mass" is suggests finding, whose subject may be an intervention or a documentation; the
+subject of has finding is the patient or the body site.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -1458,7 +1432,14 @@ RELATION: SOURCE =&gt; has abandonment reason =&gt; TARGET</obo:IAO_0000112></ow
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>unable to assess for h/o exertional syncope, angina, dyspnea, etc which would warrant ICD placement</obo:IAO_0000112>
@@ -1637,13 +1618,13 @@ NEGATIVE EXAMPLES:
 
 CONTEXTUAL EXAMPLES:
 "If the fever returns, call the clinic."
-SOURCE: "fever returns" =&gt; finding; TARGET: "call the clinic" =&gt; task
+SOURCE: "call the clinic" =&gt; task; TARGET: "fever returns" =&gt; finding
 RELATION: SOURCE =&gt; has trigger =&gt; TARGET
 "The abnormal CT result prompted admission."
-SOURCE: "abnormal CT result" =&gt; finding; TARGET: "admission" =&gt; intervention
+SOURCE: "admission" =&gt; intervention; TARGET: "abnormal CT result" =&gt; finding
 RELATION: SOURCE =&gt; has trigger =&gt; TARGET
 "Worsening hypoxia led to escalation of respiratory support."
-SOURCE: "worsening hypoxia" =&gt; finding; TARGET: "escalation of respiratory support" =&gt; intervention
+SOURCE: "escalation of respiratory support" =&gt; intervention; TARGET: "worsening hypoxia" =&gt; finding
 RELATION: SOURCE =&gt; has trigger =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -1916,6 +1897,7 @@ RELATION: SOURCE =&gt; treatment reason =&gt; TARGET</obo:IAO_0000112></owl:Clas
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000108"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000115"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -1945,8 +1927,8 @@ RELATION: SOURCE =&gt; agree with =&gt; TARGET
 "The family concurred with the treatment plan."
 SOURCE: "family" =&gt; family member; TARGET: "treatment plan" =&gt; intervention
 RELATION: SOURCE =&gt; agree with =&gt; TARGET
-"The patient accepted the recommendation."
-SOURCE: "patient" =&gt; patient; TARGET: "recommendation" =&gt; clinical decision
+"The patient accepted the care plan."
+SOURCE: "patient" =&gt; patient; TARGET: "care plan" =&gt; documentation
 RELATION: SOURCE =&gt; agree with =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -1963,6 +1945,7 @@ RELATION: SOURCE =&gt; agree with =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000106"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -2073,6 +2056,7 @@ RELATION: SOURCE =&gt; has decision =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000105"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000106"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000113"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -2081,10 +2065,19 @@ RELATION: SOURCE =&gt; has decision =&gt; TARGET</obo:IAO_0000112></owl:Class>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000101"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000102"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>Statement indicating that a finding/condition is at goal</obo:IAO_0000115>
+        <obo:IAO_0000115>Statement indicating that a finding/condition, an intervention or the patient is at goal. Being at goal may be expressed as a value, a course, or a state of the patient.</obo:IAO_0000115>
+        <obo:IAO_0000232>Subject and object widened on 2026-10-30. Being at goal is asserted of a finding ("blood pressure is at goal"), of an intervention ("the treatment met the target") and of the patient ("the patient reached the desired glucose level"); the goal itself is sometimes a state of the patient rather than a value or a course.</obo:IAO_0000232>
         <obo:IAO_0000232>Goal achieved in SNOMED, rename if acceptable.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4191706</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:390802008</oboInOwl:hasDbXref>
@@ -2129,32 +2122,33 @@ RELATION: SOURCE =&gt; is at goal =&gt; TARGET</obo:IAO_0000112></owl:Class>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>Statement about documentation of a finding/condition</obo:IAO_0000115>
+        <obo:IAO_0000115>Statement that a finding or condition is documented in a clinical document. The subject is the finding; the object is the document that records it.</obo:IAO_0000115>
+        <obo:IAO_0000232>Renamed from "documentation of finding" on 2026-10-30. The asserted restrictions -- subject finding (CLCO:0000101), object documentation (CLCO:0000111) -- were kept, and the examples, which had subject and object the other way round, were flipped to match. The old label was a noun phrase that did not indicate a direction, so it could be read either way; "has documentation" follows the has-X convention used by the other associations and reads in the same direction as the axiom. The SNOMED and OMOP mappings are unchanged and still describe the same relation.</obo:IAO_0000232>
         <obo:IAO_0000232>Maps to SNOMED qualifier Reference documentation which is probably equivalent.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4205679</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SNOMED:308910008</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000045</oboInOwl:id>
-        <rdfs:label>documentation of finding</rdfs:label>
+        <rdfs:label>has documentation</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLES:
-"the record documents hypertension" =&gt; documentation of finding
-"the imaging report describes a mass" =&gt; documentation of finding
-"the discharge summary notes anemia" =&gt; documentation of finding
+"hypertension is documented in the record" =&gt; has documentation
+"the mass is described in the imaging report" =&gt; has documentation
+"anemia is noted in the discharge summary" =&gt; has documentation
 
 NEGATIVE EXAMPLES:
-"the patient has hypertension" =&gt; has finding, NOT documentation of finding
-"the patient underwent surgery" =&gt; has intervention, NOT documentation of finding
-"the physician recommended treatment" =&gt; recommended, NOT documentation of finding
+"the patient has hypertension" =&gt; has finding, NOT has documentation
+"the patient underwent surgery" =&gt; has intervention, NOT has documentation
+"the physician recommended treatment" =&gt; recommended, NOT has documentation
 
 CONTEXTUAL EXAMPLES:
 "The medical record documents hypertension."
-SOURCE: "medical record" =&gt; documentation; TARGET: "hypertension" =&gt; finding
-RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET
+SOURCE: "hypertension" =&gt; finding; TARGET: "medical record" =&gt; documentation
+RELATION: SOURCE =&gt; has documentation =&gt; TARGET
 "The imaging report describes a pulmonary mass."
-SOURCE: "imaging report" =&gt; documentation; TARGET: "pulmonary mass" =&gt; finding
-RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET
+SOURCE: "pulmonary mass" =&gt; finding; TARGET: "imaging report" =&gt; documentation
+RELATION: SOURCE =&gt; has documentation =&gt; TARGET
 "The discharge summary notes anemia."
-SOURCE: "discharge summary" =&gt; documentation; TARGET: "anemia" =&gt; finding
-RELATION: SOURCE =&gt; documentation of finding =&gt; TARGET</obo:IAO_0000112></owl:Class>
+SOURCE: "anemia" =&gt; finding; TARGET: "discharge summary" =&gt; documentation
+RELATION: SOURCE =&gt; has documentation =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2212,6 +2206,7 @@ RELATION: SOURCE =&gt; is eligible =&gt; TARGET</obo:IAO_0000112></owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000108"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000110"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CLCO_0000115"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -2376,7 +2371,17 @@ SOURCE: "symptoms" =&gt; finding; TARGET: "stable" =&gt; course
 RELATION: SOURCE =&gt; has course =&gt; TARGET
 "He has intermittent chest pain."
 SOURCE: "chest pain" =&gt; finding; TARGET: "intermittent" =&gt; course
-RELATION: SOURCE =&gt; has course =&gt; TARGET</obo:IAO_0000112></owl:Class>
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+"Bone density is decreasing."
+SOURCE: "bone density" =&gt; finding; TARGET: "decreasing" =&gt; course
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+"Cancer progression is rapid."
+SOURCE: "cancer progression" =&gt; finding; TARGET: "rapid" =&gt; course
+RELATION: SOURCE =&gt; has course =&gt; TARGET
+A measurable property of a body site or disease process, such as "bone density" or "cancer
+progression", is annotated as a single finding. Do not decompose it into the site plus the property;
+there is no cue licensing such a relation, and CLCO has no observable entity class to hold the
+property.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -2606,8 +2611,8 @@ RELATION: SOURCE =&gt; has setting =&gt; TARGET</obo:IAO_0000112></owl:Class>
     <!-- http://purl.obolibrary.org/obo/CLCO_0000060 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000060">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000068"/>
-        <obo:IAO_0000115>Modifies a relation to indicate that the relation is intended rather than actual. Boolean.</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
+        <obo:IAO_0000115>Modifies a relation to indicate that the relation is intended rather than actual. Presence-only: the axis has no value set, so the qualifier is either asserted or absent.</obo:IAO_0000115>
         <obo:IAO_0000232>Epistemic modality axis: captures whether the association describes an actual event or an intended/planned one. Orthogonal to temporal_frame (CLCO_0000082), which captures WHEN relative to the document, and completion_status (CLCO_0000063), which captures workflow state. An intended event may be past (we intended chemo but did not start), present, or future.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000060</oboInOwl:id>
         <rdfs:label>intention</rdfs:label>
@@ -2639,8 +2644,8 @@ RELATION: SOURCE =&gt; has intention =&gt; TARGET</obo:IAO_0000112></owl:Class>
     <!-- http://purl.obolibrary.org/obo/CLCO_0000062 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000062">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000068"/>
-        <obo:IAO_0000115>The modified relationship is recommended, for example an intervention, admission or some action. Boolean.</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
+        <obo:IAO_0000115>The modified relationship is recommended, for example an intervention, admission or some action. Presence-only: the axis has no value set, so the qualifier is either asserted or absent.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000062</oboInOwl:id>
         <rdfs:label>recommended</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLES:
@@ -2671,7 +2676,7 @@ RELATION: SOURCE =&gt; has recommended =&gt; TARGET</obo:IAO_0000112></owl:Class
     <!-- http://purl.obolibrary.org/obo/CLCO_0000063 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000063">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000068"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
         <obo:IAO_0000115>The workflow completion state of a process. Orthogonal to temporal_frame (which captures when relative to the document) and intention (which captures intent). A process may be pending regardless of whether its temporal frame is past, present, or future.</obo:IAO_0000115>
         <obo:IAO_0000232>Refactored from the original "status" class. Children include pending (moved from temporal), in_progress, and completed. Aligns with SNOMED procedure status qualifier values and EHR order status fields. No equivalent in NLP temporal annotation schemes like THYME or I2b2.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>OMOP_CONCEPT_ID:4138595</oboInOwl:hasDbXref>
@@ -2743,29 +2748,30 @@ RELATION: SOURCE =&gt; has completion status =&gt; TARGET</obo:IAO_0000112></owl
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000067">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <obo:IAO_0000115>A modifier that provides additional context to a clinical association, such as temporal frame, certainty, negation, or participant-level detail.</obo:IAO_0000115>
+        <obo:IAO_0000232>Renamed from "association qualifier" on 2026-10-20. The class names the qualifier axis only; what the qualifier scopes over is carried by the property used to attach it (has association qualifier, has subject qualifier, has object qualifier). The former name read as a commitment to statement scope, which the class does not make. Direct children are the six orthogonal axes.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000067</oboInOwl:id>
-        <rdfs:label>association qualifier</rdfs:label>
+        <rdfs:label>qualifier</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLES:
-"suspected" =&gt; association qualifier
-"denied" =&gt; association qualifier
-"pending" =&gt; association qualifier
-"last year" =&gt; association qualifier
+"suspected" =&gt; qualifier
+"denied" =&gt; qualifier
+"pending" =&gt; qualifier
+"last year" =&gt; qualifier
 
 NEGATIVE EXAMPLES:
-"chest pain" =&gt; finding, NOT association qualifier
-"MRI" =&gt; intervention, NOT association qualifier
-"physician" =&gt; clinician, NOT association qualifier
-"three weeks" =&gt; time, NOT association qualifier
+"chest pain" =&gt; finding, NOT qualifier
+"MRI" =&gt; intervention, NOT qualifier
+"physician" =&gt; clinician, NOT qualifier
+"three weeks" =&gt; time, NOT qualifier
 
 CONTEXTUAL EXAMPLES:
 "A tumor was suspected."
-SOURCE: "tumor" =&gt; finding; TARGET: "suspected" =&gt; association qualifier
+SOURCE: "tumor" =&gt; finding; TARGET: "suspected" =&gt; qualifier
 RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "The patient denied fever."
-SOURCE: "fever" =&gt; finding; TARGET: "denied" =&gt; association qualifier
+SOURCE: "fever" =&gt; finding; TARGET: "denied" =&gt; qualifier
 RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "The results are pending."
-SOURCE: "results" =&gt; finding; TARGET: "pending" =&gt; association qualifier
+SOURCE: "results" =&gt; finding; TARGET: "pending" =&gt; qualifier
 RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -2773,110 +2779,39 @@ RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112><
     <!-- http://purl.obolibrary.org/obo/CLCO_0000068 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000068">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
         <obo:IAO_0000115>An association qualifier that modifies the entire clinical statement, such as intention, recommendation or completion status.</obo:IAO_0000115>
-        <obo:IAO_0000232>Qualifiers for the entire statement.</obo:IAO_0000232>
+        <obo:IAO_0000232>Obsoleted 2026-10-19. Qualifier scope is carried by the qualifier property, not by the qualifier class: has association qualifier (CLCO:0003000) attaches a qualifier to the whole association, has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002) attach it to a single participant. Encoding scope in the class hierarchy as well could not express the axis/scope cross-product -- negation (CLCO:0000080) and uncertainty (CLCO:0000081) were never subclasses of this class, so statement-scoped negation had no class to begin with. The class hierarchy now holds only the orthogonal qualifier axes. Former children intention (CLCO:0000060), recommended (CLCO:0000062) and completion status (CLCO:0000063) are now direct subclasses of association qualifier (CLCO:0000067); that they are statement-only is now asserted as the range of has participant qualifier instead.</obo:IAO_0000232>
+        <oboInOwl:consider>CLCO:0003000</oboInOwl:consider>
         <oboInOwl:id>CLCO:0000068</oboInOwl:id>
-        <rdfs:label>statement qualifier</rdfs:label>
-    <obo:IAO_0000112>POSITIVE EXAMPLES:
-"intended" =&gt; statement qualifier
-"recommended" =&gt; statement qualifier
-"pending" =&gt; statement qualifier
-"completed" =&gt; statement qualifier
-
-NEGATIVE EXAMPLES:
-"suspected" =&gt; uncertainty, NOT statement qualifier
-"denied" =&gt; negation, NOT statement qualifier
-"left" =&gt; has participant qualifier, NOT statement qualifier
-"last year" =&gt; temporal frame, NOT statement qualifier
-
-CONTEXTUAL EXAMPLES:
-"The patient intended to undergo surgery."
-SOURCE: "surgery" =&gt; intervention; TARGET: "intended" =&gt; statement qualifier
-RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
-"The physician recommended an MRI."
-SOURCE: "MRI" =&gt; intervention; TARGET: "recommended" =&gt; statement qualifier
-RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET
-"The biopsy was completed."
-SOURCE: "biopsy" =&gt; intervention; TARGET: "completed" =&gt; statement qualifier
-RELATION: SOURCE =&gt; has statement qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:label>obsolete statement qualifier</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://purl.obolibrary.org/obo/CLCO_0000069 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000069">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
         <obo:IAO_0000115>An association qualifier that modifies only the predicate (relationship type) of a clinical association, rather than the entire statement.</obo:IAO_0000115>
-        <obo:IAO_0000232>For situations where the modifier of the predicate is different from the overall statement, these are likely to be rare.</obo:IAO_0000232>
+        <obo:IAO_0000232>Obsoleted 2026-10-19. Qualifier scope is carried by the qualifier property, not by the qualifier class: has association qualifier (CLCO:0003000) attaches a qualifier to the whole association, has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002) attach it to a single participant. Encoding scope in the class hierarchy as well could not express the axis/scope cross-product -- negation (CLCO:0000080) and uncertainty (CLCO:0000081) were never subclasses of this class, so statement-scoped negation had no class to begin with. The class hierarchy now holds only the orthogonal qualifier axes. No instances were ever modelled and the class had no children. In a reified model the association node is anchored on the predicate itself, so a predicate-scoped qualifier is not distinguishable from a statement-scoped one during annotation. All three of its former contextual examples were in fact uncertainty, historical (CLCO:0000083) and negation, which already carry that guidance. Add a has predicate qualifier sub-property if a genuine predicate-scoped case is ever found.</obo:IAO_0000232>
+        <oboInOwl:consider>CLCO:0003000</oboInOwl:consider>
         <oboInOwl:id>CLCO:0000069</oboInOwl:id>
-        <rdfs:label>predicate qualifier</rdfs:label>
-    <obo:IAO_0000112>POSITIVE EXAMPLES:
-"has finding: suspected" =&gt; predicate qualifier
-"has intervention: recommended" =&gt; predicate qualifier
-"has finding: negated" =&gt; predicate qualifier
-"has finding: historical" =&gt; predicate qualifier
-
-NEGATIVE EXAMPLES:
-"suspected tumor" =&gt; uncertainty, NOT predicate qualifier
-"denied fever" =&gt; negation, NOT predicate qualifier
-"completed biopsy" =&gt; completion status, NOT predicate qualifier
-"patient's mother" =&gt; has participant qualifier, NOT predicate qualifier
-
-CONTEXTUAL EXAMPLES:
-"The scan suggested a tumor."
-SOURCE: "has finding" (the predicate itself); TARGET: "suggested" =&gt; predicate qualifier
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
-"The record documented a historical diagnosis."
-SOURCE: "has diagnosis" (the predicate itself); TARGET: "historical" =&gt; predicate qualifier
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
-"The note described a negated finding."
-SOURCE: "has finding" (the predicate itself); TARGET: "negated" =&gt; predicate qualifier
-RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET</obo:IAO_0000112></owl:Class>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:label>obsolete predicate qualifier</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://purl.obolibrary.org/obo/CLCO_0000071 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000071">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000057"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000106"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002502"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000101"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000112>Bone density is decreasing; cancer progression is rapid.</obo:IAO_0000112>
         <obo:IAO_0000115>A finding association specifying which facet, part, or functional dimension of an entity is being referred to in the assertion.</obo:IAO_0000115>
-        <obo:IAO_0000232>Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression.</obo:IAO_0000232>
+        <obo:IAO_0000232>Obsoleted 2026-10-23. Every pattern this class was created for is expressible with existing vocabulary once the noun phrase is typed as a finding: "Bone density is decreasing" is has course (CLCO:0000051) over the finding "bone density"; "Cancer progression is rapid" is has course over "cancer progression", and course (CLCO:0000105) already lists "Rapidly progressing" among its own values; "Cardiac function is preserved" is has descriptive value (CLCO:0000075) over "cardiac function". All three have been moved to those classes. Four further reasons: the class had no cue -- every other association is licensed by a verb, preposition or connective, while aspect was licensed only by noun-noun juxtaposition, leaving no span to annotate; all three of its own contextual examples contradicted its own restrictions, using a finding site subject where finding was declared and a course object where value was declared; it shared the finding-to-value signature with has severity, has value, has descriptive value, has quantifiable value and now has laterality, adding no discriminating power; and its negative examples had to borrow has laterality and has spatial orientation to say what it was not. What aspect reached for -- density or function as a measurable property of a site -- is the SNOMED CT observable entity axis, which CLCO does not model. Should CLCO ever post-coordinate against LOINC, where the property axis is first class, or against SNOMED observable entities, that capability should return as an observable entity class on the clinical entity side, not as a finding-to-value association. Obsoleting this class does not foreclose it.</obo:IAO_0000232>
+        <oboInOwl:consider>CLCO:0000051, CLCO:0000075, CLCO:0000024</oboInOwl:consider>
         <oboInOwl:id>CLCO:0000071</oboInOwl:id>
-        <rdfs:label>has aspect</rdfs:label>
-    <obo:IAO_0000112>POSITIVE EXAMPLES:
-"bone density" =&gt; has aspect
-"cancer progression" =&gt; has aspect
-"cardiac function" =&gt; has aspect
-
-NEGATIVE EXAMPLES:
-"left knee" =&gt; has spatial orientation or has laterality, NOT has aspect
-"severe pain" =&gt; has severity, NOT has aspect
-"three weeks" =&gt; has duration, NOT has aspect
-
-CONTEXTUAL EXAMPLES:
-"Bone density is decreasing."
-SOURCE: "bone" =&gt; finding site; TARGET: "density" =&gt; value
-RELATION: SOURCE =&gt; has aspect =&gt; TARGET
-"Cancer progression is rapid."
-SOURCE: "cancer" =&gt; finding; TARGET: "progression" =&gt; course
-RELATION: SOURCE =&gt; has aspect =&gt; TARGET
-"Cardiac function is preserved."
-SOURCE: "cardiac" =&gt; finding site; TARGET: "function" =&gt; value
-RELATION: SOURCE =&gt; has aspect =&gt; TARGET</obo:IAO_0000112></owl:Class>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <rdfs:label>obsolete has aspect</rdfs:label>
+    </owl:Class>
     
 
 
@@ -2931,7 +2866,7 @@ RELATION: SOURCE =&gt; has spatial orientation =&gt; TARGET</obo:IAO_0000112></o
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/CLCO_0002501"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000112"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000106"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2941,14 +2876,20 @@ RELATION: SOURCE =&gt; has spatial orientation =&gt; TARGET</obo:IAO_0000112></o
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000112>Right-sided pneumothorax; bilateral knee pain.</obo:IAO_0000112>
-        <obo:IAO_0000115>A finding association specifying the laterality (left, right, bilateral, unilateral, or midline) of a finding relative to a body site.</obo:IAO_0000115>
-        <obo:IAO_0000232>laterality_qualifier
-  ⊑ has_participant_qualifier only
-     (PATO:0000611  # left
-      or PATO:0000612  # right
-      or PATO:0000613  # bilateral
-      or PATO:0000614  # unilateral
-      or PATO:0000610) # midline</obo:IAO_0000232>
+        <obo:IAO_0000115>A finding association specifying the laterality (left, right, bilateral, unilateral, or midline) of a finding. The object is the laterality value itself; the body site, where stated, is carried separately by has location.</obo:IAO_0000115>
+        <obo:IAO_0000232>Object changed from finding site (CLCO:0000112) to value (CLCO:0000106) on 2026-10-21. The previous restriction did not match the class's own examples: "left", "right-sided" and "bilateral" are laterality values, not body sites, whereas the sibling has spatial orientation (CLCO:0000072) genuinely does take a site ("anterior to the knee"). Where a site is also stated, express it separately with has location (CLCO:0000023).
+
+Recorded alternative, not adopted: an earlier draft modelled this as a participant-scoped qualifier over PATO quality terms rather than as an association --
+
+  laterality_qualifier
+    ⊑ has_participant_qualifier only
+       (PATO:0000611  # left
+        or PATO:0000612  # right
+        or PATO:0000613  # bilateral
+        or PATO:0000614  # unilateral
+        or PATO:0000610) # midline
+
+That remains defensible: "left" in "left knee pain" modifies the knee, which is participant scope, and the draft would now use has object qualifier (CLCO:0003002). It was not adopted because the qualifier family is currently all-modal -- negation, certainty, temporal frame, completion status, intention, recommended -- and admitting a physical quality axis would mean widening the range of the participant properties, which is what encodes the restriction to scope-polymorphic modal axes. Revisit together with has spatial orientation, whose own note states the same PATO intent.</obo:IAO_0000232>
         <oboInOwl:id>CLCO:0000073</oboInOwl:id>
         <rdfs:label>has laterality</rdfs:label>
     <obo:IAO_0000112>POSITIVE EXAMPLES:
@@ -2963,13 +2904,13 @@ NEGATIVE EXAMPLES:
 
 CONTEXTUAL EXAMPLES:
 "The patient has left knee pain."
-SOURCE: "knee pain" =&gt; finding; TARGET: "left" =&gt; finding site
+SOURCE: "knee pain" =&gt; finding; TARGET: "left" =&gt; value
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET
 "A right-sided pneumothorax was seen."
-SOURCE: "pneumothorax" =&gt; finding; TARGET: "right-sided" =&gt; finding site
+SOURCE: "pneumothorax" =&gt; finding; TARGET: "right-sided" =&gt; value
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET
 "She has bilateral knee pain."
-SOURCE: "knee pain" =&gt; finding; TARGET: "bilateral" =&gt; finding site
+SOURCE: "knee pain" =&gt; finding; TARGET: "bilateral" =&gt; value
 RELATION: SOURCE =&gt; has laterality =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -3045,6 +2986,9 @@ SOURCE: "pain" =&gt; finding; TARGET: "pressure-like" =&gt; value
 RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET
 "The cough was nonproductive."
 SOURCE: "cough" =&gt; finding; TARGET: "nonproductive" =&gt; value
+RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET
+"Cardiac function is preserved."
+SOURCE: "cardiac function" =&gt; finding; TARGET: "preserved" =&gt; value
 RELATION: SOURCE =&gt; has descriptive value =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
@@ -3158,13 +3102,21 @@ Negation cues must be interpreted with their scope. The word "not" alone does no
 CONTEXTUAL EXAMPLES:
 "The patient denied having a fever."
 SOURCE: "fever" =&gt; finding; TARGET: "denied" =&gt; negation
-RELATION: SOURCE =&gt; has negation status =&gt; TARGET
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "No evidence of pneumonia was found."
 SOURCE: "pneumonia" =&gt; finding; TARGET: "no evidence" =&gt; negation
-RELATION: SOURCE =&gt; has negation status =&gt; TARGET
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "There was no fracture."
 SOURCE: "fracture" =&gt; finding; TARGET: "no" =&gt; negation
-RELATION: SOURCE =&gt; has negation status =&gt; TARGET</obo:IAO_0000112></owl:Class>
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+
+PARTICIPANT-SCOPED EXAMPLE:
+"Tenderness is present, but not in the right upper quadrant."
+SOURCE: "tenderness" =&gt; finding; TARGET: "not" =&gt; negation
+RELATION: SOURCE =&gt; has object qualifier =&gt; TARGET
+The finding is asserted and only its site is negated, so the negation attaches to the participant
+filling the object slot. Using has association qualifier here would wrongly deny the tenderness.
+Negation and uncertainty are the only two axes that may be attached at participant scope.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -3172,6 +3124,7 @@ RELATION: SOURCE =&gt; has negation status =&gt; TARGET</obo:IAO_0000112></owl:C
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CLCO_0000081">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
+        <obo:IAO_0000112>"The patient was possibly treated with antibiotics elsewhere" (statement-level: the treatment is what is uncertain); "Possible pneumonia was treated with antibiotics" (participant-level: the treatment happened, the diagnosis is uncertain).</obo:IAO_0000112>
         <obo:IAO_0000115>Signifies that the qualified element is uncertain or suspected. Applies at any scope: statement-level uncertainty qualifies the entire association; participant-level uncertainty qualifies a specific subject or object.</obo:IAO_0000115>
         <oboInOwl:id>CLCO:0000081</oboInOwl:id>
         <rdfs:label>uncertainty</rdfs:label>
@@ -3193,13 +3146,22 @@ NEGATIVE EXAMPLES:
 CONTEXTUAL EXAMPLES:
 "A soft-tissue tumor was suspected."
 SOURCE: "soft-tissue tumor" =&gt; finding; TARGET: "suspected" =&gt; uncertainty
-RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "CT findings suggested possible pneumonia."
 SOURCE: "pneumonia" =&gt; finding; TARGET: "possible" =&gt; uncertainty
-RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
 "The patient may have a pulmonary embolism."
 SOURCE: "pulmonary embolism" =&gt; finding; TARGET: "may have" =&gt; uncertainty
-RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET</obo:IAO_0000112></owl:Class>
+RELATION: SOURCE =&gt; has association qualifier =&gt; TARGET
+
+PARTICIPANT-SCOPED EXAMPLE:
+"Possible pneumonia was treated with antibiotics."
+SOURCE: "pneumonia" =&gt; finding; TARGET: "Possible" =&gt; uncertainty
+RELATION: SOURCE =&gt; has subject qualifier =&gt; TARGET
+The treatment did happen and only the diagnosis is uncertain, so the uncertainty attaches to the
+participant filling the subject slot. Using has association qualifier here would wrongly say the
+treatment may not have happened. Negation and uncertainty are the only two axes that may be
+attached at participant scope.</obo:IAO_0000112></owl:Class>
     
 
 
@@ -3209,6 +3171,7 @@ RELATION: SOURCE =&gt; has uncertainty status =&gt; TARGET</obo:IAO_0000112></ow
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CLCO_0000067"/>
         <obo:IAO_0000115>The temporal location of the association relative to the moment of clinical documentation. Orthogonal to completion_status and intention.</obo:IAO_0000115>
         <obo:IAO_0000232>Replaces the deprecated temporal (CLCO_0000064). Aligns with THYME DocTimeRel and MedSpaCy temporal context flags. This axis answers WHEN relative to the document, not whether a process is complete (completion_status) or committed (intention).</obo:IAO_0000232>
+        <obo:IAO_0000232>Currently statement-scoped only: this class is excluded from the range of has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002), unlike negation (CLCO:0000080) and uncertainty (CLCO:0000081), whose definitions state that they apply at any scope. This may be restructured as participant-scopeable depending on future time series work that will better integrate TimeML and DocTimeRel. The motivating pattern is a participant whose temporal frame differs from the association, for example "history of MI, now on aspirin", where the subject is historical but the association is current.</obo:IAO_0000232>
         <oboInOwl:hasDbXref>biolink:temporal_context_qualifier</oboInOwl:hasDbXref>
         <oboInOwl:id>CLCO:0000082</oboInOwl:id>
         <rdfs:label>temporal frame</rdfs:label>
@@ -3945,8 +3908,8 @@ RELATION: SOURCE =&gt; is discharged =&gt; TARGET
 "She was discharged from the hospital."
 SOURCE: "patient" =&gt; patient; TARGET: "hospital" =&gt; setting
 RELATION: SOURCE =&gt; is discharged =&gt; TARGET
-"He is ready for discharge."
-SOURCE: "patient" =&gt; patient; TARGET: "discharge" =&gt; clinical administration
+"He is ready for discharge to a skilled nursing facility."
+SOURCE: "patient" =&gt; patient; TARGET: "skilled nursing facility" =&gt; setting
 RELATION: SOURCE =&gt; is discharged =&gt; TARGET</obo:IAO_0000112></owl:Class>
     
 
