@@ -1,0 +1,7 @@
+site_name: Clinical Context Ontology (CLCO)
+site_description: Ontology for representing clinical reasoning context
+repo_url: https://github.com/ozborn/clinreason
+nav:
+  - Home: index.md
+theme:
+  name: material
