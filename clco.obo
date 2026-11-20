@@ -1,23 +1,25 @@
 format-version: 1.2
-data-version: releases/2026-09-04
+data-version: releases/2026-11-20
+idspace: dc http://purl.org/dc/elements/1.1/ 
+idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
+idspace: terms http://purl.org/dc/terms/ 
 ontology: clco
-property_value: http://purl.org/dc/elements/1.1/creator "James J. Cimino" xsd:string
-property_value: http://purl.org/dc/elements/1.1/creator "John D. Osborne" xsd:string
-property_value: http://purl.org/dc/elements/1.1/creator "Tiago K. Colicchio" xsd:string
-property_value: http://purl.org/dc/elements/1.1/description "An ontology for representing clinical reasoning context, including diagnostic workflows, therapeutic decision-making, and the clinician interpretations and decisions that surround patient care but are not well captured by problem-focused EHR systems or terminologies such as SNOMED CT." xsd:string
-property_value: http://purl.org/dc/elements/1.1/title "Clinical Context Ontology" xsd:string
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-0851-1150
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-3405-1538
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4101-1622
-property_value: http://purl.org/dc/terms/license http://creativecommons.org/licenses/by/4.0/
-property_value: owl:versionInfo "2026-05-15" xsd:string
-property_value: owl:versionInfo "2026-07-25" xsd:string
-property_value: owl:versionInfo "2026-09-04" xsd:string
+property_value: dc:creator "James J. Cimino" xsd:string
+property_value: dc:creator "John D. Osborne" xsd:string
+property_value: dc:creator "Tiago K. Colicchio" xsd:string
+property_value: dc:description "An ontology for representing clinical reasoning context, including diagnostic workflows, therapeutic decision-making, and the clinician interpretations and decisions that surround patient care but are not well captured by problem-focused EHR systems or terminologies such as SNOMED CT." xsd:string
+property_value: dc:title "Clinical Context Ontology" xsd:string
+property_value: owl:versionInfo "2026-11-20" xsd:string
+property_value: terms:creator https://orcid.org/0000-0002-0851-1150
+property_value: terms:creator https://orcid.org/0000-0003-3405-1538
+property_value: terms:creator https://orcid.org/0000-0003-4101-1622
+property_value: terms:license http://creativecommons.org/licenses/by/4.0/
 
 [Term]
 id: BFO:0000001
 name: entity
 def: "An entity is anything that exists or has existed or will exist." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES: patient, pneumonia, and MRI are entities.\nNEGATIVE EXAMPLES: quickly, because, and was are not entities.\nCONTEXTUAL EXAMPLES: In \"The patient has pneumonia\", patient and pneumonia are entities; in \"The MRI showed a mass\", MRI and mass are entities." xsd:string
 
 [Term]
 id: CLCO:0000002
@@ -27,12 +29,14 @@ xref: LOINC:LP203270-6
 xref: OMOP_CONCEPT_ID:1014654
 is_a: CLCO:0000058 ! has setting
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"transferred to the ICU\" => is transferred to\n\"sent to the rehabilitation unit\" => is transferred to\n\"moved to the operating room\" => is transferred to\n\nNEGATIVE EXAMPLES:\n\"admitted to the ICU\" => is admitted, NOT is transferred to\n\"referred to cardiology\" => is referred by, NOT is transferred to\n\"discharged home\" => is discharged, NOT is transferred to\n\nCONTEXTUAL EXAMPLES:\n\"The patient was transferred to the ICU.\"\nSOURCE: \"patient\" => patient; TARGET: \"ICU\" => setting\nRELATION: SOURCE => is transferred to => TARGET\n\"She was sent to the rehabilitation unit.\"\nSOURCE: \"patient\" => patient; TARGET: \"rehabilitation unit\" => setting\nRELATION: SOURCE => is transferred to => TARGET\n\"He was moved to the operating room.\"\nSOURCE: \"patient\" => patient; TARGET: \"operating room\" => setting\nRELATION: SOURCE => is transferred to => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000003
 name: clinical administration
 def: "A clinical process related to tracking administrative responsibilitity." []
 is_a: CLCO:0000057 ! clinical association
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"admitted to the hospital\" => clinical administration\n\"referred to cardiology\" => clinical administration\n\"discharged home\" => clinical administration\n\nNEGATIVE EXAMPLES:\n\"chest pain\" => finding, NOT clinical administration\n\"MRI\" => intervention, NOT clinical administration\n\"recommended surgery\" => clinical decision, NOT clinical administration\n\nCONTEXTUAL EXAMPLES:\n\"The patient was admitted to the hospital.\"\nSOURCE: \"patient\" => patient; TARGET: \"admitted to the hospital\" => clinical administration\nRELATION: SOURCE => clinical administration => TARGET\n\"She was referred to cardiology.\"\nSOURCE: \"patient\" => patient; TARGET: \"referred to cardiology\" => clinical administration\nRELATION: SOURCE => clinical administration => TARGET\n\"He was discharged home.\"\nSOURCE: \"patient\" => patient; TARGET: \"discharged home\" => clinical administration\nRELATION: SOURCE => clinical administration => TARGET" xsd:string
 property_value: IAO:0000232 "Do not instantiate." xsd:string
 
 [Term]
@@ -40,12 +44,14 @@ id: CLCO:0000005
 name: clinical decision
 def: "A clinical association representing a decision made during patient care, such as a treatment plan, referral, or diagnostic strategy." []
 is_a: CLCO:0000057 ! clinical association
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"decided to start chemotherapy\" => clinical decision\n\"plan for surgical repair\" => clinical decision\n\"decision to order an MRI\" => clinical decision\n\nNEGATIVE EXAMPLES:\n\"chest pain\" => finding, NOT clinical decision\n\"MRI\" => intervention, NOT clinical decision\n\"admitted to the hospital\" => clinical administration, NOT clinical decision\n\nCONTEXTUAL EXAMPLES:\n\"The team decided to start chemotherapy.\"\nSOURCE: \"team\" => clinician; TARGET: \"start chemotherapy\" => intervention\nRELATION: SOURCE => clinical decision => TARGET\n\"The plan was for surgical repair.\"\nSOURCE: \"plan\" => clinical decision; TARGET: \"surgical repair\" => intervention\nRELATION: SOURCE => clinical decision => TARGET\n\"The physician decided to order an MRI.\"\nSOURCE: \"physician\" => clinician; TARGET: \"order an MRI\" => intervention\nRELATION: SOURCE => clinical decision => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000006
 name: clinical explanation
 def: "A clinical reason explaining the reasoning behind a treatment, intervention, condition or medical statement." []
 is_a: CLCO:0000057 ! clinical association
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"because of persistent pain\" => clinical explanation\n\"due to concern for infection\" => clinical explanation\n\"to reduce the risk of recurrence\" => clinical explanation\n\nNEGATIVE EXAMPLES:\n\"chest pain\" => finding, NOT clinical explanation\n\"MRI\" => intervention, NOT clinical explanation\n\"physician\" => clinician, NOT clinical explanation\n\nCONTEXTUAL EXAMPLES:\n\"The MRI was ordered because of persistent pain.\"\nSOURCE: \"MRI\" => intervention; TARGET: \"persistent pain\" => reason\nRELATION: SOURCE => clinical explanation => TARGET\n\"Antibiotics were started due to concern for infection.\"\nSOURCE: \"antibiotics\" => intervention; TARGET: \"concern for infection\" => reason\nRELATION: SOURCE => clinical explanation => TARGET\n\"Surgery was performed to reduce the risk of recurrence.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"reduce the risk of recurrence\" => reason\nRELATION: SOURCE => clinical explanation => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000007
@@ -55,6 +61,7 @@ xref: OMOP_CONCEPT_ID:4044702
 xref: SNOMED:129450000
 is_a: CLCO:0000003 ! clinical administration
 relationship: CLCO:0002502 CLCO:0000108 ! has subject clinician
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"scheduled the procedure\" => has action\n\"uploaded the record\" => has action\n\"called the patient\" => has action\n\nNEGATIVE EXAMPLES:\n\"chest pain\" => finding, NOT has action\n\"MRI\" => intervention, NOT has action\n\"physician\" => clinician, NOT has action\n\nCONTEXTUAL EXAMPLES:\n\"The nurse scheduled the procedure.\"\nSOURCE: \"nurse\" => clinician; TARGET: \"scheduled the procedure\" => task\nRELATION: SOURCE => has action => TARGET\n\"Staff uploaded the record.\"\nSOURCE: \"staff\" => clinician; TARGET: \"uploaded the record\" => task\nRELATION: SOURCE => has action => TARGET\n\"The office staff called the patient.\"\nSOURCE: \"office staff\" => clinician; TARGET: \"called the patient\" => task\nRELATION: SOURCE => has action => TARGET" xsd:string
 property_value: IAO:0000112 "upload OSH CT chest pulmonary vein protocol" xsd:string
 
 [Term]
@@ -64,6 +71,7 @@ def: "Statement indicating that the patient was admitted to a specific setting" 
 is_a: CLCO:0000058 ! has setting
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
 property_value: IAO:0000112 "Patient admitted to ICU" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"admitted to the hospital\" => is admitted\n\"admitted to the ICU\" => is admitted\n\"admitted for observation\" => is admitted\n\nNEGATIVE EXAMPLES:\n\"transferred to the ICU\" => is transferred to, NOT is admitted\n\"discharged home\" => is discharged, NOT is admitted\n\"referred to cardiology\" => is referred by, NOT is admitted\n\nCONTEXTUAL EXAMPLES:\n\"The patient was admitted to the hospital.\"\nSOURCE: \"patient\" => patient; TARGET: \"hospital\" => setting\nRELATION: SOURCE => is admitted => TARGET\n\"She was admitted to the ICU.\"\nSOURCE: \"patient\" => patient; TARGET: \"ICU\" => setting\nRELATION: SOURCE => is admitted => TARGET\n\"He was admitted for observation.\"\nSOURCE: \"patient\" => patient; TARGET: \"observation\" => setting\nRELATION: SOURCE => is admitted => TARGET" xsd:string
 property_value: IAO:0000232 "Does not exist in OMOP, admission is specific for inpatients or other facility types." xsd:string
 
 [Term]
@@ -72,10 +80,12 @@ name: precedes
 def: "Statement indicating that an intervention or finding precedes an intervention or finding." []
 xref: OMOP_CONCEPT_ID:4272244
 xref: SNOMED:367409002
-is_a: CLCO:0000006 ! clinical explanation
-relationship: CLCO:0002502 CLCO:0000102 ! has subject intervention
+is_a: CLCO:0000116 ! temporal relation
 property_value: IAO:0000112 "Here for packing and splint removal after recent discharge from rehab" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"preceded by\" => precedes\n\"before\" => precedes\n\"followed by\" => precedes\n\nNEGATIVE EXAMPLES:\n\"because of\" => has reason, NOT precedes\n\"caused by\" => is caused by, NOT precedes\n\"recommended\" => recommended, NOT precedes\n\nCONTEXTUAL EXAMPLES:\n\"The biopsy preceded the surgery.\"\nSOURCE: \"biopsy\" => intervention; TARGET: \"surgery\" => intervention\nRELATION: SOURCE => precedes => TARGET\n\"The fever occurred before the rash.\"\nSOURCE: \"fever\" => finding; TARGET: \"rash\" => finding\nRELATION: SOURCE => precedes => TARGET\n\"The follow-up visit followed hospital discharge.\"\nSOURCE: \"hospital discharge\" => intervention; TARGET: \"follow-up visit\" => intervention\nRELATION: SOURCE => precedes => TARGET" xsd:string
+property_value: IAO:0000232 "Re-parented from clinical explanation (CLCO:0000006) to temporal relation (CLCO:0000116) on 2026-10-30: precedence is temporal ordering, not explanation. TimeML TLINK relType BEFORE; interval semantics are time:intervalBefore, linked by rdfs:seeAlso. The inverse is follows (CLCO:0000117)." xsd:string
 property_value: IAO:0000232 "Used to be \"is followed by\" but this causes confusion when following refers to a particular clilnician responsible for a patient's care" xsd:string
+property_value: seeAlso intervalBefore
 
 [Term]
 id: CLCO:0000012
@@ -85,6 +95,7 @@ is_a: CLCO:0000003 ! clinical administration
 relationship: CLCO:0002501 CLCO:0000108 ! has object clinician
 relationship: CLCO:0002502 CLCO:0000102 ! has subject intervention
 property_value: IAO:0000112 "A barium swallow was performed by Dr. PHI which was concerning for moderate aspiration.  Additionally, a hard palate lesion was seen." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"performed by Dr. Smith\" => is performed by\n\"administered by the nurse\" => is performed by\n\"read by the radiologist\" => is performed by\n\nNEGATIVE EXAMPLES:\n\"referred by Dr. Smith\" => is referred by, NOT is performed by\n\"seen by the cardiologist\" => is seen by, NOT is performed by\n\"recommended by the physician\" => recommended, NOT is performed by\n\nCONTEXTUAL EXAMPLES:\n\"The barium swallow was performed by Dr. Smith.\"\nSOURCE: \"barium swallow\" => intervention; TARGET: \"Dr. Smith\" => clinician\nRELATION: SOURCE => is performed by => TARGET\n\"The medication was administered by the nurse.\"\nSOURCE: \"medication\" => intervention; TARGET: \"nurse\" => clinician\nRELATION: SOURCE => is performed by => TARGET\n\"The scan was read by the radiologist.\"\nSOURCE: \"scan\" => intervention; TARGET: \"radiologist\" => clinician\nRELATION: SOURCE => is performed by => TARGET" xsd:string
 property_value: IAO:0000232 "There is OMOP 4160030, but it is a more general type of performed." xsd:string
 
 [Term]
@@ -97,6 +108,7 @@ is_a: CLCO:0000003 ! clinical administration
 relationship: CLCO:0002501 CLCO:0000108 ! has object clinician
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
 property_value: IAO:0000112 "PHI is referred by Dr.  PHI  with PMH significant for IP" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"referred by her primary care physician\" => is referred by\n\"sent by the emergency physician\" => is referred by\n\"referred by the oncologist\" => is referred by\n\nNEGATIVE EXAMPLES:\n\"performed by Dr. Smith\" => is performed by, NOT is referred by\n\"seen by the cardiologist\" => is seen by, NOT is referred by\n\"recommended by the physician\" => recommended, NOT is referred by\n\nCONTEXTUAL EXAMPLES:\n\"The patient was referred by her primary care physician.\"\nSOURCE: \"patient\" => patient; TARGET: \"primary care physician\" => clinician\nRELATION: SOURCE => is referred by => TARGET\n\"He was sent by the emergency physician.\"\nSOURCE: \"patient\" => patient; TARGET: \"emergency physician\" => clinician\nRELATION: SOURCE => is referred by => TARGET\n\"She was referred by the oncologist.\"\nSOURCE: \"patient\" => patient; TARGET: \"oncologist\" => clinician\nRELATION: SOURCE => is referred by => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000014
@@ -108,6 +120,7 @@ is_a: CLCO:0000003 ! clinical administration
 relationship: CLCO:0002501 CLCO:0000108 ! has object clinician
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
 property_value: IAO:0000112 "[Speaker 2]: I went to the ENT at PHI and they prescribed Allegra D, and I took those, they cleared it up, but they also affected my blood pressure" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"seen by cardiology\" => is seen by\n\"evaluated by the surgeon\" => is seen by\n\"followed by a neurologist\" => is seen by\n\nNEGATIVE EXAMPLES:\n\"referred by Dr. Smith\" => is referred by, NOT is seen by\n\"performed by Dr. Smith\" => is performed by, NOT is seen by\n\"recommended by the physician\" => recommended, NOT is seen by\n\nCONTEXTUAL EXAMPLES:\n\"The patient was seen by cardiology.\"\nSOURCE: \"patient\" => patient; TARGET: \"cardiology\" => clinician\nRELATION: SOURCE => is seen by => TARGET\n\"She was evaluated by the surgeon.\"\nSOURCE: \"patient\" => patient; TARGET: \"surgeon\" => clinician\nRELATION: SOURCE => is seen by => TARGET\n\"He is followed by a neurologist.\"\nSOURCE: \"patient\" => patient; TARGET: \"neurologist\" => clinician\nRELATION: SOURCE => is seen by => TARGET" xsd:string
 property_value: IAO:0000232 "Mapping to seen by health care giver which I think is the intention here." xsd:string
 
 [Term]
@@ -118,6 +131,7 @@ xref: OMOP_CONCEPT_ID:4144257
 xref: SNOMED:266751003
 is_a: CLCO:0000058 ! has setting
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"transferred from the emergency department\" => is transferred from\n\"sent from the outside hospital\" => is transferred from\n\"moved from the ward\" => is transferred from\n\nNEGATIVE EXAMPLES:\n\"transferred to the ICU\" => is transferred to, NOT is transferred from\n\"admitted to the hospital\" => is admitted, NOT is transferred from\n\"discharged home\" => is discharged, NOT is transferred from\n\nCONTEXTUAL EXAMPLES:\n\"The patient was transferred from the emergency department.\"\nSOURCE: \"patient\" => patient; TARGET: \"emergency department\" => setting\nRELATION: SOURCE => is transferred from => TARGET\n\"She was sent from the outside hospital.\"\nSOURCE: \"patient\" => patient; TARGET: \"outside hospital\" => setting\nRELATION: SOURCE => is transferred from => TARGET\n\"He was moved from the ward.\"\nSOURCE: \"patient\" => patient; TARGET: \"ward\" => setting\nRELATION: SOURCE => is transferred from => TARGET" xsd:string
 property_value: IAO:0000232 "Actually \"transferred from department\" but it includes hospitals and other facilities and appears to be a general concept." xsd:string
 
 [Term]
@@ -127,7 +141,17 @@ def: "Statement about the effect of an intervention." []
 xref: OMOP_CONCEPT_ID:44818727
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002501 CLCO:0000101 ! has object finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"relieved the pain\" => has effect\n\"lowered blood pressure\" => has effect\n\"caused nausea\" => has effect\n\nNEGATIVE EXAMPLES:\n\"was given for pain\" => has reason, NOT has effect\n\"was recommended\" => recommended, NOT has effect\n\"was performed by the surgeon\" => is performed by, NOT has effect\n\nCONTEXTUAL EXAMPLES:\n\"Nitroglycerin relieved the chest pain.\"\nSOURCE: \"nitroglycerin\" => intervention; TARGET: \"chest pain\" => finding\nRELATION: SOURCE => has effect => TARGET\n\"The medication lowered her blood pressure.\"\nSOURCE: \"medication\" => intervention; TARGET: \"blood pressure\" => finding\nRELATION: SOURCE => has effect => TARGET\n\"The antibiotic caused diarrhea.\"\nSOURCE: \"antibiotic\" => intervention; TARGET: \"diarrhea\" => finding\nRELATION: SOURCE => has effect => TARGET" xsd:string
 property_value: IAO:0000112 "SL nitroglycerin alleviated pain." xsd:string
+
+[Term]
+id: CLCO:0000019
+name: has frequency
+def: "Statement indicating the frequency of a finding/condition or intervention" []
+xref: biolink:frequency_qualifier
+is_a: CLCO:0000057 ! clinical association
+relationship: CLCO:0002501 CLCO:0000103 ! has object time
+property_value: IAO:0000232 "SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency." xsd:string
 
 [Term]
 id: CLCO:0000021
@@ -137,6 +161,7 @@ xref: SNOMED:718771000000107
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002501 CLCO:0000102 ! has object intervention
 property_value: IAO:0000112 "Chest Pain: \"she took a SL NTG\"" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"started chemotherapy\" => has intervention\n\"underwent surgery\" => has intervention\n\"received physical therapy\" => has intervention\n\nNEGATIVE EXAMPLES:\n\"was diagnosed with pneumonia\" => has finding, NOT has intervention\n\"was referred to cardiology\" => is referred by, NOT has intervention\n\"was admitted to the ICU\" => is admitted, NOT has intervention\n\nCONTEXTUAL EXAMPLES:\n\"The patient started chemotherapy for lymphoma.\"\nSOURCE: \"patient\" => patient; TARGET: \"chemotherapy\" => intervention\nRELATION: SOURCE => has intervention => TARGET\n\"She underwent surgery for appendicitis.\"\nSOURCE: \"patient\" => patient; TARGET: \"surgery\" => intervention\nRELATION: SOURCE => has intervention => TARGET\n\"He received physical therapy after the stroke.\"\nSOURCE: \"patient\" => patient; TARGET: \"physical therapy\" => intervention\nRELATION: SOURCE => has intervention => TARGET" xsd:string
 property_value: IAO:0000232 "SNOMED has partial mapping as qualifier." xsd:string
 
 [Term]
@@ -149,16 +174,18 @@ xref: SNOMED:77374008
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000103 ! has object time
 relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"began yesterday\" => has onset\n\"started two weeks ago\" => has onset\n\"new-onset atrial fibrillation\" => has onset\n\nNEGATIVE EXAMPLES:\n\"lasting two weeks\" => has duration, NOT has onset\n\"worsening over time\" => has course, NOT has onset\n\"at the hospital\" => has setting, NOT has onset\n\nCONTEXTUAL EXAMPLES:\n\"The vomiting began this morning.\"\nSOURCE: \"vomiting\" => finding; TARGET: \"this morning\" => time\nRELATION: SOURCE => has onset => TARGET\n\"She developed atrial fibrillation yesterday.\"\nSOURCE: \"atrial fibrillation\" => finding; TARGET: \"yesterday\" => time\nRELATION: SOURCE => has onset => TARGET\n\"He has new-onset weakness.\"\nSOURCE: \"weakness\" => finding; TARGET: \"new-onset\" => time\nRELATION: SOURCE => has onset => TARGET" xsd:string
 property_value: IAO:0000112 "Vomiting since this morning" xsd:string
 
 [Term]
 id: CLCO:0000023
 name: has location
-def: "Inference about the location where an event happened" []
+def: "Inference about the care setting in which an event happened. The object is a setting, not an anatomical site; for the body site of a finding use has spatial orientation or has laterality." []
 xref: OMOP_CONCEPT_ID:3469026
 xref: SNOMED:18720000
 is_a: CLCO:0000058 ! has setting
-relationship: CLCO:0002501 CLCO:0000112 ! has object finding site
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"performed in the operating room\" => has location\n\"seen in clinic\" => has location\n\"treated at home\" => has location\n\nNEGATIVE EXAMPLES:\n\"performed by Dr. Smith\" => is performed by, NOT has location\n\"performed tomorrow\" => has date, NOT has location\n\"performed because of pain\" => has reason, NOT has location\n\nCONTEXTUAL EXAMPLES:\n\"The procedure was performed in the operating room.\"\nSOURCE: \"procedure\" => intervention; TARGET: \"operating room\" => setting\nRELATION: SOURCE => has location => TARGET\n\"The patient was seen in clinic.\"\nSOURCE: \"patient\" => patient; TARGET: \"clinic\" => setting\nRELATION: SOURCE => has location => TARGET\n\"The wound was treated at home.\"\nSOURCE: \"wound\" => finding; TARGET: \"home\" => setting\nRELATION: SOURCE => has location => TARGET" xsd:string
+property_value: IAO:0000232 "Object changed from finding site (CLCO:0000112) to setting (CLCO:0000107) on 2026-10-30, and the subject widened to admit patient. The restriction asserted an anatomical site while every example used a care setting -- \"operating room\", \"clinic\", \"home\" -- and the class is subClassOf has setting (CLCO:0000058), so both the hierarchy and the examples indicated care setting. Anatomical location is reached through has spatial orientation (CLCO:0000072) or has laterality (CLCO:0000073)." xsd:string
 
 [Term]
 id: CLCO:0000024
@@ -169,6 +196,7 @@ xref: SNOMED:83568003
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000106 ! has object value
 property_value: IAO:0000112 "Describes pressure-like chest pain near L breast with radiation down R arm" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"38.5 degrees Celsius\" => has value\n\"severe\" => has value\n\"positive for influenza\" => has value\n\nNEGATIVE EXAMPLES:\n\"fever\" => finding, NOT has value\n\"MRI\" => intervention, NOT has value\n\"three weeks\" => time, NOT has value\n\nCONTEXTUAL EXAMPLES:\n\"The temperature was 38.5 degrees Celsius.\"\nSOURCE: \"temperature\" => finding; TARGET: \"38.5 degrees Celsius\" => value\nRELATION: SOURCE => has value => TARGET\n\"The pain was severe.\"\nSOURCE: \"pain\" => finding; TARGET: \"severe\" => value\nRELATION: SOURCE => has value => TARGET\n\"The test was positive for influenza.\"\nSOURCE: \"test\" => intervention; TARGET: \"positive for influenza\" => value\nRELATION: SOURCE => has value => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000025
@@ -177,6 +205,7 @@ def: "Statement indicating that the patient or a specific finding site has a fin
 xref: OMOP_CONCEPT_ID:44818789
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000101 ! has object finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"patient has pneumonia\" => has finding\n\"examination revealed a murmur\" => has finding\n\"the scan showed a mass\" => has finding\n\nNEGATIVE EXAMPLES:\n\"patient underwent surgery\" => has intervention, NOT has finding\n\"patient is a physician\" => has subject qualifier, NOT has finding\n\"patient was admitted\" => is admitted, NOT has finding\n\nCONTEXTUAL EXAMPLES:\n\"The patient has pneumonia.\"\nSOURCE: \"patient\" => patient; TARGET: \"pneumonia\" => finding\nRELATION: SOURCE => has finding => TARGET\n\"The patient has a heart murmur.\"\nSOURCE: \"patient\" => patient; TARGET: \"heart murmur\" => finding\nRELATION: SOURCE => has finding => TARGET\n\"The right lower lobe shows consolidation.\"\nSOURCE: \"right lower lobe\" => finding site; TARGET: \"consolidation\" => finding\nRELATION: SOURCE => has finding => TARGET\nA diagnostic test or document that reveals a finding is not the bearer of it. \"The CT scan showed a\npulmonary mass\" is suggests finding, whose subject may be an intervention or a documentation; the\nsubject of has finding is the patient or the body site." xsd:string
 property_value: IAO:0000112 "The patient reported sore throat and his physical indicated swollen lymph nodes." xsd:string
 property_value: IAO:0000232 "Was can_cause_finding_or_condition, a statement of medical knowledge about the potential cause of a finding/condition. Now just has_finding." xsd:string
 
@@ -186,6 +215,7 @@ name: has abandonment reason
 def: "Statement providing the reason for abandoning an intervention or diagnostic process" []
 is_a: CLCO:0000006 ! clinical explanation
 property_value: IAO:0000112 "A cystogram was attempted today but radiology was unable to inject dye through her catheter." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"stopped because of hypotension\" => has abandonment reason\n\"procedure canceled due to poor tolerance\" => has abandonment reason\n\"test was not completed because the patient declined\" => has abandonment reason\n\nNEGATIVE EXAMPLES:\n\"procedure was completed\" => completed, NOT has abandonment reason\n\"procedure was recommended\" => recommended, NOT has abandonment reason\n\"procedure caused bleeding\" => has effect, NOT has abandonment reason\n\nCONTEXTUAL EXAMPLES:\n\"The cystogram was abandoned because the catheter could not be accessed.\"\nSOURCE: \"cystogram\" => intervention; TARGET: \"catheter could not be accessed\" => reason\nRELATION: SOURCE => has abandonment reason => TARGET\n\"The infusion was stopped due to hypotension.\"\nSOURCE: \"infusion\" => intervention; TARGET: \"hypotension\" => finding\nRELATION: SOURCE => has abandonment reason => TARGET\n\"The patient declined the procedure, so it was canceled.\"\nSOURCE: \"procedure\" => intervention; TARGET: \"patient declined\" => reason\nRELATION: SOURCE => has abandonment reason => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000028
@@ -193,7 +223,7 @@ name: has assessment
 def: "Statement inferring that a finding/condition was assessed." []
 xref: OMOP_CONCEPT_ID:4195693
 is_a: CLCO:0000006 ! clinical explanation
-relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"assessed for pulmonary embolism\" => has assessment\n\"evaluated for appendicitis\" => has assessment\n\"screened for depression\" => has assessment\n\nNEGATIVE EXAMPLES:\n\"unable to assess for syncope\" => do not assert has assessment\n\"treated for pneumonia\" => has intervention, NOT has assessment\n\"history of diabetes\" => has finding, NOT has assessment\n\nCONTEXTUAL EXAMPLES:\n\"The patient was assessed for pulmonary embolism.\"\nSOURCE: \"patient\" => patient; TARGET: \"pulmonary embolism\" => finding\nRELATION: SOURCE => has assessment => TARGET\n\"She was evaluated for appendicitis.\"\nSOURCE: \"patient\" => patient; TARGET: \"appendicitis\" => finding\nRELATION: SOURCE => has assessment => TARGET\n\"The patient was screened for depression.\"\nSOURCE: \"patient\" => patient; TARGET: \"depression\" => finding\nRELATION: SOURCE => has assessment => TARGET" xsd:string
 property_value: IAO:0000112 "unable to assess for h/o exertional syncope, angina, dyspnea, etc which would warrant ICD placement" xsd:string
 property_value: IAO:0000232 "It is anticipated that this relation will usually be negative (as seen in the example) and refer to the absence of an assessment for a particular condition." xsd:string
 
@@ -205,6 +235,7 @@ xref: OMOP_CONCEPT_ID:4165917
 xref: SNOMED:416083004
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002502 CLCO:0000102 ! has subject intervention
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"ordered because of hyperkalemia\" => has reason\n\"started for treatment of pneumonia\" => has reason\n\"discontinued due to adverse effects\" => has reason\n\nNEGATIVE EXAMPLES:\n\"was caused by pneumonia\" => is caused by, NOT has reason\n\"was recommended\" => recommended, NOT has reason\n\"was suspected\" => uncertainty, NOT has reason\n\nCONTEXTUAL EXAMPLES:\n\"Bactrim was stopped because it worsened hyperkalemia.\"\nSOURCE: \"Bactrim\" => intervention; TARGET: \"worsened hyperkalemia\" => reason\nRELATION: SOURCE => has reason => TARGET\n\"The MRI was ordered because of persistent headaches.\"\nSOURCE: \"MRI\" => intervention; TARGET: \"persistent headaches\" => finding\nRELATION: SOURCE => has reason => TARGET\n\"Physical therapy was started to improve mobility.\"\nSOURCE: \"physical therapy\" => intervention; TARGET: \"improve mobility\" => reason\nRELATION: SOURCE => has reason => TARGET" xsd:string
 property_value: IAO:0000112 "stop Bactrim which may worsen hyperK" xsd:string
 
 [Term]
@@ -216,6 +247,7 @@ xref: SNOMED:128973006
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000113 ! has object patient state
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"patient is stable\" => has state\n\"patient is improving\" => has state\n\"patient is alert and oriented\" => has state\n\nNEGATIVE EXAMPLES:\n\"stable disease\" => has course, NOT has state\n\"chest pain\" => has finding, NOT has state\n\"physician\" => clinician, NOT has state\n\nCONTEXTUAL EXAMPLES:\n\"The patient is clinically stable.\"\nSOURCE: \"patient\" => patient; TARGET: \"clinically stable\" => patient state\nRELATION: SOURCE => has state => TARGET\n\"The patient is improving after treatment.\"\nSOURCE: \"patient\" => patient; TARGET: \"improving\" => patient state\nRELATION: SOURCE => has state => TARGET\n\"The patient is alert and oriented.\"\nSOURCE: \"patient\" => patient; TARGET: \"alert and oriented\" => patient state\nRELATION: SOURCE => has state => TARGET" xsd:string
 property_value: IAO:0000232 "Was represented earlier as \"finding related physiological patient state\"" xsd:string
 
 [Term]
@@ -226,6 +258,7 @@ xref: OMOP_CONCEPT_ID:44787854
 xref: SNOMED:109721000000108
 is_a: CLCO:0000006 ! clinical explanation
 property_value: IAO:0000112 "Please call if we can be of further assistance or his echo is abnormal" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"if fever develops, call the clinic\" => has trigger\n\"abnormal results prompted admission\" => has trigger\n\"worsening symptoms led to escalation\" => has trigger\n\nNEGATIVE EXAMPLES:\n\"admission was caused by pneumonia\" => is caused by, NOT has trigger\n\"admission was recommended\" => recommended, NOT has trigger\n\"admission is suspected\" => uncertainty, NOT has trigger\n\nCONTEXTUAL EXAMPLES:\n\"If the fever returns, call the clinic.\"\nSOURCE: \"call the clinic\" => task; TARGET: \"fever returns\" => finding\nRELATION: SOURCE => has trigger => TARGET\n\"The abnormal CT result prompted admission.\"\nSOURCE: \"admission\" => intervention; TARGET: \"abnormal CT result\" => finding\nRELATION: SOURCE => has trigger => TARGET\n\"Worsening hypoxia led to escalation of respiratory support.\"\nSOURCE: \"escalation of respiratory support\" => intervention; TARGET: \"worsening hypoxia\" => finding\nRELATION: SOURCE => has trigger => TARGET" xsd:string
 property_value: IAO:0000232 "Referred by trigger criteria may be best fit." xsd:string
 
 [Term]
@@ -237,6 +270,7 @@ xref: OMOP_CONCEPT_ID:3025141
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
 property_value: IAO:0000112 "PHI presents today for follow-up evaluation regarding management of lower urinary tract symptoms." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"visit for follow-up of lower urinary tract symptoms\" => has visit rationale\n\"seen for evaluation of chest pain\" => has visit rationale\n\"return visit for medication management\" => has visit rationale\n\nNEGATIVE EXAMPLES:\n\"was referred by Dr. Smith\" => is referred by, NOT has visit rationale\n\"was admitted to the ICU\" => is admitted, NOT has visit rationale\n\"was treated with antibiotics\" => has intervention, NOT has visit rationale\n\nCONTEXTUAL EXAMPLES:\n\"The patient presented for follow-up of lower urinary tract symptoms.\"\nSOURCE: \"patient\" => patient; TARGET: \"lower urinary tract symptoms\" => finding\nRELATION: SOURCE => has visit rationale => TARGET\n\"She was seen for evaluation of chest pain.\"\nSOURCE: \"patient\" => patient; TARGET: \"chest pain\" => finding\nRELATION: SOURCE => has visit rationale => TARGET\n\"He returned for medication management.\"\nSOURCE: \"patient\" => patient; TARGET: \"medication management\" => intervention\nRELATION: SOURCE => has visit rationale => TARGET" xsd:string
 property_value: IAO:0000232 "Was previously \"has visit reason\" but the object was finding or intervention, not reason. Name was therefore changed to rationale to avoid confusion." xsd:string
 
 [Term]
@@ -247,6 +281,7 @@ xref: LOINC:LP430632-2
 xref: OMOP_CONCEPT_ID:1992175
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"fracture caused by a fall\" => is caused by\n\"dyspnea due to pneumonia\" => is caused by\n\"bleeding secondary to anticoagulation\" => is caused by\n\nNEGATIVE EXAMPLES:\n\"MRI ordered because of headache\" => has reason, NOT is caused by\n\"possible pneumonia\" => uncertainty, NOT is caused by\n\"fever preceded the rash\" => precedes, NOT is caused by\n\nCONTEXTUAL EXAMPLES:\n\"The fracture was caused by a fall.\"\nSOURCE: \"fracture\" => finding; TARGET: \"fall\" => finding\nRELATION: SOURCE => is caused by => TARGET\n\"The dyspnea was due to pneumonia.\"\nSOURCE: \"dyspnea\" => finding; TARGET: \"pneumonia\" => finding\nRELATION: SOURCE => is caused by => TARGET\n\"Bleeding was secondary to anticoagulation.\"\nSOURCE: \"bleeding\" => finding; TARGET: \"anticoagulation\" => intervention\nRELATION: SOURCE => is caused by => TARGET" xsd:string
 property_value: IAO:0000112 "She had a MVC that resulted in extraperitoneal bladder injury and pelvic and sacral fractures." xsd:string
 property_value: IAO:0000232 "There is condition cause which is non-standard LOINC" xsd:string
 
@@ -258,6 +293,7 @@ xref: OMOP_CONCEPT_ID:4137797
 xref: SNOMED:263718001
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002501 CLCO:0000101 ! has object finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"wound complicated by infection\" => is complicated by\n\"surgery complicated by bleeding\" => is complicated by\n\"fracture complicated by nonunion\" => is complicated by\n\nNEGATIVE EXAMPLES:\n\"infection caused the wound\" => is caused by, NOT is complicated by\n\"surgery was followed by bleeding\" => precedes, NOT is complicated by\n\"bleeding was suspected\" => uncertainty, NOT is complicated by\n\nCONTEXTUAL EXAMPLES:\n\"The wound was complicated by infection.\"\nSOURCE: \"wound\" => finding; TARGET: \"infection\" => finding\nRELATION: SOURCE => is complicated by => TARGET\n\"The surgery was complicated by bleeding.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"bleeding\" => finding\nRELATION: SOURCE => is complicated by => TARGET\n\"The fracture was complicated by nonunion.\"\nSOURCE: \"fracture\" => finding; TARGET: \"nonunion\" => finding\nRELATION: SOURCE => is complicated by => TARGET" xsd:string
 property_value: IAO:0000112 "She reports her catheter has been leaking today especially when trying to have a bowel movement." xsd:string
 property_value: IAO:0000232 "Using complications, but not a relationship, may need new term." xsd:string
 
@@ -267,6 +303,7 @@ name: is consistent with diagnosis
 def: "A diagnostic process outcome is consistent with a condition. Whether this process is required or sufficient is not addressed." []
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002501 CLCO:0000101 ! has object finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"imaging consistent with pneumonia\" => is consistent with diagnosis\n\"biopsy consistent with malignancy\" => is consistent with diagnosis\n\"findings consistent with appendicitis\" => is consistent with diagnosis\n\nNEGATIVE EXAMPLES:\n\"imaging ruled out pneumonia\" => negation, NOT is consistent with diagnosis\n\"biopsy suggested possible malignancy\" => uncertainty, NOT is consistent with diagnosis\n\"MRI was ordered for headache\" => has reason, NOT is consistent with diagnosis\n\nCONTEXTUAL EXAMPLES:\n\"The CT findings were consistent with pneumonia.\"\nSOURCE: \"CT findings\" => finding; TARGET: \"pneumonia\" => finding\nRELATION: SOURCE => is consistent with diagnosis => TARGET\n\"The biopsy was consistent with malignancy.\"\nSOURCE: \"biopsy\" => intervention; TARGET: \"malignancy\" => finding\nRELATION: SOURCE => is consistent with diagnosis => TARGET\n\"The clinical findings were consistent with appendicitis.\"\nSOURCE: \"clinical findings\" => finding; TARGET: \"appendicitis\" => finding\nRELATION: SOURCE => is consistent with diagnosis => TARGET" xsd:string
 property_value: IAO:0000232 "Was \"Statement indicating that a diagnostic process does not suggest a finding/condition\"." xsd:string
 
 [Term]
@@ -274,6 +311,7 @@ id: CLCO:0000040
 name: treatment reason
 def: "A clinical reason related to a treatment such as procedure, medication, or lifestyle recommendation." []
 is_a: CLCO:0000006 ! clinical explanation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"antibiotics for pneumonia\" => treatment reason\n\"physical therapy to improve mobility\" => treatment reason\n\"smoking cessation to reduce cardiovascular risk\" => treatment reason\n\nNEGATIVE EXAMPLES:\n\"antibiotics caused diarrhea\" => has effect, NOT treatment reason\n\"antibiotics were recommended\" => recommended, NOT treatment reason\n\"antibiotics were suspected\" => uncertainty, NOT treatment reason\n\nCONTEXTUAL EXAMPLES:\n\"Antibiotics were prescribed for pneumonia.\"\nSOURCE: \"antibiotics\" => intervention; TARGET: \"pneumonia\" => finding\nRELATION: SOURCE => treatment reason => TARGET\n\"Physical therapy was ordered to improve mobility.\"\nSOURCE: \"physical therapy\" => intervention; TARGET: \"improve mobility\" => reason\nRELATION: SOURCE => treatment reason => TARGET\n\"Smoking cessation was advised to reduce cardiovascular risk.\"\nSOURCE: \"smoking cessation\" => intervention; TARGET: \"reduce cardiovascular risk\" => reason\nRELATION: SOURCE => treatment reason => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000041
@@ -283,6 +321,7 @@ xref: OMOP_CONCEPT_ID:37018830
 xref: SNOMED:714831004
 is_a: CLCO:0000005 ! clinical decision
 property_value: IAO:0000112 "I saw and evaluated the patient. I reviewed the findings and assessment/plan outlined above by PHI and agree" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"agreed to proceed with surgery\" => agree with\n\"concurred with the treatment plan\" => agree with\n\"accepted the recommendation\" => agree with\n\nNEGATIVE EXAMPLES:\n\"declined surgery\" => negation or has decision, NOT agree with\n\"recommended surgery\" => recommended, NOT agree with\n\"suspected pneumonia\" => uncertainty, NOT agree with\n\nCONTEXTUAL EXAMPLES:\n\"The patient agreed to proceed with surgery.\"\nSOURCE: \"patient\" => patient; TARGET: \"surgery\" => intervention\nRELATION: SOURCE => agree with => TARGET\n\"The family concurred with the treatment plan.\"\nSOURCE: \"family\" => family member; TARGET: \"treatment plan\" => intervention\nRELATION: SOURCE => agree with => TARGET\n\"The patient accepted the care plan.\"\nSOURCE: \"patient\" => patient; TARGET: \"care plan\" => documentation\nRELATION: SOURCE => agree with => TARGET" xsd:string
 property_value: IAO:0000232 "Mapping to \"does agree with care plan\"." xsd:string
 
 [Term]
@@ -291,6 +330,7 @@ name: has goal
 def: "Indication that an intervention or the patient has an outcome goal (target)" []
 xref: OMOP_CONCEPT_ID:4253630
 is_a: CLCO:0000005 ! clinical decision
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"goal of pain control\" => has goal\n\"target blood pressure below 130/80\" => has goal\n\"aim of preventing recurrence\" => has goal\n\nNEGATIVE EXAMPLES:\n\"reason for surgery\" => has reason, NOT has goal\n\"recommended surgery\" => recommended, NOT has goal\n\"completed treatment\" => completed, NOT has goal\n\nCONTEXTUAL EXAMPLES:\n\"The goal is pain control.\"\nSOURCE: \"intervention\" => intervention; TARGET: \"pain control\" => finding\nRELATION: SOURCE => has goal => TARGET\n\"The target blood pressure is below 130/80.\"\nSOURCE: \"blood pressure management\" => intervention; TARGET: \"below 130/80\" => value\nRELATION: SOURCE => has goal => TARGET\n\"The aim is to prevent recurrence.\"\nSOURCE: \"treatment\" => intervention; TARGET: \"prevent recurrence\" => finding\nRELATION: SOURCE => has goal => TARGET" xsd:string
 property_value: IAO:0000112 "Ultimately her goal is to not have to live with bilateral nephrostomy tubes." xsd:string
 property_value: IAO:0000232 "OMOP 4253630 \"Goal\"  doesn't really match well, we may need a new term." xsd:string
 
@@ -300,29 +340,33 @@ name: has decision
 def: "A statement indicating that a clinician or patient has a decision concerning an intervention." []
 is_a: CLCO:0000005 ! clinical decision
 relationship: CLCO:0002501 CLCO:0000102 ! has object intervention
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"decided to order an MRI\" => has decision\n\"decision to start chemotherapy\" => has decision\n\"will discuss surgical repair\" => has decision\n\nNEGATIVE EXAMPLES:\n\"MRI was performed\" => is performed by or completed, NOT has decision\n\"MRI was recommended\" => recommended, NOT has decision\n\"MRI was suspected\" => uncertainty, NOT has decision\n\nCONTEXTUAL EXAMPLES:\n\"The clinician decided to order an MRI.\"\nSOURCE: \"clinician\" => clinician; TARGET: \"order an MRI\" => intervention\nRELATION: SOURCE => has decision => TARGET\n\"The team decided to start chemotherapy.\"\nSOURCE: \"team\" => clinician; TARGET: \"start chemotherapy\" => intervention\nRELATION: SOURCE => has decision => TARGET\n\"The patient will discuss surgical repair.\"\nSOURCE: \"patient\" => patient; TARGET: \"surgical repair\" => intervention\nRELATION: SOURCE => has decision => TARGET" xsd:string
 property_value: IAO:0000112 "Will discuss with interventional in AM about possible pulmonary vein dilation w/stenting" xsd:string
 property_value: IAO:0000232 "May needs new label, was previously has_pending_decision, but with modifieres this can be scoped more specifically." xsd:string
 
 [Term]
 id: CLCO:0000044
 name: is at goal
-def: "Statement indicating that a finding/condition is at goal" []
+def: "Statement indicating that a finding/condition, an intervention or the patient is at goal. Being at goal may be expressed as a value, a course, or a state of the patient." []
 xref: OMOP_CONCEPT_ID:4191706
 xref: SNOMED:390802008
 is_a: CLCO:0000005 ! clinical decision
-relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"at goal\" => is at goal\n\"met the target\" => is at goal\n\"reached the desired blood pressure\" => is at goal\n\nNEGATIVE EXAMPLES:\n\"goal of pain control\" => has goal, NOT is at goal\n\"worsening symptoms\" => has course, NOT is at goal\n\"recommended target\" => recommended, NOT is at goal\n\nCONTEXTUAL EXAMPLES:\n\"The patient's blood pressure is at goal.\"\nSOURCE: \"blood pressure\" => finding; TARGET: \"at goal\" => patient state\nRELATION: SOURCE => is at goal => TARGET\n\"The treatment met the target.\"\nSOURCE: \"treatment\" => intervention; TARGET: \"target\" => value\nRELATION: SOURCE => is at goal => TARGET\n\"The patient reached the desired glucose level.\"\nSOURCE: \"patient\" => patient; TARGET: \"desired glucose level\" => value\nRELATION: SOURCE => is at goal => TARGET" xsd:string
 property_value: IAO:0000232 "Goal achieved in SNOMED, rename if acceptable." xsd:string
+property_value: IAO:0000232 "Subject and object widened on 2026-10-30. Being at goal is asserted of a finding (\"blood pressure is at goal\"), of an intervention (\"the treatment met the target\") and of the patient (\"the patient reached the desired glucose level\"); the goal itself is sometimes a state of the patient rather than a value or a course." xsd:string
 
 [Term]
 id: CLCO:0000045
-name: documentation of finding
-def: "Statement about documentation of a finding/condition" []
+name: has documentation
+def: "Statement that a finding or condition is documented in a clinical document. The subject is the finding; the object is the document that records it." []
 xref: OMOP_CONCEPT_ID:4205679
 xref: SNOMED:308910008
 is_a: CLCO:0000049 ! has confirmation
 relationship: CLCO:0002501 CLCO:0000111 ! has object documentation
 relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"hypertension is documented in the record\" => has documentation\n\"the mass is described in the imaging report\" => has documentation\n\"anemia is noted in the discharge summary\" => has documentation\n\nNEGATIVE EXAMPLES:\n\"the patient has hypertension\" => has finding, NOT has documentation\n\"the patient underwent surgery\" => has intervention, NOT has documentation\n\"the physician recommended treatment\" => recommended, NOT has documentation\n\nCONTEXTUAL EXAMPLES:\n\"The medical record documents hypertension.\"\nSOURCE: \"hypertension\" => finding; TARGET: \"medical record\" => documentation\nRELATION: SOURCE => has documentation => TARGET\n\"The imaging report describes a pulmonary mass.\"\nSOURCE: \"pulmonary mass\" => finding; TARGET: \"imaging report\" => documentation\nRELATION: SOURCE => has documentation => TARGET\n\"The discharge summary notes anemia.\"\nSOURCE: \"anemia\" => finding; TARGET: \"discharge summary\" => documentation\nRELATION: SOURCE => has documentation => TARGET" xsd:string
 property_value: IAO:0000232 "Maps to SNOMED qualifier Reference documentation which is probably equivalent." xsd:string
+property_value: IAO:0000232 "Renamed from \"documentation of finding\" on 2026-10-30. The asserted restrictions -- subject finding (CLCO:0000101), object documentation (CLCO:0000111) -- were kept, and the examples, which had subject and object the other way round, were flipped to match. The old label was a noun phrase that did not indicate a direction, so it could be read either way; \"has documentation\" follows the has-X convention used by the other associations and reads in the same direction as the axiom. The SNOMED and OMOP mappings are unchanged and still describe the same relation." xsd:string
 
 [Term]
 id: CLCO:0000046
@@ -331,12 +375,14 @@ def: "Statement indicating that the patient is a candidate for a given intervent
 is_a: CLCO:0000040 ! treatment reason
 relationship: CLCO:0002501 CLCO:0000102 ! has object intervention
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"eligible for surgery\" => is eligible\n\"eligible for transplant evaluation\" => is eligible\n\"meets criteria for chemotherapy\" => is eligible\n\nNEGATIVE EXAMPLES:\n\"contraindicated for surgery\" => has contraindication, NOT is eligible\n\"referred for surgery\" => is referred by, NOT is eligible\n\"scheduled for surgery\" => has intention, NOT is eligible\n\nCONTEXTUAL EXAMPLES:\n\"The patient is eligible for surgery.\"\nSOURCE: \"patient\" => patient; TARGET: \"surgery\" => intervention\nRELATION: SOURCE => is eligible => TARGET\n\"She meets criteria for transplant evaluation.\"\nSOURCE: \"patient\" => patient; TARGET: \"transplant evaluation\" => intervention\nRELATION: SOURCE => is eligible => TARGET\n\"He is eligible for chemotherapy.\"\nSOURCE: \"patient\" => patient; TARGET: \"chemotherapy\" => intervention\nRELATION: SOURCE => is eligible => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000048
 name: discussed with
 def: "Statement indicating that an intervention has been discussed with patient by a clinician (clinician initiated) or a patient has discussed an intervention with their clinician (patient initiated). The default assumption should be that the discussion is clinician initiated." []
 is_a: CLCO:0000049 ! has confirmation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"discussed surgery with the patient\" => discussed with\n\"reviewed chemotherapy with the family\" => discussed with\n\"discussed the MRI with cardiology\" => discussed with\n\nNEGATIVE EXAMPLES:\n\"recommended surgery\" => recommended, NOT discussed with\n\"performed surgery\" => completed, NOT discussed with\n\"referred to cardiology\" => is referred by, NOT discussed with\n\nCONTEXTUAL EXAMPLES:\n\"The surgeon discussed surgery with the patient.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"patient\" => patient\nRELATION: SOURCE => discussed with => TARGET\n\"Chemotherapy was reviewed with the family.\"\nSOURCE: \"chemotherapy\" => intervention; TARGET: \"family\" => family member\nRELATION: SOURCE => discussed with => TARGET\n\"The MRI was discussed with cardiology.\"\nSOURCE: \"MRI\" => intervention; TARGET: \"cardiology\" => clinician\nRELATION: SOURCE => discussed with => TARGET" xsd:string
 property_value: IAO:0000232 "Likely need to break this down for reasoning, values available include separate concepts for discussion with caregiver, patient, specialist, pharmacist, payer, etc..." xsd:string
 
 [Term]
@@ -346,6 +392,7 @@ def: "A decision or status has been confirmed." []
 xref: OMOP_CONCEPT_ID:4326761
 xref: SNOMED:74996004
 is_a: CLCO:0000003 ! clinical administration
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"confirmed diagnosis\" => has confirmation\n\"confirmed treatment plan\" => has confirmation\n\"confirmed appointment\" => has confirmation\n\nNEGATIVE EXAMPLES:\n\"suspected diagnosis\" => uncertainty, NOT has confirmation\n\"recommended treatment\" => recommended, NOT has confirmation\n\"denied symptoms\" => negation, NOT has confirmation\n\nCONTEXTUAL EXAMPLES:\n\"The diagnosis was confirmed.\"\nSOURCE: \"diagnosis\" => finding; TARGET: \"confirmed\"\nRELATION: SOURCE => has confirmation => TARGET\n\"The treatment plan was confirmed.\"\nSOURCE: \"treatment plan\" => intervention; TARGET: \"confirmed\"\nRELATION: SOURCE => has confirmation => TARGET\n\"The appointment was confirmed.\"\nSOURCE: \"appointment\" => task; TARGET: \"confirmed\"\nRELATION: SOURCE => has confirmation => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000050
@@ -356,6 +403,7 @@ xref: SNOMED:103306004
 is_a: CLCO:0000040 ! treatment reason
 relationship: CLCO:0002501 CLCO:0000101 ! has object finding
 relationship: CLCO:0002502 CLCO:0000102 ! has subject intervention
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"warfarin contraindicated in pregnancy\" => has contraindication\n\"NSAIDs contraindicated in renal failure\" => has contraindication\n\"chemotherapy contraindicated by severe neutropenia\" => has contraindication\n\nNEGATIVE EXAMPLES:\n\"warfarin prescribed for atrial fibrillation\" => has reason, NOT has contraindication\n\"chemotherapy was recommended\" => recommended, NOT has contraindication\n\"chemotherapy was suspected\" => uncertainty, NOT has contraindication\n\nCONTEXTUAL EXAMPLES:\n\"Warfarin is contraindicated in pregnancy.\"\nSOURCE: \"warfarin\" => intervention; TARGET: \"pregnancy\" => finding\nRELATION: SOURCE => has contraindication => TARGET\n\"NSAIDs are contraindicated in severe renal failure.\"\nSOURCE: \"NSAIDs\" => intervention; TARGET: \"severe renal failure\" => finding\nRELATION: SOURCE => has contraindication => TARGET\n\"Chemotherapy is contraindicated because of severe neutropenia.\"\nSOURCE: \"chemotherapy\" => intervention; TARGET: \"severe neutropenia\" => finding\nRELATION: SOURCE => has contraindication => TARGET" xsd:string
 property_value: IAO:0000112 "warfarin has contraindication pregnancy." xsd:string
 
 [Term]
@@ -368,6 +416,7 @@ is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000105 ! has object course
 relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
 property_value: IAO:0000112 "Her shortness of breath is becoming worse" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"worsening\" => has course\n\"stable\" => has course\n\"intermittent\" => has course\n\nNEGATIVE EXAMPLES:\n\"three weeks\" => has duration, NOT has course\n\"yesterday\" => has date, NOT has course\n\"severe\" => has severity, NOT has course\n\nCONTEXTUAL EXAMPLES:\n\"The patient reports worsening weakness.\"\nSOURCE: \"weakness\" => finding; TARGET: \"worsening\" => course\nRELATION: SOURCE => has course => TARGET\n\"Her symptoms remain stable.\"\nSOURCE: \"symptoms\" => finding; TARGET: \"stable\" => course\nRELATION: SOURCE => has course => TARGET\n\"He has intermittent chest pain.\"\nSOURCE: \"chest pain\" => finding; TARGET: \"intermittent\" => course\nRELATION: SOURCE => has course => TARGET\n\"Bone density is decreasing.\"\nSOURCE: \"bone density\" => finding; TARGET: \"decreasing\" => course\nRELATION: SOURCE => has course => TARGET\n\"Cancer progression is rapid.\"\nSOURCE: \"cancer progression\" => finding; TARGET: \"rapid\" => course\nRELATION: SOURCE => has course => TARGET\nA measurable property of a body site or disease process, such as \"bone density\" or \"cancer\nprogression\", is annotated as a single finding. Do not decompose it into the site plus the property;\nthere is no cue licensing such a relation, and CLCO has no observable entity class to hold the\nproperty." xsd:string
 property_value: IAO:0000232 "The same thing as clinical course." xsd:string
 
 [Term]
@@ -378,6 +427,7 @@ xref: OMOP_CONCEPT_ID:4256607
 xref: SNOMED:410671006
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000103 ! has object time
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"tomorrow\" => has date\n\"on March 3\" => has date\n\"last Tuesday\" => has date\n\nNEGATIVE EXAMPLES:\n\"for three weeks\" => has duration, NOT has date\n\"currently\" => has temporal frame, NOT has date\n\"worsening\" => has course, NOT has date\n\nCONTEXTUAL EXAMPLES:\n\"The patient has an appointment tomorrow.\"\nSOURCE: \"appointment\" => intervention; TARGET: \"tomorrow\" => time\nRELATION: SOURCE => has date => TARGET\n\"Surgery is scheduled for March 3.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"March 3\" => time\nRELATION: SOURCE => has date => TARGET\n\"The symptoms began last Tuesday.\"\nSOURCE: \"symptoms\" => finding; TARGET: \"last Tuesday\" => time\nRELATION: SOURCE => has date => TARGET" xsd:string
 property_value: IAO:0000112 "She has an appointment with Dr. PHI tomorrow" xsd:string
 property_value: IAO:0000232 "SNOMED attribute, qualifier is also available. Start and End dates?" xsd:string
 
@@ -388,13 +438,35 @@ def: "Statement indicating the duration of a finding/condition or intervention" 
 xref: OMOP_CONCEPT_ID:4014044
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000103 ! has object time
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"for two weeks\" => has duration\n\"lasting three months\" => has duration\n\"over the past year\" => has duration\n\nNEGATIVE EXAMPLES:\n\"yesterday\" => has date, NOT has duration\n\"worsening\" => has course, NOT has duration\n\"severe\" => has severity, NOT has duration\n\nCONTEXTUAL EXAMPLES:\n\"She has had nausea for two weeks.\"\nSOURCE: \"nausea\" => finding; TARGET: \"for two weeks\" => time\nRELATION: SOURCE => has duration => TARGET\n\"The cough has lasted three months.\"\nSOURCE: \"cough\" => finding; TARGET: \"three months\" => time\nRELATION: SOURCE => has duration => TARGET\n\"Pain has persisted over the past year.\"\nSOURCE: \"pain\" => finding; TARGET: \"over the past year\" => time\nRELATION: SOURCE => has duration => TARGET" xsd:string
 property_value: IAO:0000112 "She does endorse some nausea and spit up for the past two weeks" xsd:string
+
+[Term]
+id: CLCO:0000054
+name: has history
+def: "Statement of fact about a patient that constitutes past medical history" []
+xref: OMOP_CONCEPT_ID:44813766
+xref: SNOMED:722291000000108
+is_a: CLCO:0000057 ! clinical association
+relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
+property_value: IAO:0000112 "The patient underwent two kidney transplants (2002, 2012)" xsd:string
+property_value: IAO:0000232 "SNOMED CT United Kingdom clinical extension module sourced." xsd:string
+
+[Term]
+id: CLCO:0000055
+name: has risk factor
+def: "Statement indicating the patient is at risk for a condition or procedure." []
+xref: SNOMED:80943009
+is_a: CLCO:0000025 ! has finding
+relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
+property_value: IAO:0000112 "Patient mentioned genetic risk for DVT/PE from commercial DNA testing kit of unknown type" xsd:string
 
 [Term]
 id: CLCO:0000057
 name: clinical association
 def: "A reified assertion relating two or more clinical entities, representing a contextualized clinical statement that can carry qualifiers such as negation, uncertainty, and temporality." []
 is_a: IAO:0000030 ! information content entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES: \"The patient has pneumonia\", \"The MRI showed a mass\", and \"Surgery was recommended\" are clinical associations.\nNEGATIVE EXAMPLES: patient, pneumonia, and severe are entities or values, not associations by themselves.\nCONTEXTUAL EXAMPLES: The first statement expresses a has finding association, the second a has finding association, and the third a recommendation association." xsd:string
 property_value: IAO:0000232 "Although these structures represent relationships between clinical entities, we model them as reified associations rather than relations, because they represent contextualized assertions with additional attributes (e.g., negation, uncertainty, temporality), which cannot be expressed using binary object properties in OWL.\nThese relations include the most frequently documented relation types as defined in:\nColicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. \"Formal representation of patients’ care context data: the path to improving the electronic health record.\" Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657." xsd:string
 property_value: IAO:0000232 "CLCO represents temporal information through four orthogonal mechanisms: (1) temporal_frame (qualifier axis) -- document-relative context via has_temporal_frame, values historical/current/future/hypothetical; (2) completion_status (qualifier axis) -- workflow state via has_completion_status, values pending/in_progress/completed; (3) datatype time properties (data axis) -- computable timestamps via has_start_time, has_end_time, has_duration_value with xsd typed literals; (4) reified temporal associations (entity axis) -- narrative temporal entities such as has_onset, has_date, has_duration where the temporal expression is a first-class clinical_entity linked via has_object. These mechanisms are independent: a single association may carry values from any combination." xsd:string
 
@@ -408,19 +480,22 @@ intersection_of: CLCO:0000057 ! clinical association
 intersection_of: CLCO:0002501 CLCO:0000107 ! has object setting
 relationship: CLCO:0002501 CLCO:0000107 ! has object setting
 property_value: IAO:0000112 "He was given Zofran and meclizine at Urgent Care." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"in the emergency department\" => has setting\n\"at home\" => has setting\n\"in the intensive care unit\" => has setting\n\nNEGATIVE EXAMPLES:\n\"chest pain\" => finding, NOT has setting\n\"tomorrow\" => has date, NOT has setting\n\"physician\" => clinician, NOT has setting\n\nCONTEXTUAL EXAMPLES:\n\"The patient was treated in the emergency department.\"\nSOURCE: \"treated\" => intervention; TARGET: \"emergency department\" => setting\nRELATION: SOURCE => has setting => TARGET\n\"The wound was managed at home.\"\nSOURCE: \"wound management\" => intervention; TARGET: \"at home\" => setting\nRELATION: SOURCE => has setting => TARGET\n\"He was monitored in the intensive care unit.\"\nSOURCE: \"monitored\" => task; TARGET: \"intensive care unit\" => setting\nRELATION: SOURCE => has setting => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000060
 name: intention
-def: "Modifies a relation to indicate that the relation is intended rather than actual. Boolean." []
-is_a: CLCO:0000068 ! statement qualifier
+def: "Modifies a relation to indicate that the relation is intended rather than actual. Presence-only: the axis has no value set, so the qualifier is either asserted or absent." []
+is_a: CLCO:0000067 ! qualifier
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"will start chemotherapy\" => intention\n\"intended to undergo surgery\" => intention\n\"plans to begin therapy\" => intention\n\"scheduled for an MRI\" => intention\n\nNEGATIVE EXAMPLES:\n\"underwent surgery\" => completed, NOT intention\n\"recommended an MRI\" => recommended, NOT intention\n\"may have pneumonia\" => uncertainty, NOT intention\n\"had pneumonia last year\" => historical, NOT intention\n\nCONTEXTUAL EXAMPLES:\n\"The patient will start chemotherapy.\"\nSOURCE: \"chemotherapy\" => intervention; TARGET: \"will start\" => intention\nRELATION: SOURCE => has intention => TARGET\n\"The patient intended to undergo surgery.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"intended\" => intention\nRELATION: SOURCE => has intention => TARGET\n\"She plans to begin physical therapy.\"\nSOURCE: \"physical therapy\" => intervention; TARGET: \"plans to begin\" => intention\nRELATION: SOURCE => has intention => TARGET" xsd:string
 property_value: IAO:0000232 "Epistemic modality axis: captures whether the association describes an actual event or an intended/planned one. Orthogonal to temporal_frame (CLCO_0000082), which captures WHEN relative to the document, and completion_status (CLCO_0000063), which captures workflow state. An intended event may be past (we intended chemo but did not start), present, or future." xsd:string
 
 [Term]
 id: CLCO:0000062
 name: recommended
-def: "The modified relationship is recommended, for example an intervention, admission or some action. Boolean." []
-is_a: CLCO:0000068 ! statement qualifier
+def: "The modified relationship is recommended, for example an intervention, admission or some action. Presence-only: the axis has no value set, so the qualifier is either asserted or absent." []
+is_a: CLCO:0000067 ! qualifier
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"recommended an MRI\" => recommended\n\"should follow up\" => recommended\n\"advised to stop smoking\" => recommended\n\"the patient was told to rest\" => recommended\n\nNEGATIVE EXAMPLES:\n\"underwent an MRI\" => completed, NOT recommended\n\"will undergo surgery\" => intention, NOT recommended\n\"may have pneumonia\" => uncertainty, NOT recommended\n\"denied chest pain\" => negation, NOT recommended\n\nCONTEXTUAL EXAMPLES:\n\"The physician recommended an MRI.\"\nSOURCE: \"MRI\" => intervention; TARGET: \"recommended\" => recommended\nRELATION: SOURCE => has recommended => TARGET\n\"The patient should follow up in two weeks.\"\nSOURCE: \"follow up\" => intervention; TARGET: \"should\" => recommended\nRELATION: SOURCE => has recommended => TARGET\n\"She was advised to stop smoking.\"\nSOURCE: \"stop smoking\" => intervention; TARGET: \"advised\" => recommended\nRELATION: SOURCE => has recommended => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000063
@@ -428,7 +503,8 @@ name: completion status
 def: "The workflow completion state of a process. Orthogonal to temporal_frame (which captures when relative to the document) and intention (which captures intent). A process may be pending regardless of whether its temporal frame is past, present, or future." []
 xref: OMOP_CONCEPT_ID:4138595
 xref: SNOMED:40642538
-is_a: CLCO:0000068 ! statement qualifier
+is_a: CLCO:0000067 ! qualifier
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"pending\" => completion status\n\"in progress\" => completion status\n\"completed\" => completion status\n\"finished\" => completion status\n\nNEGATIVE EXAMPLES:\n\"will undergo\" => intention, NOT completion status\n\"recommended\" => recommended, NOT completion status\n\"may undergo\" => uncertainty, NOT completion status\n\"last year\" => historical, NOT completion status\n\nCONTEXTUAL EXAMPLES:\n\"The CT results are pending.\"\nSOURCE: \"CT results\" => finding; TARGET: \"pending\" => completion status\nRELATION: SOURCE => has completion status => TARGET\n\"The biopsy is in progress.\"\nSOURCE: \"biopsy\" => intervention; TARGET: \"in progress\" => completion status\nRELATION: SOURCE => has completion status => TARGET\n\"The procedure was completed.\"\nSOURCE: \"procedure\" => intervention; TARGET: \"completed\" => completion status\nRELATION: SOURCE => has completion status => TARGET" xsd:string
 property_value: IAO:0000232 "Refactored from the original \"status\" class. Children include pending (moved from temporal), in_progress, and completed. Aligns with SNOMED procedure status qualifier values and EHR order status fields. No equivalent in NLP temporal annotation schemes like THYME or I2b2." xsd:string
 
 [Term]
@@ -439,37 +515,40 @@ xref: SNOMED:385645004
 is_a: CLCO:0000063 ! completion status
 disjoint_from: CLCO:0000087 ! in progress
 property_value: IAO:0000112 "CT results pending" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"results pending\" => pending\n\"awaiting pathology\" => pending\n\"order pending\" => pending\n\"not yet resulted\" => pending\n\nNEGATIVE EXAMPLES:\n\"procedure completed\" => completed, NOT pending\n\"currently receiving therapy\" => in progress, NOT pending\n\"will undergo surgery\" => intention, NOT pending\n\"last year\" => historical, NOT pending\n\nCONTEXTUAL EXAMPLES:\n\"The CT results are pending.\"\nSOURCE: \"CT results\" => finding; TARGET: \"pending\" => pending\nRELATION: SOURCE => has completion status => TARGET\n\"The pathology report is still pending.\"\nSOURCE: \"pathology report\" => documentation; TARGET: \"pending\" => pending\nRELATION: SOURCE => has completion status => TARGET\n\"The laboratory order remains pending.\"\nSOURCE: \"laboratory order\" => intervention; TARGET: \"pending\" => pending\nRELATION: SOURCE => has completion status => TARGET" xsd:string
 property_value: IAO:0000232 "Moved from subClassOf temporal (CLCO_0000064) to subClassOf completion_status (CLCO_0000063). The previous definition conflated workflow state with temporal frame and epistemic modality. See temporal_plan.txt Section 1A for rationale." xsd:string
 
 [Term]
 id: CLCO:0000067
-name: association qualifier
+name: qualifier
 def: "A modifier that provides additional context to a clinical association, such as temporal frame, certainty, negation, or participant-level detail." []
 is_a: IAO:0000030 ! information content entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"suspected\" => qualifier\n\"denied\" => qualifier\n\"pending\" => qualifier\n\"last year\" => qualifier\n\nNEGATIVE EXAMPLES:\n\"chest pain\" => finding, NOT qualifier\n\"MRI\" => intervention, NOT qualifier\n\"physician\" => clinician, NOT qualifier\n\"three weeks\" => time, NOT qualifier\n\nCONTEXTUAL EXAMPLES:\n\"A tumor was suspected.\"\nSOURCE: \"tumor\" => finding; TARGET: \"suspected\" => qualifier\nRELATION: SOURCE => has association qualifier => TARGET\n\"The patient denied fever.\"\nSOURCE: \"fever\" => finding; TARGET: \"denied\" => qualifier\nRELATION: SOURCE => has association qualifier => TARGET\n\"The results are pending.\"\nSOURCE: \"results\" => finding; TARGET: \"pending\" => qualifier\nRELATION: SOURCE => has association qualifier => TARGET" xsd:string
+property_value: IAO:0000232 "Renamed from \"association qualifier\" on 2026-10-20. The class names the qualifier axis only; what the qualifier scopes over is carried by the property used to attach it (has association qualifier, has subject qualifier, has object qualifier). The former name read as a commitment to statement scope, which the class does not make. Direct children are the six orthogonal axes." xsd:string
 
 [Term]
 id: CLCO:0000068
-name: statement qualifier
+name: obsolete statement qualifier
 def: "An association qualifier that modifies the entire clinical statement, such as intention, recommendation or completion status." []
-is_a: CLCO:0000067 ! association qualifier
-property_value: IAO:0000232 "Qualifiers for the entire statement." xsd:string
+property_value: IAO:0000232 "Obsoleted 2026-10-19. Qualifier scope is carried by the qualifier property, not by the qualifier class: has association qualifier (CLCO:0003000) attaches a qualifier to the whole association, has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002) attach it to a single participant. Encoding scope in the class hierarchy as well could not express the axis/scope cross-product -- negation (CLCO:0000080) and uncertainty (CLCO:0000081) were never subclasses of this class, so statement-scoped negation had no class to begin with. The class hierarchy now holds only the orthogonal qualifier axes. Former children intention (CLCO:0000060), recommended (CLCO:0000062) and completion status (CLCO:0000063) are now direct subclasses of association qualifier (CLCO:0000067); that they are statement-only is now asserted as the range of has participant qualifier instead." xsd:string
+is_obsolete: true
+consider: CLCO:0003000
 
 [Term]
 id: CLCO:0000069
-name: predicate qualifier
+name: obsolete predicate qualifier
 def: "An association qualifier that modifies only the predicate (relationship type) of a clinical association, rather than the entire statement." []
-is_a: CLCO:0000067 ! association qualifier
-property_value: IAO:0000232 "For situations where the modifier of the predicate is different from the overall statement, these are likely to be rare." xsd:string
+property_value: IAO:0000232 "Obsoleted 2026-10-19. Qualifier scope is carried by the qualifier property, not by the qualifier class: has association qualifier (CLCO:0003000) attaches a qualifier to the whole association, has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002) attach it to a single participant. Encoding scope in the class hierarchy as well could not express the axis/scope cross-product -- negation (CLCO:0000080) and uncertainty (CLCO:0000081) were never subclasses of this class, so statement-scoped negation had no class to begin with. The class hierarchy now holds only the orthogonal qualifier axes. No instances were ever modelled and the class had no children. In a reified model the association node is anchored on the predicate itself, so a predicate-scoped qualifier is not distinguishable from a statement-scoped one during annotation. All three of its former contextual examples were in fact uncertainty, historical (CLCO:0000083) and negation, which already carry that guidance. Add a has predicate qualifier sub-property if a genuine predicate-scoped case is ever found." xsd:string
+is_obsolete: true
+consider: CLCO:0003000
 
 [Term]
 id: CLCO:0000071
-name: has aspect
+name: obsolete has aspect
 def: "A finding association specifying which facet, part, or functional dimension of an entity is being referred to in the assertion." []
-is_a: CLCO:0000057 ! clinical association
-relationship: CLCO:0002501 CLCO:0000106 ! has object value
-relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
-property_value: IAO:0000112 "Bone density is decreasing; cancer progression is rapid." xsd:string
-property_value: IAO:0000232 "Aspect refers to which facet, part, or functional dimension of an entity is being referred to in the assertion. For example density or progression in bone density or cancer progression." xsd:string
+property_value: IAO:0000232 "Obsoleted 2026-10-23. Every pattern this class was created for is expressible with existing vocabulary once the noun phrase is typed as a finding: \"Bone density is decreasing\" is has course (CLCO:0000051) over the finding \"bone density\"; \"Cancer progression is rapid\" is has course over \"cancer progression\", and course (CLCO:0000105) already lists \"Rapidly progressing\" among its own values; \"Cardiac function is preserved\" is has descriptive value (CLCO:0000075) over \"cardiac function\". All three have been moved to those classes. Four further reasons: the class had no cue -- every other association is licensed by a verb, preposition or connective, while aspect was licensed only by noun-noun juxtaposition, leaving no span to annotate; all three of its own contextual examples contradicted its own restrictions, using a finding site subject where finding was declared and a course object where value was declared; it shared the finding-to-value signature with has severity, has value, has descriptive value, has quantifiable value and now has laterality, adding no discriminating power; and its negative examples had to borrow has laterality and has spatial orientation to say what it was not. What aspect reached for -- density or function as a measurable property of a site -- is the SNOMED CT observable entity axis, which CLCO does not model. Should CLCO ever post-coordinate against LOINC, where the property axis is first class, or against SNOMED observable entities, that capability should return as an observable entity class on the clinical entity side, not as a finding-to-value association. Obsoleting this class does not foreclose it." xsd:string
+is_obsolete: true
+consider: CLCO:0000051, CLCO:0000075, CLCO:0000024
 
 [Term]
 id: CLCO:0000072
@@ -478,18 +557,20 @@ def: "A finding association specifying the spatial orientation or anatomical dir
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000112 ! has object finding site
 relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"anterior to the knee\" => has spatial orientation\n\"below the diaphragm\" => has spatial orientation\n\"posterior to the heart\" => has spatial orientation\n\nNEGATIVE EXAMPLES:\n\"left knee\" => has laterality, NOT has spatial orientation\n\"severe pain\" => has severity, NOT has spatial orientation\n\"three weeks\" => has duration, NOT has spatial orientation\n\nCONTEXTUAL EXAMPLES:\n\"The lesion is anterior to the knee.\"\nSOURCE: \"lesion\" => finding; TARGET: \"anterior to the knee\" => finding site\nRELATION: SOURCE => has spatial orientation => TARGET\n\"The mass is below the diaphragm.\"\nSOURCE: \"mass\" => finding; TARGET: \"below the diaphragm\" => finding site\nRELATION: SOURCE => has spatial orientation => TARGET\n\"The opacity is posterior to the heart.\"\nSOURCE: \"opacity\" => finding; TARGET: \"posterior to the heart\" => finding site\nRELATION: SOURCE => has spatial orientation => TARGET" xsd:string
 property_value: IAO:0000112 "The lesion is located on the anterior aspect of the left knee." xsd:string
 property_value: IAO:0000232 "Spatial orientation qualifiers reuse PATO quality terms directly; CLCO defines only the attachment role." xsd:string
 
 [Term]
 id: CLCO:0000073
 name: has laterality
-def: "A finding association specifying the laterality (left, right, bilateral, unilateral, or midline) of a finding relative to a body site." []
+def: "A finding association specifying the laterality (left, right, bilateral, unilateral, or midline) of a finding. The object is the laterality value itself; the body site, where stated, is carried separately by has location." []
 is_a: CLCO:0000057 ! clinical association
-relationship: CLCO:0002501 CLCO:0000112 ! has object finding site
+relationship: CLCO:0002501 CLCO:0000106 ! has object value
 relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"left\" => has laterality\n\"right-sided\" => has laterality\n\"bilateral\" => has laterality\n\nNEGATIVE EXAMPLES:\n\"anterior\" => has spatial orientation, NOT has laterality\n\"severe\" => has severity, NOT has laterality\n\"intermittent\" => has course, NOT has laterality\n\nCONTEXTUAL EXAMPLES:\n\"The patient has left knee pain.\"\nSOURCE: \"knee pain\" => finding; TARGET: \"left\" => value\nRELATION: SOURCE => has laterality => TARGET\n\"A right-sided pneumothorax was seen.\"\nSOURCE: \"pneumothorax\" => finding; TARGET: \"right-sided\" => value\nRELATION: SOURCE => has laterality => TARGET\n\"She has bilateral knee pain.\"\nSOURCE: \"knee pain\" => finding; TARGET: \"bilateral\" => value\nRELATION: SOURCE => has laterality => TARGET" xsd:string
 property_value: IAO:0000112 "Right-sided pneumothorax; bilateral knee pain." xsd:string
-property_value: IAO:0000232 "laterality_qualifier\n  ⊑ has_participant_qualifier only\n     (PATO:0000611  # left\n      or PATO:0000612  # right\n      or PATO:0000613  # bilateral\n      or PATO:0000614  # unilateral\n      or PATO:0000610) # midline" xsd:string
+property_value: IAO:0000232 "Object changed from finding site (CLCO:0000112) to value (CLCO:0000106) on 2026-10-21. The previous restriction did not match the class's own examples: \"left\", \"right-sided\" and \"bilateral\" are laterality values, not body sites, whereas the sibling has spatial orientation (CLCO:0000072) genuinely does take a site (\"anterior to the knee\"). Where a site is also stated, express it separately with has location (CLCO:0000023).\n\nRecorded alternative, not adopted: an earlier draft modelled this as a participant-scoped qualifier over PATO quality terms rather than as an association --\n\n  laterality_qualifier\n    ⊑ has_participant_qualifier only\n       (PATO:0000611  # left\n        or PATO:0000612  # right\n        or PATO:0000613  # bilateral\n        or PATO:0000614  # unilateral\n        or PATO:0000610) # midline\n\nThat remains defensible: \"left\" in \"left knee pain\" modifies the knee, which is participant scope, and the draft would now use has object qualifier (CLCO:0003002). It was not adopted because the qualifier family is currently all-modal -- negation, certainty, temporal frame, completion status, intention, recommended -- and admitting a physical quality axis would mean widening the range of the participant properties, which is what encodes the restriction to scope-polymorphic modal axes. Revisit together with has spatial orientation, whose own note states the same PATO intent." xsd:string
 
 [Term]
 id: CLCO:0000074
@@ -499,6 +580,7 @@ xref: HP:0012824
 is_a: CLCO:0000057 ! clinical association
 relationship: CLCO:0002501 CLCO:0000106 ! has object value
 relationship: CLCO:0002502 CLCO:0000101 ! has subject finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"severe\" => has severity\n\"mild\" => has severity\n\"moderate\" => has severity\n\nNEGATIVE EXAMPLES:\n\"worsening\" => has course, NOT has severity\n\"left\" => has laterality, NOT has severity\n\"for three weeks\" => has duration, NOT has severity\n\nCONTEXTUAL EXAMPLES:\n\"The patient has severe abdominal pain.\"\nSOURCE: \"abdominal pain\" => finding; TARGET: \"severe\" => value\nRELATION: SOURCE => has severity => TARGET\n\"She reports mild hearing loss.\"\nSOURCE: \"hearing loss\" => finding; TARGET: \"mild\" => value\nRELATION: SOURCE => has severity => TARGET\n\"He has moderate shortness of breath.\"\nSOURCE: \"shortness of breath\" => finding; TARGET: \"moderate\" => value\nRELATION: SOURCE => has severity => TARGET" xsd:string
 property_value: IAO:0000112 "Severe abdominal pain; mild hearing loss." xsd:string
 
 [Term]
@@ -507,6 +589,7 @@ name: has descriptive value
 def: "Information that qualitatively describes a finding, condition, or intervention." []
 is_a: CLCO:0000024 ! has value
 property_value: IAO:0000112 "Patient describes dizziness as a room spinning sensation." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"room-spinning\" => has descriptive value\n\"pressure-like\" => has descriptive value\n\"nonproductive\" => has descriptive value\n\nNEGATIVE EXAMPLES:\n\"38.5 degrees Celsius\" => has quantifiable value, NOT has descriptive value\n\"headache\" => finding, NOT has descriptive value\n\"MRI\" => intervention, NOT has descriptive value\n\nCONTEXTUAL EXAMPLES:\n\"The patient described dizziness as room-spinning.\"\nSOURCE: \"dizziness\" => finding; TARGET: \"room-spinning\" => value\nRELATION: SOURCE => has descriptive value => TARGET\n\"She described the pain as pressure-like.\"\nSOURCE: \"pain\" => finding; TARGET: \"pressure-like\" => value\nRELATION: SOURCE => has descriptive value => TARGET\n\"The cough was nonproductive.\"\nSOURCE: \"cough\" => finding; TARGET: \"nonproductive\" => value\nRELATION: SOURCE => has descriptive value => TARGET\n\"Cardiac function is preserved.\"\nSOURCE: \"cardiac function\" => finding; TARGET: \"preserved\" => value\nRELATION: SOURCE => has descriptive value => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000076
@@ -515,6 +598,7 @@ def: "Information that numerically quantifies a finding, condition, or intervent
 xref: IAO:0000109
 is_a: CLCO:0000024 ! has value
 property_value: IAO:0000112 "Blood pressure 130/80 mmHg; hemoglobin 10.2 g/dL." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"38.5 degrees Celsius\" => has quantifiable value\n\"120/80 mmHg\" => has quantifiable value\n\"10.2 g/dL\" => has quantifiable value\n\nNEGATIVE EXAMPLES:\n\"severe\" => has descriptive value or has severity, NOT has quantifiable value\n\"fever\" => finding, NOT has quantifiable value\n\"MRI\" => intervention, NOT has quantifiable value\n\nCONTEXTUAL EXAMPLES:\n\"The temperature was 38.5 degrees Celsius.\"\nSOURCE: \"temperature\" => finding; TARGET: \"38.5 degrees Celsius\" => value\nRELATION: SOURCE => has quantifiable value => TARGET\n\"Blood pressure was 120/80 mmHg.\"\nSOURCE: \"blood pressure\" => finding; TARGET: \"120/80 mmHg\" => value\nRELATION: SOURCE => has quantifiable value => TARGET\n\"Hemoglobin was 10.2 g/dL.\"\nSOURCE: \"hemoglobin\" => finding; TARGET: \"10.2 g/dL\" => value\nRELATION: SOURCE => has quantifiable value => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000077
@@ -522,27 +606,33 @@ name: suggests finding
 def: "A finding or condition suggested by a diagnostic process, documentation, another finding or condition, or an intervention." []
 is_a: CLCO:0000006 ! clinical explanation
 relationship: CLCO:0002501 CLCO:0000101 ! has object finding
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"imaging suggested pneumonia\" => suggests finding\n\"the note raised concern for malignancy\" => suggests finding\n\"the symptom pattern pointed to appendicitis\" => suggests finding\n\nNEGATIVE EXAMPLES:\n\"imaging confirmed pneumonia\" => is consistent with diagnosis, NOT suggests finding\n\"the patient denied pneumonia\" => negation, NOT suggests finding\n\"MRI was ordered for headache\" => has reason, NOT suggests finding\n\nCONTEXTUAL EXAMPLES:\n\"The chest x-ray suggested pneumonia.\"\nSOURCE: \"chest x-ray\" => intervention; TARGET: \"pneumonia\" => finding\nRELATION: SOURCE => suggests finding => TARGET\n\"The note raised concern for malignancy.\"\nSOURCE: \"note\" => documentation; TARGET: \"malignancy\" => finding\nRELATION: SOURCE => suggests finding => TARGET\n\"The symptom pattern pointed to appendicitis.\"\nSOURCE: \"symptom pattern\" => finding; TARGET: \"appendicitis\" => finding\nRELATION: SOURCE => suggests finding => TARGET" xsd:string
 property_value: IAO:0000112 "The pink sputum suggests hemoptysis." xsd:string
 
 [Term]
 id: CLCO:0000080
 name: negation
 def: "Signifies that the qualified element is negated. Applies at any scope: statement-level negation negates the entire association; participant-level negation negates a specific subject or object." []
-is_a: CLCO:0000067 ! association qualifier
+is_a: CLCO:0000067 ! qualifier
 property_value: IAO:0000112 "\"Patient denies chest pain\" (statement-level); \"Tenderness is present, but not in the right upper quadrant\" (participant-level)." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"denied\" => negation\n\"no evidence of\" => negation\n\"without\" => negation\n\"not present\" => negation\n\nNEGATIVE EXAMPLES:\n\"suspected\" => uncertainty, NOT negation\n\"recommended\" => recommended, NOT negation\n\"completed\" => completed, NOT negation\n\"severe\" => value, NOT negation\n\"not always present\" => do not negate the finding without checking scope\n\nNegation cues must be interpreted with their scope. The word \"not\" alone does not always negate the clinical finding.\n\nCONTEXTUAL EXAMPLES:\n\"The patient denied having a fever.\"\nSOURCE: \"fever\" => finding; TARGET: \"denied\" => negation\nRELATION: SOURCE => has association qualifier => TARGET\n\"No evidence of pneumonia was found.\"\nSOURCE: \"pneumonia\" => finding; TARGET: \"no evidence\" => negation\nRELATION: SOURCE => has association qualifier => TARGET\n\"There was no fracture.\"\nSOURCE: \"fracture\" => finding; TARGET: \"no\" => negation\nRELATION: SOURCE => has association qualifier => TARGET\n\nPARTICIPANT-SCOPED EXAMPLE:\n\"Tenderness is present, but not in the right upper quadrant.\"\nSOURCE: \"tenderness\" => finding; TARGET: \"not\" => negation\nRELATION: SOURCE => has object qualifier => TARGET\nThe finding is asserted and only its site is negated, so the negation attaches to the participant\nfilling the object slot. Using has association qualifier here would wrongly deny the tenderness.\nNegation and uncertainty are the only two axes that may be attached at participant scope." xsd:string
 
 [Term]
 id: CLCO:0000081
 name: uncertainty
 def: "Signifies that the qualified element is uncertain or suspected. Applies at any scope: statement-level uncertainty qualifies the entire association; participant-level uncertainty qualifies a specific subject or object." []
-is_a: CLCO:0000067 ! association qualifier
+is_a: CLCO:0000067 ! qualifier
+property_value: IAO:0000112 "\"The patient was possibly treated with antibiotics elsewhere\" (statement-level: the treatment is what is uncertain); \"Possible pneumonia was treated with antibiotics\" (participant-level: the treatment happened, the diagnosis is uncertain)." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"suspected\" => uncertainty\n\"possible\" => uncertainty\n\"probable\" => uncertainty\n\"may have\" => uncertainty\n\nNEGATIVE EXAMPLES:\n\"denied\" => negation, NOT uncertainty\n\"recommended\" => recommended, NOT uncertainty\n\"completed\" => completed, NOT uncertainty\n\"severe\" => value, NOT uncertainty\n\"does not exclude\" => uncertainty, NOT negation\n\n\"Does not exclude pulmonary embolism\" indicates that pulmonary embolism remains possible; it does not assert that pulmonary embolism is absent.\n\nCONTEXTUAL EXAMPLES:\n\"A soft-tissue tumor was suspected.\"\nSOURCE: \"soft-tissue tumor\" => finding; TARGET: \"suspected\" => uncertainty\nRELATION: SOURCE => has association qualifier => TARGET\n\"CT findings suggested possible pneumonia.\"\nSOURCE: \"pneumonia\" => finding; TARGET: \"possible\" => uncertainty\nRELATION: SOURCE => has association qualifier => TARGET\n\"The patient may have a pulmonary embolism.\"\nSOURCE: \"pulmonary embolism\" => finding; TARGET: \"may have\" => uncertainty\nRELATION: SOURCE => has association qualifier => TARGET\n\nPARTICIPANT-SCOPED EXAMPLE:\n\"Possible pneumonia was treated with antibiotics.\"\nSOURCE: \"pneumonia\" => finding; TARGET: \"Possible\" => uncertainty\nRELATION: SOURCE => has subject qualifier => TARGET\nThe treatment did happen and only the diagnosis is uncertain, so the uncertainty attaches to the\nparticipant filling the subject slot. Using has association qualifier here would wrongly say the\ntreatment may not have happened. Negation and uncertainty are the only two axes that may be\nattached at participant scope." xsd:string
 
 [Term]
 id: CLCO:0000082
 name: temporal frame
 def: "The temporal location of the association relative to the moment of clinical documentation. Orthogonal to completion_status and intention." []
 xref: biolink:temporal_context_qualifier
-is_a: CLCO:0000067 ! association qualifier
+is_a: CLCO:0000067 ! qualifier
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"last year\" => temporal frame\n\"currently\" => temporal frame\n\"tomorrow\" => temporal frame\n\"if symptoms recur\" => temporal frame\n\nNEGATIVE EXAMPLES:\n\"three weeks\" => time, NOT temporal frame\n\"will start\" => intention, NOT temporal frame\n\"pending\" => completion status, NOT temporal frame\n\"suspected\" => uncertainty, NOT temporal frame\n\nCONTEXTUAL EXAMPLES:\n\"The patient had pneumonia last year.\"\nSOURCE: \"pneumonia\" => finding; TARGET: \"last year\" => temporal frame\nRELATION: SOURCE => has temporal frame => TARGET\n\"The patient will undergo surgery tomorrow.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"tomorrow\" => temporal frame\nRELATION: SOURCE => has temporal frame => TARGET\n\"If symptoms recur, restart treatment.\"\nSOURCE: \"restart treatment\" => intervention; TARGET: \"if symptoms recur\" => temporal frame\nRELATION: SOURCE => has temporal frame => TARGET" xsd:string
+property_value: IAO:0000232 "Currently statement-scoped only: this class is excluded from the range of has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002), unlike negation (CLCO:0000080) and uncertainty (CLCO:0000081), whose definitions state that they apply at any scope. This may be restructured as participant-scopeable depending on future time series work that will better integrate TimeML and DocTimeRel. The motivating pattern is a participant whose temporal frame differs from the association, for example \"history of MI, now on aspirin\", where the subject is historical but the association is current." xsd:string
 property_value: IAO:0000232 "Replaces the deprecated temporal (CLCO_0000064). Aligns with THYME DocTimeRel and MedSpaCy temporal context flags. This axis answers WHEN relative to the document, not whether a process is complete (completion_status) or committed (intention)." xsd:string
 
 [Term]
@@ -553,6 +643,7 @@ xref: THYME:DocTimeRel_BEFORE
 is_a: CLCO:0000082 ! temporal frame
 disjoint_from: CLCO:0000084 ! current
 property_value: IAO:0000112 "Patient underwent two kidney transplants (2002, 2012)" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"last year\" => historical\n\"previously\" => historical\n\"history of\" => historical\n\"in childhood\" => historical\n\nNEGATIVE EXAMPLES:\n\"currently\" => current, NOT historical\n\"tomorrow\" => future, NOT historical\n\"may occur\" => hypothetical, NOT historical\n\"pending\" => pending, NOT historical\n\nCONTEXTUAL EXAMPLES:\n\"The patient had pneumonia last year.\"\nSOURCE: \"pneumonia\" => finding; TARGET: \"last year\" => historical\nRELATION: SOURCE => has temporal frame => TARGET\n\"She previously underwent surgery.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"previously\" => historical\nRELATION: SOURCE => has temporal frame => TARGET\n\"He has a history of diabetes.\"\nSOURCE: \"diabetes\" => finding; TARGET: \"history of\" => historical\nRELATION: SOURCE => has temporal frame => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000084
@@ -561,6 +652,7 @@ def: "The association describes an event or state that overlaps with the time of
 xref: THYME:DocTimeRel_OVERLAP
 is_a: CLCO:0000082 ! temporal frame
 property_value: IAO:0000112 "Currently on metformin" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"currently\" => current\n\"now\" => current\n\"at present\" => current\n\"today\" => current\n\nNEGATIVE EXAMPLES:\n\"last year\" => historical, NOT current\n\"tomorrow\" => future, NOT current\n\"if symptoms recur\" => hypothetical, NOT current\n\"pending\" => pending, NOT current\n\nCONTEXTUAL EXAMPLES:\n\"The patient is currently on metformin.\"\nSOURCE: \"on metformin\" => intervention; TARGET: \"currently\" => current\nRELATION: SOURCE => has temporal frame => TARGET\n\"The infection is present now.\"\nSOURCE: \"infection\" => finding; TARGET: \"now\" => current\nRELATION: SOURCE => has temporal frame => TARGET\n\"The patient is currently receiving therapy.\"\nSOURCE: \"receiving therapy\" => intervention; TARGET: \"currently\" => current\nRELATION: SOURCE => has temporal frame => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000085
@@ -569,6 +661,7 @@ def: "The association describes an event or state that is expected to occur afte
 xref: THYME:DocTimeRel_AFTER
 is_a: CLCO:0000082 ! temporal frame
 property_value: IAO:0000112 "Chemotherapy will begin next Tuesday" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"tomorrow\" => future\n\"next week\" => future\n\"will begin\" => future\n\"scheduled for next month\" => future\n\nNEGATIVE EXAMPLES:\n\"last year\" => historical, NOT future\n\"currently\" => current, NOT future\n\"if symptoms recur\" => hypothetical, NOT future\n\"pending\" => pending, NOT future\n\nCONTEXTUAL EXAMPLES:\n\"Chemotherapy will begin next Tuesday.\"\nSOURCE: \"chemotherapy\" => intervention; TARGET: \"next Tuesday\" => future\nRELATION: SOURCE => has temporal frame => TARGET\n\"The patient will undergo surgery tomorrow.\"\nSOURCE: \"surgery\" => intervention; TARGET: \"tomorrow\" => future\nRELATION: SOURCE => has temporal frame => TARGET\n\"A follow-up visit is scheduled for next month.\"\nSOURCE: \"follow-up visit\" => intervention; TARGET: \"next month\" => future\nRELATION: SOURCE => has temporal frame => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000086
@@ -577,6 +670,7 @@ def: "The association describes a conditional or contingent event that may or ma
 xref: THYME:contextual_modality_HYPOTHETICAL
 is_a: CLCO:0000082 ! temporal frame
 property_value: IAO:0000112 "If fever persists, start vancomycin" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"if symptoms recur\" => hypothetical\n\"should fever develop\" => hypothetical\n\"in case of bleeding\" => hypothetical\n\"could require admission\" => hypothetical\n\nNEGATIVE EXAMPLES:\n\"last year\" => historical, NOT hypothetical\n\"currently\" => current, NOT hypothetical\n\"tomorrow\" => future, NOT hypothetical\n\"completed\" => completed, NOT hypothetical\n\nCONTEXTUAL EXAMPLES:\n\"If symptoms recur, restart treatment.\"\nSOURCE: \"restart treatment\" => intervention; TARGET: \"if symptoms recur\" => hypothetical\nRELATION: SOURCE => has temporal frame => TARGET\n\"Should fever develop, call the clinic.\"\nSOURCE: \"call the clinic\" => task; TARGET: \"Should fever develop\" => hypothetical\nRELATION: SOURCE => has temporal frame => TARGET\n\"The patient could require admission.\"\nSOURCE: \"admission\" => intervention; TARGET: \"could require\" => hypothetical\nRELATION: SOURCE => has temporal frame => TARGET" xsd:string
 property_value: IAO:0000232 "Sits at the boundary of temporal frame and modality. Placed under temporal_frame because NLP systems (THYME contextual_modality, MedSpaCy is_hypothetical) treat it as a document-context label at the same annotation layer as historical/current/future." xsd:string
 
 [Term]
@@ -585,6 +679,7 @@ name: in progress
 def: "The process described by the association is actively executing but has not yet reached its terminal state." []
 is_a: CLCO:0000063 ! completion status
 property_value: IAO:0000112 "Antibiotics course ongoing" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"in progress\" => in progress\n\"ongoing\" => in progress\n\"currently receiving\" => in progress\n\"underway\" => in progress\n\nNEGATIVE EXAMPLES:\n\"pending\" => pending, NOT in progress\n\"completed\" => completed, NOT in progress\n\"will begin\" => future or intention, NOT in progress\n\"last year\" => historical, NOT in progress\n\nCONTEXTUAL EXAMPLES:\n\"The antibiotic course is in progress.\"\nSOURCE: \"antibiotic course\" => intervention; TARGET: \"in progress\" => in progress\nRELATION: SOURCE => has completion status => TARGET\n\"Physical therapy is ongoing.\"\nSOURCE: \"physical therapy\" => intervention; TARGET: \"ongoing\" => in progress\nRELATION: SOURCE => has completion status => TARGET\n\"The patient is currently receiving chemotherapy.\"\nSOURCE: \"chemotherapy\" => intervention; TARGET: \"currently receiving\" => in progress\nRELATION: SOURCE => has completion status => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000088
@@ -592,12 +687,14 @@ name: completed
 def: "The process described by the association has reached its terminal output state." []
 is_a: CLCO:0000063 ! completion status
 property_value: IAO:0000112 "Physical therapy completed" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"completed\" => completed\n\"finished\" => completed\n\"performed\" => completed\n\"concluded\" => completed\n\nNEGATIVE EXAMPLES:\n\"pending\" => pending, NOT completed\n\"in progress\" => in progress, NOT completed\n\"will undergo\" => intention or future, NOT completed\n\"may undergo\" => uncertainty, NOT completed\n\nCONTEXTUAL EXAMPLES:\n\"The biopsy was completed.\"\nSOURCE: \"biopsy\" => intervention; TARGET: \"completed\" => completed\nRELATION: SOURCE => has completion status => TARGET\n\"The procedure was performed.\"\nSOURCE: \"procedure\" => intervention; TARGET: \"performed\" => completed\nRELATION: SOURCE => has completion status => TARGET\n\"Physical therapy has concluded.\"\nSOURCE: \"physical therapy\" => intervention; TARGET: \"concluded\" => completed\nRELATION: SOURCE => has completion status => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000100
 name: clinical entity
 def: "A core clinical entity over which all clinical context associations occur." []
 is_a: BFO:0000001 ! entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES: patient, chest pain, and appendectomy are clinical entities.\nNEGATIVE EXAMPLES: has, severely, and because are a relation, modifier, and conjunction rather than clinical entities.\nCONTEXTUAL EXAMPLES: In \"The patient has chest pain\", patient and chest pain are clinical entities; in \"Appendectomy was scheduled\", appendectomy is a clinical entity." xsd:string
 property_value: IAO:0000232 "The 14 core clinical entity classes defined in:\nColicchio, Tiago K., Pavithra I. Dissanayake, and James J. Cimino. \"Formal representation of patients’ care context data: the path to improving the electronic health record.\" Journal of the American Medical Informatics Association 27, no. 11 (2020): 1648-1657.\nAll of these should correspond to a subject or object in relations extracted by NLP systems. The exception to that is patient which may be inferred." xsd:string
 
 [Term]
@@ -606,6 +703,7 @@ name: finding
 def: "A clinical finding of any type, including conditions, diagnosis and assessments." []
 xref: biolink:DiseaseOrPhenotypicFeature
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Chest pain\" => finding\n\"Fever\" => finding\n\"Headache\" => finding\n\"Muscle weakness\" => finding\n\"Shortness of breath\" => finding\n\n\nNEGATIVE EXAMPLES:\n\"MRI\" => intervention, NOT finding\n\"Biopsy\" => intervention, NOT finding\n\"Physician\" => clinician, NOT finding\n\"Mother\" => family member, NOT finding\n\"Three weeks\" => time, NOT finding\n\"Worsening\" => course, NOT finding\n\"Severe\" => value, NOT finding\n\"Suspected\" => uncertainty, NOT finding\n\n\nCONTEXTUAL EXAMPLES:\n\"The patient presented with severe chest pain.\"\nAnnotate: \"chest pain\" => finding\nAnnotate: \"severe\" => value\n\n\"The patient reported progressively worsening muscle weakness.\"\nAnnotate: \"muscle weakness\" => finding\nAnnotate: \"progressively worsening\" => course\n\n\"MRI revealed a pulmonary nodule.\"\nAnnotate: \"pulmonary nodule\" => finding\nAnnotate: \"MRI\" => intervention\n\n\"The patient experienced intermittent headaches for three weeks.\"\nAnnotate: \"headaches\" => finding\nAnnotate: \"intermittent\" => course\nAnnotate: \"three weeks\" => time" xsd:string
 property_value: IAO:0000232 "Was finding/condition in original paper, can treat condition as a subclass if needed." xsd:string
 
 [Term]
@@ -614,6 +712,7 @@ name: intervention
 def: "An intervention to treat or diagnose a finding/condition or the patient" []
 xref: biolink:Procedure
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"MRI\" => intervention\n\"Biopsy\" => intervention\n\"Surgery\" => intervention\n\"Antibiotic treatment\" => intervention\n\nNEGATIVE EXAMPLES:\n\"Chest pain\" => finding, NOT intervention\n\"Physician\" => clinician, NOT intervention\n\"Three weeks\" => time, NOT intervention\n\"Hospital\" => setting, NOT intervention\n\nCONTEXTUAL EXAMPLES:\n\"The patient underwent an MRI.\"\nAnnotate: \"MRI\" => intervention\n\n\"A biopsy was performed to evaluate the mass.\"\nAnnotate: \"biopsy\" => intervention\nAnnotate: \"mass\" => finding\n\n\"The patient started antibiotic treatment for pneumonia.\"\nAnnotate: \"antibiotic treatment\" => intervention\nAnnotate: \"pneumonia\" => finding" xsd:string
 property_value: IAO:0000232 "There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database." xsd:string
 
 [Term]
@@ -622,6 +721,7 @@ name: time
 def: "Numerical or narrative temporal data elements" []
 xref: SNOMEDCT:410669006
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Three weeks\" => time\n\"Yesterday\" => time\n\"Since childhood\" => time\n\"For two months\" => time\n\nNEGATIVE EXAMPLES:\n\"Chest pain\" => finding, NOT time\n\"Worsening\" => course, NOT time\n\"Severe\" => value, NOT time\n\"MRI\" => intervention, NOT time\n\nCONTEXTUAL EXAMPLES:\n\"The patient has had headaches for three weeks.\"\nAnnotate: \"headaches\" => finding\nAnnotate: \"three weeks\" => time\n\n\"The symptoms began yesterday.\"\nAnnotate: \"symptoms\" => finding\nAnnotate: \"yesterday\" => time\n\n\"The patient has experienced pain since childhood.\"\nAnnotate: \"pain\" => finding\nAnnotate: \"since childhood\" => time" xsd:string
 property_value: IAO:0000232 "Moved from subClassOf task (CLCO_0000109) to subClassOf clinical_entity (CLCO_0000100). Time is a first-class clinical entity type, not a subtype of task." xsd:string
 
 [Term]
@@ -630,6 +730,7 @@ name: reason
 def: "Justifications and reasons for ordering, performing, planning, or discontinuing an intervention or diagnostic process" []
 xref: SNOMEDCT:288830005
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Because of worsening pain\" => reason\n\"History of diabetes\" => reason\n\"Abnormal imaging result\" => reason\n\"Patient preference\" => reason\n\nNEGATIVE EXAMPLES:\n\"Chest pain\" => finding, NOT reason\n\"MRI\" => intervention, NOT reason\n\"Physician\" => clinician, NOT reason\n\"Three weeks\" => time, NOT reason\n\nCONTEXTUAL EXAMPLES:\n\"The MRI was ordered because of persistent headaches.\"\nAnnotate: \"MRI\" => intervention\nAnnotate: \"persistent headaches\" => finding\nAnnotate: \"because of persistent headaches\" => reason\n\n\"Surgery was postponed due to the patient's cardiac risk.\"\nAnnotate: \"surgery\" => intervention\nAnnotate: \"cardiac risk\" => reason" xsd:string
 property_value: IAO:0000232 "SNOMEDCT sourced from Athena OHDSI \"Reason and justification\" (https://athena.ohdsi.org/search-terms/terms/4128496)" xsd:string
 
 [Term]
@@ -638,6 +739,7 @@ name: course
 def: "Course of a finding/condition" []
 xref: SNOMEDCT:260908002
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Stable\" => course\n\"Worsening\" => course\n\"Intermittent\" => course\n\"Rapidly progressing\" => course\n\nNEGATIVE EXAMPLES:\n\"Two weeks\" => time, not course\n\"sudden onset\" => time, not course\n\n\nCONTEXTUAL EXAMPLES:\n\"The patient reported progressively worsening weakness.\"\nAnnotate: \"progressively worsening\" => course\nAnnotate: \"weakness\" => finding\n\n\"The patient's symptoms have remained stable.\"\nAnnotate: \"stable\" => course\n\n\"The patient experienced intermittent episodes of chest pain.\"\nAnnotate: \"intermittent\" => course" xsd:string
 
 [Term]
 id: CLCO:0000106
@@ -645,6 +747,7 @@ name: value
 def: "Any numerical or narrative description of a finding/condition or intervention" []
 xref: SNOWMEDCT:83568003
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"38.5 degrees Celsius\" => value\n\"120/80 mmHg\" => value\n\"Positive\" => value\n\"No improvement\" => value\n\nNEGATIVE EXAMPLES:\n\"Fever\" => finding, NOT value\n\"MRI\" => intervention, NOT value\n\"Three weeks\" => time, NOT value\n\nCONTEXTUAL EXAMPLES:\n\"The patient's temperature was 38.5 degrees Celsius.\"\nAnnotate: \"temperature\" => finding\nAnnotate: \"38.5 degrees Celsius\" => value\n\n\"The CT result was positive for pneumonia.\"\nAnnotate: \"CT\" => intervention\nAnnotate: \"positive\" => value\nAnnotate: \"pneumonia\" => finding" xsd:string
 property_value: IAO:0000232 "SNOWMEDCT code for \"hasvalue\" sourced from Athena OHDSI database (https://athena.ohdsi.org/search-terms/terms/4306768)" xsd:string
 
 [Term]
@@ -652,6 +755,7 @@ id: CLCO:0000107
 name: setting
 def: "Health care setting or location" []
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Emergency department\" => setting\n\"Intensive care unit\" => setting\n\"Outpatient clinic\" => setting\n\"Home\" => setting\n\nNEGATIVE EXAMPLES:\n\"Chest pain\" => finding, NOT setting\n\"Physician\" => clinician, NOT setting\n\"MRI\" => intervention, NOT setting\n\"Three weeks\" => time, NOT setting\n\nCONTEXTUAL EXAMPLES:\n\"The patient was admitted to the intensive care unit.\"\nAnnotate: \"patient\" => patient\nAnnotate: \"intensive care unit\" => setting\n\n\"The procedure was performed in the outpatient clinic.\"\nAnnotate: \"procedure\" => intervention\nAnnotate: \"outpatient clinic\" => setting" xsd:string
 property_value: IAO:0000232 "There is not a SNOMED code for this as of 08/19/2026 documented in the athena ohdsi database." xsd:string
 
 [Term]
@@ -660,6 +764,7 @@ name: clinician
 def: "Health care professional, unlike SNOMED, includes only people working directly with patients such as physicians, nurses, etc... Administrative healthcare professionals such as healthcare billing coders are not included." []
 xref: SNOMEDCT:44804106
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Physician\" => clinician\n\"Nurse practitioner\" => clinician\n\"Physician assistant\" => clinician\n\"Radiologist\" => clinician\n\"Pathologist\" => clinician\n\"Pharmacist\" => clinician\n\nNEGATIVE EXAMPLES:\n\"Mother\" => family member, NOT clinician\n\"MRI\" => intervention, NOT clinician\n\"30-year-old male patient\" => patient, NOT clinician" xsd:string
 
 [Term]
 id: CLCO:0000109
@@ -667,6 +772,7 @@ name: task
 def: "Any healthcare related task not related to direct clinical activities (e.g., phone call or uploading a medical record file)." []
 xref: SNOMEDCT:101878003
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Phone call\" => task\n\"Uploading a medical record\" => task\n\"Scheduling an appointment\" => task\n\"Reviewing the chart\" => task\n\nNEGATIVE EXAMPLES:\n\"MRI\" => intervention, NOT task\n\"Chest pain\" => finding, NOT task\n\"Physician\" => clinician, NOT task\n\"Emergency department\" => setting, NOT task\n\nCONTEXTUAL EXAMPLES:\n\"The nurse called the patient to confirm the appointment.\"\nAnnotate: \"nurse\" => clinician\nAnnotate: \"called the patient\" => task\n\n\"The staff uploaded the medical record to the portal.\"\nAnnotate: \"uploaded the medical record\" => task\nAnnotate: \"medical record\" => documentation" xsd:string
 property_value: IAO:0000232 "SNOMEDCT code sourced from Athena OHDSI \"TASK\" (https://athena.ohdsi.org/search-terms/terms/4008963)" xsd:string
 
 [Term]
@@ -676,6 +782,7 @@ def: "The patient entity" []
 xref: biolink:Case
 xref: SNOMEDCT:116154003
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"The patient\" => patient\n\"The 30-year-old man\" => patient\n\"The child\" => patient\n\"She\" => patient, when the clinical note clearly identifies the referent as the patient\n\nNEGATIVE EXAMPLES:\n\"Physician\" => clinician, NOT patient\n\"Mother\" => family member, NOT patient\n\"Chest pain\" => finding, NOT patient\n\"MRI\" => intervention, NOT patient\n\nCONTEXTUAL EXAMPLES:\n\"The patient reported chest pain.\"\nAnnotate: \"patient\" => patient\nAnnotate: \"chest pain\" => finding\n\n\"She underwent surgery for a fractured femur.\"\nAnnotate: \"She\" => patient\nAnnotate: \"surgery\" => intervention\nAnnotate: \"fractured femur\" => finding" xsd:string
 
 [Term]
 id: CLCO:0000111
@@ -683,6 +790,8 @@ name: documentation
 def: "Clinical documentation, e.g., progress notes, imaging reports" []
 xref: IAO:0000310
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Medical Record\" => documentation\n\"Discharge summary\" => documentation\n\"Patient chart\" => documentation\n\"Clinical note\" => documentation\n\nNEGATIVE EXAMPLES:\n\"Chest pain\" => finding, NOT documentation\n\"MRI\" => intervention, NOT documentation\n\"Three weeks\" => time, NOT documentation\n\"Physician\" => clinician, NOT documentation\n\"Worsening\" => course, NOT documentation\n\nCONTEXTUAL EXAMPLES:\n\n\"The medical record noted a history of hypertension.\"\nAnnotate: \"medical record\" => documentation\nAnnotate: \"hypertension\" => finding\n\n\"According to the clinical notes, the patient underwent surgery.\"\nAnnotate: According to the \"clinical notes\" => documentation\nAnnotate: \"surgery\" => intervention" xsd:string
 
 [Term]
 id: CLCO:0000112
@@ -691,6 +800,7 @@ def: "Anatomical site of a finding/condition" []
 xref: SNOMED:123037004
 xref: UBERON:0001062
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Chest\" => finding site\n\"Cervical spine\" => finding site\n\"Pituitary\" => finding site\n\"Ovary\" => finding site\n\nNEGATIVE EXAMPLES:\n\"Chest pain\" => finding, NOT finding site as a whole\n\"Headache\" => finding, NOT finding site\n\"Swelling\" => finding, NOT finding site\n\"MRI\" => intervention, NOT finding site\n\nCONTEXTUAL EXAMPLES:\n\n\"The patient reported pain in the left knee.\"\nAnnotate: \"pain\" => finding\nAnnotate: \"left knee\" => finding site\n\n\"The patient presented with swelling of the right ankle.\"\nAnnotate: \"swelling\" => finding\nAnnotate: \"right ankle\" => finding site\n\n\"CT revealed a mass in the left lung.\"\nAnnotate: \"mass\" => finding\nAnnotate: \"left lung\" => finding site\nAnnotate: \"CT\" => intervention\n\n\"The patient experienced tenderness over the lower abdomen.\"\nAnnotate: \"tenderness\" => finding\nAnnotate: \"lower abdomen\" => finding site\n\n\"The patient had a fracture of the left femur.\"\nAnnotate: \"fracture\" => finding\nAnnotate: \"left femur\" => finding site\n\n\"MRI demonstrated a lesion in the right temporal lobe.\"\nAnnotate: \"lesion\" => finding\nAnnotate: \"right temporal lobe\" => finding site\nAnnotate: \"MRI\" => intervention" xsd:string
 
 [Term]
 id: CLCO:0000113
@@ -698,6 +808,7 @@ name: patient state
 def: "Patient state, e.g., stable, improving. The overall patient state, not whether a particular disease or condition is stable or improving." []
 xref: SNOWMEDCT:246097001
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Stable\" => patient state\n\"Improving\" => patient state\n\"Unstable\" => patient state\n\"Alert and oriented\" => patient state\n\nNEGATIVE EXAMPLES:\n\"Stable disease\" => course, NOT patient state\n\"Chest pain\" => finding, NOT patient state\n\"Physician\" => clinician, NOT patient state\n\"Three weeks\" => time, NOT patient state\n\nCONTEXTUAL EXAMPLES:\n\"The patient is clinically stable.\"\nAnnotate: \"patient\" => patient\nAnnotate: \"clinically stable\" => patient state\n\n\"The patient is improving after treatment.\"\nAnnotate: \"patient\" => patient\nAnnotate: \"improving\" => patient state\nAnnotate: \"treatment\" => intervention\n\n\"The patient's symptoms are stable.\"\nAnnotate: \"symptoms\" => finding\nAnnotate: \"stable\" => course" xsd:string
 property_value: IAO:0000232 "SNOMEDCT was sourced from Athena OHDSI \"Patient Status\" (http://athena.ohdsi.org/search-terms/terms/4077556)" xsd:string
 
 [Term]
@@ -709,7 +820,7 @@ xref: SNOMED:58000006
 is_a: CLCO:0000058 ! has setting
 relationship: CLCO:0002502 CLCO:0000110 ! has subject patient
 property_value: IAO:0000112 "Patient discharged this morning with family" xsd:string
-property_value: IAO:0000112 "Patient will be discharged" xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"discharged home\" => is discharged\n\"discharged from the hospital\" => is discharged\n\"ready for discharge\" => is discharged\n\nNEGATIVE EXAMPLES:\n\"admitted to the hospital\" => is admitted, NOT is discharged\n\"transferred to rehabilitation\" => is transferred to, NOT is discharged\n\"referred to cardiology\" => is referred by, NOT is discharged\n\nCONTEXTUAL EXAMPLES:\n\"The patient was discharged home.\"\nSOURCE: \"patient\" => patient; TARGET: \"home\" => setting\nRELATION: SOURCE => is discharged => TARGET\n\"She was discharged from the hospital.\"\nSOURCE: \"patient\" => patient; TARGET: \"hospital\" => setting\nRELATION: SOURCE => is discharged => TARGET\n\"He is ready for discharge to a skilled nursing facility.\"\nSOURCE: \"patient\" => patient; TARGET: \"skilled nursing facility\" => setting\nRELATION: SOURCE => is discharged => TARGET" xsd:string
 
 [Term]
 id: CLCO:0000115
@@ -717,79 +828,167 @@ name: family member
 def: "A person who is a member of the patient's family. A caregiver who is not a family member would be identified as a clinician." []
 xref: SNOMED:303071001
 is_a: CLCO:0000100 ! clinical entity
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"Mother\" => family member\n\"Father\" => family member\n\"Sister\" => family member\n\"Brother\" => family member\n\"Daughter\" => family member\n\nNEGATIVE EXAMPLES:\n\"Patient\" => patient, NOT family member\n\"Physician\" => clinician, NOT family member\n\"Nurse practitioner\" => clinician, NOT family member\n\n\nCONTEXTUAL EXAMPLES:\n\"The patient's mother has a history of breast cancer.\"\nAnnotate: \"mother\" => family member\nAnnotate: \"breast cancer\" => finding\n\n\"His father was diagnosed with diabetes.\"\nAnnotate: \"father\" => family member\nAnnotate: \"diabetes\" => finding\n\n\"The patient's sister reported similar symptoms.\"\nAnnotate: \"sister\" => family member" xsd:string
+
+[Term]
+id: CLCO:0000116
+name: temporal relation
+def: "A clinical association asserting the temporal ordering of one finding or intervention relative to another, as stated in the text. Children correspond to the TimeML TLINK relation types that hold between events." []
+is_a: CLCO:0000057 ! clinical association
+property_value: IAO:0000232 "Added 2026-10-30. Annotation layer for event-to-event temporal ordering. Each child names a text-cued relation an annotator can mark and carries an rdfs:seeAlso to the OWL-Time property that gives its interval semantics. The two layers are deliberately separate: the children here are the cue-bearing subset, while the complete thirteen-relation algebra is derived over time:ProperInterval endpoints, which CLCO already supplies through has start time (CLCO:0002700) and has end time (CLCO:0002701). time:intervalOverlaps and time:intervalOverlappedBy have no child here because TimeML has no relType for partial overlap -- annotators cannot reliably distinguish it from containment in text -- so those two are derivable but never annotated. Event-to-timex links are unchanged and remain has onset, has date, has duration and has frequency. Document-relative time is a separate axis, carried by temporal frame (CLCO:0000082)." xsd:string
+
+[Term]
+id: CLCO:0000117
+name: follows
+def: "Statement indicating that a finding or intervention occurs after another finding or intervention, with a gap permitted between them." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"followed\" => follows\n\"occurred after\" => follows\n\"subsequent to\" => follows\n\nNEGATIVE EXAMPLES:\n\"preceded\" => precedes, NOT follows\n\"at the same time as\" => is simultaneous with, NOT follows\n\"throughout\" => is included in, NOT follows\n\nCONTEXTUAL EXAMPLES:\n\"The rash followed the fever.\"\nSOURCE: \"rash\" => finding; TARGET: \"fever\" => finding\nRELATION: SOURCE => follows => TARGET\n\"Delirium developed after the surgery.\"\nSOURCE: \"delirium\" => finding; TARGET: \"surgery\" => intervention\nRELATION: SOURCE => follows => TARGET\n\"Dialysis began after the graft failed.\"\nSOURCE: \"dialysis\" => intervention; TARGET: \"graft failure\" => finding\nRELATION: SOURCE => follows => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType AFTER; interval semantics are time:intervalAfter, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalAfter
+
+[Term]
+id: CLCO:0000118
+name: immediately precedes
+def: "Statement indicating that a finding or intervention ends exactly where another begins, with no gap between them." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"immediately before\" => immediately precedes\n\"right before\" => immediately precedes\n\"ended just as\" => immediately precedes\n\nNEGATIVE EXAMPLES:\n\"before\" => precedes, NOT immediately precedes\n\"at the same time as\" => is simultaneous with, NOT immediately precedes\n\"during\" => is included in, NOT immediately precedes\n\nCONTEXTUAL EXAMPLES:\n\"The seizure stopped and the post-ictal state began immediately.\"\nSOURCE: \"seizure\" => finding; TARGET: \"post-ictal state\" => finding\nRELATION: SOURCE => immediately precedes => TARGET\n\"Sedation ended and extubation began straight away.\"\nSOURCE: \"sedation\" => intervention; TARGET: \"extubation\" => intervention\nRELATION: SOURCE => immediately precedes => TARGET\n\"The infusion finished just as the reaction started.\"\nSOURCE: \"infusion\" => intervention; TARGET: \"reaction\" => finding\nRELATION: SOURCE => immediately precedes => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType IBEFORE; interval semantics are time:intervalMeets, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalMeets
+
+[Term]
+id: CLCO:0000119
+name: immediately follows
+def: "Statement indicating that a finding or intervention begins exactly where another ends, with no gap between them." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"immediately after\" => immediately follows\n\"straight after\" => immediately follows\n\"began as soon as\" => immediately follows\n\nNEGATIVE EXAMPLES:\n\"after\" => follows, NOT immediately follows\n\"at the same time as\" => is simultaneous with, NOT immediately follows\n\"within\" => is included in, NOT immediately follows\n\nCONTEXTUAL EXAMPLES:\n\"Extubation immediately followed the procedure.\"\nSOURCE: \"extubation\" => intervention; TARGET: \"procedure\" => intervention\nRELATION: SOURCE => immediately follows => TARGET\n\"The post-ictal state began as soon as the seizure stopped.\"\nSOURCE: \"post-ictal state\" => finding; TARGET: \"seizure\" => finding\nRELATION: SOURCE => immediately follows => TARGET\n\"Hypotension began the moment the infusion stopped.\"\nSOURCE: \"hypotension\" => finding; TARGET: \"infusion\" => intervention\nRELATION: SOURCE => immediately follows => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType IAFTER; interval semantics are time:intervalMetBy, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalMetBy
+
+[Term]
+id: CLCO:0000120
+name: begins
+def: "Statement indicating that a finding or intervention starts at the same time as another and ends before it." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"started with\" => begins\n\"opened\" => begins\n\"at the start of\" => begins\n\nNEGATIVE EXAMPLES:\n\"throughout\" => is simultaneous with, NOT begins\n\"finished with\" => ends, NOT begins\n\"after\" => follows, NOT begins\n\nCONTEXTUAL EXAMPLES:\n\"The loading dose was given at the start of the antibiotic course.\"\nSOURCE: \"loading dose\" => intervention; TARGET: \"antibiotic course\" => intervention\nRELATION: SOURCE => begins => TARGET\n\"Induction opened the anaesthetic.\"\nSOURCE: \"induction\" => intervention; TARGET: \"anaesthetic\" => intervention\nRELATION: SOURCE => begins => TARGET\n\"The initial rigor marked the onset of the febrile illness.\"\nSOURCE: \"rigor\" => finding; TARGET: \"febrile illness\" => finding\nRELATION: SOURCE => begins => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType BEGINS; interval semantics are time:intervalStarts, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalStarts
+
+[Term]
+id: CLCO:0000121
+name: begun by
+def: "Statement indicating that a finding or intervention starts at the same time as another and ends after it." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"opened with\" => begun by\n\"started with\" => begun by\n\"began with\" => begun by\n\nNEGATIVE EXAMPLES:\n\"closed with\" => ended by, NOT begun by\n\"throughout\" => is simultaneous with, NOT begun by\n\"contained\" => includes, NOT begun by\n\nCONTEXTUAL EXAMPLES:\n\"The antibiotic course opened with a loading dose.\"\nSOURCE: \"antibiotic course\" => intervention; TARGET: \"loading dose\" => intervention\nRELATION: SOURCE => begun by => TARGET\n\"The anaesthetic began with induction.\"\nSOURCE: \"anaesthetic\" => intervention; TARGET: \"induction\" => intervention\nRELATION: SOURCE => begun by => TARGET\n\"The febrile illness began with a rigor.\"\nSOURCE: \"febrile illness\" => finding; TARGET: \"rigor\" => finding\nRELATION: SOURCE => begun by => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType BEGUN_BY; interval semantics are time:intervalStartedBy, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalStartedBy
+
+[Term]
+id: CLCO:0000122
+name: ends
+def: "Statement indicating that a finding or intervention finishes at the same time as another, having started after it." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"ran to the end of\" => ends\n\"finished with\" => ends\n\"concluded\" => ends\n\nNEGATIVE EXAMPLES:\n\"started with\" => begins, NOT ends\n\"throughout\" => is simultaneous with, NOT ends\n\"before\" => precedes, NOT ends\n\nCONTEXTUAL EXAMPLES:\n\"The weaning trial ran to the end of the ventilation episode.\"\nSOURCE: \"weaning trial\" => intervention; TARGET: \"ventilation episode\" => intervention\nRELATION: SOURCE => ends => TARGET\n\"The taper concluded the steroid course.\"\nSOURCE: \"taper\" => intervention; TARGET: \"steroid course\" => intervention\nRELATION: SOURCE => ends => TARGET\n\"The desaturation persisted to the end of the procedure.\"\nSOURCE: \"desaturation\" => finding; TARGET: \"procedure\" => intervention\nRELATION: SOURCE => ends => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType ENDS; interval semantics are time:intervalFinishes, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalFinishes
+
+[Term]
+id: CLCO:0000123
+name: ended by
+def: "Statement indicating that a finding or intervention finishes at the same time as another, having started before it." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"closed with\" => ended by\n\"ended with\" => ended by\n\"concluded with\" => ended by\n\nNEGATIVE EXAMPLES:\n\"opened with\" => begun by, NOT ended by\n\"throughout\" => is simultaneous with, NOT ended by\n\"spanned\" => includes, NOT ended by\n\nCONTEXTUAL EXAMPLES:\n\"The ventilation episode closed with a weaning trial.\"\nSOURCE: \"ventilation episode\" => intervention; TARGET: \"weaning trial\" => intervention\nRELATION: SOURCE => ended by => TARGET\n\"The steroid course ended with a taper.\"\nSOURCE: \"steroid course\" => intervention; TARGET: \"taper\" => intervention\nRELATION: SOURCE => ended by => TARGET\n\"The admission concluded with a discharge review.\"\nSOURCE: \"admission\" => intervention; TARGET: \"discharge review\" => intervention\nRELATION: SOURCE => ended by => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType ENDED_BY; interval semantics are time:intervalFinishedBy, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalFinishedBy
+
+[Term]
+id: CLCO:0000124
+name: is included in
+def: "Statement indicating that a finding or intervention falls wholly within the extent of another, sharing neither its beginning nor its end." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"during\" => is included in\n\"while\" => is included in\n\"in the course of\" => is included in\n\nNEGATIVE EXAMPLES:\n\"spanned\" => includes, NOT is included in\n\"after\" => follows, NOT is included in\n\"started with\" => begins, NOT is included in\n\nCONTEXTUAL EXAMPLES:\n\"The fever occurred during the admission.\"\nSOURCE: \"fever\" => finding; TARGET: \"admission\" => intervention\nRELATION: SOURCE => is included in => TARGET\n\"Atrial fibrillation developed in the course of the sepsis.\"\nSOURCE: \"atrial fibrillation\" => finding; TARGET: \"sepsis\" => finding\nRELATION: SOURCE => is included in => TARGET\n\"A transfusion was given while the patient was in theatre.\"\nSOURCE: \"transfusion\" => intervention; TARGET: \"operation\" => intervention\nRELATION: SOURCE => is included in => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType IS_INCLUDED; interval semantics are time:intervalDuring, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalDuring
+
+[Term]
+id: CLCO:0000125
+name: includes
+def: "Statement indicating that a finding or intervention wholly contains the extent of another, sharing neither its beginning nor its end." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"spanned\" => includes\n\"throughout which\" => includes\n\"encompassed\" => includes\n\nNEGATIVE EXAMPLES:\n\"during\" => is included in, NOT includes\n\"before\" => precedes, NOT includes\n\"closed with\" => ended by, NOT includes\n\nCONTEXTUAL EXAMPLES:\n\"The admission spanned the episode of delirium.\"\nSOURCE: \"admission\" => intervention; TARGET: \"delirium\" => finding\nRELATION: SOURCE => includes => TARGET\n\"The sepsis encompassed the period of atrial fibrillation.\"\nSOURCE: \"sepsis\" => finding; TARGET: \"atrial fibrillation\" => finding\nRELATION: SOURCE => includes => TARGET\n\"The operation covered the transfusion.\"\nSOURCE: \"operation\" => intervention; TARGET: \"transfusion\" => intervention\nRELATION: SOURCE => includes => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType INCLUDES; interval semantics are time:intervalContains, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalContains
+
+[Term]
+id: CLCO:0000126
+name: is simultaneous with
+def: "Statement indicating that two findings or interventions occupy the same extent in time." []
+is_a: CLCO:0000116 ! temporal relation
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\"at the same time as\" => is simultaneous with\n\"together with\" => is simultaneous with\n\"concurrently\" => is simultaneous with\n\nNEGATIVE EXAMPLES:\n\"during\" => is included in, NOT is simultaneous with\n\"after\" => follows, NOT is simultaneous with\n\"started with\" => begins, NOT is simultaneous with\n\nCONTEXTUAL EXAMPLES:\n\"The rash and the fever appeared together.\"\nSOURCE: \"rash\" => finding; TARGET: \"fever\" => finding\nRELATION: SOURCE => is simultaneous with => TARGET\n\"The chest pain and the dyspnoea began concurrently.\"\nSOURCE: \"chest pain\" => finding; TARGET: \"dyspnoea\" => finding\nRELATION: SOURCE => is simultaneous with => TARGET\n\"Fluids ran at the same time as the antibiotics.\"\nSOURCE: \"fluid resuscitation\" => intervention; TARGET: \"antibiotics\" => intervention\nRELATION: SOURCE => is simultaneous with => TARGET" xsd:string
+property_value: IAO:0000232 "Added 2026-10-30. TimeML TLINK relType SIMULTANEOUS; interval semantics are time:intervalEquals, linked by rdfs:seeAlso. Annotated from a text cue between two events; the corresponding interval relation is derived from endpoints rather than annotated." xsd:string
+property_value: seeAlso intervalEquals
 
 [Term]
 id: IAO:0000030
 name: information content entity
 def: "A generically dependent continuant that is about some entity." []
-
-[Term]
-id: has_family_history
-name: has family history
-def: "History of chronic illness in family members" []
-xref: SNOMEDCT:137667000
-is_a: CLCO:0000083 ! historical
-property_value: IAO:0000112 "The patient's mother has a past medical history of hypercholoesterolemia." xsd:string
-property_value: IAO:0000232 "Sourced from Athena OHDSI \"family history\" (https://athena.ohdsi.org/search-terms/terms/40306697)" xsd:string
-
-[Term]
-id: has_timing
-name: has timing
-def: "Statement indicates the reccurence/or frequency of a finding/condition/intervention with a specific time of day or month." []
-xref: biolink:frequency_qualifier
-xref: SNOMEDCT:246512002
-is_a: CLCO:0000057 ! clinical association
-property_value: IAO:0000112 "Patient explains that her significant pelvic discomfort occurs 2-3 days a month concurrent with the onset of menstruation for the past 4 months." xsd:string
-property_value: IAO:0000232 "SNOMEDCT sourced from Athena OHDSI (https://athena.ohdsi.org/search-terms/terms/4079053)" xsd:string
-property_value: IAO:0000232 "This class also encompases the prior has frequency class that was provided in earlier versions of clco-edit.owl. SNOMED 162451001 is symptom frequency, break this down into intervention and condition/symptom/finding frequency." xsd:string
+property_value: IAO:0000112 "POSITIVE EXAMPLES: a clinical statement, MRI report, and discharge summary are information content entities.\nNEGATIVE EXAMPLES: patient, pneumonia, and an MRI machine are respectively a clinical entity, finding, and physical object.\nCONTEXTUAL EXAMPLES: In \"The report states that the patient has pneumonia\", the report is an information content entity; MRI report and discharge summary function similarly." xsd:string
 
 [Typedef]
 id: CLCO:0002000
-name: has association qualifier
-def: "A modifier of a clinical association" []
+name: has qualifier
+def: "A modifier of a clinical association. Scope-neutral grouping property: annotation should assert through the sub-property that commits to a scope, and this property is used for querying across scopes or for data from a source that did not record scope." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\nUse this property only when the scope of the qualifier is genuinely unknown or deliberately left\nopen, for example in pre-adjudication annotation or when importing data that did not record scope.\n\nNEGATIVE EXAMPLES:\n\n\"A soft-tissue tumor was suspected.\"\nUse: has association qualifier, NOT the grouping property has qualifier. The uncertainty applies to\nthe whole statement.\n\n\"Possible pneumonia was treated with antibiotics.\"\nUse: has subject qualifier, NOT the grouping property has qualifier. The treatment happened; only\nthe diagnosis is uncertain.\n\n\"The patient reported pain in his left knee.\"\nUse: has object qualifier, NOT the grouping property has qualifier.\n\nEvery sub-property entails this one, so a query on has qualifier retrieves qualifiers at any scope.\nAnnotation should always commit to a scope." xsd:string
 property_value: IAO:0000232 "Analogous to RO:0000053 (has characteristic) in that the association bears the qualifier, but not declared as a sub-property because BFO type constraints require the bearer to be an independent continuant and the characteristic to be a specifically dependent continuant. CLCO associations are information content entities and qualifiers are not modeled as BFO dependent continuants." xsd:string
+property_value: IAO:0000232 "Renamed from \"has association qualifier\" on 2026-10-20, when qualifier scope was moved onto the property. This is now the scope-neutral parent; its former label was transferred to CLCO:0003000, which is the statement-scoped child." xsd:string
 property_value: seeAlso RO:0000053
 domain: CLCO:0000057 ! clinical association
-range: CLCO:0000067 ! association qualifier
+range: CLCO:0000067 ! qualifier
 
 [Typedef]
 id: CLCO:0002002
 name: has intention
 def: "Relates a clinical association to its intention qualifier, indicating that the association is intended rather than actual." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\n\"The patient will start chemotherapy.\"\nSOURCE: \"chemotherapy\" => intervention\nTARGET: \"will start\" => intention\nRELATION: SOURCE => has intention => TARGET\n\n\"The patient intended to undergo surgery.\"\nSOURCE: \"surgery\" => intervention\nTARGET: \"intended\" => intention\nRELATION: SOURCE => has intention => TARGET\n\nNEGATIVE EXAMPLE:\n\n\"The patient underwent surgery.\"\n\"underwent\" describes an actual event, NOT intention." xsd:string
 range: CLCO:0000060 ! intention
-is_a: CLCO:0003000 ! has statement qualifier
+is_a: CLCO:0003000 ! has association qualifier
 
 [Typedef]
 id: CLCO:0002003
 name: has recommended
 def: "Relates a clinical association to its recommendation qualifier, indicating that the association represents a clinical recommendation." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\n\"The physician recommended an MRI.\"\nSOURCE: \"MRI\" => intervention\nTARGET: \"recommended\" => recommended\nRELATION: SOURCE => has recommended => TARGET\n\n\"The patient should follow up in two weeks.\"\nSOURCE: \"follow up\" => intervention\nTARGET: \"should\" => recommended\nRELATION: SOURCE => has recommended => TARGET\n\nNEGATIVE EXAMPLE:\n\n\"The patient underwent an MRI.\"\n\"underwent\" describes an actual intervention, NOT a recommendation." xsd:string
 range: CLCO:0000062 ! recommended
-is_a: CLCO:0003000 ! has statement qualifier
+is_a: CLCO:0003000 ! has association qualifier
 
 [Typedef]
 id: CLCO:0002004
-name: has negation status
+name: obsolete has negation status
 def: "Relates a clinical association to its negation status, indicating whether the asserted relationship is negated." []
-range: CLCO:0000080 ! negation
-is_a: CLCO:0002000 ! has association qualifier
+property_value: IAO:0000232 "Obsoleted 2026-10-20. Named the axis but not the scope. Because negation (CLCO:0000080) applies at any scope, an assertion through this property discarded the scope, and the same annotation could legitimately be spelled three different ways. The axis is already carried by the value class, so attach negation through the property that commits to a scope." xsd:string
+is_obsolete: true
+consider: CLCO:0003000, CLCO:0003001, CLCO:0003002
 
 [Typedef]
 id: CLCO:0002009
-name: has uncertainty status
+name: obsolete has uncertainty status
 def: "Relates a clinical association to its uncertainty qualifier, indicating that the asserted relationship is uncertain or suspected." []
-range: CLCO:0000081 ! uncertainty
-is_a: CLCO:0002000 ! has association qualifier
+property_value: IAO:0000232 "Obsoleted 2026-10-20. Named the axis but not the scope. Because uncertainty (CLCO:0000081) applies at any scope, an assertion through this property discarded the scope. The axis is already carried by the value class, so attach uncertainty through the property that commits to a scope." xsd:string
+is_obsolete: true
+consider: CLCO:0003000, CLCO:0003001, CLCO:0003002
 
 [Typedef]
 id: CLCO:0002100
-name: has participant qualifier
+name: obsolete has participant qualifier
 def: "Relates a clinical association to a qualifier that modifies a participant (subject or object) rather than the overall statement or predicate." []
-is_a: CLCO:0002000 ! has association qualifier
+property_value: IAO:0000232 "Obsoleted 2026-10-20. Its domain is the clinical association, so an assertion through this property could not say which participant was qualified, while the definitions of negation and uncertainty both promise a specific subject or object. Split into has subject qualifier (CLCO:0003001) and has object qualifier (CLCO:0003002)." xsd:string
+is_obsolete: true
+consider: CLCO:0003001, CLCO:0003002
 
 [Typedef]
 id: CLCO:0002500
 name: has association participant
 def: "Relates a clinical association to a clinical entity that participates in it as either the subject or the object." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES: \"The patient has pneumonia\", \"The MRI showed a mass\", \"Surgery was recommended\" all contain clinical association participants.\nNEGATIVE EXAMPLES: \"patient\" alone, \"pneumonia\" alone, and \"quickly\" do not assert an association participant.\nCONTEXTUAL EXAMPLES: In \"The patient has pneumonia\", the association has participants patient and pneumonia; in \"The MRI showed a mass\", it has MRI and mass; in \"Surgery was recommended\", it has surgery." xsd:string
 property_value: IAO:0000232 "Analogous to RO:0000057 (has participant) but not declared as a sub-property because RO:0000057 relates a process (occurrent) to a continuant, whereas CLCO clinical associations are reified information content entities (subClassOf IAO:0000030), not processes. CLCO uses a statement reification pattern (n-ary relation) in which subject and object slots connect an association class to the entities it asserts a relationship between. This pattern has no direct equivalent in RO, which models relations as direct object properties between BFO-typed instances." xsd:string
 property_value: seeAlso RO:0000057
 
@@ -797,6 +996,7 @@ property_value: seeAlso RO:0000057
 id: CLCO:0002501
 name: has object
 def: "Relates a clinical association (an asserted statement) to the entity that occupies the object position in that association." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES: In \"The patient has pneumonia\", pneumonia is the object; in \"The patient received antibiotics\", antibiotics is the object; in \"The pain is severe\", severe is the object.\nNEGATIVE EXAMPLES: patient, received, and the are respectively subject, predicate, and determiner rather than objects.\nCONTEXTUAL EXAMPLES: Record OBJECT pneumonia for \"The patient has pneumonia\", OBJECT antibiotics for \"The patient received antibiotics\", and OBJECT severe for \"The pain is severe\"." xsd:string
 property_value: IAO:0000232 "No direct RO equivalent exists. This property fills the object slot in a reified clinical statement (n-ary relation pattern). RO models relations as direct object properties, not as reified statements with named participant slots. See parent property CLCO:0002500 for further rationale." xsd:string
 is_a: CLCO:0002500 ! has association participant
 
@@ -804,6 +1004,7 @@ is_a: CLCO:0002500 ! has association participant
 id: CLCO:0002502
 name: has subject
 def: "Relates a clinical association (an asserted statement) to the entity that occupies the subject position in that association." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES: In \"The patient has pneumonia\", patient is the subject; in \"The MRI showed a mass\", MRI is the subject; in \"The pain is severe\", pain is the subject.\nNEGATIVE EXAMPLES: pneumonia, mass, and severe are objects in those statements, not subjects.\nCONTEXTUAL EXAMPLES: Record SUBJECT patient, MRI, and pain for the three corresponding statements above." xsd:string
 property_value: IAO:0000232 "No direct RO equivalent exists. This property fills the subject slot in a reified clinical statement (n-ary relation pattern). RO models relations as direct object properties, not as reified statements with named participant slots. See parent property CLCO:0002500 for further rationale." xsd:string
 is_a: CLCO:0002500 ! has association participant
 
@@ -812,24 +1013,45 @@ id: CLCO:0002603
 name: has temporal frame
 def: "Relates a clinical association to its temporal frame value (historical, current, future, or hypothetical) indicating when the association holds relative to the clinical document." []
 xref: biolink:temporal_context_qualifier
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\n\"The patient had pneumonia last year.\"\nSOURCE: \"pneumonia\" => finding\nTARGET: \"last year\" => temporal frame\nRELATION: SOURCE => has temporal frame => TARGET\n\n\"The patient will undergo surgery tomorrow.\"\nSOURCE: \"surgery\" => intervention\nTARGET: \"tomorrow\" => temporal frame\nRELATION: SOURCE => has temporal frame => TARGET\n\nNEGATIVE EXAMPLE:\n\n\"The patient has had headaches for three weeks.\"\n\"three weeks\" describes duration, NOT the document-relative temporal frame." xsd:string
 property_value: IAO:0000232 "Not a sub-property of RO:0002222 (temporally related to) because RO temporal relations use Allen interval algebra to order two occurrents (processes) relative to each other, whereas CLCO temporal frame is a categorical document-relative qualifier (historical/current/future/hypothetical) attached to a reified information entity. The RO_0001900 (temporal interpretation) annotation is retained to indicate that this property has temporal semantics." xsd:string
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso RO:0002222
 range: CLCO:0000082 ! temporal frame
-is_a: CLCO:0002000 ! has association qualifier
+is_a: CLCO:0003000 ! has association qualifier
 
 [Typedef]
 id: CLCO:0002604
 name: has completion status
 def: "Relates a clinical association to its workflow completion status (pending, in_progress, or completed). Orthogonal to temporal frame and intention." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\n\"The CT results are pending.\"\nSOURCE: \"CT results\" => finding\nTARGET: \"pending\" => completion status\nRELATION: SOURCE => has completion status => TARGET\n\n\"The biopsy was completed.\"\nSOURCE: \"biopsy\" => intervention\nTARGET: \"completed\" => completion status\nRELATION: SOURCE => has completion status => TARGET\n\nNEGATIVE EXAMPLE:\n\n\"The patient will undergo a biopsy.\"\n\"will undergo\" indicates intention or future temporal frame, NOT completion status." xsd:string
 property_value: IAO:0000232 "Not a sub-property of has_temporal_context because completion status is not a temporal concept. A pending process may be temporally past (labs drawn yesterday, results pending)." xsd:string
 property_value: RO:0001900 RO:0001901
 range: CLCO:0000063 ! completion status
-is_a: CLCO:0003000 ! has statement qualifier
+is_a: CLCO:0003000 ! has association qualifier
 
 [Typedef]
 id: CLCO:0003000
-name: has statement qualifier
-def: "Relates a clinical association to a statement-level qualifier that modifies the entire assertion, such as intention, recommendation, or completion status." []
-is_a: CLCO:0002000 ! has association qualifier
+name: has association qualifier
+def: "Relates a clinical association to a qualifier that modifies the entire assertion rather than one of its participants, such as intention, recommendation, or completion status." []
+property_value: IAO:0000112 "POSITIVE EXAMPLE:\n\n\"The physician recommended a biopsy.\"\nSOURCE: \"biopsy\" => intervention\nTARGET: \"recommended\" => recommended\nRELATION: SOURCE => has association qualifier => TARGET\n\n\"The patient intends to begin physical therapy.\"\nSOURCE: \"physical therapy\" => intervention\nTARGET: \"intends\" => intention\nRELATION: SOURCE => has association qualifier => TARGET\n\n\"The CT results are pending.\"\nSOURCE: \"CT results\" => finding\nTARGET: \"pending\" => pending\nRELATION: SOURCE => has association qualifier => TARGET\n\nNEGATIVE EXAMPLES:\n\n\"The patient's mother has breast cancer.\"\nUse: has subject qualifier or has object qualifier for a qualifier modifying a participant, NOT has association qualifier.\n\n\"The patient reported pain in his left knee.\"\nUse: has subject qualifier or has object qualifier for a qualifier modifying a participant, NOT has association qualifier.\n\n\"The patient has had headaches for three weeks.\"\nUse: has temporal frame or a duration representation as appropriate, NOT has association qualifier for the time expression alone.\n\nUse a specific subproperty when one exists, such as has intention, has recommended, or has completion status. These four axes apply only to the whole assertion. For negation and uncertainty, which may apply at any scope, choose has association qualifier, has subject qualifier or has object qualifier according to what the qualifier modifies." xsd:string
+property_value: IAO:0000232 "Renamed from \"has statement qualifier\" on 2026-10-20. A clinical association is the reified statement, so statement scope and association scope are the same scope; the two properties were axiomatically identical and have been collapsed into this one. The label \"has association qualifier\" was carried by CLCO:0002000 until 2026-10-20; label-based lookups from before that date resolve to the grouping property, not to this one." xsd:string
+range: CLCO:0000067 ! qualifier
+is_a: CLCO:0002000 ! has qualifier
+
+[Typedef]
+id: CLCO:0003001
+name: has subject qualifier
+def: "Relates a clinical association to a qualifier that modifies the entity filling its has subject slot, rather than the assertion as a whole or the entity filling its has object slot." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\n\"Possible pneumonia was treated with antibiotics.\"\nSOURCE: \"pneumonia\" => finding\nTARGET: \"Possible\" => uncertainty\nRELATION: SOURCE => has subject qualifier => TARGET\nThe treatment did happen; only the diagnosis is uncertain. Attaching the uncertainty to the whole\nstatement would wrongly say the treatment may not have happened.\n\nNEGATIVE EXAMPLES:\n\n\"The patient was possibly treated with antibiotics elsewhere.\"\nUse: has association qualifier. Here the treatment itself is what is uncertain.\n\n\"The patient will start chemotherapy.\"\nUse: has intention. Intention, recommended and completion status are statement-only axes and are\noutside the range of this property." xsd:string
+property_value: IAO:0000232 "Added 2026-10-20, replacing has participant qualifier (CLCO:0002100), whose domain is the association and which therefore could not say which participant was qualified. Range is restricted to negation (CLCO:0000080) and uncertainty (CLCO:0000081), the two axes whose definitions state that they apply at any scope. Follows the same convention as SNOMED CT \"Subject relationship context\" and the Biolink subject_/object_ qualifier slots, which both identify the participant role in the attribute name." xsd:string
+is_a: CLCO:0002000 ! has qualifier
+
+[Typedef]
+id: CLCO:0003002
+name: has object qualifier
+def: "Relates a clinical association to a qualifier that modifies the entity filling its has object slot, rather than the assertion as a whole or the entity filling its has subject slot." []
+property_value: IAO:0000112 "POSITIVE EXAMPLES:\n\n\"Tenderness is present, but not in the right upper quadrant.\"\nSOURCE: \"tenderness\" => finding\nTARGET: \"not\" => negation\nRELATION: SOURCE => has object qualifier => TARGET\nThe finding is asserted; only the site is negated.\n\nNEGATIVE EXAMPLES:\n\n\"The patient denied having a fever.\"\nUse: has association qualifier. The whole assertion is negated, not one participant.\n\n\"The biopsy was completed.\"\nUse: has completion status. Completion status is a statement-only axis and is outside the range of\nthis property." xsd:string
+property_value: IAO:0000232 "Added 2026-10-20, replacing has participant qualifier (CLCO:0002100), whose domain is the association and which therefore could not say which participant was qualified. Range is restricted to negation (CLCO:0000080) and uncertainty (CLCO:0000081), the two axes whose definitions state that they apply at any scope. Follows the same convention as SNOMED CT \"Subject relationship context\" and the Biolink subject_/object_ qualifier slots, which both identify the participant role in the attribute name." xsd:string
+is_a: CLCO:0002000 ! has qualifier
 
